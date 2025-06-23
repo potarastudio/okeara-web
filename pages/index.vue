@@ -1,14 +1,17 @@
 <!-- eslint-disable vue/first-attribute-linebreak -->
 <template>
     <div>
-        <div :style="bannerStyle" class="bg-cover bg-no-repeat bg-center w-full h-[140vh] relative">
-            <div class="absolute left-0 bottom-[100px] px-[64px] w-full flex items-start justify-between">
-                <div class="text-[64px] leading-[72px] font-light" style="letter-spacing: -1.92px;">
+        <div :style="bannerStyle" class="bg-cover bg-no-repeat bg-center w-full h-[100vh] md:h-[140vh] relative">
+            <div
+                class="absolute left-0 bottom-[20px] md:bottom-[40px] lg:bottom-[100px] px-[20px] md:px-[40px] lg:px-[64px] w-full flex flex-col md:flex-row items-start justify-between gap-[40px] md:gap-auto">
+                <div class="text-[40px] md:text-[64px] leading-[40px] md:leading-[72px] font-light"
+                    style="letter-spacing: -1.92px;">
                     Drink <br>
                     Different
                 </div>
-                <div class="flex flex-col items-start gap-[70px] w-[35%]">
-                    <div class="text-[20px] leading-[26px]" style="letter-spacing: -0.2px;">
+                <div class="flex flex-col items-start gap-[40px] md:gap-[70px] md:w-[35%]">
+                    <div class="text-[16px] md:text-[20px] leading-[24px] md:leading-[26px] opacity-70"
+                        style="letter-spacing: -0.2px;">
                         You perform under pressure from mentally, physically, emotionally. But your system isn't built
                         for constant strain. OKEARA is more than purified water. It’s engineered to help your
                         body recover faster, think clearer, and function better
@@ -20,28 +23,30 @@
                 </div>
             </div>
         </div>
-        <div class="w-full p-[64px] pb-[128px] bg-[#203D4D]">
+        <div class="w-full p-[20px] md:p-[40px] lg:p-[64px] pb-[64px] md:pb-[128px] bg-[#203D4D]">
             <img :src="OurWater" alt="Our Water" class="ml-[40%] w-[60%] ">
-            <div class="w-full flex items-start gap-[32%] mt-[120px]">
+            <div class="w-full flex flex-col md:flex-row items-start gap-[20px] md:gap-[32%] mt-[64px] md:mt-[120px]">
                 <div class="flex items-center gap-[20px]">
                     <img :src="List" alt="list">
-                    <div class="text-[#EDF3F3] text-[18px] leading-[24px]">
+                    <div class="text-[#EDF3F3] text-[16px] md:text-[18px] leading-[24px]">
                         Our Water
                     </div>
                 </div>
-                <div class="flex flex-col items-start gap-[80px] w-[40%]">
-                    <div class="text-[48px] text-[#EDF3F3] font-light leading-[58px]" style="letter-spacing: -1.44px;">
+                <div class="flex flex-col items-start gap-[80px] md:w-[40%]">
+                    <div class="text-[32px] md:text-[48px] text-[#EDF3F3] font-light leading-[36px] md:leading-[58px]"
+                        style="letter-spacing: -1.44px;">
                         For those who demand the best in hydration
                     </div>
-                    <div class="text-[#D1CCBF] text-[18px] leading-[24px] w-[90%]">
+                    <div class="text-[#D1CCBF] text-[16px] md:text-[18px] leading-[24px] ml-[10%] md:ml-0 w-[90%]">
                         OKEARA structured hydrogen water is a game-changer. Experience the rejuvenating benefits of
                         hydrogen-enriched water free from impurities and bacteria. Elevate your health with every sip.
                     </div>
                 </div>
             </div>
         </div>
-        <div :style="bgSafetyStyle" class="bg-cover bg-no-repeat bg-left w-full p-[64px]">
-            <div class="w-full text-center text-[#EDF3F3] text-[48px] leading-[78px] mt-[40px]">
+        <div :style="bgSafetyStyle" class="bg-cover bg-no-repeat bg-center w-full p-[20px] md:p-[40px] lg:p-[64px]">
+            <div
+                class="w-full text-center text-[#EDF3F3] text-[32px] md:text-[48px] leading-[36px] md:leading-[78px] md:mt-[40px]">
                 Safety of Structured <br>
                 Hydrogen Water
             </div>
@@ -50,15 +55,16 @@
                 Method
             </div>
             <hr class="w-full border border-[#F8F8F8] my-[20px]">
-            <div class="w-full flex items-start justify-between">
-                <div class="text-[18px] text-[#F8F8F8] leading-[24px]">
+            <div class="w-full flex flex-col lg:flex-row items-start justify-between gap-[20px] lg:gap-auto">
+                <div class="text-[18px] text-[#F8F8F8] leading-[24px] flex gap-[32px]">
                     01
+                    <div class="lg:hidden">Atomic Saturation Process</div>
                 </div>
-                <div class="flex items-start justify-between w-[65%]">
-                    <div class="text-[18px] text-[#F8F8F8] leading-[24px]">
+                <div class="flex items-start justify-between lg:w-[65%]">
+                    <div class="hidden lg:inline  text-[18px] text-[#F8F8F8] leading-[24px]">
                         Atomic Saturation Process
                     </div>
-                    <div class="text-[18px] text-[#F8F8F8] leading-[26px] w-[50%]">
+                    <div class="text-[18px] text-[#F8F8F8] leading-[26px] lg:w-[50%]">
                         While other compounds linger in your tissues, hydrogen knows when to leave. It bonds with
                         harmful free radicals, turns them into harmless water, and exits cleanly — like a minimalist
                         houseguest with perfect manners
@@ -66,113 +72,75 @@
                 </div>
             </div>
         </div>
-        <div class="w-full bg-[#EDF3F3] px-[64px] py-[120px]">
-            <div class="w-full flex items-start gap-[64px]">
-                <div class="flex items-center gap-[20px] w-[25%]">
+        <div class="w-full bg-[#EDF3F3] px-[20px] md:px-[40px] lg:px-[64px] py-[64px] lg:py-[120px]">
+            <div class="w-full flex flex-col md:flex-row items-start gap-[40px] md:gap-[64px]">
+                <div class="flex items-center gap-[20px] md:w-[25%]">
                     <img :src="ListBlack" alt="ListBlack">
-                    <div class="text-[#203D4D] text-[18px] leading-[24px]">
-                        Sustainability
+                    <div class="text-[#203D4D] text-[16px] md:text-[18px] leading-[24px]">
+                        Benefit
                     </div>
                 </div>
-                <div class="flex flex-col gap-[60px] w-[35%]">
-                    <div class="text-[#203D4D] text-[48px] font-light leading-[58px]">
+                <div class="flex flex-col gap-[60px] md:w-[35%]">
+                    <div class="text-[#203D4D] text-[32px] md:text-[48px] font-light leading-[36px] md:leading-[58px]">
                         Benefits of Structured Hydrogen Water
                     </div>
-                    <div class="text-[#203D4D] text-[18px] leading-[26px] opacity-77 w-[80%]">
+                    <div class="hidden md:inline text-[#203D4D] text-[18px] leading-[26px] opacity-77 w-[80%]">
                         OKEARA structured hydrogen water offers a multitude of health benefits thanks to its high
                         hydrogen content:
                     </div>
                 </div>
             </div>
-            <div class="w-full flex items-end gap-[64px] mt-[100px]">
-                <img :src="Benefit1" class="w-[25%]">
-                <img :src="Benefit2" class="w-[70%]">
+            <div class="w-full flex items-end gap-[64px] mt-[40px] md:mt-[100px]">
+                <img :src="Benefit1" class="md:w-[25%]">
+                <img :src="Benefit2" class="hidden md:block w-[70%]">
             </div>
-            <div class="w-full flex items-start gap-[72px] mt-[100px]">
-                <div class="w-[25%] flex flex-col gap-[24px]">
-                    <img :src="Hydration" alt="Hydration" class="w-[20%]">
-                    <div class="text-[#203D4D] text-[26px] leading-[36px]">
-                        Fast <br>
-                        Hydration
-                    </div>
-                    <div class="text-[#203D4D] text-[18px] leading-[24px] opacity-50 line-clamp-2">
-                        Keeps you energized and fully
-                        hydrated faster than any other water
-                    </div>
-                    <div class="flex items-center gap-[8px] cursor-pointer">
-                        <div class="w-[8px] h-[8px] rounded-full border border-[#203D4D]" />
-                        <div class="pb-[2px] border-b border-[#203D4D] text-[#203D4D]">Read More</div>
-                    </div>
-                </div>
-                <div class="w-[25%] flex flex-col gap-[24px]">
-                    <img :src="Natural" alt="Natural" class="w-[20%]">
-                    <div class="text-[#203D4D] text-[26px] leading-[36px]">
-                        Natural <br> Detoxification
-                    </div>
-                    <div class="text-[#203D4D] text-[18px] leading-[24px] opacity-50 line-clamp-2">
-                        Eliminates toxins and supports
-                        a clean, balanced body
-                    </div>
-                    <div class="flex items-center gap-[8px] cursor-pointer">
-                        <div class="w-[8px] h-[8px] rounded-full border border-[#203D4D]" />
-                        <div class="pb-[2px] border-b border-[#203D4D] text-[#203D4D]">Read More</div>
+            <div class="relative">
+                <div class="w-full overflow-hidden">
+                    <div ref="sliderTrack"
+                        class="flex gap-[72px] mt-[40px] md:mt-[100px] transition-transform duration-300 ease-in-out">
+                        <div v-for="(item, index) in slides" :key="index"
+                            class="w-[100%] md:w-[25%] flex-shrink-0 flex flex-col gap-[24px]">
+                            <img :src="item.image" :alt="item.title" class="w-[20%]" />
+                            <div class="text-[#203D4D] text-[26px] leading-[36px]" v-html="item.title" />
+                            <div class="text-[#203D4D] text-[18px] leading-[24px] opacity-50 line-clamp-2">
+                                {{ item.description }}
+                            </div>
+                            <div class="flex items-center gap-[8px] cursor-pointer">
+                                <div class="w-[8px] h-[8px] rounded-full border border-[#203D4D]" />
+                                <div class="pb-[2px] border-b border-[#203D4D] text-[#203D4D]">Read More</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="w-[25%] flex flex-col gap-[24px]">
-                    <img :src="Immune" alt="Immune" class="w-[20%]">
-                    <div class="text-[#203D4D] text-[26px] leading-[36px]">
-                        Immune <br>
-                        Support
+
+                <div class="w-full flex items-center gap-[32px] mt-[40px] md:mt-[100px]">
+                    <div class="w-full md:w-[90%] flex items-center md:gap-[32px]">
+                        <hr v-for="(item, index) in slides" :key="'indicator-' + index" :class="[
+                            'w-[20%] border',
+                            currentIndex === index ? 'border-[#203D4D]' : 'border-[#C4CFD2]'
+                        ]" />
                     </div>
-                    <div class="text-[#203D4D] text-[18px] leading-[24px] opacity-50 line-clamp-2">
-                        Supercharges your immune system for optimal health
+                    <div class="hidden md:flex items-center gap-[32px] w-[10%]">
+                        <img :src="ArrowLeft" alt="Arrow Left" class="cursor-pointer" @click="prevSlide" />
+                        <img :src="ArrowRight" alt="Arrow Right" class="cursor-pointer" @click="nextSlide" />
                     </div>
-                    <div class="flex items-center gap-[8px] cursor-pointer">
-                        <div class="w-[8px] h-[8px] rounded-full border border-[#203D4D]" />
-                        <div class="pb-[2px] border-b border-[#203D4D] text-[#203D4D]">Read More</div>
-                    </div>
-                </div>
-                <div class="w-[25%] flex flex-col gap-[24px]">
-                    <img :src="Microplastic" alt="Microplastic" class="w-[20%]">
-                    <div class="text-[#203D4D] text-[26px] leading-[36px]">
-                        No <br> Microplastics
-                    </div>
-                    <div class="text-[#203D4D] text-[18px] leading-[24px] opacity-50 line-clamp-2">
-                        Proven by independent laboratories, 100% free of microplastic.
-                    </div>
-                    <div class="flex items-center gap-[8px] cursor-pointer">
-                        <div class="w-[8px] h-[8px] rounded-full border border-[#203D4D]" />
-                        <div class="pb-[2px] border-b border-[#203D4D] text-[#203D4D]">Read More</div>
-                    </div>
-                </div>
-            </div>
-            <div class="w-full flex items-center gap-[32px] mt-[100px]">
-                <div class="w-[90%] flex items-center gap-[32px]">
-                    <hr class="w-[20%] border border-[#203D4D]">
-                    <hr class="w-[20%] border border-[#C4CFD2]">
-                    <hr class="w-[20%] border border-[#C4CFD2]">
-                    <hr class="w-[20%] border border-[#C4CFD2]">
-                    <hr class="w-[20%] border border-[#C4CFD2]">
-                </div>
-                <div class="flex items-center gap-[32px] w-[10%]">
-                    <img :src="ArrowLeft" alt="Arrow Left" class="cursor-pointer">
-                    <img :src="ArrowRight" alt="Arrow Right" class="cursor-pointer">
                 </div>
             </div>
         </div>
-        <div class="bg-[#203D4D] px-[64px] py-[190px]">
-            <div class="w-full flex items-start gap-[32%] mt-[120px]">
+        <div class="bg-[#203D4D] px-[20px] md:px-[40px] lg:px-[64px] py-[64px] lg:py-[190px]">
+            <div class="w-full flex flex-col md:flex-row items-start gap-[40px] md:gap-[32%] md:mt-[120px]">
                 <div class="flex items-center gap-[20px]">
                     <img :src="List" alt="list">
-                    <div class="text-[#EDF3F3] text-[18px] leading-[24px]">
+                    <div class="text-[#EDF3F3] text-[16px] md:text-[18px] leading-[24px]">
                         Safety
                     </div>
                 </div>
-                <div class="flex flex-col items-start gap-[80px] w-[40%]">
-                    <div class="text-[48px] text-[#EDF3F3] font-light leading-[58px]" style="letter-spacing: -1.44px;">
+                <div class="flex flex-col items-start gap-[40px] md:gap-[80px] md:w-[40%]">
+                    <div class="text-[32px] md:text-[48px] text-[#EDF3F3] font-light leading-[36px] md:leading-[58px]"
+                        style="letter-spacing: -1.44px;">
                         Better For the Body, and For the Planet
                     </div>
-                    <div class="text-[#D1CCBF] text-[18px] leading-[24px] w-[90%]">
+                    <div class="text-[#D1CCBF] text-[16px] md:text-[18px] leading-[24px] ml-[10%] md:ml-0 w-[90%]">
                         OKEARA is bottled with minimal material waste, using sleek lightweight bottles that preserve
                         water structure and reduce impact. Our entire process is optimized for integrity from source to
                         sip. Performance starts with what you put in your body. But it shouldn’t cost the Earth.
@@ -181,29 +149,29 @@
             </div>
         </div>
         <img :src="SafetyBlock" alt="Safety Block" class="w-full">
-        <div class="w-full bg-[#EDF3F3] px-[64px] py-[120px]">
-            <div class="w-full flex items-start justify-between">
+        <div class="w-full bg-[#EDF3F3] px-[20px] md:px-[40px] lg:px-[64px] py-[64px] lg:py-[120px]">
+            <div class="w-full flex flex-col md:flex-row items-start justify-between gap-[42px] md:gap-auto">
                 <div class="flex items-center gap-[20px]">
                     <img :src="ListBlack" alt="ListBlack">
-                    <div class="text-[#203D4D] text-[18px] leading-[24px]">
+                    <div class="text-[#203D4D] text-[16px] md:text-[18px] leading-[24px]">
                         Product
                     </div>
                 </div>
-                <div class="flex flex-col gap-[60px] w-[35%]">
-                    <div class="text-[#203D4D] text-[48px] font-light leading-[58px]">
+                <div class="flex flex-col gap-[20px] md:gap-[60px] md:w-[35%]">
+                    <div class="text-[#203D4D] text-[32px] md:text-[48px] font-light leading-[36px] md:leading-[58px]">
                         Great Product to Elevate Your Wellness
                     </div>
-                    <div class="text-[#203D4D] text-[18px] leading-[26px] opacity-77">
+                    <div class="text-[#203D4D] text-[16px] md:text-[18px] leading-[26px] opacity-77">
                         Introducing Okeara Structured Hydrogen Water, revolutionary approach to hydration, powered by
                         nature and perfected by science. Okeara isn’t just water it’s a wellness experience
                     </div>
                 </div>
-                <div class="flex items-center gap-[40px]">
+                <div class="flex items-center gap-[40px] w-full md:w-auto justify-end">
                     <img :src="ArrowLeft" alt="Arrow Left" class="cursor-pointer">
                     <img :src="ArrowRight" alt="Arrow Right" class="cursor-pointer">
                 </div>
             </div>
-            <div class="w-full flex items-center justify-center mt-[100px]">
+            <div class="w-full flex items-center justify-center mt-[40px] md:mt-[100px]">
                 <div class="relative flex items-center gap-[2px] bg-[#E4EDED] rounded-full p-[4px] w-fit">
                     <div ref="indicatorRef" class="absolute top-[4px] left-0 h-[44px] bg-white rounded-full z-0"
                         style="width: 0px"></div>
@@ -219,165 +187,171 @@
                     </div>
                 </div>
             </div>
-            <div class="w-full flex items-start self-stretch gap-[60px] mt-[72px]">
-                <div class="w-[50%] flex items-center justify-center self-stretch">
-                    <div class="flex flex-col justify-end items-center gap-[52px]">
-                        <div :class="[
-                            'px-[12px] py-[8px] bg-white rounded-full text-black',
-                            activeIndex === 0 ? 'opacity-100' : 'opacity-0'
-                        ]">
-                            Preview 3D
-                        </div>
-                        <img :src="OkearaWater500ml" alt="Okeara Water 500ml" :class="[
-                            'h-[500px]',
-                            activeIndex === 0 ? 'opacity-100' : 'opacity-50'
-                        ]">
-                        <div :class="[
-                            'flex flex-col items-center gap-[32px]',
-                            activeIndex === 0 ? 'opacity-100' : 'opacity-0'
-                        ]">
-                            <div class="flex flex-col items-center gap-[16px]">
-                                <div class="text-[#203D4D] text-[26px] leading-[26px]">
-                                    OKEARA Water
-                                </div>
-                                <div class="text-[#203D4D] text-[18px] opacity-50">
-                                    500ml (16.9fl 0z)
-                                </div>
+            <div class="w-full overflow-hidden">
+                <div class="w-full flex items-start self-stretch gap-[60px] mt-[72px]">
+                    <div class="w-[100%] lg:w-[50%] flex-shrink-0 flex items-center justify-center self-stretch">
+                        <div class="flex flex-col justify-end items-center gap-[52px]">
+                            <div :class="[
+                                'px-[12px] py-[8px] bg-white rounded-full text-black',
+                                activeIndex === 0 ? 'opacity-100' : 'opacity-0'
+                            ]">
+                                Preview 3D
                             </div>
-                            <div class="flex items-center gap-[24px]">
-                                <button
-                                    class="bg-[#203D4D] border border-[#203D4D] rounded-full h-[48px] px-[24px] flex items-center justify-center gap-[12px] text-[#EDF3F3] cursor-pointer">
-                                    Buy Now
-                                    <img :src="Dollar" alt="Dollar" class="w-[16px]">
-                                </button>
-                                <button
-                                    class="bg-[#EDF3F3] border border-[#203D4D] rounded-full h-[48px] px-[24px] flex items-center justify-center gap-[12px] text-[#203D4D] cursor-pointer">
-                                    Add to Cart
-                                    <img :src="CartBlue" alt="CartBlue" class="w-[16px]">
-                                </button>
+                            <img :src="OkearaWater500ml" alt="Okeara Water 500ml" :class="[
+                                'h-[500px]',
+                                activeIndex === 0 ? 'opacity-100' : 'opacity-50'
+                            ]">
+                            <div :class="[
+                                'flex flex-col items-center gap-[32px]',
+                                activeIndex === 0 ? 'opacity-100' : 'opacity-0'
+                            ]">
+                                <div class="flex flex-col items-center gap-[16px]">
+                                    <div class="text-[#203D4D] text-[26px] leading-[26px]">
+                                        OKEARA Water
+                                    </div>
+                                    <div class="text-[#203D4D] text-[18px] opacity-50">
+                                        500ml (16.9fl 0z)
+                                    </div>
+                                </div>
+                                <div class="flex items-center gap-[24px]">
+                                    <button
+                                        class="bg-[#203D4D] border border-[#203D4D] rounded-full h-[48px] px-[24px] flex items-center justify-center gap-[12px] text-[#EDF3F3] cursor-pointer">
+                                        Buy Now
+                                        <img :src="Dollar" alt="Dollar" class="w-[16px]">
+                                    </button>
+                                    <button
+                                        class="bg-[#EDF3F3] border border-[#203D4D] rounded-full h-[48px] px-[24px] flex items-center justify-center gap-[12px] text-[#203D4D] cursor-pointer">
+                                        Add to Cart
+                                        <img :src="CartBlue" alt="CartBlue" class="w-[16px]">
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="w-[50%] flex items-center justify-center self-stretch">
-                    <div class="flex flex-col justify-end items-center gap-[52px]">
-                        <div :class="[
-                            'px-[12px] py-[8px] bg-white rounded-full text-black',
-                            activeIndex === 1 ? 'opacity-100' : 'opacity-0'
-                        ]">
-                            Preview 3D
-                        </div>
-                        <img :src="OkearaWater12l" alt="Okeara Water 12 L" :class="[
-                            'h-[500px]',
-                            activeIndex === 1 ? 'opacity-100' : 'opacity-50'
-                        ]">
-                        <div :class="[
-                            'flex flex-col items-center gap-[32px]',
-                            activeIndex === 1 ? 'opacity-100' : 'opacity-0'
-                        ]">
-                            <div class="flex flex-col items-center gap-[16px]">
-                                <div class="text-[#203D4D] text-[26px] leading-[26px]">
-                                    OKEARA Water
-                                </div>
-                                <div class="text-[#203D4D] text-[18px] opacity-50">
-                                    500ml (16.9fl 0z)
-                                </div>
+                    <div class="w-[100%] lg:w-[50%] flex-shrink-0 flex items-center justify-center self-stretch">
+                        <div class="flex flex-col justify-end items-center gap-[52px]">
+                            <div :class="[
+                                'px-[12px] py-[8px] bg-white rounded-full text-black',
+                                activeIndex === 1 ? 'opacity-100' : 'opacity-0'
+                            ]">
+                                Preview 3D
                             </div>
-                            <div class="flex items-center gap-[24px]">
-                                <button
-                                    class="bg-[#203D4D] border border-[#203D4D] rounded-full h-[48px] px-[24px] flex items-center justify-center gap-[12px] text-[#EDF3F3] curos-pointer">
-                                    Buy Now
-                                    <img :src="Dollar" alt="Dollar" class="w-[16px]">
-                                </button>
-                                <button
-                                    class="bg-[#EDF3F3] border border-[#203D4D] rounded-full h-[48px] px-[24px] flex items-center justify-center gap-[12px] text-[#203D4D] curos-pointer">
-                                    Add to Cart
-                                    <img :src="CartBlue" alt="CartBlue" class="w-[16px]">
-                                </button>
+                            <img :src="OkearaWater12l" alt="Okeara Water 12 L" :class="[
+                                'h-[500px]',
+                                activeIndex === 1 ? 'opacity-100' : 'opacity-50'
+                            ]">
+                            <div :class="[
+                                'flex flex-col items-center gap-[32px]',
+                                activeIndex === 1 ? 'opacity-100' : 'opacity-0'
+                            ]">
+                                <div class="flex flex-col items-center gap-[16px]">
+                                    <div class="text-[#203D4D] text-[26px] leading-[26px]">
+                                        OKEARA Water
+                                    </div>
+                                    <div class="text-[#203D4D] text-[18px] opacity-50">
+                                        500ml (16.9fl 0z)
+                                    </div>
+                                </div>
+                                <div class="flex items-center gap-[24px]">
+                                    <button
+                                        class="bg-[#203D4D] border border-[#203D4D] rounded-full h-[48px] px-[24px] flex items-center justify-center gap-[12px] text-[#EDF3F3] curos-pointer">
+                                        Buy Now
+                                        <img :src="Dollar" alt="Dollar" class="w-[16px]">
+                                    </button>
+                                    <button
+                                        class="bg-[#EDF3F3] border border-[#203D4D] rounded-full h-[48px] px-[24px] flex items-center justify-center gap-[12px] text-[#203D4D] curos-pointer">
+                                        Add to Cart
+                                        <img :src="CartBlue" alt="CartBlue" class="w-[16px]">
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="w-full bg-[#DAD6CB] p-[64px] pb-[100px]">
+        <div class="w-full bg-[#DAD6CB] p-[20px] md:p-[40px] lg:p-[64px] pb-[100px]">
             <div class="flex items-center gap-[20px]">
                 <img :src="ListBlack" alt="ListBlack">
-                <div class="text-[#203D4D] text-[18px] leading-[24px]">
+                <div class="text-[#203D4D] text-[16px] md:text-[18px] leading-[24px]">
                     Sustainability
                 </div>
             </div>
-            <div class="text-[#203D4D] text-[48px] font-light leading-[58px] mt-[58px]">
+            <div
+                class="text-[#203D4D] text-[32px] md:text-[48px] font-light leading-[36px] md:leading-[58px] mt-[40px] md:mt-[58px]">
                 Our Packaging
             </div>
-            <div class="grid grid-cols-3 gap-[32px] mt-[80px]">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-[32px] mt-[40px] md:mt-[80px]">
                 <div>
                     <img :src="Packing1" alt="Packing 1" class="w-full">
-                    <div class="text-[#203D4D] text-[26px] mt-[24px]">
+                    <div class="text-[#203D4D] text-[24px] md:text-[26px] mt-[24px]">
                         Responsible Design
                     </div>
-                    <div class="text-[#203D4D] text-[18px] leading-[24px] mt-[14px] opacity-50">
+                    <div class="text-[#203D4D] text-[16px] md:text-[18px] leading-[24px] mt-[14px] opacity-50">
                         OKEARA carton packs are made from responsibly sourced, renewable content, and recycled polymers.
                     </div>
                 </div>
                 <div>
                     <img :src="Packing2" alt="Packing 1" class="w-full">
-                    <div class="text-[#203D4D] text-[26px] mt-[24px]">
+                    <div class="text-[#203D4D]  text-[24px] md:text-[26px] mt-[24px]">
                         Compact and Practical
                     </div>
-                    <div class="text-[#203D4D] text-[18px] leading-[24px] mt-[14px] opacity-50">
+                    <div class="text-[#203D4D] text-[16px] md:text-[18px] leading-[24px] mt-[14px] opacity-50">
                         The packaging is lightweight and convenient, making it easy to carry and use on the go.
                     </div>
                 </div>
                 <div>
                     <img :src="Packing3" alt="Packing 1" class="w-full">
-                    <div class="text-[#203D4D] text-[26px] mt-[24px]">
+                    <div class="text-[#203D4D] text-[24px] md:text-[26px] mt-[24px]">
                         Responsible Design
                     </div>
-                    <div class="text-[#203D4D] text-[18px] leading-[24px] mt-[14px] opacity-50">
+                    <div class="text-[#203D4D] text-[16px] md:text-[18px] leading-[24px] mt-[14px] opacity-50">
                         OKEARA carton pack is durable and protects the structured hydrogen water from external
                         contaminants, ensuring its freshness and purity.
                     </div>
                 </div>
             </div>
         </div>
-        <div class="w-full bg-[#203D4D] p-[64px]">
-            <div class="w-full flex items-start gap-[24px]">
+        <div class="w-full bg-[#203D4D] p-[20px] md:p-[40px] lg:p-[64px]">
+            <div class="hidden w-full md:flex items-start gap-[24px]">
                 <img :src="Sustainability1" alt="Sustainability 1" class="w-[35%]">
                 <img :src="Sustainability2" alt="Sustainability 2" class="w-[65%]">
             </div>
-            <div class="w-full flex items-start gap-[24px] mt-[120px]">
+            <div class="w-full flex flex-col md:flex-row items-start gap-[24px] md:mt-[120px]">
                 <div class="flex items-center gap-[20px] w-[35%]">
                     <img :src="List" alt="List">
-                    <div class="text-[#EDF3F3] text-[18px] leading-[24px]">
+                    <div class="text-[#EDF3F3] text-[16px] md:text-[18px] leading-[24px]">
                         Sustainability
                     </div>
                 </div>
-                <div class="w-[65%]">
-                    <div class="text-[#EDF3F3] text-[48px] font-light leading-[58px]">
+                <div class="md:w-[65%]">
+                    <div class="text-[#EDF3F3] text-[32px] md:text-[48px] font-light leading-[36px] md:leading-[58px]">
                         Sustainable <br> Development
                     </div>
-                    <div class="w-full mt-[64px] flex flex-col items-start">
+                    <div class="w-full mt-[20px] md:mt-[64px] flex flex-col items-start">
                         <div v-for="(item, index) in items" :key="index"
                             class="relative flex flex-col border-t border-[#EDF3F3] w-full">
-                            <div class="flex items-center justify-between py-[24px] px-[16px] cursor-pointer gap-[16px]"
+                            <div class="flex items-center justify-between py-[24px] px-[8px] md:px-[16px] cursor-pointer gap-[16px]"
                                 @click="toggleCollapse(index)">
-                                <div class="flex items-center gap-[24px]">
-                                    <img :src="Collapse" alt="Collapse Icon">
+                                <div class="flex items-start md:items-center gap-[24px]">
+                                    <img :src="Collapse" alt="Collapse Icon" class="w-[10%]">
                                     <div class="flex flex-col">
-                                        <div class="text-[#EDF3F3] text-[26px]">{{ item.title }}</div>
+                                        <div class="text-[#EDF3F3] text-[20px] md:text-[26px]">{{ item.title }}</div>
                                         <div :id="`desc-${index}`" class="overflow-hidden"
                                             :style="{ height: 0, opacity: 0 }">
-                                            <div class="text-[#EDF3F3] text-[18px] leading-[24px] opacity-40">
+                                            <div
+                                                class="text-[#EDF3F3] text-[16px] md:text-[18px] leading-[24px] opacity-40">
                                                 {{ item.desc }}
                                             </div>
                                         </div>
                                     </div>
-                                    <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="#EDF3F3"
-                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <line x1="5" y1="12" x2="19" y2="12" />
-                                        <line :id="`plus-line-${index}`" x1="12" y1="12" x2="12" y2="12" />
-                                    </svg>
+                                    <div class="w-[5%]">
+                                        <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="#EDF3F3"
+                                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <line x1="5" y1="12" x2="19" y2="12" />
+                                            <line :id="`plus-line-${index}`" x1="12" y1="5" x2="12" y2="19" />
+                                        </svg>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -385,16 +359,16 @@
                 </div>
             </div>
         </div>
-        <div class="w-full bg-[#274A5C] p-[174px]">
+        <div class="w-full bg-[#203D4D] md:bg-[#274A5C] p-[20px] md:p-[40px] lg:p-[174px]">
             <div class="w-full flex items-start gap-[15%]">
                 <img :src="Community1" alt="Community 1" class="w-[45%]">
                 <img :src="Community2" alt="Community 2" class="w-[30%] mt-[10%]">
             </div>
-            <div class="w-full flex items-start justify-between mt-[120px]">
-                <div class="text-[#EDF3F3] text-[48px] font-light leading-[58px]">
+            <div class="w-[70%] mx-auto md:w-full flex flex-col md:flex-row items-start justify-between mt-[40px] md:mt-[120px]">
+                <div class="text-[#EDF3F3] text-[32px] text-[48px] font-light leading-[36px] leading-[58px]">
                     Our <br> Commitment
                 </div>
-                <div class="text-[#EDF3F3] text-[18px] leading-[26px] w-[40%] opacity-77 mt-[120px]">
+                <div class="text-[#EDF3F3] text-[16px] md:text-[18px] leading-[26px] md:w-[40%] opacity-77 mt-[40px] md:mt-[120px]">
                     OKEARA's commitment to sustainable packaging and environmental protection is evident in our use of
                     advanced, health-conscious, and reusable containers. By choosing OKEARA, you are supporting a
                     product that values both your well-being and the health of our planet.
@@ -458,6 +432,54 @@ const items = ref([
         open: false,
     },
 ])
+const sliderTrack = ref(null)
+const currentIndex = ref(0)
+
+const slides = [
+    {
+        image: Hydration,
+        title: 'Fast <br> Hydration',
+        description: 'Keeps you energized and fully hydrated faster than any other water'
+    },
+    {
+        image: Natural,
+        title: 'Natural <br> Detoxification',
+        description: 'Eliminates toxins and supports a clean, balanced body'
+    },
+    {
+        image: Immune,
+        title: 'Immune <br> Support',
+        description: 'Supercharges your immune system for optimal health'
+    },
+    {
+        image: Microplastic,
+        title: 'No <br> Microplastics',
+        description: 'Proven by independent laboratories, 100% free of microplastic.'
+    }
+]
+
+const goToSlide = (index: number) => {
+    const maxIndex = slides.length - 1
+    const clamped = Math.max(0, Math.min(index, maxIndex))
+    currentIndex.value = clamped
+
+    const percentage = -(100 * clamped)
+
+    gsap.to(sliderTrack.value, {
+        xPercent: percentage,
+        duration: 0.6,
+        ease: 'power2.out'
+    })
+}
+
+const nextSlide = () => {
+    goToSlide(currentIndex.value + 1)
+}
+
+const prevSlide = () => {
+    goToSlide(currentIndex.value - 1)
+}
+
 
 const toggleCollapse = (index: number) => {
     const item = items.value[index]
@@ -476,7 +498,7 @@ const toggleCollapse = (index: number) => {
         })
 
         gsap.to(verticalLine, {
-            attr: { y1: 5, y2: 19 },
+            attr: { y1: 12, y2: 12 },
             duration: 0.3,
             ease: 'power2.out',
         })
@@ -490,7 +512,7 @@ const toggleCollapse = (index: number) => {
         })
 
         gsap.to(verticalLine, {
-            attr: { y1: 12, y2: 12 },
+            attr: { y1: 5, y2: 19 },
             duration: 0.3,
             ease: 'power2.in',
         })
