@@ -1,19 +1,19 @@
 <!-- eslint-disable vue/first-attribute-linebreak -->
 <template>
     <div class="overflow-x-hidden">
-        <div :style="bannerStyle" class="bg-cover bg-no-repeat bg-center w-full h-[120vh] relative">
-            <div class="absolute left-0 bottom-[80px] text-[#EDF3F3] text-[144px] font-light">
+        <div :style="bannerStyle" class="bg-cover bg-no-repeat bg-center w-full h-[100vh] md:h-[120vh] relative">
+            <div class="absolute left-0 bottom-[40px] md:bottom-[80px] text-[#EDF3F3] text-[96px] md:text-[144px] font-light">
                 <div class="overflow-hidden whitespace-nowrap w-full">
-                    <div ref="marquee" class="inline-block text-[144px] font-light"
+                    <div ref="marquee" class="inline-block text-[96px] md:text-[144px] font-light"
                         style="will-change: transform;letter-spacing: -2.88px ">
                         Frequently Asked Questions • Frequently Asked Questions • Frequently Asked Questions
                     </div>
                 </div>
             </div>
         </div>
-        <div class="w-full bg-[#EDF3F3] px-[64px] py-[120px]">
+        <div class="w-full bg-[#EDF3F3] p-[20px] md:-[40px] lg:px-[64px] lg:py-[120px]">
             <div class="w-full flex items-start gap-[24px]">
-                <div class="flex flex-col items-start gap-[22px] w-[35%]">
+                <div class="hidden md:flex flex-col items-start gap-[22px] w-[35%]">
                     <div class="text-[#203D4D] text-[18px] leading-[16px] cursor-pointer">
                         Risus cursus duis
                     </div>
@@ -30,21 +30,21 @@
                         Feugiat Pellentesque
                     </div>
                 </div>
-                <div class="w-[65%]">
+                <div class="md:w-[65%]">
                     <div class="text-[#203D4D] text-[26px] leading-[16px]">
                         Risus cursus duis
                     </div>
-                    <div class="w-full mt-[40px] flex flex-col items-start">
+                    <div class="w-full mt-[20px] md:mt-[40px] flex flex-col items-start">
                         <div v-for="(item, index) in items" :key="index"
                             class="relative flex flex-col border-b border-[#203D4D] w-full">
-                            <div class="flex items-center justify-between py-[24px] cursor-pointer gap-[16px]"
+                            <div class="flex items-center justify-between py-[18px] md:py-[24px] cursor-pointer gap-[16px]"
                                 @click="toggleCollapse(index)">
-                                <div class="flex items-center justify-between gap-[24px] w-full">
+                                <div class="flex items-start justify-between gap-[24px] w-full">
                                     <div class="flex flex-col w-[90%]">
-                                        <div class="text-[#203D4D] text-[20px]">{{ item.title }}</div>
+                                        <div class="text-[#203D4D] text-[16px] md:text-[20px]">{{ item.title }}</div>
                                         <div :id="`desc-${index}`" class="overflow-hidden"
                                             :style="{ height: 0, opacity: 0 }">
-                                            <div class="text-[#203D4D] text-[18px] leading-[24px] opacity-80">
+                                            <div class="text-[#203D4D] text-[14px] md:text-[18px] leading-[18px] md:leading-[24px] opacity-80">
                                                 {{ item.desc }}
                                             </div>
                                         </div>
@@ -63,17 +63,17 @@
                     <div class="text-[#203D4D] text-[26px] leading-[16px] mt-[64px]">
                         Egestas libero
                     </div>
-                    <div class="w-full mt-[40px] flex flex-col items-start">
+                    <div class="w-full mt-[20px] md:mt-[40px] flex flex-col items-start">
                         <div v-for="(item, index) in items2" :key="index"
                             class="relative flex flex-col border-b border-[#203D4D] w-full">
-                            <div class="flex items-center justify-between py-[24px] cursor-pointer gap-[16px]"
+                            <div class="flex items-center justify-between py-[18px] md:py-[24px] cursor-pointer gap-[16px]"
                                 @click="toggleCollapseLibero(index)">
-                                <div class="flex items-center justify-between gap-[24px] w-full">
+                                <div class="flex items-start justify-between gap-[24px] w-full">
                                     <div class="flex flex-col w-[90%]">
-                                        <div class="text-[#203D4D] text-[20px]">{{ item.title }}</div>
+                                        <div class="text-[#203D4D] text-[16px] md:text-[20px]">{{ item.title }}</div>
                                         <div :id="`desc-libero-${index}`" class="overflow-hidden"
                                             :style="{ height: 0, opacity: 0 }">
-                                            <div class="text-[#203D4D] text-[18px] leading-[24px] opacity-80">
+                                            <div class="text-[#203D4D] text-[14px] md:text-[18px] leading-[18px] md:leading-[24px] opacity-80">
                                                 {{ item.desc }}
                                             </div>
                                         </div>
@@ -92,17 +92,17 @@
                     <div class="text-[#203D4D] text-[26px] leading-[16px] mt-[64px]">
                         Adipiscing Aliquam
                     </div>
-                    <div class="w-full mt-[40px] flex flex-col items-start">
+                    <div class="w-full mt-[20px] md:mt-[40px] flex flex-col items-start">
                         <div v-for="(item, index) in items3" :key="index"
                             class="relative flex flex-col border-b border-[#203D4D] w-full">
-                            <div class="flex items-center justify-between py-[24px] cursor-pointer gap-[16px]"
+                            <div class="flex items-center justify-between py-[18px] md:py-[24px] cursor-pointer gap-[16px]"
                                 @click="toggleCollapseAliquam(index)">
-                                <div class="flex items-center justify-between gap-[24px] w-full">
+                                <div class="flex items-start justify-between gap-[24px] w-full">
                                     <div class="flex flex-col w-[90%]">
-                                        <div class="text-[#203D4D] text-[20px]">{{ item.title }}</div>
+                                        <div class="text-[#203D4D] text-[16px] md:text-[20px]">{{ item.title }}</div>
                                         <div :id="`desc-aliquam-${index}`" class="overflow-hidden"
                                             :style="{ height: 0, opacity: 0 }">
-                                            <div class="text-[#203D4D] text-[18px] leading-[24px] opacity-80">
+                                            <div class="text-[#203D4D] text-[14px] md:text-[18px] leading-[18px] md:leading-[24px] opacity-80">
                                                 {{ item.desc }}
                                             </div>
                                         </div>
@@ -122,17 +122,17 @@
                     <div class="text-[#203D4D] text-[26px] leading-[16px] mt-[64px]">
                         Amet Viverra
                     </div>
-                    <div class="w-full mt-[40px] flex flex-col items-start">
+                    <div class="w-full mt-[20px] md:mt-[40px] flex flex-col items-start">
                         <div v-for="(item, index) in items4" :key="index"
                             class="relative flex flex-col border-b border-[#203D4D] w-full">
-                            <div class="flex items-center justify-between py-[24px] cursor-pointer gap-[16px]"
+                            <div class="flex items-center justify-between py-[18px] md:py-[24px] cursor-pointer gap-[16px]"
                                 @click="toggleCollapseViverra(index)">
-                                <div class="flex items-center justify-between gap-[24px] w-full">
+                                <div class="flex items-start justify-between gap-[24px] w-full">
                                     <div class="flex flex-col w-[90%]">
-                                        <div class="text-[#203D4D] text-[20px]">{{ item.title }}</div>
+                                        <div class="text-[#203D4D] text-[16px] md:text-[20px]">{{ item.title }}</div>
                                         <div :id="`desc-viverra-${index}`" class="overflow-hidden"
                                             :style="{ height: 0, opacity: 0 }">
-                                            <div class="text-[#203D4D] text-[18px] leading-[24px] opacity-80">
+                                            <div class="text-[#203D4D] text-[14px] md:text-[18px] leading-[18px] md:leading-[24px] opacity-80">
                                                 {{ item.desc }}
                                             </div>
                                         </div>
@@ -152,17 +152,17 @@
                     <div class="text-[#203D4D] text-[26px] leading-[16px] mt-[64px]">
                         Feugiat Pellentesque
                     </div>
-                    <div class="w-full mt-[40px] flex flex-col items-start">
+                    <div class="w-full mt-[20px] md:mt-[40px] flex flex-col items-start">
                         <div v-for="(item, index) in items5" :key="index"
                             class="relative flex flex-col border-b border-[#203D4D] w-full">
-                            <div class="flex items-center justify-between py-[24px] cursor-pointer gap-[16px]"
+                            <div class="flex items-center justify-between py-[18px] md:py-[24px] cursor-pointer gap-[16px]"
                                 @click="toggleCollapsePellentesque(index)">
-                                <div class="flex items-center justify-between gap-[24px] w-full">
+                                <div class="flex items-start justify-between gap-[24px] w-full">
                                     <div class="flex flex-col w-[90%]">
-                                        <div class="text-[#203D4D] text-[20px]">{{ item.title }}</div>
+                                        <div class="text-[#203D4D] text-[16px] md:text-[20px]">{{ item.title }}</div>
                                         <div :id="`desc-pellentesque-${index}`" class="overflow-hidden"
                                             :style="{ height: 0, opacity: 0 }">
-                                            <div class="text-[#203D4D] text-[18px] leading-[24px] opacity-80">
+                                            <div class="text-[#203D4D] text-[14px] md:text-[18px] leading-[18px] md:leading-[24px] opacity-80">
                                                 {{ item.desc }}
                                             </div>
                                         </div>
