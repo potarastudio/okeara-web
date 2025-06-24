@@ -1,12 +1,12 @@
 <template>
-    <div :style="bannerStyle" class="bg-cover bg-no-repeat w-full g-[100vh] md:h-[120vh] px-[20px] md:px-[40px] lg:px-[54px] py-[60px] md:py-[76px]" style="background-position: left 40% top 0;">
+    <div :style="bannerStyle" class="bg-cover bg-no-repeat w-full h-screen flex flex-col items-start justify-between mt-[-2px] px-[24px] py-[40px] md:p-[40px] lg:px-[64px] lg:py-[100px]" style="background-position: left 10% top 0;">
         <div class="flex items-center gap-[10px] md:gap-[20px]">
             <img :src="List" alt="list">
             <div class="text-[#EDF3F3] text-[16px] md:text-[18px] leading-[24px]">
                 Our Longevity Club
             </div>
         </div>
-        <div class="text-[#EDF3F3] mt-[100%] md:mt-[50%] lg:mt-[15%] lg:ml-[110px] md:w-[40%] lg:w-[25%]">
+        <div class="text-[#EDF3F3] md:w-[40%] lg:w-[25%] md:ml-[80px]">
             <div class="text-[32px] md:text-[48px] font-light leading-[36px] md:leading-[58px]" style="text-edge: cap;">
                 Welcome to <br>
                 OKEARA <br>
@@ -16,7 +16,7 @@
                 We are dedicated to living our best lives, focusing on health and happiness together, and making each
                 day special.
             </div>
-            <div class="flex items-center gap-[8px] mt-[30px] md:mt-[60px] cursor-pointer">
+            <div class="flex items-center gap-[8px] mt-[30px] md:mt-[60px] lg:mt-[80px] cursor-pointer">
                 <div class="w-[8px] h-[8px] rounded-full border border-[#EDF3F3]"/>
                 <div class="pb-[2px] border-b border-[#EDF3F3]">Learn More</div>
             </div>

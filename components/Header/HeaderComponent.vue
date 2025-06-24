@@ -1,34 +1,51 @@
 <!-- eslint-disable vue/first-attribute-linebreak -->
 <template>
     <div :class="[
-        'fixed top-0 z-20 left-0 w-full px-[20px] md:px-[64px] flex items-center justify-between transition-all duration-300',
-        isTop ? 'bg-transparent' : 'bg-white',
-        isTop ? 'py-[20px] md:py-[40px]' : 'py-[20px]',
+        'fixed top-0 z-20 left-0 w-full px-[24px] md:px-[40px] lg:px-[64px] flex items-center justify-between transition-all duration-300',
+        isTop ? 'bg-transparent pt-[40px] pb-[32px] md:py-[40px]' : 'bg-white pt-[40px] pb-[32px] md:-[40px] lg:py-[10px]',
     ]" :style="{ transform: isVisible ? 'translateY(0)' : 'translateY(-100%)' }">
-        <img :src="isTop ? logo : LogoBlue" alt="logo" class="w-[40%] md:w-[25%] lg:w-[10%]" />
+        <NuxtLink to="/" class="w-[40%] md:w-[25%] lg:w-[10%]">
+            <img :src="isTop ? logo : LogoBlue" alt="logo" class="w-fill" />
+        </NuxtLink>
 
         <nav :class="[
             'hidden lg:flex items-center space-x-[40px] text-[14px] uppercase transition-colors duration-300',
             isTop ? 'text-white' : 'text-[#203D4D]',
         ]">
-            <div>About us</div>
-            <div>Products</div>
-            <NuxtLink to="/shop" class="h-[48px] px-[16px] flex items-center justify-center rounded-full"
-                :class="isShopActive ? 'bg-[#EDF3F3] font-bold text-[#203D4D]' : 'bg-transparent'">
-                Shop
+            <NuxtLink to="/our-water" class="h-[48px] flex items-center justify-center rounded-full"
+                :class="isWaterActive ? 'bg-[#EDF3F3] px-[16px] font-bold text-[#203D4D]' : 'bg-transparent'">
+                OUR WATER
             </NuxtLink>
-            <div>Research</div>
-            <div>Review</div>
+            <NuxtLink to="/our-community" class="h-[48px] flex items-center justify-center rounded-full"
+                :class="isClubActive ? 'bg-[#EDF3F3] px-[16px] font-bold text-[#203D4D]' : 'bg-transparent'">
+                OUR CLUB
+            </NuxtLink>
+            <NuxtLink to="/our-partners" class="h-[48px] flex items-center justify-center rounded-full"
+                :class="isPartnersActive ? 'bg-[#EDF3F3] px-[16px] font-bold text-[#203D4D]' : 'bg-transparent'">
+                OUR PARTNER
+            </NuxtLink>
+            <NuxtLink to="/shop" class="h-[48px] flex items-center justify-center rounded-full"
+                :class="isShopActive ? 'bg-[#EDF3F3] px-[16px] font-bold text-[#203D4D]' : 'bg-transparent'">
+                SHOP
+            </NuxtLink>
+            <NuxtLink to="/" class="h-[48px] flex items-center justify-center rounded-full"
+                :class="isResearchActive ? 'bg-transparent' : 'bg-transparent'">
+                RESEARCH
+            </NuxtLink>
+            <NuxtLink to="/faq" class="h-[48px] flex items-center justify-center rounded-full"
+                :class="isFaqActive ? 'bg-[#EDF3F3] px-[16px] font-bold text-[#203D4D]' : 'bg-transparent'">
+                FAQ
+            </NuxtLink>
         </nav>
 
         <div class="w-[8%] md:w-[5%] flex flex-col gap-[8px] lg:hidden cursor-pointer" @click="toggleMenu">
             <hr ref="topLine" :class="[
                 'w-full border origin-center',
-                isTop ? 'border-white' : 'border-[#101010]'
+                isTop ? 'border-white' : 'border-[#203D4D]'
             ]" />
             <hr ref="bottomLine" :class="[
                 'w-full border origin-center',
-                isTop ? 'border-white' : 'border-[#101010]'
+                isTop ? 'border-white' : 'border-[#203D4D]'
             ]" />
         </div>
 
@@ -53,13 +70,45 @@
     </div>
 
     <div ref="menuRef"
-        class="fixed top-[58px] right-0 w-full h-[calc(100vh-100px)] bg-white z-10 p-6 flex flex-col gap-6 shadow-xl lg:hidden"
-        style="transform: translateX(100%)">
-        <NuxtLink to="/" class="text-[#203D4D] text-lg font-semibold">About Us</NuxtLink>
-        <NuxtLink to="/products" class="text-[#203D4D] text-lg font-semibold">Products</NuxtLink>
-        <NuxtLink to="/shop" class="text-[#203D4D] text-lg font-semibold">Shop</NuxtLink>
-        <NuxtLink to="/research" class="text-[#203D4D] text-lg font-semibold">Research</NuxtLink>
-        <NuxtLink to="/review" class="text-[#203D4D] text-lg font-semibold">Review</NuxtLink>
+        class="fixed top-[85px] right-0 w-full h-[calc(100vh-100px)] bg-white z-10 px-[24px] py-[20px] flex flex-col gap-6 shadow-xl lg:hidden"
+        style="transform: translatey(-150%)">
+
+        <NuxtLink to="/our-water">
+            <div class="w-full flex items-center justify-between pb-[16px] border-b border-[#203D4D] uppercase">
+                <div class="text-[#203D4D] text-[20px]">Our Water</div>
+                <img :src="ArrowTopRightBlue" alt="arrowTopRight">
+            </div>
+        </NuxtLink>
+        <NuxtLink to="/our-community">
+            <div class="w-full flex items-center justify-between pb-[16px] border-b border-[#203D4D] uppercase">
+                <div class="text-[#203D4D] text-[20px]">Our Club</div>
+                <img :src="ArrowTopRightBlue" alt="arrowTopRight">
+            </div>
+        </NuxtLink>
+        <NuxtLink to="/our-partners">
+            <div class="w-full flex items-center justify-between pb-[16px] border-b border-[#203D4D] uppercase">
+                <div class="text-[#203D4D] text-[20px]">Our Partner</div>
+                <img :src="ArrowTopRightBlue" alt="arrowTopRight">
+            </div>
+        </NuxtLink>
+        <NuxtLink to="/shop">
+            <div class="w-full flex items-center justify-between pb-[16px] border-b border-[#203D4D] uppercase">
+                <div class="text-[#203D4D] text-[20px]">Shop</div>
+                <img :src="ArrowTopRightBlue" alt="arrowTopRight">
+            </div>
+        </NuxtLink>
+        <NuxtLink to="/">
+            <div class="w-full flex items-center justify-between pb-[16px] border-b border-[#203D4D] uppercase">
+                <div class="text-[#203D4D] text-[20px]">Research</div>
+                <img :src="ArrowTopRightBlue" alt="arrowTopRight">
+            </div>
+        </NuxtLink>
+        <NuxtLink to="/faq">
+            <div class="w-full flex items-center justify-between pb-[16px] border-b border-[#203D4D] uppercase">
+                <div class="text-[#203D4D] text-[20px]">Faq</div>
+                <img :src="ArrowTopRightBlue" alt="arrowTopRight">
+            </div>
+        </NuxtLink>
     </div>
 </template>
 
@@ -75,6 +124,7 @@ import Cart from '@/assets/icons/Cart.svg'
 import CartBlue from '@/assets/icons/CartBlue.svg'
 import Message from '@/assets/icons/Message.svg'
 import MessageBlue from '@/assets/icons/MessageBlue.svg'
+import ArrowTopRightBlue from '@/assets/icons/ArrowTopRightBlue.svg'
 
 const logo = Logo
 const cart = Cart
@@ -107,19 +157,28 @@ const menuRef = ref<HTMLElement | null>(null)
 
 const toggleMenu = () => {
     isMenuOpen.value = !isMenuOpen.value
-    isTop.value = !isTop.value
+    if (isTop.value) {
+        isTop.value = false
+    }
 
     if (isMenuOpen.value) {
         gsap.to(topLine.value, { rotate: 45, y: 5, duration: 0.3 })
         gsap.to(bottomLine.value, { rotate: -45, y: -5, duration: 0.3 })
-        gsap.to(menuRef.value, { x: 0, duration: 0.5, ease: 'power2.out' })
+        gsap.to(menuRef.value, { y: '0', duration: 0.5, ease: 'power2.out' })
     } else {
+        const currentScroll = window.scrollY
+        isTop.value = currentScroll < 150
         gsap.to(topLine.value, { rotate: 0, y: 0, duration: 0.3 })
         gsap.to(bottomLine.value, { rotate: 0, y: 0, duration: 0.3 })
-        gsap.to(menuRef.value, { x: '100%', duration: 0.5, ease: 'power2.in' })
+        gsap.to(menuRef.value, { y: '-150%', duration: 0.5, ease: 'power2.in' })
     }
 }
 
 const route = useRoute()
+const isWaterActive = computed(() => route.path.startsWith('/our-water'))
+const isClubActive = computed(() => route.path.startsWith('/our-community'))
+const isPartnersActive = computed(() => route.path.startsWith('/our-partners'))
 const isShopActive = computed(() => route.path.startsWith('/shop'))
+const isResearchActive = computed(() => route.path.startsWith('/'))
+const isFaqActive = computed(() => route.path.startsWith('/faq'))
 </script>
