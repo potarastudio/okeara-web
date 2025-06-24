@@ -1,56 +1,65 @@
 <!-- eslint-disable vue/first-attribute-linebreak -->
 <template>
     <div>
-        <div :style="bannerStyle" class="bg-cover bg-no-repeat bg-center w-full h-[100vh] md:h-[140vh] relative">
-            <div
-                class="absolute left-0 bottom-[20px] md:bottom-[40px] lg:bottom-[100px] px-[20px] md:px-[40px] lg:px-[64px] w-full flex flex-col md:flex-row items-start justify-between gap-[40px] md:gap-auto">
-                <div class="text-[40px] md:text-[64px] leading-[40px] md:leading-[72px] font-light"
-                    style="letter-spacing: -1.92px;">
-                    Drink <br>
-                    Different
-                </div>
-                <div class="flex flex-col items-start gap-[40px] md:gap-[70px] md:w-[35%]">
-                    <div class="text-[16px] md:text-[20px] leading-[24px] md:leading-[26px] opacity-70"
-                        style="letter-spacing: -0.2px;">
-                        You perform under pressure from mentally, physically, emotionally. But your system isn't built
-                        for constant strain. OKEARA is more than purified water. It’s engineered to help your
-                        body recover faster, think clearer, and function better
+        <div :style="bannerStyle" class="bg-cover bg-no-repeat w-full h-screen relative"
+            style="background-position: left 50% top 22%;">
+            <div class="absolute top-0 left-0 w-full h-screen pointer-events-none"
+                style="background: linear-gradient(0deg, rgba(0,0,0,0.85) 1.62%, rgba(0,0,0,0.75) 30%, rgba(0,0,0,0.00) 80%);">
+                <div
+                    class="absolute left-0 bottom-[20px] md:bottom-[40px] lg:bottom-[100px] px-[24px] md:px-[40px] lg:px-[64px] w-full flex flex-col md:flex-row items-start justify-between gap-[20px] md:gap-auto">
+                    <div class="text-[40px] md:text-[64px] leading-[40px] md:leading-[72px] font-light"
+                        style="letter-spacing: -1.92px;">
+                        Drink <br>
+                        Different
                     </div>
-                    <div class="w-full flex items-center justify-between pb-[16px] border-b border-[#EDF3F3]">
-                        <div class="text-[#EDF3F3] text-[20px]">Learn more</div>
-                        <img :src="ArrowTopRight" alt="arrowTopRight">
+                    <div class="flex flex-col items-start gap-[20px] md:gap-[52px] md:gap-[70px] md:w-[35%]">
+                        <div class="text-[16px] md:text-[20px] leading-[24px] md:leading-[26px] opacity-80"
+                            style="letter-spacing: -0.2px;">
+                            You perform under pressure from mentally, physically, emotionally. But your system isn't
+                            built
+                            for constant strain. OKEARA is more than purified water. It’s engineered to help your
+                            body recover faster, think clearer, and function better
+                        </div>
+                        <div class="w-full flex items-center justify-between pb-[16px] border-b border-[#EDF3F3]">
+                            <div class="text-[#EDF3F3] text-[20px]">Learn more</div>
+                            <img :src="ArrowTopRight" alt="arrowTopRight">
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="w-full p-[20px] md:p-[40px] lg:p-[64px] pb-[64px] md:pb-[128px] bg-[#203D4D]">
-            <img :src="OurWater" alt="Our Water" class="ml-[40%] w-[60%] ">
-            <div class="w-full flex flex-col md:flex-row items-start gap-[20px] md:gap-[32%] mt-[64px] md:mt-[120px]">
-                <div class="flex items-center gap-[20px]">
+        <div class="w-full px-[24px] py-[40px] md:p-[40px] lg:px-[64px] lg:py-[100px]  bg-[#203D4D]">
+            <div class="w-full flex flex-col md:flex-row items-start justify-between gap-[120px] md:gap-auto">
+                <div class="flex items-center gap-[10px] md:gap-[20px]">
                     <img :src="List" alt="list">
                     <div class="text-[#EDF3F3] text-[16px] md:text-[18px] leading-[24px]">
                         Our Water
                     </div>
                 </div>
-                <div class="flex flex-col items-start gap-[80px] md:w-[40%]">
-                    <div class="text-[32px] md:text-[48px] text-[#EDF3F3] font-light leading-[36px] md:leading-[58px]"
-                        style="letter-spacing: -1.44px;">
-                        For those who demand the best in hydration
-                    </div>
-                    <div class="text-[#D1CCBF] text-[16px] md:text-[18px] leading-[24px] ml-[10%] md:ml-0 w-[90%]">
-                        OKEARA structured hydrogen water is a game-changer. Experience the rejuvenating benefits of
-                        hydrogen-enriched water free from impurities and bacteria. Elevate your health with every sip.
+                <div class="w-full flex flex-col gap-[40px] md:w-[60%]">
+                    <img :src="OurWater" alt="Our Water" class="">
+                    <div class="flex flex-col items-start gap-[24px] lg:w-[70%]">
+                        <div class="text-[32px] md:text-[48px] text-[#EDF3F3] font-light leading-[36px] md:leading-[58px]"
+                            style="letter-spacing: -1.44px;">
+                            For those who demand the best in hydration
+                        </div>
+                        <div class="text-[#D1CCBF] text-[16px] md:text-[18px] leading-[24px]">
+                            OKEARA structured hydrogen water is a game-changer. Experience the rejuvenating benefits of
+                            hydrogen-enriched water free from impurities and bacteria. Elevate your health with every
+                            sip.
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div :style="bgSafetyStyle" class="bg-cover bg-no-repeat bg-center w-full p-[20px] md:p-[40px] lg:p-[64px]">
+        <div :style="bgSafetyStyle"
+            class="bg-cover bg-no-repeat bg-center w-full px-[24px] py-[40px] md:p-[40px] lg:px-[64px] lg:py-[100px]">
             <div
-                class="w-full text-center text-[#EDF3F3] text-[32px] md:text-[48px] leading-[36px] md:leading-[78px] md:mt-[40px]">
+                class="w-full text-center text-[#EDF3F3] pt-[30px] text-[24px] md:text-[48px] leading-[31.2px] md:leading-[78px] md:mt-[40px]">
                 Safety of Structured <br>
                 Hydrogen Water
             </div>
-            <div class="text-[26px] text-[#F8F8F8] leading-[36px] mt-[249px]">
+            <div class="text-[26px] text-[#F8F8F8] leading-[36px] mt-[241px]">
                 Safe Saturation <br>
                 Method
             </div>
@@ -72,27 +81,28 @@
                 </div>
             </div>
         </div>
-        <div class="w-full bg-[#EDF3F3] px-[20px] md:px-[40px] lg:px-[64px] py-[64px] lg:py-[120px]">
-            <div class="w-full flex flex-col md:flex-row items-start gap-[40px] md:gap-[64px]">
-                <div class="flex items-center gap-[20px] md:w-[25%]">
+        <div class="w-full bg-[#EDF3F3] px-[24px] py-[40px] md:p-[40px] lg:px-[64px] lg:py-[100px]">
+            <div class="w-full flex flex-col md:flex-row items-start justify-between gap-[120px] md:gap-auto">
+                <div class="flex items-center gap-[10px] md:gap-[20px]">
                     <img :src="ListBlack" alt="ListBlack">
                     <div class="text-[#203D4D] text-[16px] md:text-[18px] leading-[24px]">
                         Benefit
                     </div>
                 </div>
-                <div class="flex flex-col gap-[60px] md:w-[35%]">
-                    <div class="text-[#203D4D] text-[32px] md:text-[48px] font-light leading-[36px] md:leading-[58px]">
+                <div class="flex flex-col gap-[60px] md:w-[60%]">
+                    <div
+                        class="text-[#203D4D] text-[32px] md:text-[48px] font-light leading-[36px] md:leading-[58px] w-[70%] md:w-[90%] lg:w-[60%]">
                         Benefits of Structured Hydrogen Water
                     </div>
-                    <div class="hidden md:inline text-[#203D4D] text-[18px] leading-[26px] opacity-77 w-[80%]">
+                    <div class="text-[#203D4D] text-[18px] leading-[26px] opacity-77 w-[80%] lg:w-[40%]">
                         OKEARA structured hydrogen water offers a multitude of health benefits thanks to its high
                         hydrogen content:
                     </div>
                 </div>
             </div>
-            <div class="w-full flex items-end gap-[64px] mt-[40px] md:mt-[100px]">
-                <img :src="Benefit1" class="md:w-[25%]">
-                <img :src="Benefit2" class="hidden md:block w-[70%]">
+            <div class="w-full flex flex-col md:flex-row items-start justify-between gap-[4px] mt-[40px] md:mt-[100px]">
+                <img :src="Benefit1" class="w-full md:w-[30%]">
+                <img :src="Benefit2" class="w-full md:w-[60%]">
             </div>
             <div class="relative">
                 <div class="w-full overflow-hidden">
@@ -127,20 +137,20 @@
                 </div>
             </div>
         </div>
-        <div class="bg-[#203D4D] px-[20px] md:px-[40px] lg:px-[64px] py-[64px] lg:py-[190px]">
-            <div class="w-full flex flex-col md:flex-row items-start gap-[40px] md:gap-[32%] md:mt-[120px]">
+        <div class="bg-[#203D4D] px-[24px] py-[40px] md:p-[40px] lg:px-[64px] lg:py-[100px]">
+            <div class="w-full flex flex-col md:flex-row items-start justify-between gap-[120px]">
                 <div class="flex items-center gap-[20px]">
                     <img :src="List" alt="list">
                     <div class="text-[#EDF3F3] text-[16px] md:text-[18px] leading-[24px]">
                         Safety
                     </div>
                 </div>
-                <div class="flex flex-col items-start gap-[40px] md:gap-[80px] md:w-[40%]">
-                    <div class="text-[32px] md:text-[48px] text-[#EDF3F3] font-light leading-[36px] md:leading-[58px]"
+                <div class="flex flex-col items-start gap-[24px] md:gap-[80px] md:w-[60%]">
+                    <div class="text-[32px] md:text-[48px] text-[#EDF3F3] font-light leading-[36px] md:leading-[58px] w-[60%] md:w-[90%] lg:w-[60%]"
                         style="letter-spacing: -1.44px;">
                         Better For the Body, and For the Planet
                     </div>
-                    <div class="text-[#D1CCBF] text-[16px] md:text-[18px] leading-[24px] ml-[10%] md:ml-0 w-[90%]">
+                    <div class="text-[#D1CCBF] text-[16px] md:text-[18px] leading-[24px] w-full md:w-[90%] lg:w-[60%]">
                         OKEARA is bottled with minimal material waste, using sleek lightweight bottles that preserve
                         water structure and reduce impact. Our entire process is optimized for integrity from source to
                         sip. Performance starts with what you put in your body. But it shouldn’t cost the Earth.
@@ -148,10 +158,11 @@
                 </div>
             </div>
         </div>
-        <img :src="SafetyBlock" alt="Safety Block" class="w-full">
-        <div class="w-full bg-[#EDF3F3] px-[20px] md:px-[40px] lg:px-[64px] py-[64px] lg:py-[120px]">
-            <div class="w-full flex flex-col md:flex-row items-start justify-between gap-[42px] md:gap-auto">
-                <div class="flex items-center gap-[20px]">
+        <div :style="bgSafetyBlock" class="w-[100%] h-screen bg-cover bg-no-repeat"
+            style="background-position: left 0 top 0;" />
+        <div class="w-full bg-[#EDF3F3] px-[24px] py-[40px] md:p-[40px] lg:px-[64px] lg:py-[100px]">
+            <div class="w-full flex flex-col md:flex-row items-start justify-between gap-[120px] md:gap-auto">
+                <div class="flex items-center gap-[10px] md:gap-[20px]">
                     <img :src="ListBlack" alt="ListBlack">
                     <div class="text-[#203D4D] text-[16px] md:text-[18px] leading-[24px]">
                         Product
@@ -166,7 +177,7 @@
                         nature and perfected by science. Okeara isn’t just water it’s a wellness experience
                     </div>
                 </div>
-                <div class="flex items-center gap-[40px] w-full md:w-auto justify-end">
+                <div class="hidden md:flex items-center gap-[40px] w-full md:w-auto justify-end">
                     <img :src="ArrowLeft" alt="Arrow Left" class="cursor-pointer">
                     <img :src="ArrowRight" alt="Arrow Right" class="cursor-pointer">
                 </div>
@@ -270,18 +281,18 @@
                 </div>
             </div>
         </div>
-        <div class="w-full bg-[#DAD6CB] p-[20px] md:p-[40px] lg:p-[64px] pb-[100px]">
-            <div class="flex items-center gap-[20px]">
+        <div class="w-full bg-[#DAD6CB] px-[24px] py-[40px] md:p-[40px] lg:px-[64px] lg:py-[100px]">
+            <div class="flex items-center gap-[10px] md:gap-[20px]">
                 <img :src="ListBlack" alt="ListBlack">
                 <div class="text-[#203D4D] text-[16px] md:text-[18px] leading-[24px]">
                     Sustainability
                 </div>
             </div>
             <div
-                class="text-[#203D4D] text-[32px] md:text-[48px] font-light leading-[36px] md:leading-[58px] mt-[40px] md:mt-[58px]">
+                class="text-[#203D4D] text-[32px] md:text-[48px] font-light leading-[36px] md:leading-[58px] mt-[120px] md:mt-[40px]">
                 Our Packaging
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-[32px] mt-[40px] md:mt-[80px]">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-[28px] mt-[40px] md:mt-[100px]">
                 <div>
                     <img :src="Packing1" alt="Packing 1" class="w-full">
                     <div class="text-[#203D4D] text-[24px] md:text-[26px] mt-[24px]">
@@ -312,23 +323,24 @@
                 </div>
             </div>
         </div>
-        <div class="w-full bg-[#203D4D] p-[20px] md:p-[40px] lg:p-[64px]">
-            <div class="hidden w-full md:flex items-start gap-[24px]">
-                <img :src="Sustainability1" alt="Sustainability 1" class="w-[35%]">
-                <img :src="Sustainability2" alt="Sustainability 2" class="w-[65%]">
+        <div class="w-full bg-[#203D4D] px-[24px] py-[40px] md:p-[40px] lg:px-[64px] lg:py-[100px]">
+            <div class="w-full flex flex-col md:flex-row items-start justify-between gap-[8px] md:gap-auto">
+                <img :src="Sustainability1" alt="Sustainability 1" class="md:w-[30%]">
+                <img :src="Sustainability2" alt="Sustainability 2" class="md:w-[60%]">
             </div>
-            <div class="w-full flex flex-col md:flex-row items-start gap-[24px] md:mt-[120px]">
-                <div class="flex items-center gap-[20px] w-[35%]">
+            <div
+                class="w-full flex flex-col md:flex-row items-start justify-between gap-[120px] md:gap-auto mt-[40px] md:mt-[120px]">
+                <div class="flex items-center gap-[10px] md:gap-[20px]">
                     <img :src="List" alt="List">
                     <div class="text-[#EDF3F3] text-[16px] md:text-[18px] leading-[24px]">
                         Sustainability
                     </div>
                 </div>
-                <div class="md:w-[65%]">
+                <div class="md:w-[60%]">
                     <div class="text-[#EDF3F3] text-[32px] md:text-[48px] font-light leading-[36px] md:leading-[58px]">
                         Sustainable <br> Development
                     </div>
-                    <div class="w-full mt-[20px] md:mt-[64px] flex flex-col items-start">
+                    <div class="w-full mt-[40px] md:mt-[64px] flex flex-col items-start">
                         <div v-for="(item, index) in items" :key="index"
                             class="relative flex flex-col border-t border-[#EDF3F3] w-full">
                             <div class="flex items-center justify-between py-[24px] px-[8px] md:px-[16px] cursor-pointer gap-[16px]"
@@ -359,16 +371,18 @@
                 </div>
             </div>
         </div>
-        <div class="w-full bg-[#203D4D] md:bg-[#274A5C] p-[20px] md:p-[40px] lg:p-[174px]">
-            <div class="w-full flex items-start gap-[15%]">
-                <img :src="Community1" alt="Community 1" class="w-[45%]">
-                <img :src="Community2" alt="Community 2" class="w-[30%] mt-[10%]">
-            </div>
-            <div class="w-[70%] mx-auto md:w-full flex flex-col md:flex-row items-start justify-between mt-[40px] md:mt-[120px]">
-                <div class="text-[#EDF3F3] text-[32px] text-[48px] font-light leading-[36px] leading-[58px]">
+        <div
+            class="w-full bg-[#274A5C] flex flex-col md:flex-row items-stretch justify-between gap-[12px] px-[24px] py-[40px] md:p-[40px] lg:px-[180px] lg:py-[120px]">
+            <div class="flex flex-col gap-[40px] gap-[150px] w-full md:w-[50%]">
+                <img :src="Community1" alt="Community 1" class="w-full order-2 md:order-1">
+                <div class="text-[#EDF3F3] text-[32px] text-[48px] font-light leading-[36px] leading-[58px] order-1 md:order-2 md:mb-[275px]">
                     Our <br> Commitment
                 </div>
-                <div class="text-[#EDF3F3] text-[16px] md:text-[18px] leading-[26px] md:w-[40%] opacity-77 mt-[40px] md:mt-[120px]">
+            </div>
+            <div class="flex flex-col items-start justify-between gap-[40px] md:gap-auto w-full md:w-[40%] md:pt-[60px] md:pb-[100px]">
+                <img :src="Community2" alt="Community 2" class="w-full">
+                <div
+                    class="text-[#EDF3F3] text-[16px] md:text-[18px] leading-[26px] md:w-[90%] opacity-77 mt-[40px] md:mt-[120px]">
                     OKEARA's commitment to sustainable packaging and environmental protection is evident in our use of
                     advanced, health-conscious, and reusable containers. By choosing OKEARA, you are supporting a
                     product that values both your well-being and the health of our planet.
@@ -553,5 +567,9 @@ const bannerStyle = {
 
 const bgSafetyStyle = {
     backgroundImage: `url(${BgSafety})`
-}   
+}
+
+const bgSafetyBlock = {
+    backgroundImage: `url(${SafetyBlock})`
+}
 </script>
