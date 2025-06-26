@@ -12,29 +12,59 @@
             'hidden lg:flex items-center space-x-[40px] text-[14px] uppercase transition-colors duration-300',
             isTop ? 'text-white' : 'text-[#203D4D]',
         ]">
-            <NuxtLink to="/our-water" class="h-[48px] flex items-center justify-center rounded-full"
-                :class="isWaterActive ? 'bg-[#EDF3F3] px-[16px] font-bold text-[#203D4D]' : 'bg-transparent'">
-                OUR WATER
+            <NuxtLink ref="navLinks" to="/our-water"
+                class="nav-link h-[48px] flex items-center justify-center rounded-full relative" :class="isWaterActive
+                    ? isTop
+                        ? 'bg-[#EDF3F3] px-4 font-bold text-[#203D4D]'
+                        : 'bg-[#203D4D] px-4 font-bold text-[#EDF3F3]'
+                    : 'bg-transparent'">
+                <span class="link-text relative z-10">OUR WATER</span>
+                <span class="underline absolute bottom-[15px] left-0 h-[0.5px] w-full scale-x-0 origin-left" />
             </NuxtLink>
-            <NuxtLink to="/our-community" class="h-[48px] flex items-center justify-center rounded-full"
-                :class="isClubActive ? 'bg-[#EDF3F3] px-[16px] font-bold text-[#203D4D]' : 'bg-transparent'">
-                OUR CLUB
+            <NuxtLink ref="navLinks" to="/our-community"
+                class="nav-link h-[48px] flex items-center justify-center rounded-full relative" :class="isClubActive
+                    ? isTop
+                        ? 'bg-[#EDF3F3] px-4 font-bold text-[#203D4D]'
+                        : 'bg-[#203D4D] px-4 font-bold text-[#EDF3F3]'
+                    : 'bg-transparent'">
+                <span class="link-text relative z-10">OUR CLUB</span>
+                <span class="underline absolute bottom-[15px] left-0 h-[0.5px] w-full scale-x-0 origin-left" />
             </NuxtLink>
-            <NuxtLink to="/our-partners" class="h-[48px] flex items-center justify-center rounded-full"
-                :class="isPartnersActive ? 'bg-[#EDF3F3] px-[16px] font-bold text-[#203D4D]' : 'bg-transparent'">
-                OUR PARTNER
+            <NuxtLink ref="navLinks" to="/our-partners"
+                class="nav-link h-[48px] flex items-center justify-center rounded-full relative" :class="isPartnersActive
+                    ? isTop
+                        ? 'bg-[#EDF3F3] px-4 font-bold text-[#203D4D]'
+                        : 'bg-[#203D4D] px-4 font-bold text-[#EDF3F3]'
+                    : 'bg-transparent'">
+                <span class="link-text relative z-10">OUR PARTNER</span>
+                <span class="underline absolute bottom-[15px] left-0 h-[0.5px] w-full scale-x-0 origin-left" />
             </NuxtLink>
-            <NuxtLink to="/shop" class="h-[48px] flex items-center justify-center rounded-full"
-                :class="isShopActive ? 'bg-[#EDF3F3] px-[16px] font-bold text-[#203D4D]' : 'bg-transparent'">
-                SHOP
+            <NuxtLink ref="navLinks" to="/shop"
+                class="nav-link h-[48px] flex items-center justify-center rounded-full relative" :class="isShopActive
+                    ? isTop
+                        ? 'bg-[#EDF3F3] px-4 font-bold text-[#203D4D]'
+                        : 'bg-[#203D4D] px-4 font-bold text-[#EDF3F3]'
+                    : 'bg-transparent'">
+                <span class="link-text relative z-10">SHOP</span>
+                <span class="underline absolute bottom-[15px] left-0 h-[0.5px] w-full scale-x-0 origin-left" />
             </NuxtLink>
-            <NuxtLink to="/" class="h-[48px] flex items-center justify-center rounded-full"
-                :class="isResearchActive ? 'bg-transparent' : 'bg-transparent'">
-                RESEARCH
+            <NuxtLink ref="navLinks" to="/"
+                class="nav-link h-[48px] flex items-center justify-center rounded-full relative" :class="isResearchActive
+                    ? isTop
+                        ? 'bg-[#EDF3F3] px-4 font-bold text-[#203D4D]'
+                        : 'bg-[#203D4D] px-4 font-bold text-[#EDF3F3]'
+                    : 'bg-transparent'">
+                <span class="link-text relative z-10">RESEARCH</span>
+                <span class="underline absolute bottom-[15px] left-0 h-[0.5px] w-full scale-x-0 origin-left" />
             </NuxtLink>
-            <NuxtLink to="/faq" class="h-[48px] flex items-center justify-center rounded-full"
-                :class="isFaqActive ? 'bg-[#EDF3F3] px-[16px] font-bold text-[#203D4D]' : 'bg-transparent'">
-                FAQ
+            <NuxtLink ref="navLinks" to="/faq"
+                class="nav-link h-[48px] flex items-center justify-center rounded-full relative" :class="isFaqActive
+                    ? isTop
+                        ? 'bg-[#EDF3F3] px-4 font-bold text-[#203D4D]'
+                        : 'bg-[#203D4D] px-4 font-bold text-[#EDF3F3]'
+                    : 'bg-transparent'">
+                <span class="link-text relative z-10">FAQ</span>
+                <span class="underline absolute bottom-[15px] left-0 h-[0.5px] w-full scale-x-0 origin-left" />
             </NuxtLink>
         </nav>
 
@@ -112,7 +142,6 @@
     </div>
 </template>
 
-
 <script lang="ts" setup>
 import { ref, computed, onMounted, onUnmounted } from 'vue'
 import { useRoute } from 'vue-router'
@@ -125,6 +154,8 @@ import CartBlue from '@/assets/icons/CartBlue.svg'
 import Message from '@/assets/icons/Message.svg'
 import MessageBlue from '@/assets/icons/MessageBlue.svg'
 import ArrowTopRightBlue from '@/assets/icons/ArrowTopRightBlue.svg'
+
+const navLinks = ref<HTMLElement[]>([])
 
 const logo = Logo
 const cart = Cart
@@ -148,6 +179,58 @@ onMounted(() => {
 
 onUnmounted(() => {
     window.removeEventListener('scroll', handleScroll)
+})
+
+onMounted(() => {
+    navLinks.value = Array.from(document.querySelectorAll('.nav-link'))
+
+    navLinks.value.forEach((linkEl) => {
+        const underline = linkEl.querySelector('.underline') as HTMLElement
+        const hasBg = isWaterActive.value || isClubActive.value || isPartnersActive.value || isShopActive.value || isResearchActive.value || isFaqActive.value
+
+        gsap.set(underline, {
+            scaleX: 0,
+            transformOrigin: 'left'
+        })
+
+        linkEl.addEventListener('mouseenter', () => {
+            const color = getComputedStyle(linkEl).color
+
+            gsap.killTweensOf(underline)
+            if (!hasBg) {
+                gsap.to(underline, {
+                    scaleX: 1,
+                    duration: 0.4,
+                    ease: 'power2.out',
+                    backgroundColor: color,
+                    transformOrigin: 'left'
+                })
+            }
+
+        })
+
+        linkEl.addEventListener('mouseleave', () => {
+            gsap.killTweensOf(underline)
+            if (!hasBg) {
+                gsap.to(underline, {
+                    scaleX: 0,
+                    duration: 0.3,
+                    ease: 'power2.in',
+                    transformOrigin: 'right'
+                })
+            }
+        })
+
+        linkEl.addEventListener("click", () => {
+            gsap.killTweensOf(underline)
+            gsap.to(underline, {
+                scaleX: 0,
+                duration: 0.1,
+                ease: 'power2.in',
+                transformOrigin: 'right'
+            })
+        })
+    })
 })
 
 const isMenuOpen = ref(false)
@@ -179,6 +262,12 @@ const isWaterActive = computed(() => route.path.startsWith('/our-water'))
 const isClubActive = computed(() => route.path.startsWith('/our-community'))
 const isPartnersActive = computed(() => route.path.startsWith('/our-partners'))
 const isShopActive = computed(() => route.path.startsWith('/shop'))
-const isResearchActive = computed(() => route.path.startsWith('/'))
+const isResearchActive = computed(() => route.path.startsWith('/research'))
 const isFaqActive = computed(() => route.path.startsWith('/faq'))
 </script>
+
+<style scoped>
+.underline {
+    transition: width 0.3s ease;
+}
+</style>
