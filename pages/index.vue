@@ -1,11 +1,11 @@
 <!-- eslint-disable vue/first-attribute-linebreak -->
 <template>
     <div>
-        <div :style="bannerStyle" class="bg-cover bg-no-repeat w-full h-screen relative"
+        <div ref="bannerRef" :style="bannerStyle" class="bg-cover bg-no-repeat w-full h-screen relative"
             style="background-position: left 50% top 22%;">
             <div class="absolute top-0 left-0 w-full h-screen pointer-events-none"
                 style="background: linear-gradient(0deg, rgba(0,0,0,0.85) 1.62%, rgba(0,0,0,0.75) 30%, rgba(0,0,0,0.00) 80%);">
-                <div
+                <div ref="textContainerRef"
                     class="absolute left-0 bottom-[20px] md:bottom-[40px] lg:bottom-[100px] px-[24px] md:px-[40px] lg:px-[64px] w-full flex flex-col md:flex-row items-start justify-between gap-[20px] md:gap-auto">
                     <div class="text-[40px] md:text-[64px] leading-[40px] md:leading-[72px] font-light"
                         style="letter-spacing: -1.92px;">
@@ -36,14 +36,16 @@
                         Our Water
                     </div>
                 </div>
-                <div class="w-full flex flex-col gap-[40px] md:w-[60%]">
-                    <img :src="OurWater" alt="Our Water" class="">
-                    <div class="flex flex-col items-start gap-[24px] lg:w-[70%]">
-                        <div class="text-[32px] md:text-[48px] text-[#EDF3F3] font-light leading-[36px] md:leading-[58px]"
+                <div class="relative overflow-hidden w-full h-[650px] pt-[400px] flex flex-col gap-[40px] md:w-[60%]">
+                    <img ref="imageWaterRef" :src="OurWater" alt="Our Water"
+                        class="absolute top-0 left-0 w-full object-cover">
+                    <div class="absolute flex flex-col items-start gap-[24px] lg:w-[70%]">
+                        <div ref="titleWaterRef"
+                            class="text-[32px] md:text-[48px] text-[#EDF3F3] font-light leading-[36px] md:leading-[58px]"
                             style="letter-spacing: -1.44px;">
                             For those who demand the best in hydration
                         </div>
-                        <div class="text-[#D1CCBF] text-[16px] md:text-[18px] leading-[24px]">
+                        <div ref="paragraphWaterRef" class="text-[#D1CCBF] text-[16px] md:text-[18px] leading-[24px]">
                             OKEARA structured hydrogen water is a game-changer. Experience the rejuvenating benefits of
                             hydrogen-enriched water free from impurities and bacteria. Elevate your health with every
                             sip.
@@ -90,19 +92,25 @@
                     </div>
                 </div>
                 <div class="flex flex-col gap-[60px] md:w-[60%]">
-                    <div
+                    <div ref="titleBenefitRef"
                         class="text-[#203D4D] text-[32px] md:text-[48px] font-light leading-[36px] md:leading-[58px] w-[70%] md:w-[90%] lg:w-[60%]">
                         Benefits of Structured Hydrogen Water
                     </div>
-                    <div class="text-[#203D4D] text-[18px] leading-[26px] opacity-77 w-[80%] lg:w-[40%]">
+                    <div ref="paragraphBenefitRef"
+                        class="text-[#203D4D] text-[18px] leading-[26px] opacity-77 w-[80%] lg:w-[40%]">
                         OKEARA structured hydrogen water offers a multitude of health benefits thanks to its high
                         hydrogen content:
                     </div>
                 </div>
             </div>
-            <div class="w-full flex flex-col md:flex-row items-start justify-between gap-[4px] mt-[40px] md:mt-[100px]">
-                <img :src="Benefit1" class="w-full md:w-[30%]">
-                <img :src="Benefit2" class="w-full md:w-[60%]">
+            <div
+                class="relative overflow-hidden w-full h-[400px] flex flex-col md:flex-row items-start justify-between gap-[4px] mt-[40px] md:mt-[100px]">
+                <div class="w-full md:w-[30%] absolute top-0 left-0">
+                    <img ref="imageLeftBenefitRef" :src="Benefit1" class="w-full object-cover">
+                </div>
+                <div class="w-full absolute top-0 right-0 md:w-[60%]">
+                    <img ref="imageRightBenefitRef" :src="Benefit2" class="w-full object-cover">
+                </div>
             </div>
             <div class="relative">
                 <div class="w-full overflow-hidden">
@@ -146,11 +154,13 @@
                     </div>
                 </div>
                 <div class="flex flex-col items-start gap-[24px] md:gap-[80px] md:w-[60%]">
-                    <div class="text-[32px] md:text-[48px] text-[#EDF3F3] font-light leading-[36px] md:leading-[58px] w-[60%] md:w-[90%] lg:w-[60%]"
+                    <div ref="titleSafetyRef"
+                        class="text-[32px] md:text-[48px] text-[#EDF3F3] font-light leading-[36px] md:leading-[58px] w-[60%] md:w-[90%] lg:w-[60%]"
                         style="letter-spacing: -1.44px;">
                         Better For the Body, and For the Planet
                     </div>
-                    <div class="text-[#D1CCBF] text-[16px] md:text-[18px] leading-[24px] w-full md:w-[90%] lg:w-[60%]">
+                    <div ref="paragraphSafetyRef"
+                        class="text-[#D1CCBF] text-[16px] md:text-[18px] leading-[24px] w-full md:w-[90%] lg:w-[60%]">
                         OKEARA is bottled with minimal material waste, using sleek lightweight bottles that preserve
                         water structure and reduce impact. Our entire process is optimized for integrity from source to
                         sip. Performance starts with what you put in your body. But it shouldn’t cost the Earth.
@@ -158,8 +168,9 @@
                 </div>
             </div>
         </div>
-        <div :style="bgSafetyBlock" class="w-[100%] h-screen bg-cover bg-no-repeat"
-            style="background-position: left 0 top 0;" />
+        <div class="relative w-[100%] h-screen bg-[#EDF3F3]">
+            <img ref="imageSafetyRef" :src="SafetyBlock" alt="Safety" class="absolute top-0 left-0 w-full h-screen object-cover">
+        </div>
         <div class="w-full bg-[#EDF3F3] px-[24px] py-[40px] md:p-[40px] lg:px-[64px] lg:py-[100px]">
             <div class="w-full flex flex-col md:flex-row items-start justify-between gap-[120px] md:gap-auto">
                 <div class="flex items-center gap-[10px] md:gap-[20px]">
@@ -375,11 +386,13 @@
             class="w-full bg-[#274A5C] flex flex-col md:flex-row items-stretch justify-between gap-[12px] px-[24px] py-[40px] md:p-[40px] lg:px-[180px] lg:py-[120px]">
             <div class="flex flex-col gap-[40px] gap-[150px] w-full md:w-[50%]">
                 <img :src="Community1" alt="Community 1" class="w-full order-2 md:order-1">
-                <div class="text-[#EDF3F3] text-[32px] text-[48px] font-light leading-[36px] leading-[58px] order-1 md:order-2 md:mb-[275px]">
+                <div
+                    class="text-[#EDF3F3] text-[32px] text-[48px] font-light leading-[36px] leading-[58px] order-1 md:order-2 md:mb-[275px]">
                     Our <br> Commitment
                 </div>
             </div>
-            <div class="flex flex-col items-start justify-between gap-[40px] md:gap-auto w-full md:w-[40%] md:pt-[60px] md:pb-[100px]">
+            <div
+                class="flex flex-col items-start justify-between gap-[40px] md:gap-auto w-full md:w-[40%] md:pt-[60px] md:pb-[100px]">
                 <img :src="Community2" alt="Community 2" class="w-full">
                 <div
                     class="text-[#EDF3F3] text-[16px] md:text-[18px] leading-[26px] md:w-[90%] opacity-77 mt-[40px] md:mt-[120px]">
@@ -394,9 +407,10 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
 import type { ComponentPublicInstance } from 'vue'
 import gsap from 'gsap'
+import ScrollTrigger from 'gsap/ScrollTrigger'
 import Banner from '@/assets/images/BannerHome.png';
 import OurWater from '@/assets/images/OurWater.png';
 import BgSafety from '@/assets/images/BgSafety.png';
@@ -425,6 +439,25 @@ import CartBlue from '@/assets/icons/CartBlue.svg';
 import ArrowLeft from '@/assets/icons/ArrowLeft.svg';
 import ArrowRight from '@/assets/icons/ArrowRight.svg';
 import Collapse from '@/assets/icons/collapse.svg';
+
+gsap.registerPlugin(ScrollTrigger)
+
+const bannerRef = ref<HTMLElement | null>(null)
+const textContainerRef = ref<HTMLElement | null>(null)
+
+const imageWaterRef = ref<HTMLElement | null>(null)
+const titleWaterRef = ref<HTMLElement | null>(null)
+const paragraphWaterRef = ref<HTMLElement | null>(null)
+
+const imageLeftBenefitRef = ref<HTMLElement | null>(null)
+const imageRightBenefitRef = ref<HTMLElement | null>(null)
+const titleBenefitRef = ref<HTMLElement | null>(null)
+const paragraphBenefitRef = ref<HTMLElement | null>(null)
+
+const titleSafetyRef = ref<HTMLElement | null>(null)
+const paragraphSafetyRef = ref<HTMLElement | null>(null)
+
+const imageSafetyRef = ref<HTMLElement | null>(null)
 
 const activeIndex = ref(0)
 const optionRefs = ref<(Element | ComponentPublicInstance | null)[]>([])
@@ -569,7 +602,220 @@ const bgSafetyStyle = {
     backgroundImage: `url(${BgSafety})`
 }
 
-const bgSafetyBlock = {
-    backgroundImage: `url(${SafetyBlock})`
-}
+onMounted(() => {
+    gsap.fromTo(
+        bannerRef.value,
+        { scale: 1.4 },
+        {
+            scale: 1,
+            duration: 1.5,
+            ease: 'power3.out',
+        }
+    )
+
+    gsap.fromTo(
+        textContainerRef.value,
+        { y: 100, opacity: 0 },
+        {
+            y: 0,
+            opacity: 1,
+            duration: 1.2,
+            ease: 'power3.out',
+            delay: 0.3,
+        }
+    )
+})
+
+onMounted(() => {
+    gsap.to(imageWaterRef.value, {
+        y: -300,
+        ease: 'none',
+        scrollTrigger: {
+            trigger: imageWaterRef.value,
+            start: 'top bottom',
+            end: 'bottom top',
+            scrub: true,
+        },
+    })
+
+    if (titleWaterRef.value) {
+        const lines = titleWaterRef.value.innerHTML.split('<br>')
+        titleWaterRef.value.innerHTML = ''
+
+        lines.forEach((line, i) => {
+            const span = document.createElement('span')
+            span.innerHTML = line
+            span.style.display = 'block'
+            span.style.opacity = '0'
+            span.style.transform = 'translateY(30px)'
+            titleWaterRef.value?.appendChild(span)
+
+            gsap.to(span, {
+                opacity: 1,
+                y: 0,
+                duration: 0.6,
+                delay: i * 0.15,
+                ease: 'power2.out',
+                scrollTrigger: {
+                    trigger: titleWaterRef.value,
+                    start: 'top 80%',
+                    end: 'bottom top',
+                    toggleActions: 'play reverse play reverse',
+                },
+            })
+        })
+    }
+
+    gsap.fromTo(
+        paragraphWaterRef.value,
+        { opacity: 0, y: 30 },
+        {
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            ease: 'power2.out',
+            scrollTrigger: {
+                trigger: paragraphWaterRef.value,
+                start: 'top 80%',
+                end: 'bottom top',
+                toggleActions: 'play reverse play reverse',
+            },
+        }
+    )
+})
+
+onMounted(() => {
+    gsap.to(imageLeftBenefitRef.value, {
+        y: -300,
+        ease: 'none',
+        scrollTrigger: {
+            trigger: imageLeftBenefitRef.value,
+            start: 'top bottom',
+            end: 'bottom top',
+            scrub: true,
+        },
+    })
+
+    gsap.to(imageRightBenefitRef.value, {
+        y: -300,
+        ease: 'none',
+        scrollTrigger: {
+            trigger: imageRightBenefitRef.value,
+            start: 'top bottom',
+            end: 'bottom top',
+            scrub: true,
+        },
+    })
+
+    if (titleBenefitRef.value) {
+        const lines = titleBenefitRef.value.innerHTML.split('<br>')
+        titleBenefitRef.value.innerHTML = ''
+
+        lines.forEach((line, i) => {
+            const span = document.createElement('span')
+            span.innerHTML = line
+            span.style.display = 'block'
+            span.style.opacity = '0'
+            span.style.transform = 'translateY(30px)'
+            titleBenefitRef.value?.appendChild(span)
+
+            gsap.to(span, {
+                opacity: 1,
+                y: 0,
+                duration: 0.6,
+                delay: i * 0.15,
+                ease: 'power2.out',
+                scrollTrigger: {
+                    trigger: titleBenefitRef.value,
+                    start: 'top 80%',
+                    end: 'bottom top',
+                    toggleActions: 'play reverse play reverse',
+                },
+            })
+        })
+    }
+
+    gsap.fromTo(
+        paragraphBenefitRef.value,
+        { opacity: 0, y: 30 },
+        {
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            ease: 'power2.out',
+            scrollTrigger: {
+                trigger: paragraphBenefitRef.value,
+                start: 'top 75%',
+                end: 'bottom top',
+                toggleActions: 'play reverse play reverse',
+            },
+        }
+    )
+})
+
+onMounted(() => {
+    if (titleSafetyRef.value) {
+        const lines = titleSafetyRef.value.innerHTML.split('<br>')
+        titleSafetyRef.value.innerHTML = ''
+
+        lines.forEach((line, i) => {
+            const span = document.createElement('span')
+            span.innerHTML = line
+            span.style.display = 'block'
+            span.style.opacity = '0'
+            span.style.transform = 'translateY(30px)'
+            titleSafetyRef.value?.appendChild(span)
+
+            gsap.to(span, {
+                opacity: 1,
+                y: 0,
+                duration: 0.6,
+                delay: i * 0.15,
+                ease: 'power2.out',
+                scrollTrigger: {
+                    trigger: titleSafetyRef.value,
+                    start: 'top 80%',
+                    end: 'bottom top',
+                    toggleActions: 'play reverse play reverse',
+                },
+            })
+        })
+    }
+
+    gsap.fromTo(
+        paragraphSafetyRef.value,
+        { opacity: 0, y: 30 },
+        {
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            ease: 'power2.out',
+            scrollTrigger: {
+                trigger: paragraphSafetyRef.value,
+                start: 'top 80%',
+                end: 'bottom top',
+                toggleActions: 'play reverse play reverse',
+            },
+        }
+    )
+})
+
+onMounted(() => {
+    gsap.to(imageSafetyRef.value, {
+        y: -300,
+        ease: 'none',
+        scrollTrigger: {
+            trigger: imageSafetyRef.value,
+            start: 'top bottom',
+            end: 'bottom top',
+            scrub: true,
+        },
+    })
+})
 </script>
+
+<style scoped>
+img {
+    will-change: transform;
+}
+</style>

@@ -10,6 +10,9 @@
 import HeaderComponent from '~/components/Header/HeaderComponent.vue';
 import FooterComponents from '~/components/Footer/FooterComponents.vue';
 
+onMounted(() => {
+    useSmoothScroll()
+})
 
 export default {
     name: "DefaultLayout",
