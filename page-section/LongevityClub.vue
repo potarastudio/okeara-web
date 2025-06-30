@@ -1,5 +1,5 @@
 <template>
-    <div :style="bannerStyle" class="bg-cover bg-no-repeat w-full h-screen flex flex-col items-start justify-between mt-[-2px] px-[24px] py-[40px] md:p-[40px] lg:px-[64px] lg:py-[100px]" style="background-position: left 10% top 0;">
+    <div :style="bannerStyle" class="bg-cover bg-no-repeat w-full h-[100dvh] flex flex-col items-start justify-between mt-[-2px] px-[24px] py-[40px] md:p-[40px] lg:px-[64px] lg:py-[100px]" style="background-position: left 10% top 0;">
         <div class="flex items-center gap-[10px] md:gap-[20px]">
             <img :src="List" alt="list">
             <div class="text-[#EDF3F3] text-[16px] md:text-[18px] leading-[24px]">

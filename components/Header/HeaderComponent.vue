@@ -1,7 +1,7 @@
 <!-- eslint-disable vue/first-attribute-linebreak -->
 <template>
     <div :class="[
-        'fixed top-0 z-20 left-0 w-full px-[24px] md:px-[40px] lg:px-[64px] flex items-center justify-between transition-all duration-300',
+        'fixed top-0 z-[999] left-0 w-full px-[24px] md:px-[40px] lg:px-[64px] flex items-center justify-between transition-all duration-300',
         isTop ? 'bg-transparent pt-[40px] pb-[32px] md:py-[40px]' : 'bg-white pt-[40px] pb-[32px] md:-[40px] lg:py-[10px]',
     ]" :style="{ transform: isVisible ? 'translateY(0)' : 'translateY(-100%)' }">
         <NuxtLink to="/" class="w-[40%] md:w-[25%] lg:w-[10%]">

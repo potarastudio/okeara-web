@@ -1,7 +1,7 @@
 <!-- eslint-disable vue/first-attribute-linebreak -->
 <template>
     <div>
-        <div :style="bannerStyle" class="bg-cover bg-no-repeat bg-center w-full h-[140vh] relative">
+        <div :style="bannerStyle" class="bg-cover bg-no-repeat bg-center w-full h-[100dvh] relative">
             <div class="absolute left-0 bottom-[120px] px-[64px] w-full flex items-stretch justify-between">
                 <div class="flex flex-col items-start justify-between">
                     <div class="text-[60px] leading-[72px] font-light" style="letter-spacing: -1.92px;">

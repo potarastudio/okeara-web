@@ -1,9 +1,9 @@
 <!-- eslint-disable vue/first-attribute-linebreak -->
 <template>
     <div>
-        <div ref="bannerRef" :style="bannerStyle" class="bg-cover bg-no-repeat w-full h-screen relative"
+        <div ref="bannerRef" :style="bannerStyle" class="bg-cover bg-no-repeat w-full h-[100dvh] relative"
             style="background-position: left 50% top 22%;">
-            <div class="absolute top-0 left-0 w-full h-screen pointer-events-none"
+            <div class="absolute top-0 left-0 w-full h-[100dvh] pointer-events-none"
                 style="background: linear-gradient(0deg, rgba(0,0,0,0.85) 1.62%, rgba(0,0,0,0.75) 30%, rgba(0,0,0,0.00) 80%);">
                 <div ref="textContainerRef"
                     class="absolute left-0 bottom-[20px] md:bottom-[40px] lg:bottom-[100px] px-[24px] md:px-[40px] lg:px-[64px] w-full flex flex-col md:flex-row items-start justify-between gap-[20px] md:gap-auto">
@@ -168,8 +168,8 @@
                 </div>
             </div>
         </div>
-        <div class="relative w-[100%] h-screen bg-[#EDF3F3]">
-            <img ref="imageSafetyRef" :src="SafetyBlock" alt="Safety" class="absolute top-0 left-0 w-full h-screen object-cover">
+        <div class="relative w-[100%] h-[100dvh] bg-[#EDF3F3]">
+            <img ref="imageSafetyRef" :src="SafetyBlock" alt="Safety" class="absolute top-0 left-0 w-full h-[100dvh] object-cover">
         </div>
         <div class="w-full bg-[#EDF3F3] px-[24px] py-[40px] md:p-[40px] lg:px-[64px] lg:py-[100px]">
             <div class="w-full flex flex-col md:flex-row items-start justify-between gap-[120px] md:gap-auto">

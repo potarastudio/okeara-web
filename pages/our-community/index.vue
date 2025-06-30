@@ -1,9 +1,9 @@
 <!-- eslint-disable vue/first-attribute-linebreak -->
 <template>
     <div class="overflow-x-hidden">
-        <div :style="bannerStyle" class="bg-cover bg-no-repeat bg-center w-full h-screen relative"
+        <div :style="bannerStyle" class="bg-cover bg-no-repeat bg-center w-full h-[100dvh] relative"
             style="background-position: left 50% top 22%;">
-            <div class="w-full h-[50vh] absolute left-0 bottom-0"
+            <div class="w-full h-[50dvh] absolute left-0 bottom-0"
                 style="background: linear-gradient(0deg, #203D4D 0%, rgba(32, 61, 77, 0.00) 100%)" />
             <div
                 class="absolute left-0 bottom-[40px] md:bottom-[80px] text-[#EDF3F3] text-[96px] md:text-[144px] font-light">
@@ -83,7 +83,7 @@
                 </div>
             </div>
         </div>
-        <div :style="sectionBlcokStyle" class="bg-cover bg-no-repeat bg-center w-full h-screen" />
+        <div :style="sectionBlcokStyle" class="bg-cover bg-no-repeat bg-center w-full h-[100dvh]" />
         <div
             class="w-full bg-[#EDF3F3] flex flex-col md:flex-row items-stretch justify-between gap-[12px] px-[24px] py-[40px] md:p-[40px] lg:px-[180px] lg:py-[120px]">
             <div class="flex flex-col gap-[40px] gap-[150px] w-full md:w-[50%]">
