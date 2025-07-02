@@ -1,16 +1,20 @@
 <!-- eslint-disable vue/first-attribute-linebreak -->
 <template>
     <div class="overflow-x-hidden">
-        <div :style="bannerStyle" class="bg-cover bg-no-repeat bg-center w-full h-[100dvh] relative"
+        <div ref="bannerRef" :style="bannerStyle" class="bg-cover bg-no-repeat bg-center w-full h-[100dvh] relative"
             style="background-position: left 50% top 22%;">
             <div class="w-full h-[50dvh] absolute left-0 bottom-0"
                 style="background: linear-gradient(0deg, #203D4D 0%, rgba(32, 61, 77, 0.00) 100%)" />
             <div
-                class="absolute left-0 bottom-[40px] md:bottom-[80px] text-[#EDF3F3] text-[96px] md:text-[144px] font-light">
-                <div class="overflow-hidden whitespace-nowrap w-full">
-                    <div ref="marquee" class="inline-block text-[96px] md:text-[144px] font-light"
-                        style="will-change: transform;letter-spacing: -2.88px ">
-                        Our Our Longevity Club • Our Longevity Club • Our Community
+                class="absolute left-0 bottom-[40px] md:bottom-[25px] text-[#EDF3F3] text-[96px] md:text-[144px] font-light">
+                <div ref="textBannerContainerRef" class="overflow-hidden w-full whitespace-nowrap">
+                    <div ref="marqueeWrapper" class="inline-flex will-change-transform">
+                        <div class="marquee-text">
+                            Our Our Longevity Club • Our Longevity Club • Our Community •
+                        </div>
+                        <div class="marquee-text">
+                            Our Our Longevity Club • Our Longevity Club • Our Community •
+                        </div>
                     </div>
                 </div>
             </div>
@@ -110,6 +114,7 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
 import gsap from 'gsap'
+import ScrollTrigger from 'gsap/ScrollTrigger'
 import BannerOurCommunity from '@/assets/images/BannerOurCommunity.png'
 import OurCommunity1 from '@/assets/images/ourcommunity-1.png'
 import OurCommunity2 from '@/assets/images/ourcommunity-3.png'
@@ -123,7 +128,11 @@ import ArrowRightWhite from '@/assets/icons/ArrowRightWhite.svg'
 
 import LongevityClub from '~/page-section/LongevityClub.vue'
 
-const marquee = ref<HTMLElement | null>(null)
+gsap.registerPlugin(ScrollTrigger)
+
+const bannerRef = ref<HTMLElement | null>(null)
+const textBannerContainerRef = ref<HTMLElement | null>(null)
+const marqueeWrapper = ref<HTMLElement | null>(null)
 
 const bannerStyle = {
     backgroundImage: `url(${BannerOurCommunity})`,
@@ -134,16 +143,54 @@ const sectionBlcokStyle = {
 }
 
 onMounted(() => {
-    if (marquee.value) {
-        gsap.to(marquee.value, {
-            xPercent: -100,
-            repeat: -1,
-            duration: 100,
-            ease: 'linear',
-            modifiers: {
-                xPercent: gsap.utils.wrap(-100, 0),
-            },
-        })
+    gsap.fromTo(
+        bannerRef.value,
+        { scale: 1.4 },
+        {
+            scale: 1,
+            duration: 1.5,
+            ease: 'power3.out',
+        }
+    )
+
+    gsap.fromTo(
+        textBannerContainerRef.value,
+        { y: 100, opacity: 0 },
+        {
+            y: 0,
+            opacity: 1,
+            duration: 1.2,
+            ease: 'power3.out',
+            delay: 0.3,
+        }
+    )
+
+    const wrapper = marqueeWrapper.value
+    if (!wrapper) return
+
+    if (wrapper.children.length < 2) {
+        wrapper.innerHTML += wrapper.innerHTML
     }
+
+    const contentWidth = wrapper.scrollWidth / 2
+    let currentX = 0
+    let direction = 1
+
+    gsap.ticker.add(() => {
+        currentX -= 1 * direction
+        if (currentX <= -contentWidth) currentX = 0
+        if (currentX >= 0) currentX = -contentWidth
+        gsap.set(wrapper, { x: currentX })
+    })
+
+    ScrollTrigger.create({
+        trigger: bannerRef.value,
+        start: 'top top',
+        end: 'bottom top',
+        scrub: true,
+        onUpdate(self) {
+            direction = self.direction === 1 ? 1 : -1
+        },
+    })
 })
 </script>

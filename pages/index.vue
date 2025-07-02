@@ -1,3 +1,4 @@
+<!-- eslint-disable vue/html-self-closing -->
 <!-- eslint-disable vue/first-attribute-linebreak -->
 <template>
     <div>
@@ -115,7 +116,7 @@
             <div class="relative">
                 <div class="w-full overflow-hidden">
                     <div ref="sliderTrack"
-                        class="flex gap-[72px] mt-[40px] md:mt-[100px] transition-transform duration-300 ease-in-out">
+                        class="flex gap-[72px] mt-[40px] md:mt-[100px] transition-transform duration-100 ease-in-out">
                         <div v-for="(item, index) in slides" :key="index"
                             class="w-[100%] md:w-[25%] flex-shrink-0 flex flex-col gap-[24px]">
                             <img :src="item.image" :alt="item.title" class="w-[20%]" />
@@ -139,8 +140,13 @@
                         ]" />
                     </div>
                     <div class="hidden md:flex items-center gap-[32px] w-[10%]">
-                        <img :src="ArrowLeft" alt="Arrow Left" class="cursor-pointer" @click="prevSlide" />
-                        <img :src="ArrowRight" alt="Arrow Right" class="cursor-pointer" @click="nextSlide" />
+                        <img :src="ArrowLeft" alt="Arrow Left"
+                            class="cursor-pointer opacity-50 hover:opacity-100 transition"
+                            :class="{ 'pointer-events-none opacity-20': currentIndex === 0 }" @click="prevSlide" />
+                        <img :src="ArrowRight" alt="Arrow Right"
+                            class="cursor-pointer opacity-50 hover:opacity-100 transition"
+                            :class="{ 'pointer-events-none opacity-20': currentIndex >= maxSlideIndex }"
+                            @click="nextSlide" />
                     </div>
                 </div>
             </div>
@@ -169,7 +175,8 @@
             </div>
         </div>
         <div class="relative w-[100%] h-[100dvh] bg-[#EDF3F3]">
-            <img ref="imageSafetyRef" :src="SafetyBlock" alt="Safety" class="absolute top-0 left-0 w-full h-[100dvh] object-cover">
+            <img ref="imageSafetyRef" :src="SafetyBlock" alt="Safety"
+                class="absolute top-0 left-0 w-full h-[100dvh] object-cover">
         </div>
         <div class="w-full bg-[#EDF3F3] px-[24px] py-[40px] md:p-[40px] lg:px-[64px] lg:py-[100px]">
             <div class="w-full flex flex-col md:flex-row items-start justify-between gap-[120px] md:gap-auto">
@@ -189,8 +196,6 @@
                     </div>
                 </div>
                 <div class="hidden md:flex items-center gap-[40px] w-full md:w-auto justify-end">
-                    <img :src="ArrowLeft" alt="Arrow Left" class="cursor-pointer">
-                    <img :src="ArrowRight" alt="Arrow Right" class="cursor-pointer">
                 </div>
             </div>
             <div class="w-full flex items-center justify-center mt-[40px] md:mt-[100px]">
@@ -211,22 +216,16 @@
             </div>
             <div class="w-full overflow-hidden">
                 <div class="w-full flex items-start self-stretch gap-[60px] mt-[72px]">
-                    <div class="w-[100%] lg:w-[50%] flex-shrink-0 flex items-center justify-center self-stretch">
+                    <div ref="container0"
+                        class="w-[100%] lg:w-[50%] flex-shrink-0 flex items-center justify-center self-stretch"
+                        @mouseenter="container0 && handleMouseEnter(container0)"
+                        @mouseleave="container0 && handleMouseLeave(container0)">
                         <div class="flex flex-col justify-end items-center gap-[52px]">
-                            <div :class="[
-                                'px-[12px] py-[8px] bg-white rounded-full text-black',
-                                activeIndex === 0 ? 'opacity-100' : 'opacity-0'
-                            ]">
+                            <div class="px-[12px] py-[8px] bg-white rounded-full text-black fade-item opacity-0">
                                 Preview 3D
                             </div>
-                            <img :src="OkearaWater500ml" alt="Okeara Water 500ml" :class="[
-                                'h-[500px]',
-                                activeIndex === 0 ? 'opacity-100' : 'opacity-50'
-                            ]">
-                            <div :class="[
-                                'flex flex-col items-center gap-[32px]',
-                                activeIndex === 0 ? 'opacity-100' : 'opacity-0'
-                            ]">
+                            <img :src="OkearaWater500ml" alt="Okeara Water 500ml" class="h-[500px]">
+                            <div class="flex flex-col items-center gap-[32px] opacity-0 fade-item">
                                 <div class="flex flex-col items-center gap-[16px]">
                                     <div class="text-[#203D4D] text-[26px] leading-[26px]">
                                         OKEARA Water
@@ -251,21 +250,14 @@
                         </div>
                     </div>
                     <div class="w-[100%] lg:w-[50%] flex-shrink-0 flex items-center justify-center self-stretch">
-                        <div class="flex flex-col justify-end items-center gap-[52px]">
-                            <div :class="[
-                                'px-[12px] py-[8px] bg-white rounded-full text-black',
-                                activeIndex === 1 ? 'opacity-100' : 'opacity-0'
-                            ]">
+                        <div ref="container1" class="flex flex-col justify-end items-center gap-[52px]"
+                            @mouseenter="container1 && handleMouseEnter(container1)"
+                            @mouseleave="container1 && handleMouseLeave(container1)">
+                            <div class="px-[12px] py-[8px] bg-white rounded-full text-black fade-item opacity-0">
                                 Preview 3D
                             </div>
-                            <img :src="OkearaWater12l" alt="Okeara Water 12 L" :class="[
-                                'h-[500px]',
-                                activeIndex === 1 ? 'opacity-100' : 'opacity-50'
-                            ]">
-                            <div :class="[
-                                'flex flex-col items-center gap-[32px]',
-                                activeIndex === 1 ? 'opacity-100' : 'opacity-0'
-                            ]">
+                            <img :src="OkearaWater12l" alt="Okeara Water 12 L" class="h-[500px]">
+                            <div class="flex flex-col items-center gap-[32px] opacity-0 fade-item">
                                 <div class="flex flex-col items-center gap-[16px]">
                                     <div class="text-[#203D4D] text-[26px] leading-[26px]">
                                         OKEARA Water
@@ -479,8 +471,10 @@ const items = ref([
         open: false,
     },
 ])
-const sliderTrack = ref(null)
+
+const sliderTrack = ref<HTMLElement | null>(null)
 const currentIndex = ref(0)
+const slidesPerView = 1
 
 const slides = [
     {
@@ -505,26 +499,34 @@ const slides = [
     }
 ]
 
-const goToSlide = (index: number) => {
-    const maxIndex = slides.length - 1
-    const clamped = Math.max(0, Math.min(index, maxIndex))
-    currentIndex.value = clamped
+const maxSlideIndex = computed(() => {
+    return slides.length - slidesPerView
+})
 
-    const percentage = -(100 * clamped)
+
+const goToSlide = (index: number) => {
+    const clampedIndex = Math.max(0, Math.min(index, maxSlideIndex.value))
+    currentIndex.value = clampedIndex
+
+    const percentage = -(100 / 4) * clampedIndex
 
     gsap.to(sliderTrack.value, {
         xPercent: percentage,
         duration: 0.6,
-        ease: 'power2.out'
+        ease: 'power1.inOut'
     })
 }
 
 const nextSlide = () => {
-    goToSlide(currentIndex.value + 1)
+    if (currentIndex.value < maxSlideIndex.value) {
+        goToSlide(currentIndex.value + 1)
+    }
 }
 
 const prevSlide = () => {
-    goToSlide(currentIndex.value - 1)
+    if (currentIndex.value > 0) {
+        goToSlide(currentIndex.value - 1)
+    }
 }
 
 
@@ -802,7 +804,7 @@ onMounted(() => {
 
 onMounted(() => {
     gsap.to(imageSafetyRef.value, {
-        y: -300,
+        y: -20,
         ease: 'none',
         scrollTrigger: {
             trigger: imageSafetyRef.value,
@@ -812,10 +814,29 @@ onMounted(() => {
         },
     })
 })
+
+const container0 = ref(null)
+const container1 = ref(null)
+
+interface FadeItemContainer extends Element {
+    querySelectorAll(selectors: string): NodeListOf<HTMLElement>;
+}
+
+const handleMouseEnter = (el: FadeItemContainer) => {
+    gsap.to(el.querySelectorAll('.fade-item'), { opacity: 1, duration: 0.5, ease: 'power2.out' })
+}
+
+const handleMouseLeave = (el: FadeItemContainer) => {
+    gsap.to(el.querySelectorAll('.fade-item'), { opacity: 0, duration: 0.5, ease: 'power2.out' })
+}
 </script>
 
 <style scoped>
 img {
     will-change: transform;
+}
+
+.transition {
+    transition: all 0.3s ease-in-out;
 }
 </style>

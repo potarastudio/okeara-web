@@ -1,188 +1,75 @@
 <!-- eslint-disable vue/first-attribute-linebreak -->
 <template>
     <div class="overflow-x-hidden">
-        <div :style="bannerStyle" class="bg-cover bg-no-repeat bg-center w-full h-[100dvh] relative"
+        <div ref="bannerRef" :style="bannerStyle" class="bg-cover bg-no-repeat bg-center w-full h-[100dvh] relative"
             style="background-position: left 50% top 22%;">
             <div class="w-full h-[50dvh] absolute left-0 bottom-0"
                 style="background: linear-gradient(0deg, #203D4D 0%, rgba(32, 61, 77, 0.00) 100%)" />
             <div
-                class="absolute left-0 bottom-[40px] md:bottom-[80px] text-[#EDF3F3] text-[96px] md:text-[144px] font-light">
-                <div class="overflow-hidden whitespace-nowrap w-full">
-                    <div ref="marquee" class="inline-block text-[96px] md:text-[144px] font-light"
-                        style="will-change: transform;letter-spacing: -2.88px ">
-                        Frequently Asked Questions • Frequently Asked Questions • Frequently Asked Questions
+                class="absolute left-0 bottom-[40px] md:bottom-[25px] text-[#EDF3F3] text-[96px] md:text-[144px] font-light">
+                <div ref="textBannerContainerRef" class="overflow-hidden w-full whitespace-nowrap">
+                    <div ref="marqueeWrapper" class="inline-flex will-change-transform">
+                        <div class="marquee-text">
+                            Frequently Asked Questions • Frequently Asked Questions • Frequently Asked Questions •
+                        </div>
+                        <div class="marquee-text">
+                            Frequently Asked Questions • Frequently Asked Questions • Frequently Asked Questions •
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
         <div class="w-full bg-[#EDF3F3] px-[24px] py-[40px] md:p-[40px] lg:px-[64px] lg:py-[100px]">
-            <div class="w-full flex items-start justify-between gap-[24px]">
-                <div class="hidden md:flex flex-col items-start gap-[22px]">
-                    <div class="text-[#203D4D] text-[18px] leading-[16px] cursor-pointer">
-                        Risus cursus duis
-                    </div>
-                    <div class="text-[#203D4D] text-[18px] leading-[16px] opacity-50 cursor-pointer">
-                        Egestas libero
-                    </div>
-                    <div class="text-[#203D4D] text-[18px] leading-[16px] opacity-50 cursor-pointer">
-                        Adipiscing Aliquam
-                    </div>
-                    <div class="text-[#203D4D] text-[18px] leading-[16px] opacity-50 cursor-pointer">
-                        Amet Viverra
-                    </div>
-                    <div class="text-[#203D4D] text-[18px] leading-[16px] opacity-50 cursor-pointer">
-                        Feugiat Pellentesque
+            <div class="faq-container w-full flex items-start justify-between gap-[24px]">
+                <div class="hidden md:block">
+                    <div class="sidebar-sticky">
+                        <div class="flex flex-col items-start gap-[22px]">
+                            <div v-for="(item, idx) in faqSections" :key="item.title"
+                                class="text-[#203D4D] text-[18px] leading-[16px] cursor-pointer transition-opacity"
+                                :style="{ opacity: activeSection === idx ? 1 : 0.5 }" @click="scrollToSection(idx)">
+                                {{ item.title }}
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="md:w-[65%]">
-                    <div class="text-[#203D4D] text-[26px] leading-[16px]">
-                        Risus cursus duis
-                    </div>
-                    <div class="w-full mt-[20px] md:mt-[40px] flex flex-col items-start">
-                        <div v-for="(item, index) in items" :key="index"
-                            class="relative flex flex-col border-b border-[#203D4D] w-full">
-                            <div class="flex items-center justify-between py-[18px] md:py-[24px] cursor-pointer gap-[16px]"
-                                @click="toggleCollapse(index)">
-                                <div class="flex items-start justify-between gap-[24px] w-full">
-                                    <div class="flex flex-col w-[90%]">
-                                        <div class="text-[#203D4D] text-[16px] md:text-[20px]">{{ item.title }}</div>
-                                        <div :id="`desc-${index}`" class="overflow-hidden"
-                                            :style="{ height: 0, opacity: 0 }">
-                                            <div
-                                                class="text-[#203D4D] text-[14px] md:text-[18px] leading-[18px] md:leading-[24px] opacity-80">
-                                                {{ item.desc }}
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="w-[10%]">
-                                        <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="#203D4D"
-                                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                            <line x1="5" y1="12" x2="19" y2="12" />
-                                            <line :id="`plus-line-${index}`" x1="12" y1="5" x2="12" y2="19" />
-                                        </svg>
-                                    </div>
-                                </div>
-                            </div>
+                    <div v-for="(item, idx) in faqSections" :key="item.title" :ref="sectionRefs[idx]" class="mb-[64px]">
+                        <div class="text-[#203D4D] text-[26px] leading-[16px]">
+                            {{ item.title }}
                         </div>
-                    </div>
-                    <div class="text-[#203D4D] text-[26px] leading-[16px] mt-[64px]">
-                        Egestas libero
-                    </div>
-                    <div class="w-full mt-[20px] md:mt-[40px] flex flex-col items-start">
-                        <div v-for="(item, index) in items2" :key="index"
-                            class="relative flex flex-col border-b border-[#203D4D] w-full">
-                            <div class="flex items-center justify-between py-[18px] md:py-[24px] cursor-pointer gap-[16px]"
-                                @click="toggleCollapseLibero(index)">
-                                <div class="flex items-start justify-between gap-[24px] w-full">
-                                    <div class="flex flex-col w-[90%]">
-                                        <div class="text-[#203D4D] text-[16px] md:text-[20px]">{{ item.title }}</div>
-                                        <div :id="`desc-libero-${index}`" class="overflow-hidden"
-                                            :style="{ height: 0, opacity: 0 }">
-                                            <div
-                                                class="text-[#203D4D] text-[14px] md:text-[18px] leading-[18px] md:leading-[24px] opacity-80">
-                                                {{ item.desc }}
+                        <div class="w-full mt-[20px] md:mt-[40px] flex flex-col items-start">
+                            <div v-for="(item, index) in idx === 0 ? items : idx === 1 ? items2 : idx === 2 ? items3 : idx === 3 ? items4 : idx === 4 ? items5 : []"
+                                :key="index" class="relative flex flex-col border-b border-[#203D4D] w-full">
+                                <div class="flex items-center justify-between py-[18px] md:py-[24px] cursor-pointer gap-[16px]"
+                                    @click="
+                                        idx === 0 ? toggleCollapse(index) :
+                                            idx === 1 ? toggleCollapseLibero(index) :
+                                                idx === 2 ? toggleCollapseAliquam(index) :
+                                                    idx === 3 ? toggleCollapseViverra(index) :
+                                                        idx === 4 ? toggleCollapsePellentesque(index) :
+                                                            console.log('test');
+                                    ">
+                                    <div class="flex items-start justify-between gap-[24px] w-full">
+                                        <div class="flex flex-col w-[90%]">
+                                            <div class="text-[#203D4D] text-[16px] md:text-[20px]">{{ item.title }}
+                                            </div>
+                                            <div :id="`desc-${idx === 1 ? 'libero-' : idx === 2 ? 'aliquam-' : idx === 3 ? 'viverra-' : idx === 3 ? 'pellentesque-' : ''}${index}`"
+                                                class="overflow-hidden" :style="{ height: 0, opacity: 0 }">
+                                                <div
+                                                    class="text-[#203D4D] text-[14px] md:text-[18px] leading-[18px] md:leading-[24px] opacity-80">
+                                                    {{ item.desc }}
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="w-[10%]">
-                                        <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="#203D4D"
-                                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                            <line x1="5" y1="12" x2="19" y2="12" />
-                                            <line :id="`plus-line-libero-${index}`" x1="12" y1="5" x2="12" y2="19" />
-                                        </svg>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="text-[#203D4D] text-[26px] leading-[16px] mt-[64px]">
-                        Adipiscing Aliquam
-                    </div>
-                    <div class="w-full mt-[20px] md:mt-[40px] flex flex-col items-start">
-                        <div v-for="(item, index) in items3" :key="index"
-                            class="relative flex flex-col border-b border-[#203D4D] w-full">
-                            <div class="flex items-center justify-between py-[18px] md:py-[24px] cursor-pointer gap-[16px]"
-                                @click="toggleCollapseAliquam(index)">
-                                <div class="flex items-start justify-between gap-[24px] w-full">
-                                    <div class="flex flex-col w-[90%]">
-                                        <div class="text-[#203D4D] text-[16px] md:text-[20px]">{{ item.title }}</div>
-                                        <div :id="`desc-aliquam-${index}`" class="overflow-hidden"
-                                            :style="{ height: 0, opacity: 0 }">
-                                            <div
-                                                class="text-[#203D4D] text-[14px] md:text-[18px] leading-[18px] md:leading-[24px] opacity-80">
-                                                {{ item.desc }}
-                                            </div>
+                                        <div class="w-[10%]">
+                                            <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="#203D4D"
+                                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                <line x1="5" y1="12" x2="19" y2="12" />
+                                                <line
+                                                    :id="`plus-line-${idx === 1 ? 'libero-' : idx === 2 ? 'aliquam-' : idx === 3 ? 'viverra-' : idx === 3 ? 'pellentesque-' : ''}${index}`"
+                                                    x1="12" y1="5" x2="12" y2="19" />
+                                            </svg>
                                         </div>
-                                    </div>
-                                    <div class="w-[10%]">
-                                        <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="#203D4D"
-                                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                            <line x1="5" y1="12" x2="19" y2="12" />
-                                            <line :id="`plus-line-aliquam-${index}`" x1="12" y1="5" x2="12" y2="19" />
-                                        </svg>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="text-[#203D4D] text-[26px] leading-[16px] mt-[64px]">
-                        Amet Viverra
-                    </div>
-                    <div class="w-full mt-[20px] md:mt-[40px] flex flex-col items-start">
-                        <div v-for="(item, index) in items4" :key="index"
-                            class="relative flex flex-col border-b border-[#203D4D] w-full">
-                            <div class="flex items-center justify-between py-[18px] md:py-[24px] cursor-pointer gap-[16px]"
-                                @click="toggleCollapseViverra(index)">
-                                <div class="flex items-start justify-between gap-[24px] w-full">
-                                    <div class="flex flex-col w-[90%]">
-                                        <div class="text-[#203D4D] text-[16px] md:text-[20px]">{{ item.title }}</div>
-                                        <div :id="`desc-viverra-${index}`" class="overflow-hidden"
-                                            :style="{ height: 0, opacity: 0 }">
-                                            <div
-                                                class="text-[#203D4D] text-[14px] md:text-[18px] leading-[18px] md:leading-[24px] opacity-80">
-                                                {{ item.desc }}
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="w-[10%]">
-                                        <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="#203D4D"
-                                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                            <line x1="5" y1="12" x2="19" y2="12" />
-                                            <line :id="`plus-line-viverra-${index}`" x1="12" y1="5" x2="12" y2="19" />
-                                        </svg>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="text-[#203D4D] text-[26px] leading-[16px] mt-[64px]">
-                        Feugiat Pellentesque
-                    </div>
-                    <div class="w-full mt-[20px] md:mt-[40px] flex flex-col items-start">
-                        <div v-for="(item, index) in items5" :key="index"
-                            class="relative flex flex-col border-b border-[#203D4D] w-full">
-                            <div class="flex items-center justify-between py-[18px] md:py-[24px] cursor-pointer gap-[16px]"
-                                @click="toggleCollapsePellentesque(index)">
-                                <div class="flex items-start justify-between gap-[24px] w-full">
-                                    <div class="flex flex-col w-[90%]">
-                                        <div class="text-[#203D4D] text-[16px] md:text-[20px]">{{ item.title }}</div>
-                                        <div :id="`desc-pellentesque-${index}`" class="overflow-hidden"
-                                            :style="{ height: 0, opacity: 0 }">
-                                            <div
-                                                class="text-[#203D4D] text-[14px] md:text-[18px] leading-[18px] md:leading-[24px] opacity-80">
-                                                {{ item.desc }}
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="w-[10%]">
-                                        <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="#203D4D"
-                                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                            <line x1="5" y1="12" x2="19" y2="12" />
-                                            <line :id="`plus-line-pellentesque-${index}`" x1="12" y1="5" x2="12"
-                                                y2="19" />
-                                        </svg>
                                     </div>
                                 </div>
                             </div>
@@ -201,15 +88,31 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
 import gsap from 'gsap'
+import ScrollTrigger from 'gsap/ScrollTrigger'
 import BannerOurWater from '@/assets/images/BannerOurWater.png'
 
 import LongevityClub from '~/page-section/LongevityClub.vue'
 
-const marquee = ref<HTMLElement | null>(null)
+gsap.registerPlugin(ScrollTrigger)
+
+const bannerRef = ref<HTMLElement | null>(null)
+const textBannerContainerRef = ref<HTMLElement | null>(null)
+const marqueeWrapper = ref<HTMLElement | null>(null)
 
 const bannerStyle = {
     backgroundImage: `url(${BannerOurWater})`,
 }
+
+const faqSections = [
+    { title: 'Risus cursus duis' },
+    { title: 'Egestas libero' },
+    { title: 'Adipiscing Aliquam' },
+    { title: 'Amet Viverra' },
+    { title: 'Feugiat Pellentesque' },
+]
+
+const activeSection = ref(0)
+const sectionRefs = faqSections.map(() => ref<HTMLElement | null>(null))
 
 const items = ref([
     {
@@ -380,6 +283,53 @@ const items5 = ref([
         open: false,
     },
 ])
+
+const handleScroll = () => {
+    const scrollY = window.scrollY
+    let found = 0
+    sectionRefs.forEach((refEl, idx) => {
+        const el = Array.isArray(refEl.value) ? refEl.value[0] : refEl.value
+        if (el && typeof el.getBoundingClientRect === 'function') {
+            const rect = el.getBoundingClientRect()
+            if (rect.top + window.scrollY - 140 <= scrollY) {
+                found = idx
+            }
+        }
+    })
+    activeSection.value = found
+}
+
+onMounted(() => {
+    window.addEventListener('scroll', handleScroll)
+})
+onUnmounted(() => {
+    window.removeEventListener('scroll', handleScroll)
+})
+
+onMounted(() => {
+    const sidebar = document.querySelector('.sidebar-sticky')
+    const container = document.querySelector('.faq-container')
+
+    ScrollTrigger.create({
+        trigger: container,
+        start: 'top top+=120',
+        end: 'bottom 10%',
+        pin: sidebar,
+        pinSpacing: false,
+        markers: false,
+        scrub: false,
+    })
+})
+
+const scrollToSection = (idx: number) => {
+    const el = sectionRefs[idx].value
+    if (el) {
+        window.scrollTo({
+            top: el.offsetTop - 100,
+            behavior: 'smooth',
+        })
+    }
+}
 
 const toggleCollapse = (index: number) => {
     const item = items.value[index]
@@ -572,16 +522,54 @@ const toggleCollapsePellentesque = (index: number) => {
 }
 
 onMounted(() => {
-    if (marquee.value) {
-        gsap.to(marquee.value, {
-            xPercent: -100,
-            repeat: -1,
-            duration: 100,
-            ease: 'linear',
-            modifiers: {
-                xPercent: gsap.utils.wrap(-100, 0),
-            },
-        })
+    gsap.fromTo(
+        bannerRef.value,
+        { scale: 1.4 },
+        {
+            scale: 1,
+            duration: 1.5,
+            ease: 'power3.out',
+        }
+    )
+
+    gsap.fromTo(
+        textBannerContainerRef.value,
+        { y: 100, opacity: 0 },
+        {
+            y: 0,
+            opacity: 1,
+            duration: 1.2,
+            ease: 'power3.out',
+            delay: 0.3,
+        }
+    )
+
+    const wrapper = marqueeWrapper.value
+    if (!wrapper) return
+
+    if (wrapper.children.length < 2) {
+        wrapper.innerHTML += wrapper.innerHTML
     }
+
+    const contentWidth = wrapper.scrollWidth / 2
+    let currentX = 0
+    let direction = 1
+
+    gsap.ticker.add(() => {
+        currentX -= 1 * direction
+        if (currentX <= -contentWidth) currentX = 0
+        if (currentX >= 0) currentX = -contentWidth
+        gsap.set(wrapper, { x: currentX })
+    })
+
+    ScrollTrigger.create({
+        trigger: bannerRef.value,
+        start: 'top top',
+        end: 'bottom top',
+        scrub: true,
+        onUpdate(self) {
+            direction = self.direction === 1 ? 1 : -1
+        },
+    })
 })
 </script>

@@ -1,16 +1,20 @@
 <!-- eslint-disable vue/first-attribute-linebreak -->
 <template>
     <div class="overflow-x-hidden">
-        <div :style="bannerStyle" class="bg-cover bg-no-repeat bg-center w-full h-[100dvh] relative"
+        <div ref="bannerRef" :style="bannerStyle" class="bg-cover bg-no-repeat bg-center w-full h-[100dvh] relative"
             style="background-position: left 30% top 22%;">
             <div class="w-full h-[50dvh] absolute left-0 bottom-0"
                 style="background: linear-gradient(0deg, #203D4D 0%, rgba(32, 61, 77, 0.00) 100%)" />
             <div
-                class="absolute left-0 bottom-[40px] md:bottom-[80px] text-[#EDF3F3] text-[96px] md:text-[144px] font-light">
-                <div class="overflow-hidden whitespace-nowrap w-full">
-                    <div ref="marquee" class="inline-block text-[96px] md:text-[144px] font-light"
-                        style="will-change: transform;letter-spacing: -2.88px ">
-                        Our Partners • Our Partners • Our Partners
+                class="absolute left-0 bottom-[40px] md:bottom-[25px] text-[#EDF3F3] text-[96px] md:text-[144px] font-light">
+                <div ref="textBannerContainerRef" class="overflow-hidden w-full whitespace-nowrap">
+                    <div ref="marqueeWrapper" class="inline-flex will-change-transform">
+                        <div class="marquee-text">
+                            Our Partners • Our Partners • Our Partners •
+                        </div>
+                        <div class="marquee-text">
+                            Our Partners • Our Partners • Our Partners •
+                        </div>
                     </div>
                 </div>
             </div>
@@ -93,8 +97,7 @@
             </div>
         </div>
         <div class="w-full bg-[#203D4D] px-[24px] py-[40px] md:p-[40px] lg:px-[64px] lg:py-[100px]">
-            <div
-                class="w-full flex flex-col md:flex-row items-start justify-between gap-[42px] md:gap-auto">
+            <div class="w-full flex flex-col md:flex-row items-start justify-between gap-[42px] md:gap-auto">
                 <div class="flex items-center gap-[10px] md:gap-[20px]">
                     <img :src="List" alt="List">
                     <div class="text-[#EDF3F3] text-[18px] leading-[24px]">
@@ -129,11 +132,11 @@
                     </div>
                 </div>
                 <div class="flex flex-col gap-[24px] lg:gap-[80px] md:w-[60%]">
-                    <div class="text-[#EDF3F3] text-[32px] md:text-[48px] font-light leading-[36px] md:leading-[58px] lg:w-[60%]">
+                    <div
+                        class="text-[#EDF3F3] text-[32px] md:text-[48px] font-light leading-[36px] md:leading-[58px] lg:w-[60%]">
                         Designing a Life of Balance, Naturally
                     </div>
-                    <div
-                        class="text-[#EDF3F3] text-[16px] md:text-[18px] leading-[26px] opacity-80 md:w-[70%]">
+                    <div class="text-[#EDF3F3] text-[16px] md:text-[18px] leading-[26px] opacity-80 md:w-[70%]">
                         ELEMENTIS Development Group is redefining luxury and wellness living by creating sustainable,
                         nature-connected communities powered by innovation. Founded by Anton Titov and Andrey
                         Skripachev, the company focuses on climate-responsive design, energy efficiency, and
@@ -155,6 +158,7 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
 import gsap from 'gsap'
+import ScrollTrigger from 'gsap/ScrollTrigger'
 import BannerOurPartners from '@/assets/images/BannerOurPartners.png'
 import PartnersCommunity from '@/assets/images/PartnersCommunity.png'
 import Partnership1 from '@/assets/images/Partnership1.png'
@@ -167,7 +171,11 @@ import List from '@/assets/icons/List.svg'
 
 import LongevityClub from '~/page-section/LongevityClub.vue'
 
-const marquee = ref<HTMLElement | null>(null)
+gsap.registerPlugin(ScrollTrigger)
+
+const bannerRef = ref<HTMLElement | null>(null)
+const textBannerContainerRef = ref<HTMLElement | null>(null)
+const marqueeWrapper = ref<HTMLElement | null>(null)
 
 const bannerStyle = {
     backgroundImage: `url(${BannerOurPartners})`,
@@ -177,16 +185,54 @@ const bannerCommunityStyle = {
 }
 
 onMounted(() => {
-    if (marquee.value) {
-        gsap.to(marquee.value, {
-            xPercent: -100,
-            repeat: -1,
-            duration: 100,
-            ease: 'linear',
-            modifiers: {
-                xPercent: gsap.utils.wrap(-100, 0),
-            },
-        })
+    gsap.fromTo(
+        bannerRef.value,
+        { scale: 1.4 },
+        {
+            scale: 1,
+            duration: 1.5,
+            ease: 'power3.out',
+        }
+    )
+
+    gsap.fromTo(
+        textBannerContainerRef.value,
+        { y: 100, opacity: 0 },
+        {
+            y: 0,
+            opacity: 1,
+            duration: 1.2,
+            ease: 'power3.out',
+            delay: 0.3,
+        }
+    )
+
+    const wrapper = marqueeWrapper.value
+    if (!wrapper) return
+
+    if (wrapper.children.length < 2) {
+        wrapper.innerHTML += wrapper.innerHTML
     }
+
+    const contentWidth = wrapper.scrollWidth / 2
+    let currentX = 0
+    let direction = 1
+
+    gsap.ticker.add(() => {
+        currentX -= 1 * direction
+        if (currentX <= -contentWidth) currentX = 0
+        if (currentX >= 0) currentX = -contentWidth
+        gsap.set(wrapper, { x: currentX })
+    })
+
+    ScrollTrigger.create({
+        trigger: bannerRef.value,
+        start: 'top top',
+        end: 'bottom top',
+        scrub: true,
+        onUpdate(self) {
+            direction = self.direction === 1 ? 1 : -1
+        },
+    })
 })
 </script>

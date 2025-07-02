@@ -48,7 +48,7 @@
                 <span class="link-text relative z-10">SHOP</span>
                 <span class="underline absolute bottom-[15px] left-0 h-[0.5px] w-full scale-x-0 origin-left" />
             </NuxtLink>
-            <NuxtLink ref="navLinks" to="/"
+            <NuxtLink ref="navLinks" to="/research"
                 class="nav-link h-[48px] flex items-center justify-center rounded-full relative" :class="isResearchActive
                     ? isTop
                         ? 'bg-[#EDF3F3] px-4 font-bold text-[#203D4D]'
@@ -127,7 +127,7 @@
                 <img :src="ArrowTopRightBlue" alt="arrowTopRight">
             </div>
         </NuxtLink>
-        <NuxtLink to="/">
+        <NuxtLink to="/research">
             <div class="w-full flex items-center justify-between pb-[16px] border-b border-[#203D4D] uppercase">
                 <div class="text-[#203D4D] text-[20px]">Research</div>
                 <img :src="ArrowTopRightBlue" alt="arrowTopRight">
