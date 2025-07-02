@@ -21,10 +21,18 @@ html {
 body {
     font-family: 'BasisGrotesqueArabicPro', sans-serif;
     color: #EDF3F3;
-    overflow-x: hidden;
     scrollbar-width: none;
 }
 
 body::-webkit-scrollbar {
     display: none;
+}
+
+.marquee-text {
+    display: inline-block;
+    padding-right: 4rem;
+    white-space: nowrap;
+    font-weight: 300;
+    font-size: inherit;
+    letter-spacing: -2.88px;
 }

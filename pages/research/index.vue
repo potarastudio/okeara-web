@@ -64,7 +64,8 @@
             </div>
             <div class="w-full flex flex-col items-start gap-[24px] lg:gap-[80px]">
                 <div class="w-full flex flex-col lg:flex-row items-start justify-center gap-[24px] lg:gap-[40px]">
-                    <div class="bg-[#E4EDED] lg:w-[50%] p-[20px] md:p-[40px] flex items-stretch gap-[20px]">
+                    <div ref="research1Ref"
+                        class="bg-[#E4EDED] lg:w-[50%] p-[20px] md:p-[40px] flex items-stretch gap-[20px]">
                         <img :src="Research1" alt="Research1" class="w-[25%] md:w-[35%]">
                         <div class="flex flex-col items-start gap-[12px] md:gap-[24px]">
                             <div class="flex items-center gap-[8px]">
@@ -76,7 +77,8 @@
                                         12,</span> 2023</div>
                             </div>
                             <div class="flex flex-col items-start gap-[12px]">
-                                <div class="text-[#203D4D] text-[16px] md:text-[26px] leading-[120%] md:leading-[100%] line-clamp-2">
+                                <div
+                                    class="text-[#203D4D] text-[16px] md:text-[26px] leading-[120%] md:leading-[100%] line-clamp-2">
                                     Hydrogen’s Antioxidant Properties
                                 </div>
                                 <div
@@ -94,7 +96,8 @@
                             </div>
                         </div>
                     </div>
-                    <div class="bg-[#E4EDED] lg:w-[50%] p-[20px] md:p-[40px] flex items-stretch gap-[20px]">
+                    <div ref="research2Ref"
+                        class="bg-[#E4EDED] lg:w-[50%] p-[20px] md:p-[40px] flex items-stretch gap-[20px]">
                         <img :src="Research2" alt="Research2" class="w-[25%] md:w-[35%]">
                         <div class="flex flex-col items-start gap-[12px] md:gap-[24px]">
                             <div class="flex items-center gap-[8px]">
@@ -106,7 +109,8 @@
                                         25,</span> 2023</div>
                             </div>
                             <div class="flex flex-col items-start gap-[12px]">
-                                <div class="text-[#203D4D] text-[16px] md:text-[26px] leading-[120%] md:leading-[100%] line-clamp-2">
+                                <div
+                                    class="text-[#203D4D] text-[16px] md:text-[26px] leading-[120%] md:leading-[100%] line-clamp-2">
                                     Structured Water for Better Absorption
                                 </div>
                                 <div
@@ -127,7 +131,8 @@
                     </div>
                 </div>
                 <div class="w-full flex flex-col lg:flex-row items-start justify-center gap-[24px] lg:gap-[40px]">
-                    <div class="bg-[#E4EDED] lg:w-[50%] p-[20px] md:p-[40px] flex items-stretch gap-[20px]">
+                    <div ref="research3Ref"
+                        class="bg-[#E4EDED] lg:w-[50%] p-[20px] md:p-[40px] flex items-stretch gap-[20px]">
                         <img :src="Research3" alt="Research3" class="w-[25%] md:w-[35%]">
                         <div class="flex flex-col items-start gap-[12px] md:gap-[24px]">
                             <div class="flex items-center gap-[8px]">
@@ -139,7 +144,8 @@
                                         21,</span> 2021</div>
                             </div>
                             <div class="flex flex-col items-start gap-[12px]">
-                                <div class="text-[#203D4D] text-[16px] md:text-[26px] leading-[120%] md:leading-[100%] line-clamp-2">
+                                <div
+                                    class="text-[#203D4D] text-[16px] md:text-[26px] leading-[120%] md:leading-[100%] line-clamp-2">
                                     Hydrogen and Inflammation
                                 </div>
                                 <div
@@ -159,7 +165,8 @@
                             </div>
                         </div>
                     </div>
-                    <div class="bg-[#E4EDED] lg:w-[50%] p-[20px] md:p-[40px] flex items-stretch gap-[20px]">
+                    <div ref="research4Ref"
+                        class="bg-[#E4EDED] lg:w-[50%] p-[20px] md:p-[40px] flex items-stretch gap-[20px]">
                         <img :src="Research4" alt="Research4" class="w-[25%] md:w-[35%]">
                         <div class="flex flex-col items-start gap-[12px] md:gap-[24px]">
                             <div class="flex items-center gap-[8px]">
@@ -171,7 +178,8 @@
                                         07,</span> 2024</div>
                             </div>
                             <div class="flex flex-col items-start gap-[12px]">
-                                <div class="text-[#203D4D] text-[16px] md:text-[26px] leading-[120%] md:leading-[100%] line-clamp-2">
+                                <div
+                                    class="text-[#203D4D] text-[16px] md:text-[26px] leading-[120%] md:leading-[100%] line-clamp-2">
                                     Hydrogen Water and Athletic Performance
                                 </div>
                                 <div
@@ -190,7 +198,8 @@
                     </div>
                 </div>
                 <div class="w-full flex flex-col lg:flex-row items-start justify-center gap-[24px] lg:gap-[40px]">
-                    <div class="bg-[#E4EDED] lg:w-[50%] p-[20px] md:p-[40px] flex items-stretch gap-[20px]">
+                    <div ref="research5Ref"
+                        class="bg-[#E4EDED] lg:w-[50%] p-[20px] md:p-[40px] flex items-stretch gap-[20px]">
                         <img :src="Research5" alt="Research5" class="w-[25%] md:w-[35%]">
                         <div class="flex flex-col items-start gap-[12px] md:gap-[24px]">
                             <div class="flex items-center gap-[8px]">
@@ -202,7 +211,8 @@
                                         01,</span> 2019</div>
                             </div>
                             <div class="flex flex-col items-start gap-[12px]">
-                                <div class="text-[#203D4D] text-[16px] md:text-[26px] leading-[120%] md:leading-[100%] line-clamp-2">
+                                <div
+                                    class="text-[#203D4D] text-[16px] md:text-[26px] leading-[120%] md:leading-[100%] line-clamp-2">
                                     Hydrogen Water Reduces Fatigue and Boosts Endurance During Exercise
                                 </div>
                                 <div
@@ -221,7 +231,8 @@
                             </div>
                         </div>
                     </div>
-                    <div class="bg-[#E4EDED] lg:w-[50%] p-[20px] md:p-[40px] flex items-stretch gap-[20px]">
+                    <div ref="research6Ref"
+                        class="bg-[#E4EDED] lg:w-[50%] p-[20px] md:p-[40px] flex items-stretch gap-[20px]">
                         <img :src="Research6" alt="Research6" class="w-[25%] md:w-[35%]">
                         <div class="flex flex-col items-start gap-[12px] md:gap-[24px]">
                             <div class="flex items-center gap-[8px]">
@@ -233,7 +244,8 @@
                                         25,</span> 2023</div>
                             </div>
                             <div class="flex flex-col items-start gap-[12px]">
-                                <div class="text-[#203D4D] text-[16px] md:text-[26px] leading-[120%] md:leading-[100%] line-clamp-2">
+                                <div
+                                    class="text-[#203D4D] text-[16px] md:text-[26px] leading-[120%] md:leading-[100%] line-clamp-2">
                                     The Consciousness of Water: Insights from Masaru Emoto’s Research
                                 </div>
                                 <div
@@ -285,7 +297,12 @@ gsap.registerPlugin(ScrollTrigger)
 
 const bannerRef = ref<HTMLElement | null>(null)
 const textContainerRef = ref<HTMLElement | null>(null)
-
+const research1Ref = ref<HTMLElement | null>(null)
+const research2Ref = ref<HTMLElement | null>(null)
+const research3Ref = ref<HTMLElement | null>(null)
+const research4Ref = ref<HTMLElement | null>(null)
+const research5Ref = ref<HTMLElement | null>(null)
+const research6Ref = ref<HTMLElement | null>(null)
 
 const bannerStyle = {
     backgroundImage: `url(${Banner})`
@@ -313,6 +330,92 @@ onMounted(() => {
             delay: 0.3,
         }
     )
+})
+
+onMounted(() => {
+    if (research1Ref.value) {
+        gsap.from(research1Ref.value, {
+            y: 60,
+            opacity: 0,
+            duration: 1,
+            ease: 'power3.out',
+            scrollTrigger: {
+                trigger: research1Ref.value,
+                start: 'top 80%',
+                toggleActions: 'play none none reset',
+            },
+        })
+    }
+
+    if (research2Ref.value) {
+        gsap.from(research2Ref.value, {
+            y: 60,
+            opacity: 0,
+            duration: 1,
+            ease: 'power3.out',
+            scrollTrigger: {
+                trigger: research2Ref.value,
+                start: 'top 80%',
+                toggleActions: 'play none none reset',
+            },
+        })
+    }
+
+    if (research3Ref.value) {
+        gsap.from(research3Ref.value, {
+            y: 60,
+            opacity: 0,
+            duration: 1,
+            ease: 'power3.out',
+            scrollTrigger: {
+                trigger: research3Ref.value,
+                start: 'top 80%',
+                toggleActions: 'play none none reset',
+            },
+        })
+    }
+
+    if (research4Ref.value) {
+        gsap.from(research4Ref.value, {
+            y: 60,
+            opacity: 0,
+            duration: 1,
+            ease: 'power3.out',
+            scrollTrigger: {
+                trigger: research4Ref.value,
+                start: 'top 80%',
+                toggleActions: 'play none none reset',
+            },
+        })
+    }
+
+    if (research5Ref.value) {
+        gsap.from(research5Ref.value, {
+            y: 60,
+            opacity: 0,
+            duration: 1,
+            ease: 'power3.out',
+            scrollTrigger: {
+                trigger: research5Ref.value,
+                start: 'top 80%',
+                toggleActions: 'play none none reset',
+            },
+        })
+    }
+
+    if (research6Ref.value) {
+        gsap.from(research6Ref.value, {
+            y: 60,
+            opacity: 0,
+            duration: 1,
+            ease: 'power3.out',
+            scrollTrigger: {
+                trigger: research6Ref.value,
+                start: 'top 80%',
+                toggleActions: 'play none none reset',
+            },
+        })
+    }
 })
 </script>
 
