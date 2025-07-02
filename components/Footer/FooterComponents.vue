@@ -97,7 +97,6 @@
 import { onMounted } from 'vue'
 import gsap from 'gsap'
 
-// Import your assets (replace with your real path)
 import Logo from '@/assets/images/logo.svg'
 import ArrowTopRight from '@/assets/icons/ArrowTopRight.svg'
 import Instagram from '@/assets/icons/Instagram.svg'
