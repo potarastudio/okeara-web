@@ -1,7 +1,7 @@
 <!-- eslint-disable vue/html-self-closing -->
 <!-- eslint-disable vue/first-attribute-linebreak -->
 <template>
-    <div>
+    <div class="overflow-x-hidden">
         <div ref="bannerRef" :style="bannerStyle" class="bg-cover bg-no-repeat w-full h-[100dvh] relative"
             style="background-position: left 50% top 22%;">
             <div class="absolute top-0 left-0 w-full h-[100dvh] pointer-events-none"
@@ -114,39 +114,33 @@
                 </div>
             </div>
             <div class="relative">
-                <div class="w-full overflow-hidden">
-                    <div ref="sliderTrack"
-                        class="flex gap-[72px] mt-[40px] md:mt-[100px] transition-transform duration-100 ease-in-out">
-                        <div v-for="(item, index) in slides" :key="index"
-                            class="w-[100%] md:w-[25%] flex-shrink-0 flex flex-col gap-[24px]">
-                            <img :src="item.image" :alt="item.title" class="w-[20%]" />
-                            <div class="text-[#203D4D] text-[26px] leading-[36px]" v-html="item.title" />
-                            <div class="text-[#203D4D] text-[18px] leading-[24px] opacity-50 line-clamp-2">
-                                {{ item.description }}
-                            </div>
-                            <div class="flex items-center gap-[8px] cursor-pointer">
-                                <div class="w-[8px] h-[8px] rounded-full border border-[#203D4D]" />
-                                <div class="pb-[2px] border-b border-[#203D4D] text-[#203D4D]">Read More</div>
-                            </div>
+                <div ref="sliderTrack" class="flex gap-[72px] mt-[40px] md:mt-[100px] scroll-smooth overflow-hidden">
+                    <div v-for="(item, index) in slides" :key="index"
+                        class="w-[100%] md:w-[21%] flex-shrink-0 flex flex-col gap-[24px]">
+                        <img :src="item.image" :alt="item.title" class="w-[20%]" />
+                        <div class="text-[#203D4D] text-[26px] leading-[36px]" v-html="item.title" />
+                        <div class="text-[#203D4D] text-[18px] leading-[24px] opacity-50 line-clamp-2">
+                            {{ item.description }}
+                        </div>
+                        <div class="flex items-center gap-[8px] cursor-pointer">
+                            <div class="w-[8px] h-[8px] rounded-full border border-[#203D4D]" />
+                            <div class="pb-[2px] border-b border-[#203D4D] text-[#203D4D]">Read More</div>
                         </div>
                     </div>
                 </div>
 
                 <div class="w-full flex items-center gap-[32px] mt-[40px] md:mt-[100px]">
                     <div class="w-full md:w-[90%] flex items-center md:gap-[32px]">
-                        <hr v-for="(item, index) in slides" :key="'indicator-' + index" :class="[
-                            'w-[20%] border',
+                        <hr v-for="(item, index) in [0, 1, 2]" :key="'indicator-' + index" :class="[
+                            'w-[33%] border',
                             currentIndex === index ? 'border-[#203D4D]' : 'border-[#C4CFD2]'
                         ]" />
                     </div>
                     <div class="hidden md:flex items-center gap-[32px] w-[10%]">
-                        <img :src="ArrowLeft" alt="Arrow Left"
-                            class="cursor-pointer opacity-50 hover:opacity-100 transition"
+                        <img :src="ArrowLeft" alt="Arrow Left" class="cursor-pointer transition"
                             :class="{ 'pointer-events-none opacity-20': currentIndex === 0 }" @click="prevSlide" />
-                        <img :src="ArrowRight" alt="Arrow Right"
-                            class="cursor-pointer opacity-50 hover:opacity-100 transition"
-                            :class="{ 'pointer-events-none opacity-20': currentIndex >= maxSlideIndex }"
-                            @click="nextSlide" />
+                        <img :src="ArrowRight" alt="Arrow Right" class="cursor-pointer transition"
+                            :class="{ 'pointer-events-none opacity-20': currentIndex === 2 }" @click="nextSlide" />
                     </div>
                 </div>
             </div>
@@ -187,10 +181,12 @@
                     </div>
                 </div>
                 <div class="flex flex-col gap-[20px] md:gap-[60px] md:w-[35%]">
-                    <div class="text-[#203D4D] text-[32px] md:text-[48px] font-light leading-[36px] md:leading-[58px]">
+                    <div ref="titleProductRef"
+                        class="text-[#203D4D] text-[32px] md:text-[48px] font-light leading-[36px] md:leading-[58px]">
                         Great Product to Elevate Your Wellness
                     </div>
-                    <div class="text-[#203D4D] text-[16px] md:text-[18px] leading-[26px] opacity-77">
+                    <div ref="paragraphProductRef"
+                        class="text-[#203D4D] text-[16px] md:text-[18px] leading-[26px] opacity-77">
                         Introducing Okeara Structured Hydrogen Water, revolutionary approach to hydration, powered by
                         nature and perfected by science. Okeara isn’t just water it’s a wellness experience
                     </div>
@@ -378,7 +374,7 @@
             class="w-full bg-[#274A5C] flex flex-col md:flex-row items-stretch justify-between gap-[12px] px-[24px] py-[40px] md:p-[40px] lg:px-[180px] lg:py-[120px]">
             <div class="flex flex-col gap-[40px] gap-[150px] w-full md:w-[50%]">
                 <img :src="Community1" alt="Community 1" class="w-full order-2 md:order-1">
-                <div
+                <div ref="titleCommitmentRef"
                     class="text-[#EDF3F3] text-[32px] text-[48px] font-light leading-[36px] leading-[58px] order-1 md:order-2 md:mb-[275px]">
                     Our <br> Commitment
                 </div>
@@ -386,7 +382,7 @@
             <div
                 class="flex flex-col items-start justify-between gap-[40px] md:gap-auto w-full md:w-[40%] md:pt-[60px] md:pb-[100px]">
                 <img :src="Community2" alt="Community 2" class="w-full">
-                <div
+                <div ref="paragraphCommitmentRef"
                     class="text-[#EDF3F3] text-[16px] md:text-[18px] leading-[26px] md:w-[90%] opacity-77 mt-[40px] md:mt-[120px]">
                     OKEARA's commitment to sustainable packaging and environmental protection is evident in our use of
                     advanced, health-conscious, and reusable containers. By choosing OKEARA, you are supporting a
@@ -402,7 +398,6 @@
 import { ref, onMounted } from 'vue'
 import type { ComponentPublicInstance } from 'vue'
 import gsap from 'gsap'
-import ScrollTrigger from 'gsap/ScrollTrigger'
 import Banner from '@/assets/images/BannerHome.png';
 import OurWater from '@/assets/images/OurWater.png';
 import BgSafety from '@/assets/images/BgSafety.png';
@@ -425,14 +420,22 @@ import ListBlack from '@/assets/icons/ListBlack.svg';
 import Hydration from '@/assets/icons/Hydration.svg';
 import Natural from '@/assets/icons/Natural.svg';
 import Immune from '@/assets/icons/Immune.svg';
+import Aging from '@/assets/icons/Aging.svg';
 import Microplastic from '@/assets/icons/Microplastic.svg';
+import Recovery from '@/assets/icons/Recovery.svg';
 import Dollar from '@/assets/icons/Dollar.svg';
 import CartBlue from '@/assets/icons/CartBlue.svg';
 import ArrowLeft from '@/assets/icons/ArrowLeft.svg';
 import ArrowRight from '@/assets/icons/ArrowRight.svg';
 import Collapse from '@/assets/icons/collapse.svg';
 
-gsap.registerPlugin(ScrollTrigger)
+onMounted(async () => {
+    if (import.meta.client) {
+        const gsapModule = await import('gsap')
+        const ScrollTrigger = (await import('gsap/ScrollTrigger')).default
+        gsapModule.gsap.registerPlugin(ScrollTrigger)
+    }
+})
 
 const bannerRef = ref<HTMLElement | null>(null)
 const textContainerRef = ref<HTMLElement | null>(null)
@@ -450,6 +453,12 @@ const titleSafetyRef = ref<HTMLElement | null>(null)
 const paragraphSafetyRef = ref<HTMLElement | null>(null)
 
 const imageSafetyRef = ref<HTMLElement | null>(null)
+
+const titleProductRef = ref<HTMLElement | null>(null)
+const paragraphProductRef = ref<HTMLElement | null>(null)
+
+const titleCommitmentRef = ref<HTMLElement | null>(null)
+const paragraphCommitmentRef = ref<HTMLElement | null>(null)
 
 const activeIndex = ref(0)
 const optionRefs = ref<(Element | ComponentPublicInstance | null)[]>([])
@@ -474,7 +483,6 @@ const items = ref([
 
 const sliderTrack = ref<HTMLElement | null>(null)
 const currentIndex = ref(0)
-const slidesPerView = 1
 
 const slides = [
     {
@@ -493,39 +501,37 @@ const slides = [
         description: 'Supercharges your immune system for optimal health'
     },
     {
+        image: Aging,
+        title: 'Anti <br> Aging',
+        description: 'Protects cells from oxidative stress, promoting overall health.'
+    },
+    {
         image: Microplastic,
         title: 'No <br> Microplastics',
         description: 'Proven by independent laboratories, 100% free of microplastic.'
+    },
+    {
+        image: Recovery,
+        title: 'Enhanced <br> Recovery',
+        description: 'Aids in faster recovery for athletes and active lifestyles.'
     }
 ]
 
-const maxSlideIndex = computed(() => {
-    return slides.length - slidesPerView
-})
-
-
-const goToSlide = (index: number) => {
-    const clampedIndex = Math.max(0, Math.min(index, maxSlideIndex.value))
-    currentIndex.value = clampedIndex
-
-    const percentage = -(100 / 4) * clampedIndex
-
-    gsap.to(sliderTrack.value, {
-        xPercent: percentage,
-        duration: 0.6,
-        ease: 'power1.inOut'
-    })
-}
-
 const nextSlide = () => {
-    if (currentIndex.value < maxSlideIndex.value) {
-        goToSlide(currentIndex.value + 1)
+    currentIndex.value = currentIndex.value + 1
+    const el = sliderTrack.value
+    if (el) {
+        const scrollAmount = el.offsetWidth * 0.26
+        el.scrollBy({ left: scrollAmount, behavior: 'smooth' })
     }
 }
 
 const prevSlide = () => {
-    if (currentIndex.value > 0) {
-        goToSlide(currentIndex.value - 1)
+    currentIndex.value = currentIndex.value - 1
+    const el = sliderTrack.value
+    if (el) {
+        const scrollAmount = el.offsetWidth * 0.26
+        el.scrollBy({ left: -scrollAmount, behavior: 'smooth' })
     }
 }
 
@@ -794,6 +800,100 @@ onMounted(() => {
             ease: 'power2.out',
             scrollTrigger: {
                 trigger: paragraphSafetyRef.value,
+                start: 'top 80%',
+                end: 'bottom top',
+                toggleActions: 'play reverse play reverse',
+            },
+        }
+    )
+})
+
+onMounted(() => {
+    if (titleProductRef.value) {
+        const lines = titleProductRef.value.innerHTML.split('<br>')
+        titleProductRef.value.innerHTML = ''
+
+        lines.forEach((line, i) => {
+            const span = document.createElement('span')
+            span.innerHTML = line
+            span.style.display = 'block'
+            span.style.opacity = '0'
+            span.style.transform = 'translateY(30px)'
+            titleProductRef.value?.appendChild(span)
+
+            gsap.to(span, {
+                opacity: 1,
+                y: 0,
+                duration: 0.6,
+                delay: i * 0.15,
+                ease: 'power2.out',
+                scrollTrigger: {
+                    trigger: titleProductRef.value,
+                    start: 'top 80%',
+                    end: 'bottom top',
+                    toggleActions: 'play reverse play reverse',
+                },
+            })
+        })
+    }
+
+    gsap.fromTo(
+        paragraphProductRef.value,
+        { opacity: 0, y: 30 },
+        {
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            ease: 'power2.out',
+            scrollTrigger: {
+                trigger: paragraphProductRef.value,
+                start: 'top 80%',
+                end: 'bottom top',
+                toggleActions: 'play reverse play reverse',
+            },
+        }
+    )
+})
+
+onMounted(() => {
+    if (titleCommitmentRef.value) {
+        const lines = titleCommitmentRef.value.innerHTML.split('<br>')
+        titleCommitmentRef.value.innerHTML = ''
+
+        lines.forEach((line, i) => {
+            const span = document.createElement('span')
+            span.innerHTML = line
+            span.style.display = 'block'
+            span.style.opacity = '0'
+            span.style.transform = 'translateY(30px)'
+            titleCommitmentRef.value?.appendChild(span)
+
+            gsap.to(span, {
+                opacity: 1,
+                y: 0,
+                duration: 0.6,
+                delay: i * 0.15,
+                ease: 'power2.out',
+                scrollTrigger: {
+                    trigger: titleCommitmentRef.value,
+                    start: 'top 80%',
+                    end: 'bottom top',
+                    toggleActions: 'play reverse play reverse',
+                },
+            })
+        })
+    }
+
+    gsap.fromTo(
+        paragraphCommitmentRef.value,
+        { opacity: 0, y: 30 },
+        {
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            ease: 'power2.out',
+            scrollTrigger: {
+                trigger: paragraphCommitmentRef.value,
                 start: 'top 80%',
                 end: 'bottom top',
                 toggleActions: 'play reverse play reverse',

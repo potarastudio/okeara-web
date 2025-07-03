@@ -1,6 +1,6 @@
 <!-- eslint-disable vue/first-attribute-linebreak -->
 <template>
-    <div>
+    <div class="overflow-x-hidden">
         <div ref="bannerRef" :style="bannerStyle" class="bg-cover bg-no-repeat w-full h-[100dvh] relative z-10"
             style="background-position: left 50% top 22%;">
             <div class="absolute top-0 left-0 w-full h-[100dvh] pointer-events-none"
@@ -273,7 +273,6 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
 import gsap from 'gsap'
-import ScrollTrigger from 'gsap/ScrollTrigger'
 import Banner from '@/assets/images/BannerResearch.png';
 import Research1 from '@/assets/images/Research1.png';
 import Research2 from '@/assets/images/Research2.png';
@@ -293,7 +292,14 @@ import ArrowRight from "@/assets/icons/ArrowRightWhite.svg";
 import BgWave from '@/assets/images/WaveVertical.svg'
 import ListBlack from '@/assets/icons/ListBlack.svg';
 
-gsap.registerPlugin(ScrollTrigger)
+onMounted(async () => {
+    if (import.meta.client) {
+        const gsapModule = await import('gsap')
+        const ScrollTrigger = (await import('gsap/ScrollTrigger')).default
+        gsapModule.gsap.registerPlugin(ScrollTrigger)
+    }
+})
+
 
 const bannerRef = ref<HTMLElement | null>(null)
 const textContainerRef = ref<HTMLElement | null>(null)

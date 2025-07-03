@@ -30,7 +30,7 @@
                     </div>
                 </div>
                 <div class="md:w-[60%]">
-                    <div
+                    <div ref="titleWaterRef"
                         class="text-[#EDF3F3] text-[32px] md:text-[48px] font-light leading-[36px] md:leading-[58px] font-light lg:w-[75%]">
                         Our Longevity Club is dedicated to living our best lives, focusing on health and happiness
                         together, and making each day special.
@@ -39,15 +39,18 @@
             </div>
         </div>
         <div class="w-full bg-[#203D4D] px-[24px] pb-[40px] md:p-[40px] lg:px-[64px] lg:pb-[100px]">
-            <div class="w-full flex items-start gap-[28px] flex-nowrap">
-                <div class="w-[35%] h-[20%]">
+            <div ref="carousel" class="flex items-start scroll-smooth gap-[28px] overflow-hidden">
+                <div class="w-[35%] h-[20%] flex-shrink-0 flex flex-col">
                     <img :src="OurCommunity1" alt="OurCommunity1" class="w-full h-full object-cover">
                 </div>
-                <div class="w-[50%] ">
+                <div class="w-[50%] flex-shrink-0 flex flex-col">
                     <img :src="OurCommunity2" alt="OurCommunity2" class="w-full h-full object-cover">
                 </div>
-                <div class="hidden md:inline-block w-[35%] h-[20%]">
-                    <img :src="OurCommunity3" alt="OurCommunity3" class="w-full h-full object-cover">
+                <div class="w-[35%] h-[20%] flex-shrink-0 flex flex-col">
+                    <img :src="OurCommunity1" alt="OurCommunity1" class="w-full h-full object-cover">
+                </div>
+                <div class="w-[50%] flex-shrink-0 flex flex-col">
+                    <img :src="OurCommunity2" alt="OurCommunity2" class="w-full h-full object-cover">
                 </div>
             </div>
             <div class="w-full flex items-start mt-[52px] md:mt-[100px]">
@@ -55,28 +58,32 @@
                 <div class="md:w-[60%] flex flex-col gap-[52px] md:gap-[80px]">
                     <div class="hidden md:flex items-center">
                         <div class="w-[85%] flex">
-                            <hr class="w-[50%] border border-[#EDF3F3]">
-                            <hr class="w-[50%] border border-[#EDF3F3] opacity-20">
+                            <hr class="w-[50%] border border-[#EDF3F3]" :class="{ 'opacity-20': carouselIndex === 1 }">
+                            <hr class="w-[50%] border border-[#EDF3F3]" :class="{ 'opacity-20': carouselIndex === 0 }">
                         </div>
                         <div class="flex items-center gap-[40px] pl-[24px]">
-                            <img :src="ArrowLeftWhite" alt="ArrowLeftWhite" class="cursor-pointer">
-                            <img :src="ArrowRightWhite" alt="ArrowRightWhite" class="cursor-pointer">
+                            <img :src="ArrowLeftWhite" alt="ArrowLeftWhite" class="cursor-pointer transition"
+                                :class="{ 'pointer-events-none opacity-20': carouselIndex === 0 }" @click="scrollLeft">
+                            <img :src="ArrowRightWhite" alt="ArrowRightWhite" class="cursor-pointer transition"
+                                :class="{ 'pointer-events-none opacity-20': carouselIndex === 1 }" @click="scrollRight">
                         </div>
 
                     </div>
-                    <div
+                    <div ref="titlePartnersRef"
                         class="lg:w-[70%] text-[#EDF3F3] text-[32px] md:text-[48px] font-light leading-[36px] md:leading-[58px]">
                         Our partners, business associates, and health advocates share our vision and help make OKEARA
                         Community stronger.
                     </div>
-                    <div class="w-[90%] ml-[10%] md:ml-0 md:w-full flex flex-col md:flex-row items-start gap-[50px]">
+                    <div ref="paragraphPartnersLeftRef"
+                        class="w-[90%] ml-[10%] md:ml-0 md:w-full flex flex-col md:flex-row items-start gap-[50px]">
                         <div class="text-[#EDF3F3] text-[16px] md:text-[18px] leading-[24px] opacity-80">
                             Their skills and resources enhance our experience, creating a lively place where health and
                             wellness enthusiasts can thrive. Our partnerships are founded on shared values and goals.
                             Health
                             advocates inspire us with their passion and knowledge about well-being.
                         </div>
-                        <div class="text-[#EDF3F3] text-[16px] md:text-[18px] leading-[24px] opacity-80">
+                        <div ref="paragraphPartnersRightRef"
+                            class="text-[#EDF3F3] text-[16px] md:text-[18px] leading-[24px] opacity-80">
                             Our business associates bring new ideas and products that fit into our personalized
                             approach,
                             helping us grow and improve continuously. Together, we build a strong, supportive, and
@@ -92,7 +99,7 @@
             class="w-full bg-[#EDF3F3] flex flex-col md:flex-row items-stretch justify-between gap-[12px] px-[24px] py-[40px] md:p-[40px] lg:px-[180px] lg:py-[120px]">
             <div class="flex flex-col gap-[40px] gap-[150px] w-full md:w-[50%]">
                 <img :src="CommunityStructured1" alt="CommunityStructured1" class="w-full order-2 md:order-1">
-                <div
+                <div ref="titleStructuredRef"
                     class="text-[#274A5C] text-[32px] text-[48px] font-light leading-[36px] leading-[58px] order-1 md:order-2 md:mb-[275px]">
                     OKEARA structured hydrogen water shows our commitment to Wellness and Community.
                 </div>
@@ -100,7 +107,7 @@
             <div
                 class="flex flex-col items-start justify-between gap-[40px] md:gap-auto w-full md:w-[40%] md:pt-[60px] md:pb-[100px]">
                 <img :src="CommunityStructured2" alt="CommunityStructured2" class="w-full">
-                <div
+                <div ref="paragraphStructuredRef"
                     class="text-[#274A5C] text-[16px] md:text-[18px] leading-[26px] md:w-[90%] opacity-77 mt-[40px] md:mt-[120px]">
                     We enjoy every moment, celebrate our successes, and support each other to achieve optimal health. We
                     welcome you to OKEARA community, where we live life to its fullest and use structured hydrogen water
@@ -114,11 +121,9 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
 import gsap from 'gsap'
-import ScrollTrigger from 'gsap/ScrollTrigger'
 import BannerOurCommunity from '@/assets/images/BannerOurCommunity.png'
 import OurCommunity1 from '@/assets/images/ourcommunity-1.png'
 import OurCommunity2 from '@/assets/images/ourcommunity-3.png'
-import OurCommunity3 from '@/assets/images/ourcommunity-2.png'
 import OurCommunityBlock from '@/assets/images/OurCommunityBlock.png'
 import CommunityStructured1 from '@/assets/images/CommunityStructured1.png'
 import CommunityStructured2 from '@/assets/images/CommunityStructured2.png'
@@ -128,11 +133,24 @@ import ArrowRightWhite from '@/assets/icons/ArrowRightWhite.svg'
 
 import LongevityClub from '~/page-section/LongevityClub.vue'
 
-gsap.registerPlugin(ScrollTrigger)
+onMounted(async () => {
+    if (import.meta.client) {
+        const gsapModule = await import('gsap')
+        const ScrollTrigger = (await import('gsap/ScrollTrigger')).default
+        gsapModule.gsap.registerPlugin(ScrollTrigger)
+    }
+})
 
 const bannerRef = ref<HTMLElement | null>(null)
 const textBannerContainerRef = ref<HTMLElement | null>(null)
 const marqueeWrapper = ref<HTMLElement | null>(null)
+const titleWaterRef = ref<HTMLElement | null>(null)
+const titlePartnersRef = ref<HTMLElement | null>(null)
+const paragraphPartnersLeftRef = ref<HTMLElement | null>(null)
+const paragraphPartnersRightRef = ref<HTMLElement | null>(null)
+const titleStructuredRef = ref<HTMLElement | null>(null)
+const paragraphStructuredRef = ref<HTMLElement | null>(null)
+const carousel = ref<HTMLDivElement | null>(null)
 
 const bannerStyle = {
     backgroundImage: `url(${BannerOurCommunity})`,
@@ -141,6 +159,27 @@ const bannerStyle = {
 const sectionBlcokStyle = {
     backgroundImage: `url(${OurCommunityBlock})`,
 }
+
+const carouselIndex = ref(0)
+
+function scrollLeft() {
+    carouselIndex.value = carouselIndex.value - 1
+    const el = carousel.value
+    if (el) {
+        const scrollAmount = el.offsetWidth * 0.85
+        el.scrollBy({ left: -scrollAmount, behavior: 'smooth' })
+    }
+}
+
+function scrollRight() {
+    carouselIndex.value = carouselIndex.value + 1
+    const el = carousel.value
+    if (el) {
+        const scrollAmount = el.offsetWidth * 0.85
+        el.scrollBy({ left: scrollAmount, behavior: 'smooth' })
+    }
+}
+
 
 onMounted(() => {
     gsap.fromTo(
@@ -192,5 +231,146 @@ onMounted(() => {
             direction = self.direction === 1 ? 1 : -1
         },
     })
+})
+
+onMounted(() => {
+    if (titleWaterRef.value) {
+        const lines = titleWaterRef.value.innerHTML.split('<br>')
+        titleWaterRef.value.innerHTML = ''
+
+        lines.forEach((line, i) => {
+            const span = document.createElement('span')
+            span.innerHTML = line
+            span.style.display = 'block'
+            span.style.opacity = '0'
+            span.style.transform = 'translateY(30px)'
+            titleWaterRef.value?.appendChild(span)
+
+            gsap.to(span, {
+                opacity: 1,
+                y: 0,
+                duration: 0.6,
+                delay: i * 0.15,
+                ease: 'power2.out',
+                scrollTrigger: {
+                    trigger: titleWaterRef.value,
+                    start: 'top 80%',
+                    end: 'bottom top',
+                    toggleActions: 'play reverse play reverse',
+                },
+            })
+        })
+    }
+})
+
+onMounted(() => {
+    if (titlePartnersRef.value) {
+        const lines = titlePartnersRef.value.innerHTML.split('<br>')
+        titlePartnersRef.value.innerHTML = ''
+
+        lines.forEach((line, i) => {
+            const span = document.createElement('span')
+            span.innerHTML = line
+            span.style.display = 'block'
+            span.style.opacity = '0'
+            span.style.transform = 'translateY(30px)'
+            titlePartnersRef.value?.appendChild(span)
+
+            gsap.to(span, {
+                opacity: 1,
+                y: 0,
+                duration: 0.6,
+                delay: i * 0.15,
+                ease: 'power2.out',
+                scrollTrigger: {
+                    trigger: titlePartnersRef.value,
+                    start: 'top 80%',
+                    end: 'bottom top',
+                    toggleActions: 'play reverse play reverse',
+                },
+            })
+        })
+    }
+
+    gsap.fromTo(
+        paragraphPartnersLeftRef.value,
+        { opacity: 0, y: 30 },
+        {
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            ease: 'power2.out',
+            scrollTrigger: {
+                trigger: paragraphPartnersLeftRef.value,
+                start: 'top 80%',
+                end: 'bottom top',
+                toggleActions: 'play reverse play reverse',
+            },
+        }
+    )
+
+    gsap.fromTo(
+        paragraphPartnersRightRef.value,
+        { opacity: 0, y: 30 },
+        {
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            ease: 'power2.out',
+            scrollTrigger: {
+                trigger: paragraphPartnersRightRef.value,
+                start: 'top 80%',
+                end: 'bottom top',
+                toggleActions: 'play reverse play reverse',
+            },
+        }
+    )
+})
+
+onMounted(() => {
+    if (titleStructuredRef.value) {
+        const lines = titleStructuredRef.value.innerHTML.split('<br>')
+        titleStructuredRef.value.innerHTML = ''
+
+        lines.forEach((line, i) => {
+            const span = document.createElement('span')
+            span.innerHTML = line
+            span.style.display = 'block'
+            span.style.opacity = '0'
+            span.style.transform = 'translateY(30px)'
+            titleStructuredRef.value?.appendChild(span)
+
+            gsap.to(span, {
+                opacity: 1,
+                y: 0,
+                duration: 0.6,
+                delay: i * 0.15,
+                ease: 'power2.out',
+                scrollTrigger: {
+                    trigger: titleStructuredRef.value,
+                    start: 'top 80%',
+                    end: 'bottom top',
+                    toggleActions: 'play reverse play reverse',
+                },
+            })
+        })
+    }
+
+    gsap.fromTo(
+        paragraphStructuredRef.value,
+        { opacity: 0, y: 30 },
+        {
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            ease: 'power2.out',
+            scrollTrigger: {
+                trigger: paragraphStructuredRef.value,
+                start: 'top 80%',
+                end: 'bottom top',
+                toggleActions: 'play reverse play reverse',
+            },
+        }
+    )
 })
 </script>
