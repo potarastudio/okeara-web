@@ -88,6 +88,7 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
 import gsap from 'gsap'
+import ScrollTrigger from 'gsap/ScrollTrigger'
 import BannerOurWater from '@/assets/images/BannerOurWater.png'
 
 import LongevityClub from '~/page-section/LongevityClub.vue'

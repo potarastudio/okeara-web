@@ -121,6 +121,7 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
 import gsap from 'gsap'
+import ScrollTrigger from 'gsap/ScrollTrigger'
 import BannerOurCommunity from '@/assets/images/BannerOurCommunity.png'
 import OurCommunity1 from '@/assets/images/ourcommunity-1.png'
 import OurCommunity2 from '@/assets/images/ourcommunity-3.png'
@@ -261,6 +262,34 @@ onMounted(() => {
             })
         })
     }
+
+    const wrapper = marqueeWrapper.value
+    if (!wrapper) return
+
+    if (wrapper.children.length < 2) {
+        wrapper.innerHTML += wrapper.innerHTML
+    }
+
+    const contentWidth = wrapper.scrollWidth / 2
+    let currentX = 0
+    let direction = 1
+
+    gsap.ticker.add(() => {
+        currentX -= 1 * direction
+        if (currentX <= -contentWidth) currentX = 0
+        if (currentX >= 0) currentX = -contentWidth
+        gsap.set(wrapper, { x: currentX })
+    })
+
+    ScrollTrigger.create({
+        trigger: bannerRef.value,
+        start: 'top top',
+        end: 'bottom top',
+        scrub: true,
+        onUpdate(self) {
+            direction = self.direction === 1 ? 1 : -1
+        },
+    })
 })
 
 onMounted(() => {

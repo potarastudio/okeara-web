@@ -205,6 +205,7 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
 import gsap from 'gsap'
+import ScrollTrigger from 'gsap/ScrollTrigger'
 import BannerOurWater from '@/assets/images/BannerOurWater.png'
 import BgSafety from '@/assets/images/BgSafety.png'
 import BenefitOurWater from '@/assets/images/BenefitOurWater.png'

@@ -483,6 +483,7 @@ const items = ref([
 
 const sliderTrack = ref<HTMLElement | null>(null)
 const currentIndex = ref(0)
+const slidesPerView = 1
 
 const slides = [
     {
