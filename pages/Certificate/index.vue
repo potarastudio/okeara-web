@@ -70,7 +70,6 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
 import gsap from 'gsap'
-import ScrollTrigger from 'gsap/ScrollTrigger'
 import Banner from '@/assets/images/BannerCertificate.png';
 import LongevityClub from '~/page-section/LongevityClub.vue';
 import ArrowTopRight from "@/assets/icons/ArrowTopRight.svg";
@@ -78,7 +77,13 @@ import ArrowRight from "@/assets/icons/ArrowRightWhite.svg";
 import BgWave from '@/assets/images/WaveVertical.svg'
 import ListBlack from '@/assets/icons/ListBlack.svg';
 
-gsap.registerPlugin(ScrollTrigger)
+onMounted(async () => {
+    if (import.meta.client) {
+        const gsapModule = await import('gsap')
+        const ScrollTrigger = (await import('gsap/ScrollTrigger')).default
+        gsapModule.gsap.registerPlugin(ScrollTrigger)
+    }
+})
 
 const bannerRef = ref<HTMLElement | null>(null)
 const textContainerRef = ref<HTMLElement | null>(null)

@@ -93,7 +93,13 @@ import BannerOurWater from '@/assets/images/BannerOurWater.png'
 
 import LongevityClub from '~/page-section/LongevityClub.vue'
 
-gsap.registerPlugin(ScrollTrigger)
+onMounted(async () => {
+    if (import.meta.client) {
+        const gsapModule = await import('gsap')
+        const ScrollTrigger = (await import('gsap/ScrollTrigger')).default
+        gsapModule.gsap.registerPlugin(ScrollTrigger)
+    }
+})
 
 const bannerRef = ref<HTMLElement | null>(null)
 const textBannerContainerRef = ref<HTMLElement | null>(null)
@@ -313,7 +319,7 @@ onMounted(() => {
     ScrollTrigger.create({
         trigger: container,
         start: 'top top+=120',
-        end: 'bottom 10%',
+        end: 'bottom bottom',
         pin: sidebar,
         pinSpacing: false,
         markers: false,
