@@ -134,14 +134,6 @@ import ArrowRightWhite from '@/assets/icons/ArrowRightWhite.svg'
 
 import LongevityClub from '~/page-section/LongevityClub.vue'
 
-onMounted(async () => {
-    if (import.meta.client) {
-        const gsapModule = await import('gsap')
-        const ScrollTrigger = (await import('gsap/ScrollTrigger')).default
-        gsapModule.gsap.registerPlugin(ScrollTrigger)
-    }
-})
-
 const bannerRef = ref<HTMLElement | null>(null)
 const textBannerContainerRef = ref<HTMLElement | null>(null)
 const marqueeWrapper = ref<HTMLElement | null>(null)
@@ -183,6 +175,8 @@ function scrollRight() {
 
 
 onMounted(() => {
+    gsap.registerPlugin(ScrollTrigger);
+
     gsap.fromTo(
         bannerRef.value,
         { scale: 1.4 },
@@ -232,9 +226,7 @@ onMounted(() => {
             direction = self.direction === 1 ? 1 : -1
         },
     })
-})
 
-onMounted(() => {
     if (titleWaterRef.value) {
         const lines = titleWaterRef.value.innerHTML.split('<br>')
         titleWaterRef.value.innerHTML = ''
@@ -263,36 +255,6 @@ onMounted(() => {
         })
     }
 
-    const wrapper = marqueeWrapper.value
-    if (!wrapper) return
-
-    if (wrapper.children.length < 2) {
-        wrapper.innerHTML += wrapper.innerHTML
-    }
-
-    const contentWidth = wrapper.scrollWidth / 2
-    let currentX = 0
-    let direction = 1
-
-    gsap.ticker.add(() => {
-        currentX -= 1 * direction
-        if (currentX <= -contentWidth) currentX = 0
-        if (currentX >= 0) currentX = -contentWidth
-        gsap.set(wrapper, { x: currentX })
-    })
-
-    ScrollTrigger.create({
-        trigger: bannerRef.value,
-        start: 'top top',
-        end: 'bottom top',
-        scrub: true,
-        onUpdate(self) {
-            direction = self.direction === 1 ? 1 : -1
-        },
-    })
-})
-
-onMounted(() => {
     if (titlePartnersRef.value) {
         const lines = titlePartnersRef.value.innerHTML.split('<br>')
         titlePartnersRef.value.innerHTML = ''
@@ -354,9 +316,7 @@ onMounted(() => {
             },
         }
     )
-})
 
-onMounted(() => {
     if (titleStructuredRef.value) {
         const lines = titleStructuredRef.value.innerHTML.split('<br>')
         titleStructuredRef.value.innerHTML = ''

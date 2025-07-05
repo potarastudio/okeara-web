@@ -7,14 +7,15 @@
 </template>
 
 <script lang="ts">
-import HeaderComponent from '~/components/Header/HeaderComponent.vue';
-import FooterComponents from '~/components/Footer/FooterComponents.vue';
+import { defineComponent } from 'vue'
+import HeaderComponent from '~/components/Header/HeaderComponent.vue'
+import FooterComponents from '~/components/Footer/FooterComponents.vue'
 
-export default {
-    name: "DefaultLayout",
+export default defineComponent({
+    name: 'DefaultLayout',
     components: {
         HeaderComponent,
         FooterComponents
-    }
-};
+    },
+})
 </script>

@@ -15,13 +15,14 @@
 }
 
 html {
-    scroll-behavior: smooth;
+    overscroll-behavior: none;
 }
 
 body {
     font-family: 'BasisGrotesqueArabicPro', sans-serif;
     color: #EDF3F3;
     scrollbar-width: none;
+    overscroll-behavior: none;
 }
 
 body::-webkit-scrollbar {

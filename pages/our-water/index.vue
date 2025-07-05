@@ -27,7 +27,7 @@
                 <div class="flex items-center gap-[10px] md:gap-[20px]">
                     <img :src="List" alt="List">
                     <div class="text-[#EDF3F3] text-[16px] md:text-[18px] leading-[24px]">
-                        Sustainability
+                        Hydration
                     </div>
                 </div>
                 <div class="flex flex-col items-start gap-[20px] lg:gap-[80px] md:w-[60%]">
@@ -45,7 +45,7 @@
             </div>
         </div>
         <div :style="bgSafetyStyle"
-            class="bg-cover bg-no-repeat bg-left w-full px-[24px] py-[40px] md:p-[40px] lg:px-[64px] lg:py-[100px]">
+            class="bg-cover bg-no-repeat bg-left w-full px-[24px] py-[40px] md:p-[40px] lg:px-[9%] lg:py-[100px]">
             <div class="w-full flex flex-col md:flex-row items-stretch">
                 <div
                     class="order-2 md:order-1 md:w-[50%] bg-[#EDF3F3] p-[20px] md:p-[40px] md:pr-0 flex flex-col items-start gap-[20px] md:gap-[40px]">
@@ -71,7 +71,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="order-1 md:order-2 md:w-[50%] h-auto">
+                <div class="order-1 md:order-2 md:w-[50%]">
                     <img :src="indicator === 'water' ? OkearaIndicator.images : OkearaBlueIndicator.images"
                         alt="BenefitOurWater" class="w-full h-full object-cover">
                 </div>
@@ -171,10 +171,11 @@
                             Preview 3D
                         </div>
                     </div>
-                    <img :src="indicatorProduct === 'water' ? OkearaWater500ml : OkearaBlue500ml" alt="OkearaWater500ml" class="w-[50%] md:w-[30%]">
+                    <img :src="indicatorProduct === 'water' ? OkearaWater500ml : OkearaBlue500ml" alt="OkearaWater500ml"
+                        class="h-[350px]">
                     <div ref="description500ml"
                         class="w-full bg-white p-[24px] absolute left-0 bottom-0 text-black text-[12px] md:text-[16px] leading-[18px] md:leading-[26px]">
-                        {{ indicatorProduct === 'water' ? 'OKEARA is ultralight hydrogen water in a 500ml bottle, designed to hydrate your body deeply and naturally. It helps boost energy, support recovery, and reduce inflammation it’s giving you powerful benefits in every sip.' : 'OKEARA is ultralight hydrogen water in a 500ml bottle, designed to hydrate your body deeply and naturally. It helps boost energy, support recovery, and reduce inflammation it’s giving you powerful benefits in every sip.' }}
+                        {{ indicatorProduct === 'water' ? 'OKEARA is ultralight hydrogen water in a 500ml bottle, designed to hydrate your body deeply and naturally.It helps boost energy, support recovery, and reduce inflammation it’s giving you powerful benefits in every sip.' : 'OKEARA is ultralight hydrogen water in a 500ml bottle, designed to hydrate your body deeply and naturally.It helps boost energy, support recovery, and reduce inflammation it’s giving you powerful benefits in every sip.' }}
                     </div>
                 </div>
                 <div ref="card12l"
@@ -189,10 +190,11 @@
                             Preview 3D
                         </div>
                     </div>
-                    <img :src="indicatorProduct === 'water' ? OkearaWater12l : OkearaBlue12l" alt="OkearaWater12l" class="w-[50%] md:w-[80%]">
+                    <img :src="indicatorProduct === 'water' ? OkearaWater12l : OkearaBlue12l" alt="OkearaWater12l"
+                        class="h-[350px]">
                     <div ref="description12l"
                         class="w-full bg-white p-[24px] absolute left-0 bottom-0 text-black text-[12px] md:text-[16px] leading-[18px] md:leading-[26px]">
-                        {{ indicatorProduct === 'water' ? 'OKEARA is ultralight hydrogen water in a 500ml bottle, designed to hydrate your body deeply and naturally. It helps boost energy, support recovery, and reduce inflammation it’s giving you powerful benefits in every sip.' : 'OKEARA is ultralight hydrogen water in a 500ml bottle, designed to hydrate your body deeply and naturally. It helps boost energy, support recovery, and reduce inflammation it’s giving you powerful benefits in every sip.' }}
+                        {{ indicatorProduct === 'water' ? 'OKEARA is ultralight hydrogen water in a 500ml bottle, designed to hydrate your body deeply and naturally.It helps boost energy, support recovery, and reduce inflammation it’s giving you powerful benefits in every sip.' : 'OKEARA is ultralight hydrogen water in a 500ml bottle, designed to hydrate your body deeply and naturally.It helps boost energy, support recovery, and reduce inflammation it’s giving you powerful benefits in every sip.' }}
                     </div>
                 </div>
             </div>
@@ -208,7 +210,8 @@ import gsap from 'gsap'
 import ScrollTrigger from 'gsap/ScrollTrigger'
 import BannerOurWater from '@/assets/images/BannerOurWater.png'
 import BgSafety from '@/assets/images/BgSafety.png'
-import BenefitOurWater from '@/assets/images/BenefitOurWater.png'
+import OkearaWaterIndicator from '@/assets/images/OkearaIndicator.png'
+import OkearaBlueImageIndicator from '@/assets/images/OkearaBlueIndicator.png'
 import BgBenefitOurWater1 from '@/assets/images/BgBenefitOurWater1.png'
 import BenefitCard1 from '@/assets/images/benefitcard-1.png'
 import OkearaWater500ml from '@/assets/images/OkearaWater500ml.png'
@@ -222,14 +225,6 @@ import ArrowLeft from '@/assets/icons/ArrowLeft.svg'
 import ArrowRight from '@/assets/icons/ArrowRight.svg'
 
 import LongevityClub from '~/page-section/LongevityClub.vue'
-
-onMounted(async () => {
-    if (import.meta.client) {
-        const gsapModule = await import('gsap')
-        const ScrollTrigger = (await import('gsap/ScrollTrigger')).default
-        gsapModule.gsap.registerPlugin(ScrollTrigger)
-    }
-})
 
 const bannerRef = ref<HTMLElement | null>(null)
 const textBannerContainerRef = ref<HTMLElement | null>(null)
@@ -286,7 +281,7 @@ const OkearaIndicator = ref({
             desc: '-300 to -450 mV (Energy - rich)'
         },
     ],
-    images: BenefitOurWater
+    images: OkearaWaterIndicator
 })
 
 const OkearaBlueIndicator = ref({
@@ -309,7 +304,7 @@ const OkearaBlueIndicator = ref({
             desc: '-300 to -450 mV (Energy - rich)'
         },
     ],
-    images: BenefitOurWater
+    images: OkearaBlueImageIndicator
 })
 
 const nextIndicator = () => {
@@ -329,6 +324,8 @@ const prevIndicatorProduct = () => {
 }
 
 onMounted(() => {
+    gsap.registerPlugin(ScrollTrigger);
+
     gsap.fromTo(
         bannerRef.value,
         { scale: 1.4 },
@@ -378,9 +375,7 @@ onMounted(() => {
             direction = self.direction === 1 ? 1 : -1
         },
     })
-})
 
-onMounted(() => {
     if (titleSustainabilityRef.value) {
         const lines = titleSustainabilityRef.value.innerHTML.split('<br>')
         titleSustainabilityRef.value.innerHTML = ''
@@ -425,9 +420,7 @@ onMounted(() => {
             },
         }
     )
-})
 
-onMounted(() => {
     if (titleProductRef.value) {
         const lines = titleProductRef.value.innerHTML.split('<br>')
         titleProductRef.value.innerHTML = ''
@@ -472,9 +465,7 @@ onMounted(() => {
             },
         }
     )
-})
 
-onMounted(() => {
     if (isMobile()) {
         gsap.set(description500ml.value, { clearProps: 'all' })
     } else {
@@ -496,9 +487,7 @@ onMounted(() => {
             card500ml.value.addEventListener('mouseleave', hoverOut)
         }
     }
-})
 
-onMounted(() => {
     if (isMobile()) {
         gsap.set(description12l.value, { clearProps: 'all' })
     } else {
@@ -527,13 +516,12 @@ onBeforeUnmount(() => {
         card500ml.value.removeEventListener('mouseenter', hoverIn)
         card500ml.value.removeEventListener('mouseleave', hoverOut)
     }
-})
 
-onBeforeUnmount(() => {
     if (!isMobile() && card12l.value) {
         card12l.value.removeEventListener('mouseenter', hoverIn)
         card12l.value.removeEventListener('mouseleave', hoverOut)
     }
 })
+
 
 </script>
