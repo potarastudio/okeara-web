@@ -273,6 +273,7 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
 import gsap from 'gsap'
+import ScrollTrigger from 'gsap/ScrollTrigger'
 import Banner from '@/assets/images/BannerResearch.png';
 import Research1 from '@/assets/images/Research1.png';
 import Research2 from '@/assets/images/Research2.png';
@@ -292,15 +293,6 @@ import ArrowRight from "@/assets/icons/ArrowRightWhite.svg";
 import BgWave from '@/assets/images/WaveVertical.svg'
 import ListBlack from '@/assets/icons/ListBlack.svg';
 
-onMounted(async () => {
-    if (import.meta.client) {
-        const gsapModule = await import('gsap')
-        const ScrollTrigger = (await import('gsap/ScrollTrigger')).default
-        gsapModule.gsap.registerPlugin(ScrollTrigger)
-    }
-})
-
-
 const bannerRef = ref<HTMLElement | null>(null)
 const textContainerRef = ref<HTMLElement | null>(null)
 const research1Ref = ref<HTMLElement | null>(null)
@@ -315,6 +307,8 @@ const bannerStyle = {
 }
 
 onMounted(() => {
+    gsap.registerPlugin(ScrollTrigger);
+
     gsap.fromTo(
         bannerRef.value,
         { scale: 1.4 },
@@ -336,9 +330,7 @@ onMounted(() => {
             delay: 0.3,
         }
     )
-})
 
-onMounted(() => {
     if (research1Ref.value) {
         gsap.from(research1Ref.value, {
             y: 60,

@@ -30,11 +30,14 @@
             </div>
         </div>
         <div class="w-full px-[24px] py-[40px] md:p-[40px] lg:px-[64px] lg:py-[100px]  bg-[#203D4D]">
-            <div class="w-full flex flex-col md:flex-row items-start justify-between gap-[120px] md:gap-auto">
-                <div class="flex items-center gap-[10px] md:gap-[20px]">
-                    <img :src="List" alt="list">
-                    <div class="text-[#EDF3F3] text-[16px] md:text-[18px] leading-[24px]">
-                        Our Water
+            <div
+                class="water-section w-full flex flex-col md:flex-row items-start justify-between gap-[120px] md:gap-auto">
+                <div class="text-sticky">
+                    <div class="flex items-center gap-[10px] md:gap-[20px]">
+                        <img :src="List" alt="list">
+                        <div class="text-[#EDF3F3] text-[16px] md:text-[18px] leading-[24px]">
+                            Our Water
+                        </div>
                     </div>
                 </div>
                 <div class="relative overflow-hidden w-full h-[650px] pt-[400px] flex flex-col gap-[40px] md:w-[60%]">
@@ -183,7 +186,7 @@
                 <div class="flex flex-col gap-[20px] md:gap-[60px] md:w-[35%]">
                     <div ref="titleProductRef"
                         class="text-[#203D4D] text-[32px] md:text-[48px] font-light leading-[36px] md:leading-[58px]">
-                        Great Product to Elevate Your Wellness
+                        The Only Water You Need For Longevity
                     </div>
                     <div ref="paragraphProductRef"
                         class="text-[#203D4D] text-[16px] md:text-[18px] leading-[26px] opacity-77">
@@ -199,7 +202,7 @@
                     <div ref="indicatorRef" class="absolute top-[4px] left-0 h-[44px] bg-white rounded-full z-0"
                         style="width: 0px"></div>
 
-                    <div v-for="(label, i) in ['OKEARA Water', 'OKEARA Blue']" :key="i"
+                    <div v-for="(label, i) in ['OKEARA', 'OKEARA Blue']" :key="i"
                         :ref="(el) => (optionRefs[i] = el)"
                         class="h-[44px] px-[16px] flex items-center rounded-full justify-center relative z-10 cursor-pointer transition-colors duration-300"
                         :class="{
@@ -220,11 +223,11 @@
                             <div class="px-[12px] py-[8px] bg-white rounded-full text-black fade-item opacity-0">
                                 Preview 3D
                             </div>
-                            <img :src="OkearaWater500ml" alt="Okeara Water 500ml" class="h-[500px]">
+                            <img :src="activeIndex === 0 ? OkearaWater500ml: OkearaBlue500ml" alt="Okeara Water 500ml" class="h-[500px]">
                             <div class="flex flex-col items-center gap-[32px] opacity-0 fade-item">
                                 <div class="flex flex-col items-center gap-[16px]">
                                     <div class="text-[#203D4D] text-[26px] leading-[26px]">
-                                        OKEARA Water
+                                        {{ activeIndex === 0 ? 'OKEARA' : 'OKEARA Blue' }}
                                     </div>
                                     <div class="text-[#203D4D] text-[18px] opacity-50">
                                         500ml (16.9fl 0z)
@@ -252,11 +255,11 @@
                             <div class="px-[12px] py-[8px] bg-white rounded-full text-black fade-item opacity-0">
                                 Preview 3D
                             </div>
-                            <img :src="OkearaWater12l" alt="Okeara Water 12 L" class="h-[500px]">
+                            <img :src="activeIndex === 0 ? OkearaWater12l : OkearaBlue12l" alt="Okeara Water 12 L" class="h-[500px]">
                             <div class="flex flex-col items-center gap-[32px] opacity-0 fade-item">
                                 <div class="flex flex-col items-center gap-[16px]">
                                     <div class="text-[#203D4D] text-[26px] leading-[26px]">
-                                        OKEARA Water
+                                        {{ activeIndex === 0 ? 'OKEARA' : 'OKEARA Blue' }}
                                     </div>
                                     <div class="text-[#203D4D] text-[18px] opacity-50">
                                         500ml (16.9fl 0z)
@@ -345,8 +348,8 @@
                             <div class="flex items-center justify-between py-[24px] px-[8px] md:px-[16px] cursor-pointer gap-[16px]"
                                 @click="toggleCollapse(index)">
                                 <div class="flex items-start md:items-center gap-[24px]">
-                                    <img :src="Collapse" alt="Collapse Icon" class="w-[10%]">
-                                    <div class="flex flex-col">
+                                    <img :src="Collapse" alt="Collapse Icon" class="w-[7%]">
+                                    <div class="flex flex-col w-[88%]">
                                         <div class="text-[#EDF3F3] text-[20px] md:text-[26px]">{{ item.title }}</div>
                                         <div :id="`desc-${index}`" class="overflow-hidden"
                                             :style="{ height: 0, opacity: 0 }">
@@ -398,6 +401,7 @@
 import { ref, onMounted } from 'vue'
 import type { ComponentPublicInstance } from 'vue'
 import gsap from 'gsap'
+import ScrollTrigger from 'gsap/ScrollTrigger'
 import Banner from '@/assets/images/BannerHome.png';
 import OurWater from '@/assets/images/OurWater.png';
 import BgSafety from '@/assets/images/BgSafety.png';
@@ -405,7 +409,9 @@ import SafetyBlock from '@/assets/images/SafetyBlock.png';
 import Benefit1 from '@/assets/images/benefit-1.png';
 import Benefit2 from '@/assets/images/benefit-2.png';
 import OkearaWater500ml from '@/assets/images/OkearaWater500ml.png';
+import OkearaBlue500ml from '@/assets/images/OkearaBlue500ml.png';
 import OkearaWater12l from '@/assets/images/OkearaWater12l.png';
+import OkearaBlue12l from '@/assets/images/OkearaBlue12l.png';
 import Packing1 from '@/assets/images/packing-1.png';
 import Packing2 from '@/assets/images/packing-2.png';
 import Packing3 from '@/assets/images/packing-3.png';
@@ -428,14 +434,6 @@ import CartBlue from '@/assets/icons/CartBlue.svg';
 import ArrowLeft from '@/assets/icons/ArrowLeft.svg';
 import ArrowRight from '@/assets/icons/ArrowRight.svg';
 import Collapse from '@/assets/icons/collapse.svg';
-
-onMounted(async () => {
-    if (import.meta.client) {
-        const gsapModule = await import('gsap')
-        const ScrollTrigger = (await import('gsap/ScrollTrigger')).default
-        gsapModule.gsap.registerPlugin(ScrollTrigger)
-    }
-})
 
 const bannerRef = ref<HTMLElement | null>(null)
 const textContainerRef = ref<HTMLElement | null>(null)
@@ -476,14 +474,13 @@ const items = ref([
     },
     {
         title: 'Carbon Footprint',
-        desc: 'OKEARA carton packs are designed to be space-efficient, allowing for more efficient transportation and storage. This helps reduce energy consumption and overall environmental impact.',
+        desc: 'OKEARA caFrton packs are designed to be space-efficient, allowing for more efficient transportation and storage. This helps reduce energy consumption and overall environmental impact.',
         open: false,
     },
 ])
 
 const sliderTrack = ref<HTMLElement | null>(null)
 const currentIndex = ref(0)
-const slidesPerView = 1
 
 const slides = [
     {
@@ -612,6 +609,7 @@ const bgSafetyStyle = {
 }
 
 onMounted(() => {
+    gsap.registerPlugin(ScrollTrigger);
     gsap.fromTo(
         bannerRef.value,
         { scale: 1.4 },
@@ -633,9 +631,20 @@ onMounted(() => {
             delay: 0.3,
         }
     )
-})
 
-onMounted(() => {
+    const sidebar = document.querySelector('.text-sticky')
+    const container = document.querySelector('.water-section')
+
+    ScrollTrigger.create({
+        trigger: container,
+        start: 'top top+=120',
+        end: 'bottom bottom-=370',
+        pin: sidebar,
+        pinSpacing: false,
+        markers: false,
+        scrub: false,
+    })
+
     gsap.to(imageWaterRef.value, {
         y: -300,
         ease: 'none',
@@ -691,9 +700,7 @@ onMounted(() => {
             },
         }
     )
-})
 
-onMounted(() => {
     gsap.to(imageLeftBenefitRef.value, {
         y: -300,
         ease: 'none',
@@ -760,9 +767,7 @@ onMounted(() => {
             },
         }
     )
-})
 
-onMounted(() => {
     if (titleSafetyRef.value) {
         const lines = titleSafetyRef.value.innerHTML.split('<br>')
         titleSafetyRef.value.innerHTML = ''
@@ -807,9 +812,7 @@ onMounted(() => {
             },
         }
     )
-})
 
-onMounted(() => {
     if (titleProductRef.value) {
         const lines = titleProductRef.value.innerHTML.split('<br>')
         titleProductRef.value.innerHTML = ''
@@ -854,9 +857,7 @@ onMounted(() => {
             },
         }
     )
-})
 
-onMounted(() => {
     if (titleCommitmentRef.value) {
         const lines = titleCommitmentRef.value.innerHTML.split('<br>')
         titleCommitmentRef.value.innerHTML = ''
@@ -901,9 +902,7 @@ onMounted(() => {
             },
         }
     )
-})
 
-onMounted(() => {
     gsap.to(imageSafetyRef.value, {
         y: -20,
         ease: 'none',

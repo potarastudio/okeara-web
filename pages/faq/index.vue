@@ -20,7 +20,7 @@
             </div>
         </div>
         <div class="w-full bg-[#EDF3F3] px-[24px] py-[40px] md:p-[40px] lg:px-[64px] lg:py-[100px]">
-            <div class="faq-container w-full flex items-start justify-between gap-[24px]">
+            <div class="fqa-container w-full flex items-start justify-between gap-[24px]">
                 <div class="hidden md:block">
                     <div class="sidebar-sticky">
                         <div class="flex flex-col items-start gap-[22px]">
@@ -92,14 +92,6 @@ import ScrollTrigger from 'gsap/ScrollTrigger'
 import BannerOurWater from '@/assets/images/BannerOurWater.png'
 
 import LongevityClub from '~/page-section/LongevityClub.vue'
-
-onMounted(async () => {
-    if (import.meta.client) {
-        const gsapModule = await import('gsap')
-        const ScrollTrigger = (await import('gsap/ScrollTrigger')).default
-        gsapModule.gsap.registerPlugin(ScrollTrigger)
-    }
-})
 
 const bannerRef = ref<HTMLElement | null>(null)
 const textBannerContainerRef = ref<HTMLElement | null>(null)
@@ -313,6 +305,8 @@ onUnmounted(() => {
 })
 
 onMounted(() => {
+    gsap.registerPlugin(ScrollTrigger);
+
     const sidebar = document.querySelector('.sidebar-sticky')
     const container = document.querySelector('.faq-container')
 
@@ -324,6 +318,56 @@ onMounted(() => {
         pinSpacing: false,
         markers: false,
         scrub: false,
+    })
+
+    gsap.fromTo(
+        bannerRef.value,
+        { scale: 1.4 },
+        {
+            scale: 1,
+            duration: 1.5,
+            ease: 'power3.out',
+        }
+    )
+
+    gsap.fromTo(
+        textBannerContainerRef.value,
+        { y: 100, opacity: 0 },
+        {
+            y: 0,
+            opacity: 1,
+            duration: 1.2,
+            ease: 'power3.out',
+            delay: 0.3,
+        }
+    )
+
+    const wrapper = marqueeWrapper.value
+    if (!wrapper) return
+
+    if (wrapper.children.length < 2) {
+        wrapper.innerHTML += wrapper.innerHTML
+    }
+
+    const contentWidth = wrapper.scrollWidth / 2
+    let currentX = 0
+    let direction = 1
+
+    gsap.ticker.add(() => {
+        currentX -= 1 * direction
+        if (currentX <= -contentWidth) currentX = 0
+        if (currentX >= 0) currentX = -contentWidth
+        gsap.set(wrapper, { x: currentX })
+    })
+
+    ScrollTrigger.create({
+        trigger: bannerRef.value,
+        start: 'top top',
+        end: 'bottom top',
+        scrub: true,
+        onUpdate(self) {
+            direction = self.direction === 1 ? 1 : -1
+        },
     })
 })
 
@@ -526,56 +570,4 @@ const toggleCollapsePellentesque = (index: number) => {
         })
     }
 }
-
-onMounted(() => {
-    gsap.fromTo(
-        bannerRef.value,
-        { scale: 1.4 },
-        {
-            scale: 1,
-            duration: 1.5,
-            ease: 'power3.out',
-        }
-    )
-
-    gsap.fromTo(
-        textBannerContainerRef.value,
-        { y: 100, opacity: 0 },
-        {
-            y: 0,
-            opacity: 1,
-            duration: 1.2,
-            ease: 'power3.out',
-            delay: 0.3,
-        }
-    )
-
-    const wrapper = marqueeWrapper.value
-    if (!wrapper) return
-
-    if (wrapper.children.length < 2) {
-        wrapper.innerHTML += wrapper.innerHTML
-    }
-
-    const contentWidth = wrapper.scrollWidth / 2
-    let currentX = 0
-    let direction = 1
-
-    gsap.ticker.add(() => {
-        currentX -= 1 * direction
-        if (currentX <= -contentWidth) currentX = 0
-        if (currentX >= 0) currentX = -contentWidth
-        gsap.set(wrapper, { x: currentX })
-    })
-
-    ScrollTrigger.create({
-        trigger: bannerRef.value,
-        start: 'top top',
-        end: 'bottom top',
-        scrub: true,
-        onUpdate(self) {
-            direction = self.direction === 1 ? 1 : -1
-        },
-    })
-})
 </script>

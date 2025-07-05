@@ -9,8 +9,8 @@
         <div class="text-[#EDF3F3] md:w-[40%] lg:w-[25%] md:ml-[80px]">
             <div class="text-[32px] md:text-[48px] font-light leading-[36px] md:leading-[58px]" style="text-edge: cap;">
                 Welcome to <br>
-                OKEARA <br>
-                Longevity Club!
+                Longevity Club! <br>
+                by Elementis
             </div>
             <div class="mt-[30px] text-[16px] md:text-[18px] leading-[26px]">
                 We are dedicated to living our best lives, focusing on health and happiness together, and making each

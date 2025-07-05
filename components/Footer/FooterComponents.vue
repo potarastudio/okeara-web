@@ -24,58 +24,48 @@
                     </div>
                 </div>
             </div>
-            <div class="w-full lg:w-[30%] flex items-start justify-between">
+            <div class="flex items-start justify-between">
                 <div class="flex flex-col items-start gap-[40px]">
-                    <div
-                        class="nav-link relative text-white text-[18px] md:text-[24px] font-light leading-[28px] cursor-pointer">
-                        Our Story
-                        <span
-                            class="underline absolute bottom-[-5px] left-0 h-[1px] w-full scale-x-0 origin-left"></span>
-                    </div>
-                    <div
-                        class="nav-link relative text-white text-[18px] md:text-[24px] font-light leading-[28px] cursor-pointer">
-                        Our Water
-                        <span
-                            class="underline absolute bottom-[-5px] left-0 h-[1px] w-full scale-x-0 origin-left"></span>
-                    </div>
-                    <div
-                        class="nav-link relative text-white text-[18px] md:text-[24px] font-light leading-[28px] cursor-pointer">
-                        Our Mission
-                        <span
-                            class="underline absolute bottom-[-5px] left-0 h-[1px] w-full scale-x-0 origin-left"></span>
-                    </div>
-                    <div
-                        class="nav-link relative text-white text-[18px] md:text-[24px] font-light leading-[28px] cursor-pointer">
-                        Our Community
-                        <span
-                            class="underline absolute bottom-[-5px] left-0 h-[1px] w-full scale-x-0 origin-left"></span>
-                    </div>
-                    <div
-                        class="nav-link relative text-white text-[18px] md:text-[24px] font-light leading-[28px] cursor-pointer">
-                        Our Partners
-                        <span
-                            class="underline absolute bottom-[-5px] left-0 h-[1px] w-full scale-x-0 origin-left"></span>
-                    </div>
-                    <div
-                        class="nav-link relative text-white text-[18px] md:text-[24px] font-light leading-[28px] cursor-pointer">
-                        Our Certificate
-                        <span
-                            class="underline absolute bottom-[-5px] left-0 h-[1px] w-full scale-x-0 origin-left"></span>
-                    </div>
-                </div>
-                <div class="flex flex-col items-start gap-[32px]">
-                    <div
-                        class="nav-link relative text-white text-[18px] md:text-[24px] font-light leading-[28px] cursor-pointer">
-                        FAQ
-                        <span
-                            class="underline absolute bottom-[-5px] left-0 h-[1px] w-full scale-x-0 origin-left"></span>
-                    </div>
-                    <div
-                        class="nav-link relative text-white text-[18px] md:text-[24px] font-light leading-[28px] cursor-pointer">
-                        Reviews
-                        <span
-                            class="underline absolute bottom-[-5px] left-0 h-[1px] w-full scale-x-0 origin-left"></span>
-                    </div>
+                    <NuxtLink to="/our-water">
+                        <div
+                            class="nav-link relative text-white text-[18px] md:text-[24px] font-light leading-[28px] cursor-pointer">
+                            Our Water
+                            <span
+                                class="underline absolute bottom-[-5px] left-0 h-[1px] w-full scale-x-0 origin-left"></span>
+                        </div>
+                    </NuxtLink>
+                    <NuxtLink to="/our-community">
+                        <div
+                            class="nav-link relative text-white text-[18px] md:text-[24px] font-light leading-[28px] cursor-pointer">
+                            Our Community
+                            <span
+                                class="underline absolute bottom-[-5px] left-0 h-[1px] w-full scale-x-0 origin-left"></span>
+                        </div>
+                    </NuxtLink>
+                    <NuxtLink to="/our-partners">
+                        <div
+                            class="nav-link relative text-white text-[18px] md:text-[24px] font-light leading-[28px] cursor-pointer">
+                            Our Partners
+                            <span
+                                class="underline absolute bottom-[-5px] left-0 h-[1px] w-full scale-x-0 origin-left"></span>
+                        </div>
+                    </NuxtLink>
+                    <NuxtLink to="/certificate">
+                        <div
+                            class="nav-link relative text-white text-[18px] md:text-[24px] font-light leading-[28px] cursor-pointer">
+                            Our Certificate
+                            <span
+                                class="underline absolute bottom-[-5px] left-0 h-[1px] w-full scale-x-0 origin-left"></span>
+                        </div>
+                    </NuxtLink>
+                    <NuxtLink to="/faq">
+                        <div
+                            class="nav-link relative text-white text-[18px] md:text-[24px] font-light leading-[28px] cursor-pointer">
+                            FAQ
+                            <span
+                                class="underline absolute bottom-[-5px] left-0 h-[1px] w-full scale-x-0 origin-left"></span>
+                        </div>
+                    </NuxtLink>
                 </div>
             </div>
         </div>
