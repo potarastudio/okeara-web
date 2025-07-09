@@ -3,7 +3,7 @@
 <template>
     <div class="overflow-x-hidden">
         <div ref="bannerRef" :style="bannerStyle" class="bg-cover bg-no-repeat w-full h-[100dvh] relative"
-            style="background-position: left 50% top 22%;">
+            style="background-position: left 50% top 35%;">
             <div class="absolute top-0 left-0 w-full h-[100dvh] pointer-events-none"
                 style="background: linear-gradient(0deg, rgba(0,0,0,0.85) 1.62%, rgba(0,0,0,0.75) 30%, rgba(0,0,0,0.00) 80%);">
                 <div ref="textContainerRef"
@@ -40,10 +40,12 @@
                         </div>
                     </div>
                 </div>
-                <div class="relative overflow-hidden w-full h-[650px] pt-[400px] flex flex-col gap-[40px] md:w-[60%]">
-                    <img ref="imageWaterRef" :src="OurWater" alt="Our Water"
-                        class="absolute top-0 left-0 w-full object-cover">
-                    <div class="absolute flex flex-col items-start gap-[24px] lg:w-[70%]">
+                <div class="relative overflow-hidden w-full h-[650px] flex flex-col gap-[40px] md:w-[60%]">
+                    <div class="relative overflow-hidden h-[350px]">
+                        <img ref="imageWaterRef" :src="OurWater"
+                            class="absolute top-0 scale-[1.4] h-full object-cover" />
+                    </div>
+                    <div class="absolute top-[400px] flex flex-col items-start gap-[24px] lg:w-[70%]">
                         <div ref="titleWaterRef"
                             class="text-[32px] md:text-[48px] text-[#EDF3F3] font-light leading-[36px] md:leading-[58px]"
                             style="letter-spacing: -1.44px;">
@@ -58,35 +60,52 @@
                 </div>
             </div>
         </div>
-        <div :style="bgSafetyStyle"
-            class="bg-cover bg-no-repeat bg-center w-full px-[24px] py-[40px] md:p-[40px] lg:px-[64px] lg:py-[100px]">
+        <section ref="container" class="relative w-full h-[100dvh] overflow-hidden">
+            <div class="absolute inset-0 bg-cover bg-center bg-no-repeat z-0"
+                :style="{ backgroundImage: `url(${sections[0].bg})` }" />
+
+            <div ref="bg2" class="absolute inset-0 bg-cover bg-center bg-no-repeat z-10 will-change-transform"
+                :style="{ backgroundImage: `url(${sections[1].bg})` }" />
+
+            <div ref="bg3" class="absolute inset-0 bg-cover bg-center bg-no-repeat z-10 will-change-transform"
+                :style="{ backgroundImage: `url(${sections[2].bg})` }" />
+
+            <div ref="bg4" class="absolute inset-0 bg-cover bg-center bg-no-repeat z-10 will-change-transform"
+                :style="{ backgroundImage: `url(${sections[4].bg})` }" />
+
             <div
-                class="w-full text-center text-[#EDF3F3] pt-[30px] text-[24px] md:text-[48px] leading-[31.2px] md:leading-[78px] md:mt-[40px]">
-                Safety of Structured <br>
-                Hydrogen Water
-            </div>
-            <div class="text-[26px] text-[#F8F8F8] leading-[36px] mt-[241px]">
-                Safe Saturation <br>
-                Method
-            </div>
-            <hr class="w-full border border-[#F8F8F8] my-[20px]">
-            <div class="w-full flex flex-col lg:flex-row items-start justify-between gap-[20px] lg:gap-auto">
-                <div class="text-[18px] text-[#F8F8F8] leading-[24px] flex gap-[32px]">
-                    01
-                    <div class="lg:hidden">Atomic Saturation Process</div>
+                class="relative z-20 flex flex-col items-start justify-between w-full h-[100dvh] px-[24px] py-[40px] md:p-[40px] lg:px-[64px] lg:py-[100px]">
+                <div
+                    class="w-full text-center text-[#EDF3F3] text-[24px] md:text-[48px] leading-[31.2px] md:leading-[78px]">
+                    Safety of Structured <br>
+                    Hydrogen Water
                 </div>
-                <div class="flex items-start justify-between lg:w-[65%]">
-                    <div class="hidden lg:inline  text-[18px] text-[#F8F8F8] leading-[24px]">
-                        Atomic Saturation Process
+
+                <div class="w-full">
+                    <div class="text-[26px] text-[#F8F8F8] leading-[36px] w-[15%]">
+                        {{ activeSection.subtitle }}
                     </div>
-                    <div class="text-[18px] text-[#F8F8F8] leading-[26px] lg:w-[50%]">
-                        While other compounds linger in your tissues, hydrogen knows when to leave. It bonds with
-                        harmful free radicals, turns them into harmless water, and exits cleanly — like a minimalist
-                        houseguest with perfect manners
-                    </div>
+                    <hr class="w-full border border-[#F8F8F8] my-[20px]" />
+                    <Transition name="fade-slide" mode="out-in">
+                        <div :key="activeIndex"
+                            class="w-full flex flex-col lg:flex-row items-start justify-between gap-[20px] lg:gap-auto">
+                            <div class="text-[18px] text-[#F8F8F8] leading-[24px] flex gap-[32px]">
+                                {{ activeSection.number }}
+                                <div class="lg:hidden">{{ activeSection.short }}</div>
+                            </div>
+                            <div class="flex items-start justify-between lg:w-[65%]">
+                                <div class="hidden lg:inline text-[18px] text-[#F8F8F8] leading-[24px]">
+                                    {{ activeSection.short }}
+                                </div>
+                                <div class="text-[18px] text-[#F8F8F8] leading-[26px] lg:w-[50%]">
+                                    {{ activeSection.desc }}
+                                </div>
+                            </div>
+                        </div>
+                    </Transition>
                 </div>
             </div>
-        </div>
+        </section>
         <div class="w-full bg-[#EDF3F3] px-[24px] py-[40px] md:p-[40px] lg:px-[64px] lg:py-[100px]">
             <div class="w-full flex flex-col md:flex-row items-start justify-between gap-[120px] md:gap-auto">
                 <div class="flex items-center gap-[10px] md:gap-[20px]">
@@ -202,8 +221,7 @@
                     <div ref="indicatorRef" class="absolute top-[4px] left-0 h-[44px] bg-white rounded-full z-0"
                         style="width: 0px"></div>
 
-                    <div v-for="(label, i) in ['OKEARA', 'OKEARA Blue']" :key="i"
-                        :ref="(el) => (optionRefs[i] = el)"
+                    <div v-for="(label, i) in ['OKEARA', 'OKEARA Blue']" :key="i" :ref="(el) => (optionRefs[i] = el)"
                         class="h-[44px] px-[16px] flex items-center rounded-full justify-center relative z-10 cursor-pointer transition-colors duration-300"
                         :class="{
                             'text-[#203D4D]': activeIndex === i,
@@ -223,7 +241,8 @@
                             <div class="px-[12px] py-[8px] bg-white rounded-full text-black fade-item opacity-0">
                                 Preview 3D
                             </div>
-                            <img :src="activeIndex === 0 ? OkearaWater500ml: OkearaBlue500ml" alt="Okeara Water 500ml" class="h-[500px]">
+                            <img :src="activeIndex === 0 ? OkearaWater500ml : OkearaBlue500ml" alt="Okeara Water 500ml"
+                                class="h-[500px]">
                             <div class="flex flex-col items-center gap-[32px] opacity-0 fade-item">
                                 <div class="flex flex-col items-center gap-[16px]">
                                     <div class="text-[#203D4D] text-[26px] leading-[26px]">
@@ -255,7 +274,8 @@
                             <div class="px-[12px] py-[8px] bg-white rounded-full text-black fade-item opacity-0">
                                 Preview 3D
                             </div>
-                            <img :src="activeIndex === 0 ? OkearaWater12l : OkearaBlue12l" alt="Okeara Water 12 L" class="h-[500px]">
+                            <img :src="activeIndex === 0 ? OkearaWater12l : OkearaBlue12l" alt="Okeara Water 12 L"
+                                class="h-[500px]">
                             <div class="flex flex-col items-center gap-[32px] opacity-0 fade-item">
                                 <div class="flex flex-col items-center gap-[16px]">
                                     <div class="text-[#203D4D] text-[26px] leading-[26px]">
@@ -405,6 +425,9 @@ import ScrollTrigger from 'gsap/ScrollTrigger'
 import Banner from '@/assets/images/BannerHome.png';
 import OurWater from '@/assets/images/OurWater.png';
 import BgSafety from '@/assets/images/BgSafety.png';
+import BgSafety2 from '@/assets/images/BgSafety2.png';
+import BgSafety3 from '@/assets/images/BgSafety3.png';
+import BgSafety4 from '@/assets/images/BgSafety4.png';
 import SafetyBlock from '@/assets/images/SafetyBlock.png';
 import Benefit1 from '@/assets/images/benefit-1.png';
 import Benefit2 from '@/assets/images/benefit-2.png';
@@ -438,6 +461,11 @@ import Collapse from '@/assets/icons/collapse.svg';
 const bannerRef = ref<HTMLElement | null>(null)
 const textContainerRef = ref<HTMLElement | null>(null)
 
+const container = ref<HTMLElement | null>(null)
+const bg2 = ref<HTMLElement | null>(null)
+const bg3 = ref<HTMLElement | null>(null)
+const bg4 = ref<HTMLElement | null>(null)
+
 const imageWaterRef = ref<HTMLElement | null>(null)
 const titleWaterRef = ref<HTMLElement | null>(null)
 const paragraphWaterRef = ref<HTMLElement | null>(null)
@@ -461,6 +489,41 @@ const paragraphCommitmentRef = ref<HTMLElement | null>(null)
 const activeIndex = ref(0)
 const optionRefs = ref<(Element | ComponentPublicInstance | null)[]>([])
 const indicatorRef = ref(null)
+
+const sections = [
+    {
+        bg: BgSafety,
+        subtitle: 'Safe Saturation Method',
+        number: '01',
+        short: 'Atomic Saturation Process',
+        desc: 'OKEARA water is crafted by purifying water straight from the source using our advanced filtration system, highlighted by our proprietary Magnetic Filter. This technology separates heavier and lighter water molecules, creating structured water with a refined molecular arrangement for superior quality.',
+    },
+    {
+        bg: BgSafety2,
+        subtitle: 'Hydrogenitation',
+        number: '02',
+        short: 'The Best Antioxidant',
+        desc: 'OKEARA Water is clean, pure water enriched with molecular hydrogen (H₂) to help protect your cells, fight free radicals, and support overall health. It’s made with advanced filtration, packed in eco-friendly, microplastic-free packaging, and designed to keep you feeling fresh and energized',
+    },
+    {
+        bg: BgSafety3,
+        subtitle: 'Eco Packaging',
+        number: '03',
+        short: 'Packaging That Grows Back',
+        desc: 'We use environmentally friendly packaging that’s designed to have minimal impact on the planet. By choosing sustainable materials, we significantly reduce our carbon footprint, supporting a cleaner, greener future with every product we deliver',
+    },
+    {
+        bg: BgSafety4,
+        subtitle: 'Micro Plastics Free',
+        number: '04',
+        short: 'Noting Else, Just Water',
+        desc: 'Our advanced filtration process enables us to achieve an exceptionally low TDS (Total Dissolved Solids) level of just 6–8 ppm, ensuring ultra-pure water that’s free from unwanted minerals, heavy metals, and impurities. This level of purity reflects the high quality and clarity of every drop of OKEARA',
+    },
+]
+
+const activeSectionIndex = ref(0)
+const activeSection = computed(() => sections[activeSectionIndex.value])
+
 const items = ref([
     {
         title: 'Environmentally Friendly',
@@ -604,10 +667,6 @@ const bannerStyle = {
     backgroundImage: `url(${Banner})`
 }
 
-const bgSafetyStyle = {
-    backgroundImage: `url(${BgSafety})`
-}
-
 onMounted(() => {
     gsap.registerPlugin(ScrollTrigger);
     gsap.fromTo(
@@ -633,10 +692,10 @@ onMounted(() => {
     )
 
     const sidebar = document.querySelector('.text-sticky')
-    const container = document.querySelector('.water-section')
+    const waterSectionContainer = document.querySelector('.water-section')
 
     ScrollTrigger.create({
-        trigger: container,
+        trigger: waterSectionContainer,
         start: 'top top+=120',
         end: 'bottom bottom-=370',
         pin: sidebar,
@@ -645,16 +704,68 @@ onMounted(() => {
         scrub: false,
     })
 
-    gsap.to(imageWaterRef.value, {
-        y: -300,
-        ease: 'none',
-        scrollTrigger: {
-            trigger: imageWaterRef.value,
-            start: 'top bottom',
-            end: 'bottom top',
-            scrub: true,
-        },
-    })
+    gsap.fromTo(imageWaterRef.value,
+        { yPercent: 30, ease: 'none' },
+        {
+            yPercent: -30,
+            ease: 'none',
+            scrollTrigger: {
+                trigger: imageWaterRef.value,
+                start: 'top bottom',
+                end: 'bottom top',
+                scrub: true,
+            }
+        }
+    )
+
+    if (bg2.value && container.value) {
+        gsap.fromTo(bg2.value, { yPercent: 100 }, {
+            yPercent: 0,
+            ease: 'none',
+            scrollTrigger: {
+                trigger: container.value,
+                start: 'top top',
+                end: '+=50%',
+                scrub: true,
+                pin: true,
+                anticipatePin: 1,
+                onUpdate: self => {
+                    activeSectionIndex.value = self.progress > 0.5 ? 1 : 0
+                }
+            }
+        })
+        gsap.fromTo(bg3.value, { yPercent: 100 }, {
+            yPercent: 0,
+            ease: 'none',
+            scrollTrigger: {
+                trigger: container.value,
+                start: 'top top',
+                end: '+=50%',
+                scrub: true,
+                pin: true,
+                anticipatePin: 1,
+                onUpdate: self => {
+                    activeSectionIndex.value = self.progress > 0.5 ? 1 : 0
+                }
+            }
+        })
+        gsap.fromTo(bg4.value, { yPercent: 100 }, {
+            yPercent: 0,
+            ease: 'none',
+            scrollTrigger: {
+                trigger: container.value,
+                start: 'top top',
+                end: '+=50%',
+                scrub: true,
+                pin: true,
+                anticipatePin: 1,
+                onUpdate: self => {
+                    activeSectionIndex.value = self.progress > 0.5 ? 1 : 0
+                }
+            }
+        })
+    }
+
 
     if (titleWaterRef.value) {
         const lines = titleWaterRef.value.innerHTML.split('<br>')
@@ -674,6 +785,7 @@ onMounted(() => {
                 duration: 0.6,
                 delay: i * 0.15,
                 ease: 'power2.out',
+                immediateRender: false,
                 scrollTrigger: {
                     trigger: titleWaterRef.value,
                     start: 'top 80%',
@@ -692,6 +804,7 @@ onMounted(() => {
             y: 0,
             duration: 0.8,
             ease: 'power2.out',
+            immediateRender: false,
             scrollTrigger: {
                 trigger: paragraphWaterRef.value,
                 start: 'top 80%',
@@ -938,5 +1051,20 @@ img {
 
 .transition {
     transition: all 0.3s ease-in-out;
+}
+
+.fade-slide-enter-active,
+.fade-slide-leave-active {
+    transition: all 0.5s ease;
+}
+
+.fade-slide-enter-from {
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.fade-slide-leave-to {
+    opacity: 0;
+    transform: translateY(-20px);
 }
 </style>
