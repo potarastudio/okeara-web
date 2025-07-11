@@ -94,11 +94,17 @@
                 </div>
             </div>
         </div>
-        <div :style="sectionBlcokStyle" class="bg-cover bg-no-repeat bg-center w-full h-[100dvh]" />
+        <div class="relative overflow-hidden w-[100%] h-[105dvh] bg-[#203D4D]">
+            <img ref="imageCommunityRef" :src="OurCommunityBlock" alt="Safety"
+                class="absolute top-0 left-0 scale-[1.4] h-full object-cover">
+        </div>
         <div
             class="w-full bg-[#EDF3F3] flex flex-col md:flex-row items-stretch justify-between gap-[12px] px-[24px] py-[40px] md:p-[40px] lg:px-[180px] lg:py-[120px]">
             <div class="flex flex-col gap-[40px] gap-[150px] w-full md:w-[50%]">
-                <img :src="CommunityStructured1" alt="CommunityStructured1" class="w-full order-2 md:order-1">
+                <div class="relative overflow-hidden w-full h-[700px] order-2 md:order-1">
+                    <img ref="imageCommunityLeftRef" :src="CommunityStructured1" alt="CommunityStructured1"
+                        class="absolute top-0 left-0 scale-[1.4] h-full object-cover">
+                </div>
                 <div ref="titleStructuredRef"
                     class="text-[#274A5C] text-[32px] text-[48px] font-light leading-[36px] leading-[58px] order-1 md:order-2 md:mb-[275px]">
                     OKEARA structured hydrogen water shows our commitment to Wellness and Community.
@@ -106,7 +112,10 @@
             </div>
             <div
                 class="flex flex-col items-start justify-between gap-[40px] md:gap-auto w-full md:w-[40%] md:pt-[60px] md:pb-[100px]">
-                <img :src="CommunityStructured2" alt="CommunityStructured2" class="w-full">
+                <div class="w-full h-[400px] relative overflow-hidden">
+                    <img ref="imageCommunityRightRef" :src="CommunityStructured2" alt="CommunityStructured2"
+                        class="absolute top-0 left-0 scale-[1.4] h-full object-cover">
+                </div>
                 <div ref="paragraphStructuredRef"
                     class="text-[#274A5C] text-[16px] md:text-[18px] leading-[26px] md:w-[90%] opacity-77 mt-[40px] md:mt-[120px]">
                     We enjoy every moment, celebrate our successes, and support each other to achieve optimal health. We
@@ -141,16 +150,15 @@ const titleWaterRef = ref<HTMLElement | null>(null)
 const titlePartnersRef = ref<HTMLElement | null>(null)
 const paragraphPartnersLeftRef = ref<HTMLElement | null>(null)
 const paragraphPartnersRightRef = ref<HTMLElement | null>(null)
+const imageCommunityRef = ref<HTMLElement | null>(null)
+const imageCommunityLeftRef = ref<HTMLElement | null>(null)
+const imageCommunityRightRef = ref<HTMLElement | null>(null)
 const titleStructuredRef = ref<HTMLElement | null>(null)
 const paragraphStructuredRef = ref<HTMLElement | null>(null)
 const carousel = ref<HTMLDivElement | null>(null)
 
 const bannerStyle = {
     backgroundImage: `url(${BannerOurCommunity})`,
-}
-
-const sectionBlcokStyle = {
-    backgroundImage: `url(${OurCommunityBlock})`,
 }
 
 const carouselIndex = ref(0)
@@ -245,6 +253,7 @@ onMounted(() => {
                 duration: 0.6,
                 delay: i * 0.15,
                 ease: 'power2.out',
+                immediateRender: false,
                 scrollTrigger: {
                     trigger: titleWaterRef.value,
                     start: 'top 80%',
@@ -273,6 +282,7 @@ onMounted(() => {
                 duration: 0.6,
                 delay: i * 0.15,
                 ease: 'power2.out',
+                immediateRender: false,
                 scrollTrigger: {
                     trigger: titlePartnersRef.value,
                     start: 'top 80%',
@@ -291,6 +301,7 @@ onMounted(() => {
             y: 0,
             duration: 0.8,
             ease: 'power2.out',
+            immediateRender: false,
             scrollTrigger: {
                 trigger: paragraphPartnersLeftRef.value,
                 start: 'top 80%',
@@ -308,12 +319,55 @@ onMounted(() => {
             y: 0,
             duration: 0.8,
             ease: 'power2.out',
+            immediateRender: false,
             scrollTrigger: {
                 trigger: paragraphPartnersRightRef.value,
                 start: 'top 80%',
                 end: 'bottom top',
                 toggleActions: 'play reverse play reverse',
             },
+        }
+    )
+
+    gsap.fromTo(imageCommunityRef.value,
+        { yPercent: 30, ease: 'none' },
+        {
+            yPercent: -30,
+            ease: 'none',
+            scrollTrigger: {
+                trigger: imageCommunityRef.value,
+                start: 'top bottom',
+                end: 'bottom top',
+                scrub: true,
+            }
+        }
+    )
+
+    gsap.fromTo(imageCommunityLeftRef.value,
+        { yPercent: 30, ease: 'none' },
+        {
+            yPercent: -30,
+            ease: 'none',
+            scrollTrigger: {
+                trigger: imageCommunityLeftRef.value,
+                start: 'top bottom',
+                end: 'bottom top',
+                scrub: true,
+            }
+        }
+    )
+
+    gsap.fromTo(imageCommunityRightRef.value,
+        { yPercent: 30, ease: 'none' },
+        {
+            yPercent: -30,
+            ease: 'none',
+            scrollTrigger: {
+                trigger: imageCommunityRightRef.value,
+                start: 'top bottom',
+                end: 'bottom top',
+                scrub: true,
+            }
         }
     )
 
@@ -335,6 +389,7 @@ onMounted(() => {
                 duration: 0.6,
                 delay: i * 0.15,
                 ease: 'power2.out',
+                immediateRender: false,
                 scrollTrigger: {
                     trigger: titleStructuredRef.value,
                     start: 'top 80%',
@@ -353,6 +408,7 @@ onMounted(() => {
             y: 0,
             duration: 0.8,
             ease: 'power2.out',
+            immediateRender: false,
             scrollTrigger: {
                 trigger: paragraphStructuredRef.value,
                 start: 'top 80%',

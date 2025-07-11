@@ -61,48 +61,70 @@
             </div>
         </div>
         <section ref="container" class="relative w-full h-[100dvh] overflow-hidden">
-            <div class="absolute inset-0 bg-cover bg-center bg-no-repeat z-0"
+            <div class="w-full h-[45%] absolute left-0 top-0"
+                style="background: linear-gradient(180deg, rgba(0, 17, 33, 0.40) 0%, rgba(0, 17, 33, 0.00) 100%);">
+            </div>
+            <div class="w-full h-[45%] absolute left-0 bottom-0"
+                style="background: linear-gradient(180deg, rgba(0, 17, 33, 0.40) 0%, rgba(0, 17, 33, 0.00) 100%);">
+            </div>
+            <div ref="bg0" class="absolute inset-0 bg-cover bg-center bg-no-repeat z-10 will-change-transform"
                 :style="{ backgroundImage: `url(${sections[0].bg})` }" />
-
-            <div ref="bg2" class="absolute inset-0 bg-cover bg-center bg-no-repeat z-10 will-change-transform"
+            <div ref="bg1" class="absolute inset-0 bg-cover bg-center bg-no-repeat z-20 will-change-transform"
                 :style="{ backgroundImage: `url(${sections[1].bg})` }" />
-
-            <div ref="bg3" class="absolute inset-0 bg-cover bg-center bg-no-repeat z-10 will-change-transform"
+            <div ref="bg2" class="absolute inset-0 bg-cover bg-center bg-no-repeat z-30 will-change-transform"
                 :style="{ backgroundImage: `url(${sections[2].bg})` }" />
-
-            <div ref="bg4" class="absolute inset-0 bg-cover bg-center bg-no-repeat z-10 will-change-transform"
-                :style="{ backgroundImage: `url(${sections[4].bg})` }" />
+            <div ref="bg3" class="absolute inset-0 bg-cover bg-center bg-no-repeat z-40 will-change-transform"
+                :style="{ backgroundImage: `url(${sections[3].bg})` }" />
 
             <div
-                class="relative z-20 flex flex-col items-start justify-between w-full h-[100dvh] px-[24px] py-[40px] md:p-[40px] lg:px-[64px] lg:py-[100px]">
-                <div
+                class="relative z-50 flex flex-col items-start justify-between w-full h-[100dvh] px-[24px] py-[40px] md:p-[40px] lg:px-[64px] lg:py-[100px]">
+                <div ref="titleRef"
                     class="w-full text-center text-[#EDF3F3] text-[24px] md:text-[48px] leading-[31.2px] md:leading-[78px]">
-                    Safety of Structured <br>
-                    Hydrogen Water
+                    Safety of Structured <br /> Hydrogen Water
                 </div>
 
-                <div class="w-full">
-                    <div class="text-[26px] text-[#F8F8F8] leading-[36px] w-[15%]">
-                        {{ activeSection.subtitle }}
+                <div class="w-full h-[250px] relative flex flex-col gap-[20px]">
+                    <div class="relative text-[26px] text-[#F8F8F8] leading-[36px] w-[15%] h-[50px]">
+                        <div ref="st0" class="absolute inset-0 bottom-0 opacity-0">{{ sections[0].subtitle }}</div>
+                        <div ref="st1" class="absolute inset-0 bottom-0 opacity-0">{{ sections[1].subtitle }}</div>
+                        <div ref="st2" class="absolute inset-0 bottom-0 opacity-0">{{ sections[2].subtitle }}</div>
+                        <div ref="st3" class="absolute inset-0 bottom-0 opacity-0">{{ sections[3].subtitle }}</div>
                     </div>
-                    <hr class="w-full border border-[#F8F8F8] my-[20px]" />
-                    <Transition name="fade-slide" mode="out-in">
-                        <div :key="activeIndex"
-                            class="w-full flex flex-col lg:flex-row items-start justify-between gap-[20px] lg:gap-auto">
-                            <div class="text-[18px] text-[#F8F8F8] leading-[24px] flex gap-[32px]">
-                                {{ activeSection.number }}
-                                <div class="lg:hidden">{{ activeSection.short }}</div>
+                    <hr class="relative w-full border border-[#F8F8F8] my-[20px]" />
+                    <div class="w-full flex flex-col lg:flex-row items-start justify-between gap-[20px] lg:gap-auto">
+                        <div class="relative text-[18px] text-[#F8F8F8] leading-[24px] flex gap-[32px]">
+                            <div ref="num0" class="absolute inset-0 opacity-0">
+                                {{ sections[0].number }}
+                                <span class="lg:hidden">{{ sections[0].short }}</span>
                             </div>
-                            <div class="flex items-start justify-between lg:w-[65%]">
-                                <div class="hidden lg:inline text-[18px] text-[#F8F8F8] leading-[24px]">
-                                    {{ activeSection.short }}
-                                </div>
-                                <div class="text-[18px] text-[#F8F8F8] leading-[26px] lg:w-[50%]">
-                                    {{ activeSection.desc }}
-                                </div>
+                            <div ref="num1" class="absolute inset-0 opacity-0">
+                                {{ sections[1].number }}
+                                <span class="lg:hidden">{{ sections[1].short }}</span>
+                            </div>
+                            <div ref="num2" class="absolute inset-0 opacity-0">
+                                {{ sections[2].number }}
+                                <span class="lg:hidden">{{ sections[2].short }}</span>
+                            </div>
+                            <div ref="num3" class="absolute inset-0 opacity-0">
+                                {{ sections[3].number }}
+                                <span class="lg:hidden">{{ sections[3].short }}</span>
                             </div>
                         </div>
-                    </Transition>
+                        <div class="relative flex items-start justify-between lg:w-[65%]">
+                            <div class="hidden lg:inline text-[18px] text-[#F8F8F8] leading-[24px]">
+                                <div ref="short0" class="absolute inset-0 opacity-0">{{ sections[0].short }}</div>
+                                <div ref="short1" class="absolute inset-0 opacity-0">{{ sections[1].short }}</div>
+                                <div ref="short2" class="absolute inset-0 opacity-0">{{ sections[2].short }}</div>
+                                <div ref="short3" class="absolute inset-0 opacity-0">{{ sections[3].short }}</div>
+                            </div>
+                            <div class="relative  text-[18px] text-[#F8F8F8] leading-[26px] lg:w-[50%]">
+                                <div ref="desc0" class="absolute inset-0 opacity-0">{{ sections[0].desc }}</div>
+                                <div ref="desc1" class="absolute inset-0 opacity-0">{{ sections[1].desc }}</div>
+                                <div ref="desc2" class="absolute inset-0 opacity-0">{{ sections[2].desc }}</div>
+                                <div ref="desc3" class="absolute inset-0 opacity-0">{{ sections[3].desc }}</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -127,12 +149,14 @@
                 </div>
             </div>
             <div
-                class="relative overflow-hidden w-full h-[400px] flex flex-col md:flex-row items-start justify-between gap-[4px] mt-[40px] md:mt-[100px]">
-                <div class="w-full md:w-[30%] absolute top-0 left-0">
-                    <img ref="imageLeftBenefitRef" :src="Benefit1" class="w-full object-cover">
+                class="relative overflow-hidden w-full flex flex-col md:flex-row items-start justify-between gap-[4px] mt-[40px] md:mt-[100px]">
+                <div class="relative overflow-hidden h-[400px] w-full md:w-[30%]">
+                    <img ref="imageLeftBenefitRef" :src="Benefit1"
+                        class="absolute top-0 scale-[1.4] h-full object-cover">
                 </div>
-                <div class="w-full absolute top-0 right-0 md:w-[60%]">
-                    <img ref="imageRightBenefitRef" :src="Benefit2" class="w-full object-cover">
+                <div class="relative overflow-hidden h-[600px] w-full md:w-[60%]">
+                    <img ref="imageRightBenefitRef" :src="Benefit2"
+                        class="absolute top-0 scale-[1.4] h-full object-cover">
                 </div>
             </div>
             <div class="relative">
@@ -153,16 +177,18 @@
 
                 <div class="w-full flex items-center gap-[32px] mt-[40px] md:mt-[100px]">
                     <div class="w-full md:w-[90%] flex items-center md:gap-[32px]">
-                        <hr v-for="(item, index) in [0, 1, 2]" :key="'indicator-' + index" :class="[
+                        <hr v-for="(item, index) in [0, 1, 2, 3, 4]" :key="'indicator-' + index" :class="[
                             'w-[33%] border',
                             currentIndex === index ? 'border-[#203D4D]' : 'border-[#C4CFD2]'
                         ]" />
                     </div>
                     <div class="hidden md:flex items-center gap-[32px] w-[10%]">
-                        <img :src="ArrowLeft" alt="Arrow Left" class="cursor-pointer transition"
-                            :class="{ 'pointer-events-none opacity-20': currentIndex === 0 }" @click="prevSlide" />
-                        <img :src="ArrowRight" alt="Arrow Right" class="cursor-pointer transition"
-                            :class="{ 'pointer-events-none opacity-20': currentIndex === 2 }" @click="nextSlide" />
+                        <img :src="ArrowLeft" alt="Arrow Left" class="cursor-pointer transition" :class="[
+                            currentIndex === 0 || isScrolling ? 'pointer-events-none opacity-20' : '',
+                        ]" @click="prevSlide" />
+                        <img :src="ArrowRight" alt="Arrow Right" class="cursor-pointer transition" :class="[
+                            currentIndex === 4 || isScrolling ? 'pointer-events-none opacity-20' : '',
+                        ]" @click="nextSlide" />
                     </div>
                 </div>
             </div>
@@ -190,9 +216,9 @@
                 </div>
             </div>
         </div>
-        <div class="relative w-[100%] h-[100dvh] bg-[#EDF3F3]">
+        <div class="relative overflow-hidden w-[100%] h-[105dvh] bg-[#203D4D]">
             <img ref="imageSafetyRef" :src="SafetyBlock" alt="Safety"
-                class="absolute top-0 left-0 w-full h-[100dvh] object-cover">
+                class="absolute top-0 left-0 scale-[1.4] h-full object-cover">
         </div>
         <div class="w-full bg-[#EDF3F3] px-[24px] py-[40px] md:p-[40px] lg:px-[64px] lg:py-[100px]">
             <div class="w-full flex flex-col md:flex-row items-start justify-between gap-[120px] md:gap-auto">
@@ -346,9 +372,16 @@
             </div>
         </div>
         <div class="w-full bg-[#203D4D] px-[24px] py-[40px] md:p-[40px] lg:px-[64px] lg:py-[100px]">
-            <div class="w-full flex flex-col md:flex-row items-start justify-between gap-[8px] md:gap-auto">
-                <img :src="Sustainability1" alt="Sustainability 1" class="md:w-[30%]">
-                <img :src="Sustainability2" alt="Sustainability 2" class="md:w-[60%]">
+            <div
+                class="relative overflow-hidden w-full flex flex-col md:flex-row items-start justify-between gap-[8px] md:gap-auto">
+                <div class="relative overflow-hidden h-[400px] w-full md:w-[30%]">
+                    <img ref="imageLeftSustainabilityRef" :src="Sustainability1" alt="Sustainability 1"
+                        class="absolute top-0 scale-[1.4] h-full object-cover">
+                </div>
+                <div class="relative overflow-hidden h-[600px] w-full md:w-[60%]">
+                    <img ref="imageRightSustainabilityRef" :src="Sustainability2" alt="Sustainability 2"
+                        class="absolute top-0 scale-[1.4] h-full object-cover">
+                </div>
             </div>
             <div
                 class="w-full flex flex-col md:flex-row items-start justify-between gap-[120px] md:gap-auto mt-[40px] md:mt-[120px]">
@@ -368,7 +401,7 @@
                             <div class="flex items-center justify-between py-[24px] px-[8px] md:px-[16px] cursor-pointer gap-[16px]"
                                 @click="toggleCollapse(index)">
                                 <div class="flex items-start md:items-center gap-[24px]">
-                                    <img :src="Collapse" alt="Collapse Icon" class="w-[7%]">
+                                    <img :src="item.icon" alt="Collapse Icon" class="w-[7%]">
                                     <div class="flex flex-col w-[88%]">
                                         <div class="text-[#EDF3F3] text-[20px] md:text-[26px]">{{ item.title }}</div>
                                         <div :id="`desc-${index}`" class="overflow-hidden"
@@ -396,7 +429,10 @@
         <div
             class="w-full bg-[#274A5C] flex flex-col md:flex-row items-stretch justify-between gap-[12px] px-[24px] py-[40px] md:p-[40px] lg:px-[180px] lg:py-[120px]">
             <div class="flex flex-col gap-[40px] gap-[150px] w-full md:w-[50%]">
-                <img :src="Community1" alt="Community 1" class="w-full order-2 md:order-1">
+                <div class="relative overflow-hidden w-full h-[700px] order-2 md:order-1">
+                    <img ref="imageLeftCommitmentRef" :src="Community1" alt="Community 1"
+                        class="absolute top-0 scale-[1.4] h-full object-cover">
+                </div>
                 <div ref="titleCommitmentRef"
                     class="text-[#EDF3F3] text-[32px] text-[48px] font-light leading-[36px] leading-[58px] order-1 md:order-2 md:mb-[275px]">
                     Our <br> Commitment
@@ -404,7 +440,10 @@
             </div>
             <div
                 class="flex flex-col items-start justify-between gap-[40px] md:gap-auto w-full md:w-[40%] md:pt-[60px] md:pb-[100px]">
-                <img :src="Community2" alt="Community 2" class="w-full">
+                <div class="relative overflow-hidden w-full h-[600px]">
+                    <img ref="imageRightCommitmentRef" :src="Community2" alt="Community 2"
+                        class="absolute top-0 scale-[1.4] h-full object-cover">
+                </div>
                 <div ref="paragraphCommitmentRef"
                     class="text-[#EDF3F3] text-[16px] md:text-[18px] leading-[26px] md:w-[90%] opacity-77 mt-[40px] md:mt-[120px]">
                     OKEARA's commitment to sustainable packaging and environmental protection is evident in our use of
@@ -447,24 +486,49 @@ import ArrowTopRight from "@/assets/icons/ArrowTopRight.svg";
 import List from '@/assets/icons/List.svg';
 import ListBlack from '@/assets/icons/ListBlack.svg';
 import Hydration from '@/assets/icons/Hydration.svg';
-import Natural from '@/assets/icons/Natural.svg';
 import Immune from '@/assets/icons/Immune.svg';
 import Aging from '@/assets/icons/Aging.svg';
 import Microplastic from '@/assets/icons/Microplastic.svg';
 import Recovery from '@/assets/icons/Recovery.svg';
+import Overweight from '@/assets/icons/Overweight.svg';
+import Tired from '@/assets/icons/Tired.svg';
+import Stress from '@/assets/icons/Stress.svg';
 import Dollar from '@/assets/icons/Dollar.svg';
 import CartBlue from '@/assets/icons/CartBlue.svg';
 import ArrowLeft from '@/assets/icons/ArrowLeft.svg';
 import ArrowRight from '@/assets/icons/ArrowRight.svg';
-import Collapse from '@/assets/icons/collapse.svg';
+import Friendly from '@/assets/icons/Friendly.svg';
+import Resource from '@/assets/icons/Resource.svg';
+import Footprint from '@/assets/icons/Footprint.svg';
 
 const bannerRef = ref<HTMLElement | null>(null)
 const textContainerRef = ref<HTMLElement | null>(null)
 
 const container = ref<HTMLElement | null>(null)
+const bg0 = ref<HTMLElement | null>(null)
+const bg1 = ref<HTMLElement | null>(null)
 const bg2 = ref<HTMLElement | null>(null)
 const bg3 = ref<HTMLElement | null>(null)
-const bg4 = ref<HTMLElement | null>(null)
+
+const st0 = ref<HTMLElement | null>(null)
+const st1 = ref<HTMLElement | null>(null)
+const st2 = ref<HTMLElement | null>(null)
+const st3 = ref<HTMLElement | null>(null)
+
+const num0 = ref<HTMLElement | null>(null)
+const num1 = ref<HTMLElement | null>(null)
+const num2 = ref<HTMLElement | null>(null)
+const num3 = ref<HTMLElement | null>(null)
+
+const short0 = ref<HTMLElement | null>(null)
+const short1 = ref<HTMLElement | null>(null)
+const short2 = ref<HTMLElement | null>(null)
+const short3 = ref<HTMLElement | null>(null)
+
+const desc0 = ref<HTMLElement | null>(null)
+const desc1 = ref<HTMLElement | null>(null)
+const desc2 = ref<HTMLElement | null>(null)
+const desc3 = ref<HTMLElement | null>(null)
 
 const imageWaterRef = ref<HTMLElement | null>(null)
 const titleWaterRef = ref<HTMLElement | null>(null)
@@ -483,8 +547,14 @@ const imageSafetyRef = ref<HTMLElement | null>(null)
 const titleProductRef = ref<HTMLElement | null>(null)
 const paragraphProductRef = ref<HTMLElement | null>(null)
 
+const imageLeftSustainabilityRef = ref<HTMLElement | null>(null)
+const imageRightSustainabilityRef = ref<HTMLElement | null>(null)
+
 const titleCommitmentRef = ref<HTMLElement | null>(null)
 const paragraphCommitmentRef = ref<HTMLElement | null>(null)
+
+const imageLeftCommitmentRef = ref<HTMLElement | null>(null)
+const imageRightCommitmentRef = ref<HTMLElement | null>(null)
 
 const activeIndex = ref(0)
 const optionRefs = ref<(Element | ComponentPublicInstance | null)[]>([])
@@ -521,21 +591,21 @@ const sections = [
     },
 ]
 
-const activeSectionIndex = ref(0)
-const activeSection = computed(() => sections[activeSectionIndex.value])
-
 const items = ref([
     {
+        icon: Friendly,
         title: 'Environmentally Friendly',
         desc: 'OKEARA is committed to sustainability and environmental responsibility. Our packaging is designed to be reusable, reducing waste significantly',
         open: false,
     },
     {
+        icon: Resource,
         title: 'Renewable Resource',
         desc: 'Our carton packs are made from paperboard, which is a renewable resource. They have a low carbon footprint compared to other packaging materials, making them a more environmentally friendly choice.',
         open: false,
     },
     {
+        icon: Footprint,
         title: 'Carbon Footprint',
         desc: 'OKEARA caFrton packs are designed to be space-efficient, allowing for more efficient transportation and storage. This helps reduce energy consumption and overall environmental impact.',
         open: false,
@@ -548,51 +618,81 @@ const currentIndex = ref(0)
 const slides = [
     {
         image: Hydration,
-        title: 'Fast <br> Hydration',
-        description: 'Keeps you energized and fully hydrated faster than any other water'
-    },
-    {
-        image: Natural,
-        title: 'Natural <br> Detoxification',
-        description: 'Eliminates toxins and supports a clean, balanced body'
-    },
-    {
-        image: Immune,
-        title: 'Immune <br> Support',
-        description: 'Supercharges your immune system for optimal health'
+        title: 'Anti <br> Oxidant',
+        description: 'Hydrogen water protects your cells by fighting harmful free radicals'
     },
     {
         image: Aging,
         title: 'Anti <br> Aging',
-        description: 'Protects cells from oxidative stress, promoting overall health.'
-    },
-    {
-        image: Microplastic,
-        title: 'No <br> Microplastics',
-        description: 'Proven by independent laboratories, 100% free of microplastic.'
+        description: 'Hydrogen water that helps slow aging by reducing stress and inflammation in cells'
     },
     {
         image: Recovery,
-        title: 'Enhanced <br> Recovery',
-        description: 'Aids in faster recovery for athletes and active lifestyles.'
+        title: 'Energizing <br> Water',
+        description: 'OKEARA help you boosts your energy, helping you feel more refreshed and less tired'
+    },
+    {
+        image: Immune,
+        title: 'Clean Your <br> Blood',
+        description: 'Supports detoxification by helping remove toxins & impurities bloodstream'
+    },
+    {
+        image: Overweight,
+        title: 'Overweight <br> Reduction',
+        description: 'Supports detoxification by helping remove toxins & impurities bloodstream'
+    },
+    {
+        image: Tired,
+        title: 'Tired and Low <br> Energy Solution',
+        description: 'OKEARA Hydrogen water helps fight tiredness and boosts your energy'
+    },
+    {
+        image: Stress,
+        title: 'Stress <br> Management',
+        description: 'Structured hydrogen water helps you relax and reduces stress'
+    },
+    {
+        image: Microplastic,
+        title: 'Microplastics <br> Free',
+        description: 'Processed to be free of microplastics, ensuring a cleaner and safer'
     }
 ]
 
+const isScrolling = ref(false)
+
 const nextSlide = () => {
-    currentIndex.value = currentIndex.value + 1
+    if (isScrolling.value || currentIndex.value >= 4) return
+    isScrolling.value = true
+    currentIndex.value += 1
+
     const el = sliderTrack.value
     if (el) {
         const scrollAmount = el.offsetWidth * 0.26
         el.scrollBy({ left: scrollAmount, behavior: 'smooth' })
+
+        setTimeout(() => {
+            isScrolling.value = false
+        }, 400)
+    } else {
+        isScrolling.value = false
     }
 }
 
 const prevSlide = () => {
-    currentIndex.value = currentIndex.value - 1
+    if (isScrolling.value || currentIndex.value <= 0) return
+    isScrolling.value = true
+    currentIndex.value -= 1
+
     const el = sliderTrack.value
     if (el) {
         const scrollAmount = el.offsetWidth * 0.26
         el.scrollBy({ left: -scrollAmount, behavior: 'smooth' })
+
+        setTimeout(() => {
+            isScrolling.value = false
+        }, 400)
+    } else {
+        isScrolling.value = false
     }
 }
 
@@ -718,52 +818,124 @@ onMounted(() => {
         }
     )
 
-    if (bg2.value && container.value) {
-        gsap.fromTo(bg2.value, { yPercent: 100 }, {
-            yPercent: 0,
-            ease: 'none',
-            scrollTrigger: {
-                trigger: container.value,
-                start: 'top top',
-                end: '+=50%',
-                scrub: true,
-                pin: true,
-                anticipatePin: 1,
-                onUpdate: self => {
-                    activeSectionIndex.value = self.progress > 0.5 ? 1 : 0
-                }
-            }
+    const bgs: HTMLElement[] = [bg0.value, bg1.value, bg2.value, bg3.value].filter(Boolean) as HTMLElement[]
+    const subs: HTMLElement[] = [st0.value, st1.value, st2.value, st3.value].filter(Boolean) as HTMLElement[]
+    const numbers: HTMLElement[] = [num0.value, num1.value, num2.value, num3.value].filter(Boolean) as HTMLElement[]
+    const shorts: HTMLElement[] = [short0.value, short1.value, short2.value, short3.value].filter(Boolean) as HTMLElement[]
+    const descs: HTMLElement[] = [desc0.value, desc1.value, desc2.value, desc3.value].filter(Boolean) as HTMLElement[]
+
+    bgs.forEach((el, i) => {
+        gsap.set(el, { yPercent: i === 0 ? 0 : 100 })
+    })
+    subs.forEach((el, i) => {
+        gsap.set(el, {
+            opacity: i === 0 ? 1 : 0,
+            y: i === 0 ? 0 : 10,
         })
-        gsap.fromTo(bg3.value, { yPercent: 100 }, {
-            yPercent: 0,
-            ease: 'none',
-            scrollTrigger: {
-                trigger: container.value,
-                start: 'top top',
-                end: '+=50%',
-                scrub: true,
-                pin: true,
-                anticipatePin: 1,
-                onUpdate: self => {
-                    activeSectionIndex.value = self.progress > 0.5 ? 1 : 0
-                }
-            }
+    })
+    numbers.forEach((el, i) => {
+        gsap.set(el, {
+            opacity: i === 0 ? 1 : 0,
+            y: i === 0 ? 0 : 10,
         })
-        gsap.fromTo(bg4.value, { yPercent: 100 }, {
-            yPercent: 0,
-            ease: 'none',
-            scrollTrigger: {
-                trigger: container.value,
-                start: 'top top',
-                end: '+=50%',
-                scrub: true,
-                pin: true,
-                anticipatePin: 1,
-                onUpdate: self => {
-                    activeSectionIndex.value = self.progress > 0.5 ? 1 : 0
-                }
-            }
+    })
+    shorts.forEach((el, i) => {
+        gsap.set(el, {
+            opacity: i === 0 ? 1 : 0,
+            y: i === 0 ? 0 : 10,
         })
+    })
+    descs.forEach((el, i) => {
+        gsap.set(el, {
+            opacity: i === 0 ? 1 : 0,
+            y: i === 0 ? 0 : 10,
+        })
+    })
+
+    const tl = gsap.timeline({
+        scrollTrigger: {
+            trigger: container.value as HTMLElement,
+            start: 'top top',
+            end: `+=${(bgs.length - 1) * 100}%`,
+            scrub: true,
+            pin: true,
+        },
+    })
+
+    for (let i = 1; i < bgs.length; i++) {
+        tl.to(bgs[i], {
+            yPercent: 0,
+            duration: 0.6,
+            ease: 'power2.out',
+        }, i)
+
+        tl.to(subs[i - 1], {
+            opacity: 0,
+            y: -10,
+            duration: 0.4,
+            ease: 'power1.out',
+        }, i - 0.2)
+
+        tl.fromTo(subs[i], {
+            opacity: 0,
+            y: 10,
+        }, {
+            opacity: 1,
+            y: 0,
+            duration: 0.4,
+            ease: 'power1.out',
+        }, i + 0.1)
+
+        tl.to(numbers[i - 1], {
+            opacity: 0,
+            y: -10,
+            duration: 0.4,
+            ease: 'power1.out',
+        }, i - 0.2)
+
+        tl.fromTo(numbers[i], {
+            opacity: 0,
+            y: 10,
+        }, {
+            opacity: 1,
+            y: 0,
+            duration: 0.4,
+            ease: 'power1.out',
+        }, i + 0.1)
+
+        tl.to(shorts[i - 1], {
+            opacity: 0,
+            y: -10,
+            duration: 0.4,
+            ease: 'power1.out',
+        }, i - 0.2)
+
+        tl.fromTo(shorts[i], {
+            opacity: 0,
+            y: 10,
+        }, {
+            opacity: 1,
+            y: 0,
+            duration: 0.4,
+            ease: 'power1.out',
+        }, i + 0.1)
+
+        tl.to(descs[i - 1], {
+            opacity: 0,
+            y: -10,
+            duration: 0.4,
+            ease: 'power1.out',
+        }, i - 0.2)
+
+        tl.fromTo(descs[i], {
+            opacity: 0,
+            y: 10,
+        }, {
+            opacity: 1,
+            y: 0,
+            duration: 0.4,
+            ease: 'power1.out',
+        }, i + 0.1)
     }
 
 
@@ -814,27 +986,34 @@ onMounted(() => {
         }
     )
 
-    gsap.to(imageLeftBenefitRef.value, {
-        y: -300,
-        ease: 'none',
-        scrollTrigger: {
-            trigger: imageLeftBenefitRef.value,
-            start: 'top bottom',
-            end: 'bottom top',
-            scrub: true,
-        },
-    })
+    gsap.fromTo(imageLeftBenefitRef.value,
+        { yPercent: 30, ease: 'none' },
+        {
+            yPercent: -30,
+            ease: 'none',
+            scrollTrigger: {
+                trigger: imageLeftBenefitRef.value,
+                start: 'top bottom',
+                end: 'bottom top',
+                scrub: true,
+            }
+        }
+    )
 
-    gsap.to(imageRightBenefitRef.value, {
-        y: -300,
-        ease: 'none',
-        scrollTrigger: {
-            trigger: imageRightBenefitRef.value,
-            start: 'top bottom',
-            end: 'bottom top',
-            scrub: true,
-        },
-    })
+
+    gsap.fromTo(imageRightBenefitRef.value,
+        { yPercent: 30, ease: 'none' },
+        {
+            yPercent: -30,
+            ease: 'none',
+            scrollTrigger: {
+                trigger: imageRightBenefitRef.value,
+                start: 'top bottom',
+                end: 'bottom top',
+                scrub: true,
+            }
+        }
+    )
 
     if (titleBenefitRef.value) {
         const lines = titleBenefitRef.value.innerHTML.split('<br>')
@@ -854,6 +1033,7 @@ onMounted(() => {
                 duration: 0.6,
                 delay: i * 0.15,
                 ease: 'power2.out',
+                immediateRender: false,
                 scrollTrigger: {
                     trigger: titleBenefitRef.value,
                     start: 'top 80%',
@@ -872,6 +1052,7 @@ onMounted(() => {
             y: 0,
             duration: 0.8,
             ease: 'power2.out',
+            immediateRender: false,
             scrollTrigger: {
                 trigger: paragraphBenefitRef.value,
                 start: 'top 75%',
@@ -899,6 +1080,7 @@ onMounted(() => {
                 duration: 0.6,
                 delay: i * 0.15,
                 ease: 'power2.out',
+                immediateRender: false,
                 scrollTrigger: {
                     trigger: titleSafetyRef.value,
                     start: 'top 80%',
@@ -917,6 +1099,7 @@ onMounted(() => {
             y: 0,
             duration: 0.8,
             ease: 'power2.out',
+            immediateRender: false,
             scrollTrigger: {
                 trigger: paragraphSafetyRef.value,
                 start: 'top 80%',
@@ -944,6 +1127,7 @@ onMounted(() => {
                 duration: 0.6,
                 delay: i * 0.15,
                 ease: 'power2.out',
+                immediateRender: false,
                 scrollTrigger: {
                     trigger: titleProductRef.value,
                     start: 'top 80%',
@@ -962,12 +1146,42 @@ onMounted(() => {
             y: 0,
             duration: 0.8,
             ease: 'power2.out',
+            immediateRender: false,
             scrollTrigger: {
                 trigger: paragraphProductRef.value,
                 start: 'top 80%',
                 end: 'bottom top',
                 toggleActions: 'play reverse play reverse',
             },
+        }
+    )
+
+    gsap.fromTo(imageLeftSustainabilityRef.value,
+        { yPercent: 30, ease: 'none' },
+        {
+            yPercent: -30,
+            ease: 'none',
+            scrollTrigger: {
+                trigger: imageLeftSustainabilityRef.value,
+                start: 'top bottom',
+                end: 'bottom top',
+                scrub: true,
+            }
+        }
+    )
+
+
+    gsap.fromTo(imageRightSustainabilityRef.value,
+        { yPercent: 30, ease: 'none' },
+        {
+            yPercent: -30,
+            ease: 'none',
+            scrollTrigger: {
+                trigger: imageRightSustainabilityRef.value,
+                start: 'top bottom',
+                end: 'bottom top',
+                scrub: true,
+            }
         }
     )
 
@@ -989,6 +1203,7 @@ onMounted(() => {
                 duration: 0.6,
                 delay: i * 0.15,
                 ease: 'power2.out',
+                immediateRender: false,
                 scrollTrigger: {
                     trigger: titleCommitmentRef.value,
                     start: 'top 80%',
@@ -1007,6 +1222,7 @@ onMounted(() => {
             y: 0,
             duration: 0.8,
             ease: 'power2.out',
+            immediateRender: false,
             scrollTrigger: {
                 trigger: paragraphCommitmentRef.value,
                 start: 'top 80%',
@@ -1016,16 +1232,48 @@ onMounted(() => {
         }
     )
 
-    gsap.to(imageSafetyRef.value, {
-        y: -20,
-        ease: 'none',
-        scrollTrigger: {
-            trigger: imageSafetyRef.value,
-            start: 'top bottom',
-            end: 'bottom top',
-            scrub: true,
-        },
-    })
+    gsap.fromTo(imageLeftCommitmentRef.value,
+        { yPercent: 30, ease: 'none' },
+        {
+            yPercent: -30,
+            ease: 'none',
+            scrollTrigger: {
+                trigger: imageLeftCommitmentRef.value,
+                start: 'top bottom',
+                end: 'bottom top',
+                scrub: true,
+            }
+        }
+    )
+
+
+    gsap.fromTo(imageRightCommitmentRef.value,
+        { yPercent: 30, ease: 'none' },
+        {
+            yPercent: -30,
+            ease: 'none',
+            scrollTrigger: {
+                trigger: imageRightCommitmentRef.value,
+                start: 'top bottom',
+                end: 'bottom top',
+                scrub: true,
+            }
+        }
+    )
+
+    gsap.fromTo(imageSafetyRef.value,
+        { yPercent: 30, ease: 'none' },
+        {
+            yPercent: -30,
+            ease: 'none',
+            scrollTrigger: {
+                trigger: imageSafetyRef.value,
+                start: 'top bottom',
+                end: 'bottom top',
+                scrub: true,
+            }
+        }
+    )
 })
 
 const container0 = ref(null)
