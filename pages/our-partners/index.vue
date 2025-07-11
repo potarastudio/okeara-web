@@ -38,29 +38,108 @@
                 </div>
             </div>
         </div>
-        <div :style="bannerCommunityStyle"
-            class="bg-cover bg-no-repeat bg-center px-[24px] py-[40px] md:p-[40px] lg:px-[64px] lg:py-[100px]">
-            <div class="w-full flex flex-col md:flex-row items-center justify-between gap-[40px] md:gap-auto">
+        <div ref="container"
+            class="relative w-full h-[100dvh] px-[24px] py-[40px] md:p-[40px] lg:px-[64px] lg:py-[80px]">
+            <div ref="bg0" class="absolute inset-0 bg-cover bg-center bg-no-repeat z-10 will-change-transform"
+                :style="{ backgroundImage: `url(${PartnersCommunity})` }" />
+            <div ref="bg1" class="absolute inset-0 bg-cover bg-center bg-no-repeat z-20 will-change-transform"
+                :style="{ backgroundImage: `url(${PartnersCommunity2})` }" />
+            <div ref="bg2" class="absolute inset-0 bg-cover bg-center bg-no-repeat z-30 will-change-transform"
+                :style="{ backgroundImage: `url(${PartnersCommunity3})` }" />
+            <div ref="bg3" class="absolute inset-0 bg-cover bg-center bg-no-repeat z-40 will-change-transform"
+                :style="{ backgroundImage: `url(${PartnersCommunity4})` }" />
+            <div ref="bg4" class="absolute inset-0 bg-cover bg-center bg-no-repeat z-50 will-change-transform"
+                :style="{ backgroundImage: `url(${PartnersCommunity5})` }" />
+            <div ref="bg5" class="absolute inset-0 bg-cover bg-center bg-no-repeat z-60 will-change-transform"
+                :style="{ backgroundImage: `url(${PartnersCommunity6})` }" />
+            <div
+                class="relative z-70 w-full flex flex-col md:flex-row items-center justify-between gap-[40px] md:gap-auto">
                 <div class="hidden md:flex items-center gap-[20px]">
                     <img :src="List" alt="List">
                     <div class="text-[#EDF3F3] text-[18px] leading-[24px]">
                         Our Community
                     </div>
                 </div>
-                <div class="bg-[#EDF3F3] p-[64px] w-[90%] md:w-[40%] flex flex-col items-center">
-                    <div class="text-[#203D4D] text-[14px] leading-[18px]">
-                        02 <span class="opacity-50">— 06</span>
+                <div class="bg-[#EDF3F3] p-[32px] w-[90%] md:w-[40%] flex flex-col items-center">
+                    <div class="relative flex items-center gap-[4px] text-[#203D4D] text-[14px] leading-[18px]">
+                        <div ref="number0" class="absolute inset-0 opacity-0">
+                            01
+                        </div>
+                        <div ref="number1" class="absolute inset-0 opacity-0">
+                            02
+                        </div>
+                        <div ref="number2" class="absolute inset-0 opacity-0">
+                            03
+                        </div>
+                        <div ref="number3" class="absolute inset-0 opacity-0">
+                            04
+                        </div>
+                        <div ref="number4" class="absolute inset-0 opacity-0">
+                            05
+                        </div>
+                        <div ref="number5" class="absolute inset-0 opacity-0">
+                            06
+                        </div>
+                        <span class="opacity-50 ml-[24px]">— 06</span>
                     </div>
                     <div
-                        class="mt-[60px] text-[#203D4D] text-[22px] md:text-[28px] text-center font-light leading-[24px]">
-                        Supporting <br> Sporting Events
+                        class="relative mt-[40px] text-[#203D4D] text-[22px] md:text-[28px] text-center font-light leading-[24px] w-[70%] h-[80px]">
+                        <div ref="title0" class="absolute inset-0 opacity-0">Longevity <br> Mindset</div>
+                        <div ref="title1" class="absolute inset-0 opacity-0">Exclusive <br> Content & Events</div>
+                        <div ref="title2" class="absolute inset-0 opacity-0">Access to Longevity <br> Club Concierge
+                        </div>
+                        <div ref="title3" class="absolute inset-0 opacity-0">Benefits from All <br> ELEMENTIS Group
+                            Services</div>
+                        <div ref="title4" class="absolute inset-0 opacity-0">Beyond Wellness: <br> Longevity and
+                            Happiness</div>
+                        <div ref="title5" class="absolute inset-0 opacity-0">Limited <br> Availability</div>
                     </div>
-                    <img :src="PartnersCommunity" alt="PartnersCommunity" class="w-full mt-[32px]">
+                    <div class="relative overflow-hidden w-full h-[280px]">
+                        <img ref="imgCard0" :src="PartnersCommunity" alt="PartnersCommunity"
+                            class="absolute inset-0 object-cover z-10 will-change-transform">
+                        <img ref="imgCard1" :src="PartnersCommunity2" alt="PartnersCommunity"
+                            class="absolute inset-0 object-cover z-20 will-change-transform">
+                        <img ref="imgCard2" :src="PartnersCommunity3" alt="PartnersCommunity"
+                            class="absolute inset-0 object-cover z-30 will-change-transform">
+                        <img ref="imgCard3" :src="PartnersCommunity4" alt="PartnersCommunity"
+                            class="absolute inset-0 object-cover z-40 will-change-transform">
+                        <img ref="imgCard4" :src="PartnersCommunity5" alt="PartnersCommunity"
+                            class="absolute inset-0 object-cover z-50 will-change-transform">
+                        <img ref="imgCard5" :src="PartnersCommunity6" alt="PartnersCommunity"
+                            class="absolute inset-0 object-cover z-60 will-change-transform">
+                    </div>
                     <div
-                        class="text-[#203D4D] text-[12px] md:text-[16px] leading-[16px] md:leading-[20px] text-center mt-[32px]">
-                        We proudly support various sporting events, advocating for the importance of physical activity.
-                        Our involvement not only promotes an active lifestyle but also fosters a strong sense of
-                        community and teamwork.
+                        class="relative w-full h-[100px] text-[#203D4D] text-[12px] md:text-[16px] leading-[16px] md:leading-[20px] text-center mt-[32px]">
+                        <div ref="desc0" class="absolute inset-0 opacity-0">
+                            Join a vibrant community of like-minded individuals who share your passion for longevity and
+                            wellness. Surround yourself with people who inspire and support each other in the pursuit of
+                            a healthier, more fulfilling life.
+                        </div>
+                        <div ref="desc1" class="absolute inset-0 opacity-0">
+                            Gain access to exclusive events and content tailored specifically for our members. From
+                            private wellness workshops to intimate gatherings with industry experts, its designed to
+                            enrich your journey towards longevity.
+                        </div>
+                        <div ref="desc2" class="absolute inset-0 opacity-0">
+                            Experience unparalleled support with our dedicated Longevity Club Concierge. Available
+                            exclusively to members, this service ensures that your wellness journey is effortless and
+                            tailored to your needs.
+                        </div>
+                        <div ref="desc3" class="absolute inset-0 opacity-0">
+                            You’ll enjoy comprehensive benefits from all ELEMENTIS Group services, including OKEARA’s
+                            premium hydrogen water, Hot Stone Club’s personalized wellness programs, and ELEMENTIS
+                            Development’s luxury villas.
+                        </div>
+                        <div ref="desc4" class="absolute inset-0 opacity-0">
+                            The Longevity Club is more than just a wellness program; it’s a pathway to a happier, more
+                            fulfilling life. By focusing on longevity, wellness, and happiness, you’ll reap benefits
+                            that extend beyond physical health.
+                        </div>
+                        <div ref="desc5" class="absolute inset-0 opacity-0">
+                            Membership to the Longevity Club is a rare privilege, with only a limited number of spots
+                            available.
+                            This ensures that each member receives the highest level of personalized attention and care.
+                        </div>
                     </div>
                 </div>
                 <div class="text-[#EDF3F3] text-right text-[16px] md:text-[18px] leading-[24px]">
@@ -86,7 +165,10 @@
                 </div>
                 <div class="w-full flex items-end justify-between">
                     <div class="pb-[30px] md:pb-[82px] w-[35%]">
-                        <img :src="Partnership1" alt="Community 2">
+                        <div class="relative overflow-hidden w-full h-[400px]">
+                            <img ref="imgParnershipLeftRef" :src="Partnership1" alt="Community 2"
+                                class="absolute top-0 left-0 scale-[1.4] h-full object-cover">
+                        </div>
                     </div>
                     <div class="flex flex-col items-start gap-[120px] w-[55%]">
                         <div ref="paragraphPartnersRightRef"
@@ -94,7 +176,10 @@
                             OKEARA structured hydrogen water is a testament to our dedication to optimizing Wellness. We
                             celebrate every success and support one another in our health journeys.
                         </div>
-                        <img :src="Partnership2" alt="Community 1">
+                        <div class="relative overflow-hidden w-full h-[700px]">
+                            <img ref="imgParnershipRightRef" :src="Partnership2" alt="Community 1"
+                                class="absolute top-0 left-0 scale-[1.4] h-full object-cover">
+                        </div>
                     </div>
                 </div>
             </div>
@@ -124,8 +209,14 @@
                 </div>
             </div>
             <div class="w-full flex items-end justify-between mt-[56px] lg:mt-[100px]">
-                <img :src="ElementisGroup1" alt="ElementisGroup1" class="md:w-[35%]">
-                <img :src="ElementisGroup2" alt="ElementisGroup2" class="hidden md:block w-[60%]">
+                <div class="relative overflow-hidden md:w-[35%] h-[400px]">
+                    <img ref="imgElementisLeftRef" :src="ElementisGroup1" alt="ElementisGroup1"
+                        class="absolute top-0 left-0 scale-[1.4] h-full object-cover">
+                </div>
+                <div class="relative overflow-hidden hidden md:block w-[60%] h-[600px]">
+                    <img ref="imgElementisRightRef" :src="ElementisGroup2" alt="ElementisGroup2"
+                        class="absolute top-0 left-0 scale-[1.4] h-full object-cover">
+                </div>
             </div>
         </div>
         <div class="w-full bg-[#203D4D] px-[24px] py-[40px] md:p-[40px] lg:px-[64px] lg:py-[100px]">
@@ -154,8 +245,13 @@
                 </div>
             </div>
             <div class="w-full flex items-end justify-between mt-[56px] lg:mt-[100px]">
-                <img :src="ElementisDevelopment1" alt="ElementisDevelopment1" class="hidden md:block w-[35%]">
-                <img :src="ElementisDevelopment2" alt="ElementisDevelopment2" class="md:w-[60%]">
+                <div class="relative overflow-hidden hidden md:block h-[400px] w-[35%]">
+                    <img ref="imgDevelopmentLeftRef" :src="ElementisDevelopment1" alt="ElementisDevelopment1"
+                        class="absolute top-0 left-0 scale-[1.4] h-full object-cover">
+                </div>
+                <div class="relative overflow-hidden w-full md:w-[60%] h-[600px]">
+                    <img ref="imgDevelopmentRightRef" :src="ElementisDevelopment2" alt="ElementisDevelopment2" class="absolute top-0 left-0 scale-[1.4] h-full object-cover">
+                </div>
             </div>
         </div>
         <LongevityClub />
@@ -167,6 +263,11 @@ import gsap from 'gsap'
 import ScrollTrigger from 'gsap/ScrollTrigger'
 import BannerOurPartners from '@/assets/images/BannerOurPartners.png'
 import PartnersCommunity from '@/assets/images/PartnersCommunity.png'
+import PartnersCommunity2 from '@/assets/images/PartnersCommunity2.png'
+import PartnersCommunity3 from '@/assets/images/PartnersCommunity3.png'
+import PartnersCommunity4 from '@/assets/images/PartnersCommunity4.png'
+import PartnersCommunity5 from '@/assets/images/PartnersCommunity5.png'
+import PartnersCommunity6 from '@/assets/images/PartnersCommunity6.png'
 import Partnership1 from '@/assets/images/Partnership1.png'
 import Partnership2 from '@/assets/images/Partnership2.png'
 import ElementisGroup1 from '@/assets/images/ElementisGroup1.png'
@@ -181,21 +282,54 @@ const bannerRef = ref<HTMLElement | null>(null)
 const textBannerContainerRef = ref<HTMLElement | null>(null)
 const marqueeWrapper = ref<HTMLElement | null>(null)
 const titlePartnerRef = ref<HTMLElement | null>(null)
+const container = ref<HTMLElement | null>(null)
+const bg0 = ref<HTMLElement | null>(null)
+const bg1 = ref<HTMLElement | null>(null)
+const bg2 = ref<HTMLElement | null>(null)
+const bg3 = ref<HTMLElement | null>(null)
+const bg4 = ref<HTMLElement | null>(null)
+const bg5 = ref<HTMLElement | null>(null)
+const number0 = ref<HTMLElement | null>(null)
+const number1 = ref<HTMLElement | null>(null)
+const number2 = ref<HTMLElement | null>(null)
+const number3 = ref<HTMLElement | null>(null)
+const number4 = ref<HTMLElement | null>(null)
+const number5 = ref<HTMLElement | null>(null)
+const title0 = ref<HTMLElement | null>(null)
+const title1 = ref<HTMLElement | null>(null)
+const title2 = ref<HTMLElement | null>(null)
+const title3 = ref<HTMLElement | null>(null)
+const title4 = ref<HTMLElement | null>(null)
+const title5 = ref<HTMLElement | null>(null)
+const imgCard0 = ref<HTMLElement | null>(null)
+const imgCard1 = ref<HTMLElement | null>(null)
+const imgCard2 = ref<HTMLElement | null>(null)
+const imgCard3 = ref<HTMLElement | null>(null)
+const imgCard4 = ref<HTMLElement | null>(null)
+const imgCard5 = ref<HTMLElement | null>(null)
+const desc0 = ref<HTMLElement | null>(null)
+const desc1 = ref<HTMLElement | null>(null)
+const desc2 = ref<HTMLElement | null>(null)
+const desc3 = ref<HTMLElement | null>(null)
+const desc4 = ref<HTMLElement | null>(null)
+const desc5 = ref<HTMLElement | null>(null)
 const titlePartnersRef = ref<HTMLElement | null>(null)
 const paragraphPartnersLeftRef = ref<HTMLElement | null>(null)
 const paragraphPartnersRightRef = ref<HTMLElement | null>(null)
+const imgParnershipLeftRef = ref<HTMLElement | null>(null)
+const imgParnershipRightRef = ref<HTMLElement | null>(null)
 const titleElementisRef = ref<HTMLElement | null>(null)
 const paragraphElementisRef = ref<HTMLElement | null>(null)
+const imgElementisLeftRef = ref<HTMLElement | null>(null)
+const imgElementisRightRef = ref<HTMLElement | null>(null)
 const titleDevelopmentRef = ref<HTMLElement | null>(null)
 const paragraphDevelopmentRef = ref<HTMLElement | null>(null)
+const imgDevelopmentLeftRef = ref<HTMLElement | null>(null)
+const imgDevelopmentRightRef = ref<HTMLElement | null>(null)
 
 const bannerStyle = {
     backgroundImage: `url(${BannerOurPartners})`,
 }
-const bannerCommunityStyle = {
-    backgroundImage: `url(${PartnersCommunity})`,
-}
-
 
 onMounted(() => {
     gsap.registerPlugin(ScrollTrigger);
@@ -278,6 +412,121 @@ onMounted(() => {
         })
     }
 
+    const bgs: HTMLElement[] = [bg0.value, bg1.value, bg2.value, bg3.value, bg4.value, bg5.value].filter(Boolean) as HTMLElement[]
+    const numbers: HTMLElement[] = [
+        number0.value, number1.value, number2.value, number3.value, number4.value, number5.value
+    ].filter(Boolean) as HTMLElement[]
+    const titles: HTMLElement[] = [
+        title0.value, title1.value, title2.value, title3.value, title4.value, title5.value
+    ].filter(Boolean) as HTMLElement[]
+    const imgCards: HTMLElement[] = [
+        imgCard0.value, imgCard1.value, imgCard2.value, imgCard3.value, imgCard4.value, imgCard5.value
+    ].filter(Boolean) as HTMLElement[]
+    const descs: HTMLElement[] = [
+        desc0.value, desc1.value, desc2.value, desc3.value, desc4.value, desc5.value
+    ].filter(Boolean) as HTMLElement[]
+
+    bgs.forEach((el, i) => {
+        gsap.set(el, { opacity: i === 0 ? 1 : 0 })
+    })
+
+    numbers.forEach((el, i) => {
+        gsap.set(el, {
+            opacity: i === 0 ? 1 : 0,
+            y: i === 0 ? 0 : 10,
+        })
+    })
+    titles.forEach((el, i) => {
+        gsap.set(el, {
+            opacity: i === 0 ? 1 : 0,
+            y: i === 0 ? 0 : 10,
+        })
+    })
+    imgCards.forEach((el, i) => {
+        gsap.set(el, { yPercent: i === 0 ? 0 : 100 })
+    })
+    descs.forEach((el, i) => {
+        gsap.set(el, {
+            opacity: i === 0 ? 1 : 0,
+            y: i === 0 ? 0 : 10,
+        })
+    })
+
+    const tl = gsap.timeline({
+        scrollTrigger: {
+            trigger: container.value as HTMLElement,
+            start: 'top top',
+            end: `+=${(bgs.length - 1) * 100}%`,
+            scrub: true,
+            pin: true,
+        },
+    })
+
+    for (let i = 1; i < bgs.length; i++) {
+        tl.to(bgs[i], {
+            opacity: 1,
+            duration: 0.6,
+            ease: 'power2.out',
+        }, i)
+
+        tl.to(numbers[i - 1], {
+            opacity: 0,
+            y: -10,
+            duration: 0.4,
+            ease: 'power1.out',
+        }, i - 0.2)
+
+        tl.fromTo(numbers[i], {
+            opacity: 0,
+            y: 10,
+        }, {
+            opacity: 1,
+            y: 0,
+            duration: 0.4,
+            ease: 'power1.out',
+        }, i + 0.1)
+
+        tl.to(titles[i - 1], {
+            opacity: 0,
+            y: -10,
+            duration: 0.4,
+            ease: 'power1.out',
+        }, i - 0.2)
+
+        tl.fromTo(titles[i], {
+            opacity: 0,
+            y: 10,
+        }, {
+            opacity: 1,
+            y: 0,
+            duration: 0.4,
+            ease: 'power1.out',
+        }, i + 0.1)
+
+        tl.to(imgCards[i], {
+            yPercent: 0,
+            duration: 0.6,
+            ease: 'power2.out',
+        }, i)
+
+        tl.to(descs[i - 1], {
+            opacity: 0,
+            y: -10,
+            duration: 0.4,
+            ease: 'power1.out',
+        }, i - 0.2)
+
+        tl.fromTo(descs[i], {
+            opacity: 0,
+            y: 10,
+        }, {
+            opacity: 1,
+            y: 0,
+            duration: 0.4,
+            ease: 'power1.out',
+        }, i + 0.1)
+    }
+
     if (titlePartnersRef.value) {
         const lines = titlePartnersRef.value.innerHTML.split('<br>')
         titlePartnersRef.value.innerHTML = ''
@@ -296,6 +545,7 @@ onMounted(() => {
                 duration: 0.6,
                 delay: i * 0.15,
                 ease: 'power2.out',
+                immediateRender: false,
                 scrollTrigger: {
                     trigger: titlePartnersRef.value,
                     start: 'top 80%',
@@ -314,6 +564,7 @@ onMounted(() => {
             y: 0,
             duration: 0.8,
             ease: 'power2.out',
+            immediateRender: false,
             scrollTrigger: {
                 trigger: paragraphPartnersLeftRef.value,
                 start: 'top 80%',
@@ -331,12 +582,41 @@ onMounted(() => {
             y: 0,
             duration: 0.8,
             ease: 'power2.out',
+            immediateRender: false,
             scrollTrigger: {
                 trigger: paragraphPartnersRightRef.value,
                 start: 'top 80%',
                 end: 'bottom top',
                 toggleActions: 'play reverse play reverse',
             },
+        }
+    )
+
+    gsap.fromTo(imgParnershipLeftRef.value,
+        { yPercent: 30, ease: 'none' },
+        {
+            yPercent: -30,
+            ease: 'none',
+            scrollTrigger: {
+                trigger: imgParnershipLeftRef.value,
+                start: 'top bottom',
+                end: 'bottom top',
+                scrub: true,
+            }
+        }
+    )
+
+    gsap.fromTo(imgParnershipRightRef.value,
+        { yPercent: 30, ease: 'none' },
+        {
+            yPercent: -30,
+            ease: 'none',
+            scrollTrigger: {
+                trigger: imgParnershipRightRef.value,
+                start: 'top bottom',
+                end: 'bottom top',
+                scrub: true,
+            }
         }
     )
 
@@ -358,6 +638,7 @@ onMounted(() => {
                 duration: 0.6,
                 delay: i * 0.15,
                 ease: 'power2.out',
+                immediateRender: false,
                 scrollTrigger: {
                     trigger: titleElementisRef.value,
                     start: 'top 80%',
@@ -376,12 +657,41 @@ onMounted(() => {
             y: 0,
             duration: 0.8,
             ease: 'power2.out',
+            immediateRender: false,
             scrollTrigger: {
                 trigger: paragraphElementisRef.value,
                 start: 'top 80%',
                 end: 'bottom top',
                 toggleActions: 'play reverse play reverse',
             },
+        }
+    )
+
+    gsap.fromTo(imgElementisLeftRef.value,
+        { yPercent: 30, ease: 'none' },
+        {
+            yPercent: -30,
+            ease: 'none',
+            scrollTrigger: {
+                trigger: imgElementisLeftRef.value,
+                start: 'top bottom',
+                end: 'bottom top',
+                scrub: true,
+            }
+        }
+    )
+
+    gsap.fromTo(imgElementisRightRef.value,
+        { yPercent: 30, ease: 'none' },
+        {
+            yPercent: -30,
+            ease: 'none',
+            scrollTrigger: {
+                trigger: imgElementisRightRef.value,
+                start: 'top bottom',
+                end: 'bottom top',
+                scrub: true,
+            }
         }
     )
 
@@ -403,6 +713,7 @@ onMounted(() => {
                 duration: 0.6,
                 delay: i * 0.15,
                 ease: 'power2.out',
+                immediateRender: false,
                 scrollTrigger: {
                     trigger: titleDevelopmentRef.value,
                     start: 'top 80%',
@@ -421,12 +732,41 @@ onMounted(() => {
             y: 0,
             duration: 0.8,
             ease: 'power2.out',
+            immediateRender: false,
             scrollTrigger: {
                 trigger: paragraphDevelopmentRef.value,
                 start: 'top 80%',
                 end: 'bottom top',
                 toggleActions: 'play reverse play reverse',
             },
+        }
+    )
+
+    gsap.fromTo(imgDevelopmentLeftRef.value,
+        { yPercent: 30, ease: 'none' },
+        {
+            yPercent: -30,
+            ease: 'none',
+            scrollTrigger: {
+                trigger: imgDevelopmentLeftRef.value,
+                start: 'top bottom',
+                end: 'bottom top',
+                scrub: true,
+            }
+        }
+    )
+
+    gsap.fromTo(imgDevelopmentRightRef.value,
+        { yPercent: 30, ease: 'none' },
+        {
+            yPercent: -30,
+            ease: 'none',
+            scrollTrigger: {
+                trigger: imgDevelopmentRightRef.value,
+                start: 'top bottom',
+                end: 'bottom top',
+                scrub: true,
+            }
         }
     )
 })
