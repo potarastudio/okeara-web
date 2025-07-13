@@ -1,7 +1,7 @@
 <!-- eslint-disable vue/first-attribute-linebreak -->
 <template>
     <div class="overflow-x-hidden">
-        <div ref="bannerRef" :style="bannerStyle" class="bg-cover bg-no-repeat w-full h-[100dvh] relative z-10"
+        <div ref="bannerRef" :style="bannerStyle" class="bg-cover bg-no-repeat w-full h-[100dvh] relative"
             style="background-position: left 50% top 22%;">
             <div class="absolute top-0 left-0 w-full h-[100dvh] pointer-events-none"
                 style="background: linear-gradient(0deg, rgba(0,0,0,0.85) 1.62%, rgba(0,0,0,0.75) 30%, rgba(0,0,0,0.00) 80%);">
@@ -16,7 +16,7 @@
                         <button
                             class="hidden h-[48px] px-[16px] border border-[#fff] rounded-full md:flex items-center justify-center gap-[20px] cursor-pointer">
                             Shop Now
-                            <img :src="ArrowRight" alt="ArrowDown">
+                            <img :src="ArrowRightWhite" alt="ArrowDown">
                         </button>
                     </div>
                     <div class="flex flex-col items-start gap-[20px] md:gap-[120px] md:w-[35%]">
@@ -266,6 +266,56 @@
                 </div>
             </div>
         </div>
+        <div
+            class="w-full relative bg-[#EDF3F3] px-[24px] py-[40px] md:p-[40px] lg:px-[64px] lg:py-[120px] flex flex-col gap-[80px]">
+            <img :src="BgWave" alt="BgWave" class="hidden lg:block absolute top-0 left-[15%] z-1">
+            <div class="w-full flex flex-col lg:flex-row items-start justify-between gap-[42px] lg:gap-auto">
+                <div class="flex items-center gap-[10px] md:gap-[20px]">
+                    <img :src="ListBlack" alt="ListBlack">
+                    <div class="text-[#203D4D] text-[18px] leading-[24px]">
+                        Certificate
+                    </div>
+                </div>
+                <div class="flex flex-col md:flex-row items-start justify-end gap-[24px] md:gap-[90px] lg:w-[65%]">
+                    <div
+                        class="text-[#203D4D] text-[32px] md:text-[48px] font-light leading-[41.6px] md:leading-[58px] mt-[-10px] w-[85%] md:w-[45%]">
+                        What does expert says about OKEARA
+                    </div>
+                    <div
+                        class="text-[#203D4D] text-[14px] md:text-[18px] leading-[18.2px] md:leading-[24px] md:w-[40%]">
+                        OKEARA is more than just a wellness trends, it’s backed by scientific insight and global
+                        research. Studies on structured water and molecular hydrogen highlight their powerful roles.
+                    </div>
+                </div>
+            </div>
+
+            <div class="relative">
+                <div ref="sliderTrack" class="flex gap-[72px] mt-[40px] md:mt-[100px] scroll-smooth overflow-hidden">
+                    <div v-for="(item, index) in slides" :key="index"
+                        class="w-[100%] md:w-[30%] flex-shrink-0 flex flex-col gap-[24px] bg-[#E4EDED] p-[40px]">
+                        <div class="text-[24px] text-[#203D4D] text-center">{{ item.title }}</div>
+                        <img :src="item.image" :alt="item.title" class="w-full" />
+                    </div>
+                </div>
+
+                <div class="w-full flex items-center gap-[32px] mt-[40px] md:mt-[100px]">
+                    <div class="w-full md:w-[90%] flex items-center md:gap-[32px]">
+                        <hr v-for="(item, index) in [0, 1, 2]" :key="'indicator-' + index" :class="[
+                            'w-[33%] border',
+                            currentIndex === index ? 'border-[#203D4D]' : 'border-[#C4CFD2]'
+                        ]" />
+                    </div>
+                    <div class="hidden md:flex items-center gap-[32px] w-[10%]">
+                        <img :src="ArrowLeft" alt="Arrow Left" class="cursor-pointer transition" :class="[
+                            currentIndex === 0 || isScrolling ? 'pointer-events-none opacity-20' : '',
+                        ]" @click="prevSlide" />
+                        <img :src="ArrowRight" alt="Arrow Right" class="cursor-pointer transition" :class="[
+                            currentIndex === 2 || isScrolling ? 'pointer-events-none opacity-20' : '',
+                        ]" @click="nextSlide" />
+                    </div>
+                </div>
+            </div>
+        </div>
         <LongevityClub />
     </div>
 </template>
@@ -287,11 +337,19 @@ import ProfileResearch3 from '@/assets/images/ProfileResearch3.png';
 import ProfileResearch4 from '@/assets/images/ProfileResearch4.png';
 import ProfileResearch5 from '@/assets/images/ProfileResearch5.png';
 import ProfileResearch6 from '@/assets/images/ProfileResearch6.png';
+import Certificate1 from '@/assets/images/certificate/NIE_ERBA3103563202500001-page-001.jpg';
+import Certificate2 from '@/assets/images/certificate/NIE_ERBA3103563202500002-page-001.jpg';
+import Certificate3 from '@/assets/images/certificate/NIE_ERBA3103563202500003-page-001.jpg';
+import Certificate4 from '@/assets/images/certificate/NIE_ERBA3103563202500004-page-001.jpg';
+import Certificate5 from '@/assets/images/certificate/Product Attachment PT ELEMENTIS SMART TECHNOLOGIES-00120273000225-page-001.jpg';
+import Certificate6 from '@/assets/images/certificate/English Ver Sertifikat LSPro - PT. Elementis Smart Technologies-page-001.jpg';
 import LongevityClub from '~/page-section/LongevityClub.vue';
 import ArrowTopRight from "@/assets/icons/ArrowTopRight.svg";
-import ArrowRight from "@/assets/icons/ArrowRightWhite.svg";
+import ArrowRightWhite from "@/assets/icons/ArrowRightWhite.svg";
 import BgWave from '@/assets/images/WaveVertical.svg'
 import ListBlack from '@/assets/icons/ListBlack.svg';
+import ArrowLeft from '@/assets/icons/ArrowLeft.svg';
+import ArrowRight from '@/assets/icons/ArrowRight.svg';
 
 const bannerRef = ref<HTMLElement | null>(null)
 const textContainerRef = ref<HTMLElement | null>(null)
@@ -301,9 +359,82 @@ const research3Ref = ref<HTMLElement | null>(null)
 const research4Ref = ref<HTMLElement | null>(null)
 const research5Ref = ref<HTMLElement | null>(null)
 const research6Ref = ref<HTMLElement | null>(null)
+const sliderTrack = ref<HTMLElement | null>(null)
+const currentIndex = ref(0)
 
 const bannerStyle = {
     backgroundImage: `url(${Banner})`
+}
+
+const slides = [
+    {
+        image: Certificate1,
+        title: 'BPOM OKEARA 500ml',
+        url: 'https://drive.google.com/file/d/1C6L0jsjrB8oHlaNNLjr4sib4V3jPiFw0/view'
+    },
+    {
+        image: Certificate2,
+        title: 'BPOM OKEARA 12lt',
+        description: 'Hydrogen water that helps slow aging by reducing stress and inflammation in cells'
+    },
+    {
+        image: Certificate3,
+        title: 'BPOM OKEARA Blue 500ml',
+        description: 'OKEARA help you boosts your energy, helping you feel more refreshed and less tired'
+    },
+    {
+        image: Certificate4,
+        title: 'BPOM OKEARA Blue 12lt',
+        description: 'Supports detoxification by helping remove toxins & impurities bloodstream'
+    },
+    {
+        image: Certificate5,
+        title: 'Halal',
+        description: 'Supports detoxification by helping remove toxins & impurities bloodstream'
+    },
+    {
+        image: Certificate6,
+        title: 'SNI',
+        description: 'OKEARA Hydrogen water helps fight tiredness and boosts your energy'
+    },
+]
+
+const isScrolling = ref(false)
+
+const nextSlide = () => {
+    if (isScrolling.value || currentIndex.value >= 4) return
+    isScrolling.value = true
+    currentIndex.value += 1
+
+    const el = sliderTrack.value
+    if (el) {
+        const scrollAmount = el.offsetWidth * 0.35
+        el.scrollBy({ left: scrollAmount, behavior: 'smooth' })
+
+        setTimeout(() => {
+            isScrolling.value = false
+        }, 400)
+    } else {
+        isScrolling.value = false
+    }
+}
+
+const prevSlide = () => {
+    if (isScrolling.value || currentIndex.value <= 0) return
+    isScrolling.value = true
+    currentIndex.value -= 1
+
+    const el = sliderTrack.value
+    if (el) {
+        const scrollAmount = el.offsetWidth * 0.35
+        el.scrollBy({ left: -scrollAmount, behavior: 'smooth' })
+
+        setTimeout(() => {
+            isScrolling.value = false
+        }, 400)
+    } else {
+        isScrolling.value = false
+    }
 }
 
 onMounted(() => {

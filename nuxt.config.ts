@@ -21,4 +21,9 @@ export default defineNuxtConfig({
   imports: {
     dirs: ['utils'],
   },
+  runtimeConfig: {
+    public: {
+      geoapifyApiKey: process.env.GEOAPIFY_API_KEY
+    }
+  }
 })
