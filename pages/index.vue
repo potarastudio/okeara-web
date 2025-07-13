@@ -168,10 +168,6 @@
                         <div class="text-[#203D4D] text-[18px] leading-[24px] opacity-50 line-clamp-2">
                             {{ item.description }}
                         </div>
-                        <div class="flex items-center gap-[8px] cursor-pointer">
-                            <div class="w-[8px] h-[8px] rounded-full border border-[#203D4D]" />
-                            <div class="pb-[2px] border-b border-[#203D4D] text-[#203D4D]">Read More</div>
-                        </div>
                     </div>
                 </div>
 
@@ -264,7 +260,8 @@
                         @mouseenter="container0 && handleMouseEnter(container0)"
                         @mouseleave="container0 && handleMouseLeave(container0)">
                         <div class="flex flex-col justify-end items-center gap-[52px]">
-                            <div class="px-[12px] py-[8px] bg-white rounded-full text-black fade-item opacity-0">
+                            <div class="px-[12px] py-[8px] bg-white rounded-full text-black fade-item opacity-0 cursor-pointer"
+                                @click="isOpen = true">
                                 Preview 3D
                             </div>
                             <img :src="activeIndex === 0 ? OkearaWater500ml : OkearaBlue500ml" alt="Okeara Water 500ml"
@@ -280,7 +277,8 @@
                                 </div>
                                 <div class="flex items-center gap-[24px]">
                                     <button
-                                        class="bg-[#203D4D] border border-[#203D4D] rounded-full h-[48px] px-[24px] flex items-center justify-center gap-[12px] text-[#EDF3F3] cursor-pointer">
+                                        class="bg-[#203D4D] border border-[#203D4D] rounded-full h-[48px] px-[24px] flex items-center justify-center gap-[12px] text-[#EDF3F3] cursor-pointer"
+                                        @click="detectAndRedirect">
                                         Buy Now
                                         <img :src="Dollar" alt="Dollar" class="w-[16px]">
                                     </button>
@@ -297,7 +295,8 @@
                         <div ref="container1" class="flex flex-col justify-end items-center gap-[52px]"
                             @mouseenter="container1 && handleMouseEnter(container1)"
                             @mouseleave="container1 && handleMouseLeave(container1)">
-                            <div class="px-[12px] py-[8px] bg-white rounded-full text-black fade-item opacity-0">
+                            <div class="px-[12px] py-[8px] bg-white rounded-full text-black fade-item opacity-0 cursor-pointer"
+                                @click="isOpen = true">
                                 Preview 3D
                             </div>
                             <img :src="activeIndex === 0 ? OkearaWater12l : OkearaBlue12l" alt="Okeara Water 12 L"
@@ -313,7 +312,8 @@
                                 </div>
                                 <div class="flex items-center gap-[24px]">
                                     <button
-                                        class="bg-[#203D4D] border border-[#203D4D] rounded-full h-[48px] px-[24px] flex items-center justify-center gap-[12px] text-[#EDF3F3] curos-pointer">
+                                        class="bg-[#203D4D] border border-[#203D4D] rounded-full h-[48px] px-[24px] flex items-center justify-center gap-[12px] text-[#EDF3F3] curos-pointer"
+                                        @click="detectAndRedirect">
                                         Buy Now
                                         <img :src="Dollar" alt="Dollar" class="w-[16px]">
                                     </button>
@@ -453,6 +453,7 @@
             </div>
         </div>
         <LongevityClub />
+        <Modal3DViewerClient :show="isOpen" @close="isOpen = false" />
     </div>
 </template>
 
@@ -481,7 +482,6 @@ import Sustainability1 from '@/assets/images/sustainability-1.png';
 import Sustainability2 from '@/assets/images/sustainability-2.png';
 import Community1 from '@/assets/images/community-1.png';
 import Community2 from '@/assets/images/community-2.png';
-import LongevityClub from '~/page-section/LongevityClub.vue';
 import ArrowTopRight from "@/assets/icons/ArrowTopRight.svg";
 import List from '@/assets/icons/List.svg';
 import ListBlack from '@/assets/icons/ListBlack.svg';
@@ -500,6 +500,9 @@ import ArrowRight from '@/assets/icons/ArrowRight.svg';
 import Friendly from '@/assets/icons/Friendly.svg';
 import Resource from '@/assets/icons/Resource.svg';
 import Footprint from '@/assets/icons/Footprint.svg';
+
+import LongevityClub from '~/page-section/LongevityClub.vue';
+import Modal3DViewerClient from '~/components/Modal/Modal3DViewer.client.vue';
 
 const bannerRef = ref<HTMLElement | null>(null)
 const textContainerRef = ref<HTMLElement | null>(null)
@@ -556,9 +559,12 @@ const paragraphCommitmentRef = ref<HTMLElement | null>(null)
 const imageLeftCommitmentRef = ref<HTMLElement | null>(null)
 const imageRightCommitmentRef = ref<HTMLElement | null>(null)
 
+const isOpen = ref(false)
 const activeIndex = ref(0)
 const optionRefs = ref<(Element | ComponentPublicInstance | null)[]>([])
 const indicatorRef = ref(null)
+
+const config = useRuntimeConfig()
 
 const sections = [
     {
@@ -1290,6 +1296,59 @@ const handleMouseEnter = (el: FadeItemContainer) => {
 const handleMouseLeave = (el: FadeItemContainer) => {
     gsap.to(el.querySelectorAll('.fade-item'), { opacity: 0, duration: 0.5, ease: 'power2.out' })
 }
+
+const detectAndRedirect = () => {
+    if (!navigator.geolocation) {
+        alert('Browser Anda tidak mendukung Geolocation.')
+        return
+    }
+
+    navigator.geolocation.getCurrentPosition(async (position) => {
+        const lat = position.coords.latitude
+        const lon = position.coords.longitude
+
+        try {
+            const url = `https://api.geoapify.com/v1/geocode/reverse?lat=${lat}&lon=${lon}&apiKey=${config.public.geoapifyApiKey}`
+            const response = await fetch(url)
+            const result = await response.json()
+
+            const properties = result.features?.[0]?.properties
+
+            if (!properties) {
+                alert('Lokasi tidak dapat ditentukan.')
+                return
+            }
+
+            const country = properties.country || ''
+            const state = properties.state || ''
+            const city = properties.city || ''
+            const county = properties.county || ''
+
+            console.log('📍 Detected:', { country, state, city, county })
+
+            if (country === 'Indonesia') {
+                const isBali = [state, city, county].some(val =>
+                    val?.toLowerCase().includes('bali')
+                )
+
+                if (isBali) {
+                    window.location.href = 'https://wa.me/6281138314651'
+                } else {
+                    window.location.href = 'https://www.okearacommunity.id'
+                }
+            } else {
+                alert('Saat ini hanya tersedia untuk pengguna di Indonesia.')
+            }
+        } catch (error) {
+            console.error('Gagal mengambil lokasi:', error)
+            alert('Terjadi kesalahan saat mendeteksi lokasi.')
+        }
+    }, (err) => {
+        console.error('Geolocation error:', err)
+        alert('Izin lokasi dibutuhkan untuk melanjutkan.')
+    })
+}
+
 </script>
 
 <style scoped>

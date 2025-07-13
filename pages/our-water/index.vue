@@ -241,7 +241,7 @@
                                 'OKEARA Blue' }}</div>
                             <div class="text-[#203D4D] text-[18px] opacity-50">500ml (16.9fl 0z)</div>
                         </div>
-                        <div class="px-[12px] py-[8px] bg-white rounded-full text-black">
+                        <div class="px-[12px] py-[8px] bg-white rounded-full text-black cursor-pointer" @click="isOpen = true">
                             Preview 3D
                         </div>
                     </div>
@@ -260,7 +260,7 @@
                                 'OKEARA Blue' }}</div>
                             <div class="text-[#203D4D] text-[18px] opacity-50">12 liter (405.768fl 0z)</div>
                         </div>
-                        <div class="px-[12px] py-[8px] bg-white rounded-full text-black">
+                        <div class="px-[12px] py-[8px] bg-white rounded-full text-black cursor-pointer" @click="isOpen = true">
                             Preview 3D
                         </div>
                     </div>
@@ -276,6 +276,7 @@
             <img :src="BgWave" alt="BgWave" class="absolute bottom-0 left-[-5%] z-[10]">
         </div>
         <LongevityClub />
+        <Modal3DViewerClient :show="isOpen" @close="isOpen = false" />
     </div>
 </template>
 <script setup lang="ts">
@@ -307,6 +308,7 @@ import ArrowLeft from '@/assets/icons/ArrowLeft.svg'
 import ArrowRight from '@/assets/icons/ArrowRight.svg'
 
 import LongevityClub from '~/page-section/LongevityClub.vue'
+import Modal3DViewerClient from '~/components/Modal/Modal3DViewer.client.vue';
 
 const bannerRef = ref<HTMLElement | null>(null)
 const textBannerContainerRef = ref<HTMLElement | null>(null)
@@ -349,6 +351,7 @@ const card500ml = ref<HTMLElement | null>(null)
 const description500ml = ref<HTMLElement | null>(null)
 const card12l = ref<HTMLElement | null>(null)
 const description12l = ref<HTMLElement | null>(null)
+const isOpen = ref(false)
 
 const isMobile = () => window.innerWidth < 768
 

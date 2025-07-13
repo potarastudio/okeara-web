@@ -88,7 +88,7 @@ const bannerStyle = {
 
 onMounted(() => {
     gsap.registerPlugin(ScrollTrigger);
-    
+
     gsap.fromTo(
         bannerRef.value,
         { scale: 1.4 },
