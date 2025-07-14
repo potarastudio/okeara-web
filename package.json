@@ -25,7 +25,7 @@
     "nuxt": "^3.17.5",
     "pdfjs-dist": "^5.3.93",
     "tailwindcss": "^4.1.8",
-    "three": "^0.178.0",
+    "three": "^0.138.0",
     "troisjs": "^0.3.4",
     "typescript": "^5.8.3",
     "vue": "^3.5.16",
