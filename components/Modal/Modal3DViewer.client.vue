@@ -43,19 +43,27 @@
 
                     <div ref="sliderTrack" class="flex scroll-smooth overflow-hidden">
                         <div class="flex-shrink-0 w-full h-full">
-                            <div v-if="activeIndex == 0">
-                                <GLBViewer :model-path="modelPath" :scale="{ x: 1, y: 1, z: 1 }"/>
+                            <div v-if="activeIndex == 0" class="w-full flex items-center justify-center">
+                                <client-only>
+                                    <GLBViewer :model-path="modelPath" :scale="{ x: 1, y: 1, z: 1 }" />
+                                </client-only>
                             </div>
-                            <div v-else>
-                                <GLBViewer :model-path="modelBluePath" :scale="{ x: 2, y: 2, z: 2 }" />
+                            <div v-else class="w-full flex items-center justify-center">
+                                <client-only>
+                                    <GLBViewer :model-path="modelBluePath" :scale="{ x: 1, y: 1, z: 1 }" />
+                                </client-only>
                             </div>
                         </div>
                         <div class="flex-shrink-0 w-full h-full">
-                            <div v-if="activeIndex == 0">
-                                <GLBViewer :model-path="modelPath12l" :scale="{ x: 1, y: 1, z: 1 }" />
+                            <div v-if="activeIndex == 0" class="w-full flex items-center justify-center">
+                                <client-only>
+                                    <GLBViewer :model-path="modelPath12l" :scale="{ x: 1, y: 1, z: 1 }" />
+                                </client-only>
                             </div>
-                            <div v-else>
-                                <GLBViewer :model-path="modelBluePath12l" :scale="{ x: 1, y: 1, z: 1 }" />
+                            <div v-else class="w-full flex items-center justify-center">
+                                <client-only>
+                                    <GLBViewer :model-path="modelBluePath12l" :scale="{ x: 1, y: 1, z: 1 }" />
+                                </client-only>
                             </div>
                         </div>
                     </div>
