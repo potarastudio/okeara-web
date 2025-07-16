@@ -17,10 +17,14 @@
                         <img :src="ArrowTopRight" alt="arrowTopRight" />
                     </div>
                     <div class="w-full flex items-center justify-between mt-[40px] lg:mt-[100px]">
-                        <img :src="Instagram" alt="instagram" />
+                        <a href="https://www.instagram.com/okeara.water/" target="_blank">
+                            <img :src="Instagram" alt="instagram" />
+                        </a>
                         <img :src="Facebook" alt="facebook" />
                         <img :src="TikTok" alt="tiktok" />
-                        <img :src="Youtube" alt="youtube" />
+                        <a href="https://www.youtube.com/@Elementis-co" target="_blank">
+                            <img :src="Youtube" alt="youtube" />
+                        </a>
                     </div>
                 </div>
             </div>

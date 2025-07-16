@@ -49,11 +49,11 @@
             <div class="w-full flex flex-col md:flex-row items-stretch">
                 <div
                     class="order-2 md:order-1 md:w-[50%] bg-[#EDF3F3] p-[20px] md:p-[40px] md:pr-0 flex flex-col items-start gap-[20px] md:gap-[40px]">
-                    <div class="w-[90%] flex items-center justify-between">
-                        <div class="text-[#1A4667] text-[32px] md:text-[36px] leading-[36px] md:leading-[58px]">
+                    <div class="w-[90%] flex flex-col md:flex-row md:items-center justify-between gap-[32px]">
+                        <div class="order-2 md:order-1 text-[#1A4667] text-[32px] md:text-[36px] leading-[36px] md:leading-[58px]">
                             {{ indicator === 'water' ? OkearaIndicator.title : OkearaBlueIndicator.title }}
                         </div>
-                        <div class="flex items-center gap-[32px] w-[10%]">
+                        <div class="order-1 md:order-2 flex items-center gap-[32px] w-[10%]">
                             <img :src="ArrowLeft" alt="Arrow Left" class="cursor-pointer transition"
                                 :class="{ 'pointer-events-none opacity-20': indicator === 'water' }"
                                 @click="prevIndicator">
@@ -124,7 +124,7 @@
                 </div>
             </div>
             <div class="z-60 relative  w-full flex items-start justify-center mt-[42px] md:mt-[80px]">
-                <div class="relative overflow-hidden w-[90%] md:w-[60%] flex flex-col items-start gap-[20px]">
+                <div class="relative overflow-hidden w-full md:w-[60%] flex flex-col items-start gap-[60px] md:gap-[20px]">
                     <div ref="bgCard0"
                         class="absolute inset-0 bg-cover bg-center bg-no-repeat z-10 will-change-transform"
                         :style="{ backgroundImage: `url(${BgCardBenefit1})` }" />
@@ -141,9 +141,9 @@
                         class="absolute inset-0 bg-cover bg-center bg-no-repeat z-50 will-change-transform"
                         :style="{ backgroundImage: `url(${BgCardBenefit5})` }" />
                     <div
-                        class="relative z-60 w-full h-[250px] flex flex-col md:flex-row items-start justify-between gap-[20px] md:gap-auto p-[32px]">
+                        class="relative z-60 w-full h-[150px] md:h-[250px] flex flex-col md:flex-row items-start justify-between gap-[20px] md:gap-auto p-[32px]">
                         <div
-                            class="relative order-2 md:order-1 text-[#EDF3F3] text-[32px] md:text-[48px] leading-[36px] md:leading-[58px] w-[60%]">
+                            class="relative order-2 md:order-1 text-[#EDF3F3] text-[32px] md:text-[48px] leading-[36px] md:leading-[58px] w-full md:w-[60%]">
                             <div ref="title0" class="absolute inset-0 opacity-0">
                                 Powerful <br> Antioxidant
                             </div>
@@ -170,7 +170,7 @@
                         </div>
                     </div>
                     <div
-                        class="relative w-full z-60 text-[#EDF3F3] text-[16px] text-[18px] leading-[24px] backdrop-blur-[2px] bg-[linear-gradient(0deg,rgba(0,0,0,0.32),rgba(0,0,0,0))] p-[32px] h-[350px] md:h-[150px] flex items-center justify-center">
+                        class="relative w-full z-60 text-[#EDF3F3] text-[16px] text-[18px] leading-[24px] backdrop-blur-[2px] bg-[linear-gradient(0deg,rgba(0,0,0,0.32),rgba(0,0,0,0))] p-[32px] h-[250px] md:h-[350px] md:h-[150px] flex items-center justify-center">
                         <div ref="desc0" class="absolute inset-0 opacity-0 p-[32px]">
                             Hydrogen (H2) is the smallest molecule, allowing it to penetrate cell membranes and protect
                             mitochondria and DNA from oxidative stress. It neutralizes harmful free radicals, especially

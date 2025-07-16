@@ -2,7 +2,7 @@
 <template>
     <div class="overflow-x-hidden">
         <div ref="bannerRef" :style="bannerStyle" class="bg-cover bg-no-repeat bg-center w-full h-[100dvh] relative"
-            style="background-position: left 30% top 22%;">
+            style="background-position: left 50% top 22%;">
             <div class="w-full h-[50dvh] absolute left-0 bottom-0"
                 style="background: linear-gradient(0deg, #203D4D 0%, rgba(32, 61, 77, 0.00) 100%)" />
             <div
@@ -53,8 +53,8 @@
             <div ref="bg5" class="absolute inset-0 bg-cover bg-center bg-no-repeat z-60 will-change-transform"
                 :style="{ backgroundImage: `url(${PartnersCommunity6})` }" />
             <div
-                class="relative z-70 w-full flex flex-col md:flex-row items-center justify-between gap-[40px] md:gap-auto">
-                <div class="hidden md:flex items-center gap-[20px]">
+                class="relative z-70 w-full h-[90dvh] flex flex-col md:flex-row items-center justify-between gap-[40px] md:gap-auto">
+                <div class="flex items-center gap-[20px]">
                     <img :src="List" alt="List">
                     <div class="text-[#EDF3F3] text-[18px] leading-[24px]">
                         Our Community
@@ -94,7 +94,7 @@
                             Happiness</div>
                         <div ref="title5" class="absolute inset-0 opacity-0">Limited <br> Availability</div>
                     </div>
-                    <div class="relative overflow-hidden w-full h-[280px]">
+                    <div class="relative overflow-hidden w-full h-[140px] md:h-[280px]">
                         <img ref="imgCard0" :src="PartnersCommunity" alt="PartnersCommunity"
                             class="absolute inset-0 object-cover z-10 will-change-transform">
                         <img ref="imgCard1" :src="PartnersCommunity2" alt="PartnersCommunity"
@@ -165,7 +165,7 @@
                 </div>
                 <div class="w-full flex items-end justify-between">
                     <div class="pb-[30px] md:pb-[82px] w-[35%]">
-                        <div class="relative overflow-hidden w-full h-[400px]">
+                        <div class="relative overflow-hidden w-full h-[200px] md:h-[400px]">
                             <img ref="imgParnershipLeftRef" :src="Partnership1" alt="Community 2"
                                 class="absolute top-0 left-0 scale-[1.4] h-full object-cover">
                         </div>
@@ -176,7 +176,7 @@
                             OKEARA structured hydrogen water is a testament to our dedication to optimizing Wellness. We
                             celebrate every success and support one another in our health journeys.
                         </div>
-                        <div class="relative overflow-hidden w-full h-[700px]">
+                        <div class="relative overflow-hidden w-full h-[400px] md:h-[700px]">
                             <img ref="imgParnershipRightRef" :src="Partnership2" alt="Community 1"
                                 class="absolute top-0 left-0 scale-[1.4] h-full object-cover">
                         </div>
@@ -189,7 +189,7 @@
                 <div class="flex items-center gap-[10px] md:gap-[20px]">
                     <img :src="List" alt="List">
                     <div class="text-[#EDF3F3] text-[18px] leading-[24px]">
-                        Our Elementis Group
+                        Our ELEMENTALIS Group
                     </div>
                 </div>
                 <div class="flex flex-col items-start gap-[24px] lg:gap-[80px] md:w-[60%]">
@@ -209,7 +209,7 @@
                 </div>
             </div>
             <div class="w-full flex items-end justify-between mt-[56px] lg:mt-[100px]">
-                <div class="relative overflow-hidden md:w-[35%] h-[400px]">
+                <div class="relative overflow-hidden w-full md:w-[35%] h-[400px]">
                     <img ref="imgElementisLeftRef" :src="ElementisGroup1" alt="ElementisGroup1"
                         class="absolute top-0 left-0 scale-[1.4] h-full object-cover">
                 </div>
@@ -250,7 +250,8 @@
                         class="absolute top-0 left-0 scale-[1.4] h-full object-cover">
                 </div>
                 <div class="relative overflow-hidden w-full md:w-[60%] h-[600px]">
-                    <img ref="imgDevelopmentRightRef" :src="ElementisDevelopment2" alt="ElementisDevelopment2" class="absolute top-0 left-0 scale-[1.4] h-full object-cover">
+                    <img ref="imgDevelopmentRightRef" :src="ElementisDevelopment2" alt="ElementisDevelopment2"
+                        class="absolute top-0 left-0 scale-[1.4] h-full object-cover">
                 </div>
             </div>
         </div>
@@ -592,33 +593,35 @@ onMounted(() => {
         }
     )
 
-    gsap.fromTo(imgParnershipLeftRef.value,
-        { yPercent: 30, ease: 'none' },
-        {
-            yPercent: -30,
-            ease: 'none',
-            scrollTrigger: {
-                trigger: imgParnershipLeftRef.value,
-                start: 'top bottom',
-                end: 'bottom top',
-                scrub: true,
+    if (window.innerWidth > 768) {
+        gsap.fromTo(imgParnershipLeftRef.value,
+            { yPercent: 30, ease: 'none' },
+            {
+                yPercent: -30,
+                ease: 'none',
+                scrollTrigger: {
+                    trigger: imgParnershipLeftRef.value,
+                    start: 'top bottom',
+                    end: 'bottom top',
+                    scrub: true,
+                }
             }
-        }
-    )
+        )
 
-    gsap.fromTo(imgParnershipRightRef.value,
-        { yPercent: 30, ease: 'none' },
-        {
-            yPercent: -30,
-            ease: 'none',
-            scrollTrigger: {
-                trigger: imgParnershipRightRef.value,
-                start: 'top bottom',
-                end: 'bottom top',
-                scrub: true,
+        gsap.fromTo(imgParnershipRightRef.value,
+            { yPercent: 30, ease: 'none' },
+            {
+                yPercent: -30,
+                ease: 'none',
+                scrollTrigger: {
+                    trigger: imgParnershipRightRef.value,
+                    start: 'top bottom',
+                    end: 'bottom top',
+                    scrub: true,
+                }
             }
-        }
-    )
+        )
+    }
 
     if (titleElementisRef.value) {
         const lines = titleElementisRef.value.innerHTML.split('<br>')
@@ -667,33 +670,35 @@ onMounted(() => {
         }
     )
 
-    gsap.fromTo(imgElementisLeftRef.value,
-        { yPercent: 30, ease: 'none' },
-        {
-            yPercent: -30,
-            ease: 'none',
-            scrollTrigger: {
-                trigger: imgElementisLeftRef.value,
-                start: 'top bottom',
-                end: 'bottom top',
-                scrub: true,
+    if (window.innerWidth > 768) {
+        gsap.fromTo(imgElementisLeftRef.value,
+            { yPercent: 30, ease: 'none' },
+            {
+                yPercent: -30,
+                ease: 'none',
+                scrollTrigger: {
+                    trigger: imgElementisLeftRef.value,
+                    start: 'top bottom',
+                    end: 'bottom top',
+                    scrub: true,
+                }
             }
-        }
-    )
+        )
 
-    gsap.fromTo(imgElementisRightRef.value,
-        { yPercent: 30, ease: 'none' },
-        {
-            yPercent: -30,
-            ease: 'none',
-            scrollTrigger: {
-                trigger: imgElementisRightRef.value,
-                start: 'top bottom',
-                end: 'bottom top',
-                scrub: true,
+        gsap.fromTo(imgElementisRightRef.value,
+            { yPercent: 30, ease: 'none' },
+            {
+                yPercent: -30,
+                ease: 'none',
+                scrollTrigger: {
+                    trigger: imgElementisRightRef.value,
+                    start: 'top bottom',
+                    end: 'bottom top',
+                    scrub: true,
+                }
             }
-        }
-    )
+        )
+    }
 
     if (titleDevelopmentRef.value) {
         const lines = titleDevelopmentRef.value.innerHTML.split('<br>')
@@ -742,32 +747,34 @@ onMounted(() => {
         }
     )
 
-    gsap.fromTo(imgDevelopmentLeftRef.value,
-        { yPercent: 30, ease: 'none' },
-        {
-            yPercent: -30,
-            ease: 'none',
-            scrollTrigger: {
-                trigger: imgDevelopmentLeftRef.value,
-                start: 'top bottom',
-                end: 'bottom top',
-                scrub: true,
+    if (window.innerWidth > 768) {
+        gsap.fromTo(imgDevelopmentLeftRef.value,
+            { yPercent: 30, ease: 'none' },
+            {
+                yPercent: -30,
+                ease: 'none',
+                scrollTrigger: {
+                    trigger: imgDevelopmentLeftRef.value,
+                    start: 'top bottom',
+                    end: 'bottom top',
+                    scrub: true,
+                }
             }
-        }
-    )
+        )
 
-    gsap.fromTo(imgDevelopmentRightRef.value,
-        { yPercent: 30, ease: 'none' },
-        {
-            yPercent: -30,
-            ease: 'none',
-            scrollTrigger: {
-                trigger: imgDevelopmentRightRef.value,
-                start: 'top bottom',
-                end: 'bottom top',
-                scrub: true,
+        gsap.fromTo(imgDevelopmentRightRef.value,
+            { yPercent: 30, ease: 'none' },
+            {
+                yPercent: -30,
+                ease: 'none',
+                scrollTrigger: {
+                    trigger: imgDevelopmentRightRef.value,
+                    start: 'top bottom',
+                    end: 'bottom top',
+                    scrub: true,
+                }
             }
-        }
-    )
+        )
+    }
 })
 </script>

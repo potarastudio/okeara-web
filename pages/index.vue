@@ -31,7 +31,7 @@
         </div>
         <div class="w-full px-[24px] py-[40px] md:p-[40px] lg:px-[64px] lg:py-[100px]  bg-[#203D4D]">
             <div
-                class="water-section w-full flex flex-col md:flex-row items-start justify-between gap-[120px] md:gap-auto">
+                class="water-section w-full flex flex-col md:flex-row items-start justify-between gap-[40px] md:gap-auto">
                 <div class="text-sticky">
                     <div class="flex items-center gap-[10px] md:gap-[20px]">
                         <img :src="List" alt="list">
@@ -83,17 +83,19 @@
                     Safety of Structured <br /> Hydrogen Water
                 </div>
 
-                <div class="w-full h-[250px] relative flex flex-col gap-[20px]">
-                    <div class="relative text-[26px] text-[#F8F8F8] leading-[36px] w-[15%] h-[50px]">
+                <div class="w-full h-[250px] relative flex flex-col gap-[8px] md:gap-[20px]">
+                    <div
+                        class="relative text-[26px] text-[#F8F8F8] leading-[36px] w-[100%] md:w-[15%] h-[32px] md:h-[50px]">
                         <div ref="st0" class="absolute inset-0 bottom-0 opacity-0">{{ sections[0].subtitle }}</div>
                         <div ref="st1" class="absolute inset-0 bottom-0 opacity-0">{{ sections[1].subtitle }}</div>
                         <div ref="st2" class="absolute inset-0 bottom-0 opacity-0">{{ sections[2].subtitle }}</div>
                         <div ref="st3" class="absolute inset-0 bottom-0 opacity-0">{{ sections[3].subtitle }}</div>
                     </div>
                     <hr class="relative w-full border border-[#F8F8F8] my-[20px]" />
-                    <div class="w-full flex flex-col lg:flex-row items-start justify-between gap-[20px] lg:gap-auto">
-                        <div class="relative text-[18px] text-[#F8F8F8] leading-[24px] flex gap-[32px]">
-                            <div ref="num0" class="absolute inset-0 opacity-0">
+                    <div class="w-full flex flex-col lg:flex-row items-start justify-between gap-[40px] lg:gap-auto">
+                        <div
+                            class="relative text-[18px] text-[#F8F8F8] leading-[24px] flex gap-[32px] w-full md:w-auto">
+                            <div ref="num0" class="absolute inset-0 opacity-0 flex gap-[8px]">
                                 {{ sections[0].number }}
                                 <span class="lg:hidden">{{ sections[0].short }}</span>
                             </div>
@@ -110,14 +112,14 @@
                                 <span class="lg:hidden">{{ sections[3].short }}</span>
                             </div>
                         </div>
-                        <div class="relative flex items-start justify-between lg:w-[65%]">
+                        <div class="relative flex items-start justify-between w-[100%] lg:w-[65%]">
                             <div class="hidden lg:inline text-[18px] text-[#F8F8F8] leading-[24px]">
                                 <div ref="short0" class="absolute inset-0 opacity-0">{{ sections[0].short }}</div>
                                 <div ref="short1" class="absolute inset-0 opacity-0">{{ sections[1].short }}</div>
                                 <div ref="short2" class="absolute inset-0 opacity-0">{{ sections[2].short }}</div>
                                 <div ref="short3" class="absolute inset-0 opacity-0">{{ sections[3].short }}</div>
                             </div>
-                            <div class="relative  text-[18px] text-[#F8F8F8] leading-[26px] lg:w-[50%]">
+                            <div class="relative text-[18px] text-[#F8F8F8] leading-[26px] w-[100%] lg:w-[50%]">
                                 <div ref="desc0" class="absolute inset-0 opacity-0">{{ sections[0].desc }}</div>
                                 <div ref="desc1" class="absolute inset-0 opacity-0">{{ sections[1].desc }}</div>
                                 <div ref="desc2" class="absolute inset-0 opacity-0">{{ sections[2].desc }}</div>
@@ -129,14 +131,14 @@
             </div>
         </section>
         <div class="w-full bg-[#EDF3F3] px-[24px] py-[40px] md:p-[40px] lg:px-[64px] lg:py-[100px]">
-            <div class="w-full flex flex-col md:flex-row items-start justify-between gap-[120px] md:gap-auto">
+            <div class="w-full flex flex-col md:flex-row items-start justify-between gap-[40px] md:gap-auto">
                 <div class="flex items-center gap-[10px] md:gap-[20px]">
                     <img :src="ListBlack" alt="ListBlack">
                     <div class="text-[#203D4D] text-[16px] md:text-[18px] leading-[24px]">
                         Benefit
                     </div>
                 </div>
-                <div class="flex flex-col gap-[60px] md:w-[60%]">
+                <div class="flex flex-col gap-[24px] md:gap-[60px] md:w-[60%]">
                     <div ref="titleBenefitRef"
                         class="text-[#203D4D] text-[32px] md:text-[48px] font-light leading-[36px] md:leading-[58px] w-[70%] md:w-[90%] lg:w-[60%]">
                         Benefits of Structured Hydrogen Water
@@ -190,7 +192,7 @@
             </div>
         </div>
         <div class="bg-[#203D4D] px-[24px] py-[40px] md:p-[40px] lg:px-[64px] lg:py-[100px]">
-            <div class="w-full flex flex-col md:flex-row items-start justify-between gap-[120px]">
+            <div class="w-full flex flex-col md:flex-row items-start justify-between gap-[40px]">
                 <div class="flex items-center gap-[20px]">
                     <img :src="List" alt="list">
                     <div class="text-[#EDF3F3] text-[16px] md:text-[18px] leading-[24px]">
@@ -217,7 +219,7 @@
                 class="absolute top-0 left-0 scale-[1.4] h-full object-cover">
         </div>
         <div class="w-full bg-[#EDF3F3] px-[24px] py-[40px] md:p-[40px] lg:px-[64px] lg:py-[100px]">
-            <div class="w-full flex flex-col md:flex-row items-start justify-between gap-[120px] md:gap-auto">
+            <div class="w-full flex flex-col md:flex-row items-start justify-between gap-[40px] md:gap-auto">
                 <div class="flex items-center gap-[10px] md:gap-[20px]">
                     <img :src="ListBlack" alt="ListBlack">
                     <div class="text-[#203D4D] text-[16px] md:text-[18px] leading-[24px]">
@@ -337,7 +339,7 @@
                 </div>
             </div>
             <div
-                class="text-[#203D4D] text-[32px] md:text-[48px] font-light leading-[36px] md:leading-[58px] mt-[120px] md:mt-[40px]">
+                class="text-[#203D4D] text-[32px] md:text-[48px] font-light leading-[36px] md:leading-[58px] mt-[40px] md:mt-[40px]">
                 Our Packaging
             </div>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-[28px] mt-[40px] md:mt-[100px]">
@@ -384,7 +386,7 @@
                 </div>
             </div>
             <div
-                class="w-full flex flex-col md:flex-row items-start justify-between gap-[120px] md:gap-auto mt-[40px] md:mt-[120px]">
+                class="w-full flex flex-col md:flex-row items-start justify-between gap-[40px] md:gap-auto mt-[40px] md:mt-[120px]">
                 <div class="flex items-center gap-[10px] md:gap-[20px]">
                     <img :src="List" alt="List">
                     <div class="text-[#EDF3F3] text-[16px] md:text-[18px] leading-[24px]">
@@ -800,29 +802,33 @@ onMounted(() => {
     const sidebar = document.querySelector('.text-sticky')
     const waterSectionContainer = document.querySelector('.water-section')
 
-    ScrollTrigger.create({
-        trigger: waterSectionContainer,
-        start: 'top top+=120',
-        end: 'bottom bottom-=370',
-        pin: sidebar,
-        pinSpacing: false,
-        markers: false,
-        scrub: false,
-    })
+    if (window.innerWidth > 768) {
+        ScrollTrigger.create({
+            trigger: waterSectionContainer,
+            start: 'top top+=120',
+            end: 'bottom bottom-=370',
+            pin: sidebar,
+            pinSpacing: false,
+            markers: false,
+            scrub: false,
+        })
+    }
 
-    gsap.fromTo(imageWaterRef.value,
-        { yPercent: 30, ease: 'none' },
-        {
-            yPercent: -30,
-            ease: 'none',
-            scrollTrigger: {
-                trigger: imageWaterRef.value,
-                start: 'top bottom',
-                end: 'bottom top',
-                scrub: true,
+    if (window.innerWidth > 768) {
+        gsap.fromTo(imageWaterRef.value,
+            { yPercent: 30, ease: 'none' },
+            {
+                yPercent: -30,
+                ease: 'none',
+                scrollTrigger: {
+                    trigger: imageWaterRef.value,
+                    start: 'top bottom',
+                    end: 'bottom top',
+                    scrub: true,
+                }
             }
-        }
-    )
+        )
+    }
 
     const bgs: HTMLElement[] = [bg0.value, bg1.value, bg2.value, bg3.value].filter(Boolean) as HTMLElement[]
     const subs: HTMLElement[] = [st0.value, st1.value, st2.value, st3.value].filter(Boolean) as HTMLElement[]
@@ -992,34 +998,36 @@ onMounted(() => {
         }
     )
 
-    gsap.fromTo(imageLeftBenefitRef.value,
-        { yPercent: 30, ease: 'none' },
-        {
-            yPercent: -30,
-            ease: 'none',
-            scrollTrigger: {
-                trigger: imageLeftBenefitRef.value,
-                start: 'top bottom',
-                end: 'bottom top',
-                scrub: true,
+    if (window.innerWidth > 768) {
+        gsap.fromTo(imageLeftBenefitRef.value,
+            { yPercent: 30, ease: 'none' },
+            {
+                yPercent: -30,
+                ease: 'none',
+                scrollTrigger: {
+                    trigger: imageLeftBenefitRef.value,
+                    start: 'top bottom',
+                    end: 'bottom top',
+                    scrub: true,
+                }
             }
-        }
-    )
+        )
 
 
-    gsap.fromTo(imageRightBenefitRef.value,
-        { yPercent: 30, ease: 'none' },
-        {
-            yPercent: -30,
-            ease: 'none',
-            scrollTrigger: {
-                trigger: imageRightBenefitRef.value,
-                start: 'top bottom',
-                end: 'bottom top',
-                scrub: true,
+        gsap.fromTo(imageRightBenefitRef.value,
+            { yPercent: 30, ease: 'none' },
+            {
+                yPercent: -30,
+                ease: 'none',
+                scrollTrigger: {
+                    trigger: imageRightBenefitRef.value,
+                    start: 'top bottom',
+                    end: 'bottom top',
+                    scrub: true,
+                }
             }
-        }
-    )
+        )
+    }
 
     if (titleBenefitRef.value) {
         const lines = titleBenefitRef.value.innerHTML.split('<br>')
@@ -1162,34 +1170,36 @@ onMounted(() => {
         }
     )
 
-    gsap.fromTo(imageLeftSustainabilityRef.value,
-        { yPercent: 30, ease: 'none' },
-        {
-            yPercent: -30,
-            ease: 'none',
-            scrollTrigger: {
-                trigger: imageLeftSustainabilityRef.value,
-                start: 'top bottom',
-                end: 'bottom top',
-                scrub: true,
+    if (window.innerWidth > 768) {
+        gsap.fromTo(imageLeftSustainabilityRef.value,
+            { yPercent: 30, ease: 'none' },
+            {
+                yPercent: -30,
+                ease: 'none',
+                scrollTrigger: {
+                    trigger: imageLeftSustainabilityRef.value,
+                    start: 'top bottom',
+                    end: 'bottom top',
+                    scrub: true,
+                }
             }
-        }
-    )
+        )
 
 
-    gsap.fromTo(imageRightSustainabilityRef.value,
-        { yPercent: 30, ease: 'none' },
-        {
-            yPercent: -30,
-            ease: 'none',
-            scrollTrigger: {
-                trigger: imageRightSustainabilityRef.value,
-                start: 'top bottom',
-                end: 'bottom top',
-                scrub: true,
+        gsap.fromTo(imageRightSustainabilityRef.value,
+            { yPercent: 30, ease: 'none' },
+            {
+                yPercent: -30,
+                ease: 'none',
+                scrollTrigger: {
+                    trigger: imageRightSustainabilityRef.value,
+                    start: 'top bottom',
+                    end: 'bottom top',
+                    scrub: true,
+                }
             }
-        }
-    )
+        )
+    }
 
     if (titleCommitmentRef.value) {
         const lines = titleCommitmentRef.value.innerHTML.split('<br>')
@@ -1238,48 +1248,52 @@ onMounted(() => {
         }
     )
 
-    gsap.fromTo(imageLeftCommitmentRef.value,
-        { yPercent: 30, ease: 'none' },
-        {
-            yPercent: -30,
-            ease: 'none',
-            scrollTrigger: {
-                trigger: imageLeftCommitmentRef.value,
-                start: 'top bottom',
-                end: 'bottom top',
-                scrub: true,
+    if (window.innerWidth > 768) {
+        gsap.fromTo(imageLeftCommitmentRef.value,
+            { yPercent: 30, ease: 'none' },
+            {
+                yPercent: -30,
+                ease: 'none',
+                scrollTrigger: {
+                    trigger: imageLeftCommitmentRef.value,
+                    start: 'top bottom',
+                    end: 'bottom top',
+                    scrub: true,
+                }
             }
-        }
-    )
+        )
 
 
-    gsap.fromTo(imageRightCommitmentRef.value,
-        { yPercent: 30, ease: 'none' },
-        {
-            yPercent: -30,
-            ease: 'none',
-            scrollTrigger: {
-                trigger: imageRightCommitmentRef.value,
-                start: 'top bottom',
-                end: 'bottom top',
-                scrub: true,
+        gsap.fromTo(imageRightCommitmentRef.value,
+            { yPercent: 30, ease: 'none' },
+            {
+                yPercent: -30,
+                ease: 'none',
+                scrollTrigger: {
+                    trigger: imageRightCommitmentRef.value,
+                    start: 'top bottom',
+                    end: 'bottom top',
+                    scrub: true,
+                }
             }
-        }
-    )
+        )
+    }
 
-    gsap.fromTo(imageSafetyRef.value,
-        { yPercent: 30, ease: 'none' },
-        {
-            yPercent: -30,
-            ease: 'none',
-            scrollTrigger: {
-                trigger: imageSafetyRef.value,
-                start: 'top bottom',
-                end: 'bottom top',
-                scrub: true,
+    if (window.innerWidth > 768) {
+        gsap.fromTo(imageSafetyRef.value,
+            { yPercent: 30, ease: 'none' },
+            {
+                yPercent: -30,
+                ease: 'none',
+                scrollTrigger: {
+                    trigger: imageSafetyRef.value,
+                    start: 'top bottom',
+                    end: 'bottom top',
+                    scrub: true,
+                }
             }
-        }
-    )
+        )
+    }
 })
 
 const container0 = ref(null)

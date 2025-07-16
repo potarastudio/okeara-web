@@ -100,7 +100,7 @@
         </div>
         <div
             class="w-full bg-[#EDF3F3] flex flex-col md:flex-row items-stretch justify-between gap-[12px] px-[24px] py-[40px] md:p-[40px] lg:px-[180px] lg:py-[120px]">
-            <div class="flex flex-col gap-[40px] gap-[150px] w-full md:w-[50%]">
+            <div class="flex flex-col gap-[40px] md:gap-[150px] w-full md:w-[50%]">
                 <div class="relative overflow-hidden w-full h-[700px] order-2 md:order-1">
                     <img ref="imageCommunityLeftRef" :src="CommunityStructured1" alt="CommunityStructured1"
                         class="absolute top-0 left-0 scale-[1.4] h-full object-cover">
@@ -329,47 +329,49 @@ onMounted(() => {
         }
     )
 
-    gsap.fromTo(imageCommunityRef.value,
-        { yPercent: 30, ease: 'none' },
-        {
-            yPercent: -30,
-            ease: 'none',
-            scrollTrigger: {
-                trigger: imageCommunityRef.value,
-                start: 'top bottom',
-                end: 'bottom top',
-                scrub: true,
+    if (window.innerWidth > 768) {
+        gsap.fromTo(imageCommunityRef.value,
+            { yPercent: 30, ease: 'none' },
+            {
+                yPercent: -30,
+                ease: 'none',
+                scrollTrigger: {
+                    trigger: imageCommunityRef.value,
+                    start: 'top bottom',
+                    end: 'bottom top',
+                    scrub: true,
+                }
             }
-        }
-    )
+        )
 
-    gsap.fromTo(imageCommunityLeftRef.value,
-        { yPercent: 30, ease: 'none' },
-        {
-            yPercent: -30,
-            ease: 'none',
-            scrollTrigger: {
-                trigger: imageCommunityLeftRef.value,
-                start: 'top bottom',
-                end: 'bottom top',
-                scrub: true,
+        gsap.fromTo(imageCommunityLeftRef.value,
+            { yPercent: 30, ease: 'none' },
+            {
+                yPercent: -30,
+                ease: 'none',
+                scrollTrigger: {
+                    trigger: imageCommunityLeftRef.value,
+                    start: 'top bottom',
+                    end: 'bottom top',
+                    scrub: true,
+                }
             }
-        }
-    )
+        )
 
-    gsap.fromTo(imageCommunityRightRef.value,
-        { yPercent: 30, ease: 'none' },
-        {
-            yPercent: -30,
-            ease: 'none',
-            scrollTrigger: {
-                trigger: imageCommunityRightRef.value,
-                start: 'top bottom',
-                end: 'bottom top',
-                scrub: true,
+        gsap.fromTo(imageCommunityRightRef.value,
+            { yPercent: 30, ease: 'none' },
+            {
+                yPercent: -30,
+                ease: 'none',
+                scrollTrigger: {
+                    trigger: imageCommunityRightRef.value,
+                    start: 'top bottom',
+                    end: 'bottom top',
+                    scrub: true,
+                }
             }
-        }
-    )
+        )
+    }
 
     if (titleStructuredRef.value) {
         const lines = titleStructuredRef.value.innerHTML.split('<br>')
