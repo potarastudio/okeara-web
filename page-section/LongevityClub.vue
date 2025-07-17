@@ -12,7 +12,7 @@
             <div class="text-[32px] md:text-[48px] font-light leading-[36px] md:leading-[58px]" style="text-edge: cap;">
                 Welcome to <br>
                 Longevity Club! <br>
-                by Elementis
+                by ELEMENTIS
             </div>
             <div class="mt-[30px] text-[16px] md:text-[18px] leading-[26px]">
                 We are dedicated to living our best lives, focusing on health and happiness together, and making each

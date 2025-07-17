@@ -186,7 +186,7 @@ onMounted(() => {
     })
 
     linkEl.addEventListener('mouseenter', () => {
-      if (linkEl.getAttribute('data-active') === 'true') return
+      if (linkEl.getAttribute('href') === route.path) return
       const color = getComputedStyle(linkEl).color
       gsap.killTweensOf(underline)
       gsap.to(underline, {

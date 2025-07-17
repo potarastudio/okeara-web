@@ -52,7 +52,7 @@
                     </div>
                 </div>
             </div>
-            <div class="w-full flex items-center justify-center mt-[40px] md:mt-[100px]">
+            <div class="w-full flex items-center justify-center mt-[40px] md:mt-[80px]">
                 <div class="relative flex items-center gap-[2px] bg-[#E4EDED] rounded-full p-[4px] w-fit">
                     <div ref="indicatorRef" class="absolute top-[4px] left-0 h-[44px] bg-white rounded-full z-0"
                         style="width: 0px"></div>
@@ -68,19 +68,17 @@
                 </div>
             </div>
             <div class="w-full overflow-hidden">
-                <div class="w-full flex items-start self-stretch gap-[60px] mt-[72px]">
+                <div class="w-full flex items-start self-stretch gap-[60px] mt-[60px]">
                     <div ref="container0"
-                        class="w-[100%] lg:w-[50%] flex-shrink-0 flex items-center justify-center self-stretch"
-                        @mouseenter="container0 && handleMouseEnter(container0)"
-                        @mouseleave="container0 && handleMouseLeave(container0)">
+                        class="bg-[#E4EDED] w-[100%] lg:w-[50%] py-[20px] lg:py-[50px] flex-shrink-0 flex items-center justify-center self-stretch">
                         <div class="flex flex-col justify-end items-center gap-[52px]">
-                            <div class="px-[12px] py-[8px] bg-white rounded-full text-black fade-item opacity-0 cursor-pointer"
+                            <div class="px-[12px] py-[8px] bg-white rounded-full text-black fade-item cursor-pointer"
                                 @click="isOpen = true">
                                 Preview 3D
                             </div>
                             <img :src="activeIndex === 0 ? OkearaWater500ml : OkearaBlue500ml" alt="Okeara Water 500ml"
                                 class="h-[500px]">
-                            <div class="flex flex-col items-center gap-[32px] opacity-0 fade-item">
+                            <div class="flex flex-col items-center gap-[32px] fade-item">
                                 <div class="flex flex-col items-center gap-[16px]">
                                     <div class="text-[#203D4D] text-[26px] leading-[26px]">
                                         {{ activeIndex === 0 ? 'OKEARA' : 'OKEARA Blue' }}
@@ -105,17 +103,16 @@
                             </div>
                         </div>
                     </div>
-                    <div class="w-[100%] lg:w-[50%] flex-shrink-0 flex items-center justify-center self-stretch">
-                        <div ref="container1" class="flex flex-col justify-end items-center gap-[52px]"
-                            @mouseenter="container1 && handleMouseEnter(container1)"
-                            @mouseleave="container1 && handleMouseLeave(container1)">
-                            <div class="px-[12px] py-[8px] bg-white rounded-full text-black fade-item opacity-0 cursor-pointer"
+                    <div ref="container1"
+                        class="bg-[#E4EDED] w-[100%] lg:w-[50%] py-[20px] lg:py-[50px] flex-shrink-0 flex items-center justify-center self-stretch">
+                        <div class="flex flex-col justify-end items-center gap-[52px]">
+                            <div class="px-[12px] py-[8px] bg-white rounded-full text-black fade-item cursor-pointer"
                                 @click="isOpen = true">
                                 Preview 3D
                             </div>
                             <img :src="activeIndex === 0 ? OkearaWater12l : OkearaBlue12l" alt="Okeara Water 12 L"
                                 class="h-[500px]">
-                            <div class="flex flex-col items-center gap-[32px] opacity-0 fade-item">
+                            <div class="flex flex-col items-center gap-[32px] fade-item">
                                 <div class="flex flex-col items-center gap-[16px]">
                                     <div class="text-[#203D4D] text-[26px] leading-[26px]">
                                         {{ activeIndex === 0 ? 'OKEARA' : 'OKEARA Blue' }}
@@ -126,13 +123,13 @@
                                 </div>
                                 <div class="flex items-center gap-[24px]">
                                     <button
-                                        class="bg-[#203D4D] border border-[#203D4D] rounded-full h-[48px] px-[24px] flex items-center justify-center gap-[12px] text-[#EDF3F3] curos-pointer"
+                                        class="bg-[#203D4D] border border-[#203D4D] rounded-full h-[48px] px-[24px] flex items-center justify-center gap-[12px] text-[#EDF3F3] cursor-pointer"
                                         @click="detectAndRedirect">
                                         Buy Now
                                         <img :src="Dollar" alt="Dollar" class="w-[16px]">
                                     </button>
                                     <button
-                                        class="bg-[#EDF3F3] border border-[#203D4D] rounded-full h-[48px] px-[24px] flex items-center justify-center gap-[12px] text-[#203D4D] curos-pointer">
+                                        class="bg-[#EDF3F3] border border-[#203D4D] rounded-full h-[48px] px-[24px] flex items-center justify-center gap-[12px] text-[#203D4D] cursor-pointer">
                                         Add to Cart
                                         <img :src="CartBlue" alt="CartBlue" class="w-[16px]">
                                     </button>
@@ -205,18 +202,6 @@ const switchTo = async (index: number) => {
         duration: 0.4,
         ease: 'power2.out',
     })
-}
-
-interface FadeItemContainer extends Element {
-    querySelectorAll(selectors: string): NodeListOf<HTMLElement>;
-}
-
-const handleMouseEnter = (el: FadeItemContainer) => {
-    gsap.to(el.querySelectorAll('.fade-item'), { opacity: 1, duration: 0.5, ease: 'power2.out' })
-}
-
-const handleMouseLeave = (el: FadeItemContainer) => {
-    gsap.to(el.querySelectorAll('.fade-item'), { opacity: 0, duration: 0.5, ease: 'power2.out' })
 }
 
 const detectAndRedirect = () => {

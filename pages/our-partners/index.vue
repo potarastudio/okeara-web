@@ -189,7 +189,7 @@
                 <div class="flex items-center gap-[10px] md:gap-[20px]">
                     <img :src="List" alt="List">
                     <div class="text-[#EDF3F3] text-[18px] leading-[24px]">
-                        Our ELEMENTALIS Group
+                        Our ELEMENTIS Group
                     </div>
                 </div>
                 <div class="flex flex-col items-start gap-[24px] lg:gap-[80px] md:w-[60%]">
