@@ -21,7 +21,7 @@
         </div>
         <div class="w-full bg-[#EDF3F3] px-[24px] py-[40px] md:p-[40px] lg:px-[64px] lg:py-[100px]">
             <div class="fqa-container w-full flex items-start justify-between gap-[24px]">
-                <div class="hidden md:block">
+                <!-- <div class="hidden md:block">
                     <div class="sidebar-sticky">
                         <div class="flex flex-col items-start gap-[22px]">
                             <div v-for="(item, idx) in faqSections" :key="item.title"
@@ -31,45 +31,29 @@
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="md:w-[65%]">
-                    <div v-for="(item, idx) in faqSections" :key="item.title" :ref="sectionRefs[idx]" class="mb-[64px]">
-                        <div class="text-[#203D4D] text-[26px] leading-[16px]">
-                            {{ item.title }}
-                        </div>
-                        <div class="w-full mt-[20px] md:mt-[40px] flex flex-col items-start">
-                            <div v-for="(item, index) in idx === 0 ? items : idx === 1 ? items2 : idx === 2 ? items3 : idx === 3 ? items4 : idx === 4 ? items5 : []"
-                                :key="index" class="relative flex flex-col border-b border-[#203D4D] w-full">
-                                <div class="flex items-center justify-between py-[18px] md:py-[24px] cursor-pointer gap-[16px]"
-                                    @click="
-                                        idx === 0 ? toggleCollapse(index) :
-                                            idx === 1 ? toggleCollapseLibero(index) :
-                                                idx === 2 ? toggleCollapseAliquam(index) :
-                                                    idx === 3 ? toggleCollapseViverra(index) :
-                                                        idx === 4 ? toggleCollapsePellentesque(index) :
-                                                            console.log('test');
-                                    ">
-                                    <div class="flex items-start justify-between gap-[24px] w-full">
-                                        <div class="flex flex-col w-[90%]">
-                                            <div class="text-[#203D4D] text-[16px] md:text-[20px]">{{ item.title }}
-                                            </div>
-                                            <div :id="`desc-${idx === 1 ? 'libero-' : idx === 2 ? 'aliquam-' : idx === 3 ? 'viverra-' : idx === 3 ? 'pellentesque-' : ''}${index}`"
-                                                class="overflow-hidden" :style="{ height: 0, opacity: 0 }">
-                                                <div
-                                                    class="text-[#203D4D] text-[14px] md:text-[18px] leading-[18px] md:leading-[24px] opacity-80">
-                                                    {{ item.desc }}
-                                                </div>
-                                            </div>
+                </div> -->
+                <div class="md:w-[100%]">
+                    <div class="w-full flex flex-col items-start">
+                        <div v-for="(item, index) in items" :key="index"
+                            class="relative flex flex-col border-b border-[#203D4D] w-full">
+                            <div class="flex items-center justify-between py-[18px] md:py-[24px] cursor-pointer gap-[16px]"
+                                @click="toggleCollapse(index);">
+                                <div class="flex items-start justify-between gap-[24px] w-full">
+                                    <div class="flex flex-col w-[90%]">
+                                        <div class="text-[#203D4D] text-[16px] md:text-[20px]">{{ item.title }}
                                         </div>
-                                        <div class="w-[10%]">
-                                            <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="#203D4D"
-                                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                                <line x1="5" y1="12" x2="19" y2="12" />
-                                                <line
-                                                    :id="`plus-line-${idx === 1 ? 'libero-' : idx === 2 ? 'aliquam-' : idx === 3 ? 'viverra-' : idx === 3 ? 'pellentesque-' : ''}${index}`"
-                                                    x1="12" y1="5" x2="12" y2="19" />
-                                            </svg>
+                                        <div :id="`desc-${index}`" class="overflow-hidden"
+                                            :style="{ height: 0, opacity: 0 }">
+                                            <div class="text-[#203D4D] text-[14px] md:text-[18px] leading-[18px] md:leading-[24px] opacity-80"
+                                                v-html="item.desc" />
                                         </div>
+                                    </div>
+                                    <div class="w-[10%] flex items-center justify-end">
+                                        <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="#203D4D"
+                                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <line x1="5" y1="12" x2="19" y2="12" />
+                                            <line :id="`plus-line-${index}`" x1="12" y1="5" x2="12" y2="19" />
+                                        </svg>
                                     </div>
                                 </div>
                             </div>
@@ -114,170 +98,163 @@ const sectionRefs = faqSections.map(() => ref<HTMLElement | null>(null))
 
 const items = ref([
     {
-        title: 'What is OKEARA structured hydrogen water?',
-        desc: 'OKEARA structured hydrogen water is water enhanced with extra hydrogen gas, which acts as powerful antioxidants that may help reduce oxidative stress in the body.',
+        title: 'What is OKEARA UltraLight Hydrogen Water?',
+        desc: '<p>A unique water selected drop by drop through magnetic-vortex filtration and enriched with  molecular hydrogen for deep cellular hydration and a strong antioxidant effect.</p>',
         open: false,
     },
     {
-        title: 'How does OKEARA structured hydrogen water improve hydration?',
-        desc: 'The hydrogen molecules in OKEARA water can potentially improve hydration at a cellular level by reducing oxidative stress, making it beneficial for overall health.',
+        title: 'Why is low surface tension important?',
+        desc: "<p>Thanks to its minimal surface tension, our water 'glides' through cell membranes without  resistance, instantly delivering moisture and nutrients inside cells, reducing strain on the body.</p>",
         open: false,
     },
     {
-        title: 'Why is drinking OKEARA structured hydrogen water essential for overall hydration?',
-        desc: 'OKEARA structured hydrogen water is free from additives and impurities, making it easily absorbed by the body. This helps in maintaining proper bodily functions, detoxification, healthy skin, physical performance, and cognitive function.',
+        title: 'How is OKEARA produced?',
+        desc: "<ol><li>1. Deep purification (reverse osmosis)</li><li>2. Magnetic-vortex filtration and 'drop-by-drop' separation – we collect only the ultralight fraction</li><li>3. Saturation with molecular H₂ (800–1000 ppb) without electrolysis – preserving negative ORP for enhanced antioxidant action. </li></ol>",
         open: false,
     },
     {
-        title: 'What bodily functions does proper hydration support?',
-        desc: 'Proper hydration supports various bodily functions including digestion, nutrient absorption, circulation, and temperature regulation.',
+        title: 'What are the key effects of taking OKEARA?',
+        desc: "<ul><li>- Instant cellular hydration (low σ) </li><li>- Selective neutralization of free radicals</li><li>- Rapid detox and inflammation reduction </li><li>- Accelerated muscle recovery and increased endurance. </li></ul>",
         open: false,
     },
     {
-        title: 'How does OKEARA structured hydrogen water help with detoxification?',
-        desc: 'Drinking enough OKEARA structured hydrogen water helps flush out toxins and waste products from the body through urine and sweat.',
+        title: 'How to consume OKEARA?',
+        desc: '500 ml in the morning (on an empty stomach), 500 ml during the day, and 500 ml in the evening in small sips to allow proper distribution and absorption.',
         open: false,
     },
     {
-        title: 'Can drinking OKEARA structured hydrogen water improve skin health?',
-        desc: 'Yes, proper hydration with OKEARA structured hydrogen water can improve skin elasticity, reduce the appearance of wrinkles, and give your skin a healthy glow.',
-        open: false,
-    },
-])
-
-const items2 = ref([
-    {
-        title: 'What impact does hydration have on cognitive function?',
-        desc: 'Dehydration can impair cognitive function and mood. Drinking enough Okeara structured hydrogen water helps maintain focus, concentration, and overall mental performance.',
+        title: 'When will I feel the effects?',
+        desc: "<p>You will feel lightness, improved tone, and better sleep quality within 3–5 days of regular intake.</p>",
         open: false,
     },
     {
-        title: 'Does OKEARA structured hydrogen water contain any impurities?',
-        desc: 'No, OKEARA structured hydrogen water does not contain additives or impurities, ensuring it is easily absorbed by the body for optimal hydration.',
+        title: 'Can it be consumed during pregnancy and breastfeeding?',
+        desc: "<p>Yes, it is absolutely safe. Start with 250 ml per day and consult your doctor for dosage adjustment.</p>",
         open: false,
     },
     {
-        title: 'What is structured water?',
-        desc: 'Structured water is water with a more organized molecular arrangement, making it more easily absorbed by the body and offering enhanced hydration benefits.',
+        title: 'Why is OKEARA more expensive than regular water?',
+        desc: "<p>Investments in patented UltraLight filtration technology, scientific research, clinical validation, and eco-packaging deliver unmatched quality and effect.</p>",
         open: false,
     },
     {
-        title: 'How does structured water improve hydration?',
-        desc: 'The organized molecular structure of structured water allows for better absorption and hydration at the cellular level.',
+        title: 'How should OKEARA be stored?',
+        desc: "<p>Store in a dry, dark place at +5 to +25°C, away from direct sunlight.</p>",
         open: false,
     },
     {
-        title: 'What are the benefits of drinking structured water?',
-        desc: 'Drinking structured water can improve energy levels, support better digestion, and promote overall health by optimizing hydration.',
+        title: 'How can I verify its quality and certifications?',
+        desc: "<p>All our certifications are available on our official website.</p>",
         open: false,
     },
     {
-        title: 'Do people feel different when drinking structured water?',
-        desc: 'Yes, many people find that they feel more hydrated and energized when drinking structured water.',
+        title: 'What is the normal pH value of OKEARA?',
+        desc: "<p>The pH ranges from 6.5 to 7.5 – close to physiological levels, ensuring gentle and safe hydration.</p>",
         open: false,
     },
     {
-        title: 'How much OKEARA structured hydrogen water should I drink daily?',
-        desc: 'The organized molecular structure of structured water allows for better absorption and hydration at the cellular level.',
-        open: false,
-    },
-])
-
-const items3 = ref([
-    {
-        title: 'Will I want to drink more OKEARA structured hydrogen water initially?',
-        desc: 'Yes, initially you may want to drink more OKEARA structured hydrogen water due to the saturation of the body with hydrogen, but your consumption level should return to normal after a few days.',
+        title: 'What does ORP mean and why is it negative?',
+        desc: "<p>ORP (oxidation-reduction potential) indicates antioxidant potential. A negative ORP (–300 to –450 mV) reflects a strong ability to neutralize free radicals.</p>",
         open: false,
     },
     {
-        title: 'Can my water needs vary when drinking OKEARA structured hydrogen water?',
-        desc: "Yes, water needs can vary from person to person and should be individualized based on your body's requirements.",
+        title: 'What is TDS and what is its value in OKEARA?',
+        desc: "<p>TDS (total dissolved solids) is 5–15 ppm, confirming ultra-clean filtration and the absence of foreign impurities. </p>",
         open: false,
     },
     {
-        title: 'What is the biggest advantage of hydrogen (H2) in water?',
-        desc: 'The biggest advantage of H2 is its small size, allowing it to penetrate cell membranes and clogged vessels, protecting mitochondria and DNA from oxidative stress caused by Reactive Oxygen Species (ROS).',
+        title: 'How does low surface tension affect mineral absorption?',
+        desc: "<p>Lower surface tension improves food and gastrointestinal mucosa wetting, accelerating dissolution and absorption of minerals and supplements.</p>",
         open: false,
     },
     {
-        title: 'How does H2 neutralize free radicals?',
-        desc: 'One molecule of H2 neutralizes two molecules of hydroxyl radicals (OH), the most dangerous free radical for the body, forming water (H2O) in the process, making H2 a very effective antioxidant.',
+        title: 'Can OKEARA be mixed with juices and smoothies?',
+        desc: "<p>Yes, but to preserve the hydrogen concentration, it’s best to drink separately or add just before consumption.</p>",
         open: false,
     },
     {
-        title: 'What additional benefits does H2 provide?',
-        desc: 'H2 stimulates biological antioxidant enzymes, reducing oxidative stress in the body. It also functions as an anti-inflammatory, anti-allergic, and anti-apoptotic molecule and is involved in energy metabolism.',
+        title: "What is Bovis Energy and what is OKEARA's value?",
+        desc: "<p>Bovis Units measure 'life energy'. OKEARA shows ~12,000 BU, exceeding many natural sources.</p>",
         open: false,
     },
     {
-        title: 'How does hydrogen (H2) compare to oxygen?',
-        desc: 'Like oxygen, H2 plays a crucial role in life by participating in oxidation and reduction reactions, where oxygen is responsible for oxidation and hydrogen is responsible for reduction.',
+        title: "How can Bovis Energy be tested at home?",
+        desc: "<p>Using dowsing pendulums or special life energy detectors (available on marketplaces).</p>",
         open: false,
     },
     {
-        title: 'What protection does OKEARA packaging offer for hydrogen water?',
-        desc: 'OKEARA packaging protects water from ultraviolet and electromagnetic radiation, preserves its structure, and ensures no contact with hazardous plastics, detergent residues, or BPA.',
-        open: false,
-    },
-])
-
-const items4 = ref([
-    {
-        title: 'What materials are used in your packaging?',
-        desc: 'Our carton packs are made from paperboard, which is a renewable resource. They have a low carbon footprint compared to other packaging materials, making them a more environmentally friendly choice.',
+        title: "Does OKEARA contain any added preservatives?",
+        desc: "<p>No, the water is completely natural with no preservatives, stabilizers, or chemical additives.</p>",
         open: false,
     },
     {
-        title: 'Why is the packaging for OKEARA structured hydrogen water important?',
-        desc: "OKEARA's packaging keeps the water's hydrogen content intact, prevents oxidation, and maintains the health benefits of the water by avoiding contamination.",
+        title: "Can a subscription be gifted to someone else?",
+        desc: "<p>Yes – when ordering, enter the recipient's delivery address and details. The system will activate the gift subscription automatically.</p>",
         open: false,
     },
     {
-        title: 'How is the water purified?',
-        desc: 'The water is purified using reverse osmosis filters that remove impurities and bacteria. After purification, the water is structured by a drip process.',
+        title: "Can I pause or postpone my subscription?",
+        desc: "<p>Yes, you can temporarily pause delivery in your personal account without penalties.</p>",
         open: false,
     },
     {
-        title: 'How is hydrogen added to the water?',
-        desc: 'The purified and structured water is then saturated with atomic hydrogen. The final product is pure, structured water enriched with hydrogen.',
+        title: "How can I change my delivery address?",
+        desc: "<p>Before the next shipment, update the address in your personal account or notify us via Direct.</p>",
         open: false,
     },
     {
-        title: 'What are the benefits of this enriched water?',
-        desc: 'This method provides pure water that retains structural integrity and is enriched with hydrogen, offering additional health benefits.',
+        title: "How to become an OKEARA ambassador?",
+        desc: "<p>Message us in Direct with a brief description of your audience and wellness experience – we’ll contact you to discuss further.</p>",
         open: false,
     },
     {
-        title: 'What measures do you take for quality control?',
-        desc: 'We perform constant quality control, conduct laboratory tests, timely service our equipment, change filters, work closely with customers, receive feedback, and address any issues.',
+        title: "Can I get a trial before subscribing?",
+        desc: "<p>No, but you can start with a 1-month subscription.</p>",
         open: false,
     },
     {
-        title: 'How do you ensure the taste of your water remains high?',
-        desc: 'We focus on organoleptic properties, ensuring our water is not only pure but also the most tasty.',
-        open: false,
-    },
-])
-
-const items5 = ref([
-    {
-        title: 'How do you ensure the purity and safety of OKEARA structured hydrogen water?',
-        desc: 'We maintain purity and safety by creating technology that ensures this and constantly monitors potentially dangerous points to prevent bacteriological contamination. ',
+        title: "What is the delivery cost?",
+        desc: "<p>Delivery is included in the package price.</p>",
         open: false,
     },
     {
-        title: 'What standards do you follow to ensure safety and quality?',
-        desc: "We follow ISO and HACCP standards to ensure the highest levels of safety and quality. ISO standards ensure quality, safety, and efficiency, while HACCP (Hazard Analysis Critical Control Point) standards are systematic preventive approaches to food safety.",
+        title: "How to stay updated on news and offers?",
+        desc: "<p>Subscribe to our Community – we regularly publish special deals.</p>",
         open: false,
     },
     {
-        title: 'How do you prevent bacteriological contamination?',
-        desc: 'We prevent bacteriological contamination by constantly monitoring potentially dangerous points and ensuring they are always under control.',
+        title: "How to stay updated on news and offers?",
+        desc: "<p>Yes, in Dubai, Singapore, Europe, and Australia.</p>",
         open: false,
     },
     {
-        title: 'What are the health benefits of OKEARA structured hydrogen water?',
-        desc: 'OKEARA structured hydrogen water offers numerous health benefits including:',
+        title: "Is the water suitable for dietary nutrition?",
+        desc: "<p>Yes – it supports metabolism, helps stabilize blood sugar, and reduces sugar cravings.</p>",
+        open: false,
+    },
+    {
+        title: "Can I drink the water during workouts?",
+        desc: "<p>Yes – it helps maintain optimal fluid balance and speeds up recovery.</p>",
+        open: false,
+    },
+    {
+        title: "Does OKEARA boost energy levels?",
+        desc: "<p>Yes – improved cellular metabolism and detox lead to more energy and mental clarity.</p>",
+        open: false,
+    },
+    {
+        title: "Are there any contraindications?",
+        desc: "<p>None. For rare conditions – consult your doctor.</p>",
+        open: false,
+    },
+    {
+        title: "Can OKEARA be consumed daily?",
+        desc: "<p>Yes, regular intake ensures consistent benefits.</p>",
+        open: false,
+    },
+    {
+        title: "How does OKEARA affect the skin?",
+        desc: "<p>Improves internal hydration, boosts elasticity, and accelerates skin cell regeneration.</p>",
         open: false,
     },
 ])
@@ -371,174 +348,12 @@ onMounted(() => {
     })
 })
 
-const scrollToSection = (idx: number) => {
-    const el = sectionRefs[idx].value
-    if (el) {
-        window.scrollTo({
-            top: el.offsetTop - 100,
-            behavior: 'smooth',
-        })
-    }
-}
-
 const toggleCollapse = (index: number) => {
     const item = items.value[index]
     item.open = !item.open
 
     const descEl = document.querySelector(`#desc-${index}`)
     const verticalLine = document.querySelector(`#plus-line-${index}`)
-
-    if (item.open) {
-        gsap.to(descEl, {
-            height: 'auto',
-            opacity: 1,
-            marginTop: '24px',
-            duration: 0.4,
-            ease: 'power2.out',
-        })
-
-        gsap.to(verticalLine, {
-            attr: { y1: 12, y2: 12 },
-            duration: 0.3,
-            ease: 'power2.out',
-        })
-    } else {
-        gsap.to(descEl, {
-            height: 0,
-            opacity: 0,
-            marginTop: '0px',
-            duration: 0.4,
-            ease: 'power2.in',
-        })
-
-        gsap.to(verticalLine, {
-            attr: { y1: 5, y2: 19 },
-            duration: 0.3,
-            ease: 'power2.in',
-        })
-    }
-}
-
-const toggleCollapseLibero = (index: number) => {
-    const item = items2.value[index]
-    item.open = !item.open
-
-    const descEl = document.querySelector(`#desc-libero-${index}`)
-    const verticalLine = document.querySelector(`#plus-line-libero-${index}`)
-
-    if (item.open) {
-        gsap.to(descEl, {
-            height: 'auto',
-            opacity: 1,
-            marginTop: '24px',
-            duration: 0.4,
-            ease: 'power2.out',
-        })
-
-        gsap.to(verticalLine, {
-            attr: { y1: 12, y2: 12 },
-            duration: 0.3,
-            ease: 'power2.out',
-        })
-    } else {
-        gsap.to(descEl, {
-            height: 0,
-            opacity: 0,
-            marginTop: '0px',
-            duration: 0.4,
-            ease: 'power2.in',
-        })
-
-        gsap.to(verticalLine, {
-            attr: { y1: 5, y2: 19 },
-            duration: 0.3,
-            ease: 'power2.in',
-        })
-    }
-}
-
-const toggleCollapseAliquam = (index: number) => {
-    const item = items3.value[index]
-    item.open = !item.open
-
-    const descEl = document.querySelector(`#desc-aliquam-${index}`)
-    const verticalLine = document.querySelector(`#plus-line-aliquam-${index}`)
-
-    if (item.open) {
-        gsap.to(descEl, {
-            height: 'auto',
-            opacity: 1,
-            marginTop: '24px',
-            duration: 0.4,
-            ease: 'power2.out',
-        })
-
-        gsap.to(verticalLine, {
-            attr: { y1: 12, y2: 12 },
-            duration: 0.3,
-            ease: 'power2.out',
-        })
-    } else {
-        gsap.to(descEl, {
-            height: 0,
-            opacity: 0,
-            marginTop: '0px',
-            duration: 0.4,
-            ease: 'power2.in',
-        })
-
-        gsap.to(verticalLine, {
-            attr: { y1: 5, y2: 19 },
-            duration: 0.3,
-            ease: 'power2.in',
-        })
-    }
-}
-
-const toggleCollapseViverra = (index: number) => {
-    const item = items4.value[index]
-    item.open = !item.open
-
-    const descEl = document.querySelector(`#desc-viverra-${index}`)
-    const verticalLine = document.querySelector(`#plus-line-viverra-${index}`)
-
-    if (item.open) {
-        gsap.to(descEl, {
-            height: 'auto',
-            opacity: 1,
-            marginTop: '24px',
-            duration: 0.4,
-            ease: 'power2.out',
-        })
-
-        gsap.to(verticalLine, {
-            attr: { y1: 12, y2: 12 },
-            duration: 0.3,
-            ease: 'power2.out',
-        })
-    } else {
-        gsap.to(descEl, {
-            height: 0,
-            opacity: 0,
-            marginTop: '0px',
-            duration: 0.4,
-            ease: 'power2.in',
-        })
-
-        gsap.to(verticalLine, {
-            attr: { y1: 5, y2: 19 },
-            duration: 0.3,
-            ease: 'power2.in',
-        })
-    }
-}
-
-const toggleCollapsePellentesque = (index: number) => {
-    const item = items5.value[index]
-    item.open = !item.open
-
-    const descEl = document.querySelector(`#desc-pellentesque-${index}`)
-    const verticalLine = document.querySelector(`#plus-line-pellentesque-${index}`)
 
     if (item.open) {
         gsap.to(descEl, {

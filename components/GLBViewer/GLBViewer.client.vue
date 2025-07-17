@@ -1,8 +1,8 @@
 <!-- eslint-disable vue/first-attribute-linebreak -->
 <!-- GLBViewer.client.vue -->
 <template>
-  <div class="w-[90%] h-[500px]">
-    <model-viewer :src="modelPath" camera-controls auto-rotate disable-zoom="false" style="width: 100%; height: 100%"
+  <div class="w-[90%] h-[100%]">
+    <model-viewer :src="modelPath" camera-controls auto-rotate style="width: 100%; height: 100%"
       :style="{
         transform: `scale3d(${scale.x}, ${scale.y}, ${scale.z})`
       }">

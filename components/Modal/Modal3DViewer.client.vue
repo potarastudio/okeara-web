@@ -43,24 +43,24 @@
 
                     <div ref="sliderTrack" class="flex scroll-smooth overflow-hidden">
                         <div class="flex-shrink-0 w-full h-full">
-                            <div v-if="activeIndex == 0" class="w-full flex items-center justify-center">
+                            <div v-if="activeIndex == 0" class="w-full h-[70dvh] flex items-center justify-center">
                                 <client-only>
                                     <GLBViewer :model-path="modelPath" :scale="{ x: 1, y: 1, z: 1 }" />
                                 </client-only>
                             </div>
-                            <div v-else class="w-full flex items-center justify-center">
+                            <div v-else class="w-full h-[70dvh] flex items-center justify-center">
                                 <client-only>
                                     <GLBViewer :model-path="modelBluePath" :scale="{ x: 1, y: 1, z: 1 }" />
                                 </client-only>
                             </div>
                         </div>
                         <div class="flex-shrink-0 w-full h-full">
-                            <div v-if="activeIndex == 0" class="w-full flex items-center justify-center">
+                            <div v-if="activeIndex == 0" class="w-full h-[70dvh] flex items-center justify-center">
                                 <client-only>
                                     <GLBViewer :model-path="modelPath12l" :scale="{ x: 1, y: 1, z: 1 }" />
                                 </client-only>
                             </div>
-                            <div v-else class="w-full flex items-center justify-center">
+                            <div v-else class="w-full h-[70dvh] flex items-center justify-center">
                                 <client-only>
                                     <GLBViewer :model-path="modelBluePath12l" :scale="{ x: 1, y: 1, z: 1 }" />
                                 </client-only>
