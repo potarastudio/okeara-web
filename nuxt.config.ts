@@ -26,7 +26,4 @@ export default defineNuxtConfig({
       geoapifyApiKey: process.env.GEOAPIFY_API_KEY
     }
   },
-  devServer: {
-    host: '0.0.0.0'
-  }
 })
