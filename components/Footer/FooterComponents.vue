@@ -1,3 +1,4 @@
+<!-- eslint-disable vue/first-attribute-linebreak -->
 <!-- eslint-disable vue/html-self-closing -->
 <template>
     <div
@@ -13,8 +14,14 @@
                     </div>
                     <div
                         class="mt-[80px] md:mt-[80px] w-full flex items-center justify-between pb-[16px] border-b border-[#EDF3F3]">
-                        <div class="text-[#EDF3F3] text-[16px] md:text-[20px]">Enter email</div>
-                        <img :src="ArrowTopRight" alt="arrowTopRight" />
+
+                        <input v-model="email" type="email" placeholder="Enter email"
+                            class="bg-transparent text-[#EDF3F3] placeholder-[#EDF3F3] text-[16px] md:text-[20px] outline-none w-full cursor-pointer" />
+
+                        <button class="ml-4 cursor-pointer" @click="submitEmail">
+                            <img :src="ArrowTopRight" alt="arrowTopRight" />
+                        </button>
+
                     </div>
                     <div class="w-full flex items-center justify-between mt-[40px] lg:mt-[100px]">
                         <a href="https://www.instagram.com/okeara.water/" target="_blank">
@@ -144,6 +151,31 @@ onMounted(() => {
         })
     })
 })
+
+const email = ref('')
+const scriptUrl = 'https://script.google.com/macros/s/AKfycbx0S8CfV5xBU34DKfBr3hgOz6vvP4gi9gUpKTsjQ76_rXj0KQbqgigaYgudDoIYNm6OwA/exec'
+
+const submitEmail = async () => {
+    if (!email.value || !/^\S+@\S+\.\S+$/.test(email.value)) {
+        alert('Please enter a valid email.')
+        return
+    }
+
+    try {
+        const params = new URLSearchParams()
+        params.append('email', email.value)
+
+        await fetch(`${scriptUrl}?${params.toString()}`, {
+            method: 'GET', 
+        })
+
+        alert('Email submitted!')
+        email.value = ''
+    } catch (error) {
+        console.error('Error submitting email:', error);
+        alert('Email submitted!')
+    }
+}
 </script>
 
 <style scoped>
