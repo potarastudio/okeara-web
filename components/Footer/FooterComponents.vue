@@ -80,6 +80,8 @@
                 </div>
             </div>
         </div>
+        <Modal :show="isOpenError" message="Thank you for subscribe our newsletter" :icon="MessageBlue"
+            @close="isOpenError = false" />
         <div
             class="w-full flex flex-col lg:flex-row items-start lg:items-center justify-between pt-[40px] border-t border-[#EDF3F3] gap-[100px] md:gap-auto">
             <div class="text-white text-[16px] md:text-[18px] font-light leading-[24px]">© 2025 OKEARA. All Rights
@@ -97,8 +99,10 @@
 <script setup lang="ts">
 import { onMounted } from 'vue'
 import gsap from 'gsap'
+import Modal from '../Modal/Modal.vue'
 
 import Logo from '@/assets/images/logo.svg'
+import MessageBlue from '@/assets/icons/MessageBlue.svg'
 import ArrowTopRight from '@/assets/icons/ArrowTopRight.svg'
 import Instagram from '@/assets/icons/Instagram.svg'
 import Facebook from '@/assets/icons/Facebook.svg'
@@ -152,6 +156,7 @@ onMounted(() => {
     })
 })
 
+const isOpenError = ref(false)
 const email = ref('')
 const scriptUrl = 'https://script.google.com/macros/s/AKfycbx0S8CfV5xBU34DKfBr3hgOz6vvP4gi9gUpKTsjQ76_rXj0KQbqgigaYgudDoIYNm6OwA/exec'
 
@@ -166,14 +171,14 @@ const submitEmail = async () => {
         params.append('email', email.value)
 
         await fetch(`${scriptUrl}?${params.toString()}`, {
-            method: 'GET', 
+            method: 'GET',
         })
 
-        alert('Email submitted!')
+        isOpenError.value = true;
         email.value = ''
     } catch (error) {
         console.error('Error submitting email:', error);
-        alert('Email submitted!')
+        isOpenError.value = true;
     }
 }
 </script>

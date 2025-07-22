@@ -95,7 +95,6 @@ const _props = defineProps({
 })
 
 
-
 const modelPath = ref('assets/model/Okeara500ml.glb');
 const modelPath12l = ref('assets/model/Okeara12l.glb');
 

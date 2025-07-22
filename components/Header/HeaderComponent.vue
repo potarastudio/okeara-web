@@ -79,22 +79,22 @@
       ]" />
     </div>
 
-    <div class="hidden lg:flex items-start gap-[24px] relative">
-      <div :class="[
+    <div class="hidden lg:flex items-start gap-[24px] relative w-[10%]">
+      <!-- <div :class="[
         'absolute left-0 top-0 border rounded-full p-[14px] cursor-pointer',
         isTop ? 'border-white' : 'border-[#203D4D]',
       ]">
         <img :src="isTop ? cart : CartBlue" alt="cart" />
-        <!-- <div class="absolute right-[-12px] top-[-8px] bg-[#FF4343] py-[4px] px-[10px] text-[12px] text-white rounded-full">
+        <div class="absolute right-[-12px] top-[-8px] bg-[#FF4343] py-[4px] px-[10px] text-[12px] text-white rounded-full">
           4
-        </div> -->
+        </div>
       </div>
       <div :class="[
         'ml-[72px] border rounded-full p-[14px] cursor-pointer',
         isTop ? 'border-white' : 'border-[#203D4D]',
       ]">
         <img :src="isTop ? message : MessageBlue" alt="message" />
-      </div>
+      </div> -->
     </div>
   </div>
 
@@ -141,18 +141,18 @@ import gsap from 'gsap'
 
 import Logo from '@/assets/images/logo.svg'
 import LogoBlue from '@/assets/images/LogoBlue.svg'
-import Cart from '@/assets/icons/Cart.svg'
-import CartBlue from '@/assets/icons/CartBlue.svg'
-import Message from '@/assets/icons/Message.svg'
-import MessageBlue from '@/assets/icons/MessageBlue.svg'
+// import Cart from '@/assets/icons/Cart.svg'
+// import CartBlue from '@/assets/icons/CartBlue.svg'
+// import Message from '@/assets/icons/Message.svg'
+// import MessageBlue from '@/assets/icons/MessageBlue.svg'
 import ArrowTopRightBlue from '@/assets/icons/ArrowTopRightBlue.svg'
 
 const router = useRouter();
 const navLinks = ref<HTMLElement[]>([])
 
 const logo = Logo
-const cart = Cart
-const message = Message
+// const cart = Cart
+// const message = Message
 
 const isVisible = ref(true)
 const isTop = ref(true)

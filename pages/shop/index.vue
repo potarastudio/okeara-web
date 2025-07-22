@@ -94,11 +94,11 @@
                                         Buy Now
                                         <img :src="Dollar" alt="Dollar" class="w-[16px]">
                                     </button>
-                                    <button
+                                    <!-- <button
                                         class="bg-[#EDF3F3] border border-[#203D4D] rounded-full h-[48px] px-[24px] flex items-center justify-center gap-[12px] text-[#203D4D] cursor-pointer">
                                         Add to Cart
                                         <img :src="CartBlue" alt="CartBlue" class="w-[16px]">
-                                    </button>
+                                    </button> -->
                                 </div>
                             </div>
                         </div>
@@ -128,17 +128,19 @@
                                         Buy Now
                                         <img :src="Dollar" alt="Dollar" class="w-[16px]">
                                     </button>
-                                    <button
+                                    <!-- <button
                                         class="bg-[#EDF3F3] border border-[#203D4D] rounded-full h-[48px] px-[24px] flex items-center justify-center gap-[12px] text-[#203D4D] cursor-pointer">
                                         Add to Cart
                                         <img :src="CartBlue" alt="CartBlue" class="w-[16px]">
-                                    </button>
+                                    </button> -->
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+            <Modal :show="isOpenError" message="Please allow location to continue buy this product"
+                @close="isOpenError = false" />
         </div>
         <LongevityClub />
         <Modal3DViewerClient :show="isOpen" @close="isOpen = false" />
@@ -159,10 +161,11 @@ import BgWave from '@/assets/images/WaveVertical.svg'
 import ArrowTopRight from "@/assets/icons/ArrowTopRight.svg";
 import ArrowDown from "@/assets/icons/ArrowDown.svg";
 import Dollar from '@/assets/icons/Dollar.svg';
-import CartBlue from '@/assets/icons/CartBlue.svg';
+// import CartBlue from '@/assets/icons/CartBlue.svg';
 
 import LongevityClub from '~/page-section/LongevityClub.vue';
 import Modal3DViewerClient from '~/components/Modal/Modal3DViewer.client.vue';
+import Modal from '~/components/Modal/Modal.vue';
 
 const bannerRef = ref<HTMLElement | null>(null)
 const textContainerRef = ref<HTMLElement | null>(null)
@@ -173,6 +176,7 @@ const activeIndex = ref(0)
 const container0 = ref(null)
 const container1 = ref(null)
 const isOpen = ref(false)
+const isOpenError = ref(false)
 
 const config = useRuntimeConfig()
 
@@ -222,7 +226,7 @@ const detectAndRedirect = () => {
             const properties = result.features?.[0]?.properties
 
             if (!properties) {
-                alert('Lokasi tidak dapat ditentukan.')
+                isOpenError.value = true
                 return
             }
 
@@ -231,7 +235,6 @@ const detectAndRedirect = () => {
             const city = properties.city || ''
             const county = properties.county || ''
 
-            console.log('📍 Detected:', { country, state, city, county })
 
             if (country === 'Indonesia') {
                 const isBali = [state, city, county].some(val =>
@@ -248,11 +251,11 @@ const detectAndRedirect = () => {
             }
         } catch (error) {
             console.error('Gagal mengambil lokasi:', error)
-            alert('Terjadi kesalahan saat mendeteksi lokasi.')
+            isOpenError.value = true
         }
     }, (err) => {
         console.error('Geolocation error:', err)
-        alert('Izin lokasi dibutuhkan untuk melanjutkan.')
+        isOpenError.value = true
     })
 }
 

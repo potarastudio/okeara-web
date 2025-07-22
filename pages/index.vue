@@ -282,11 +282,11 @@
                                         Buy Now
                                         <img :src="Dollar" alt="Dollar" class="w-[16px]">
                                     </button>
-                                    <button
+                                    <!-- <button
                                         class="bg-[#EDF3F3] border border-[#203D4D] rounded-full h-[48px] px-[24px] flex items-center justify-center gap-[12px] text-[#203D4D] cursor-pointer">
                                         Add to Cart
                                         <img :src="CartBlue" alt="CartBlue" class="w-[16px]">
-                                    </button>
+                                    </button> -->
                                 </div>
                             </div>
                         </div>
@@ -316,17 +316,18 @@
                                         Buy Now
                                         <img :src="Dollar" alt="Dollar" class="w-[16px]">
                                     </button>
-                                    <button
+                                    <!-- <button
                                         class="bg-[#EDF3F3] border border-[#203D4D] rounded-full h-[48px] px-[24px] flex items-center justify-center gap-[12px] text-[#203D4D] cursor-pointer">
                                         Add to Cart
                                         <img :src="CartBlue" alt="CartBlue" class="w-[16px]">
-                                    </button>
+                                    </button> -->
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+            <Modal :show="isOpenError" message="Please allow location to continue buy this product" @close="isOpenError = false" />
         </div>
         <div class="w-full bg-[#DAD6CB] px-[24px] py-[40px] md:p-[40px] lg:px-[64px] lg:py-[100px]">
             <div class="flex items-center gap-[10px] md:gap-[20px]">
@@ -493,7 +494,7 @@ import Overweight from '@/assets/icons/Overweight.svg';
 import Tired from '@/assets/icons/Tired.svg';
 import Stress from '@/assets/icons/Stress.svg';
 import Dollar from '@/assets/icons/Dollar.svg';
-import CartBlue from '@/assets/icons/CartBlue.svg';
+// import CartBlue from '@/assets/icons/CartBlue.svg';
 import ArrowLeft from '@/assets/icons/ArrowLeft.svg';
 import ArrowRight from '@/assets/icons/ArrowRight.svg';
 import Friendly from '@/assets/icons/Friendly.svg';
@@ -502,6 +503,7 @@ import Footprint from '@/assets/icons/Footprint.svg';
 
 import LongevityClub from '~/page-section/LongevityClub.vue';
 import Modal3DViewerClient from '~/components/Modal/Modal3DViewer.client.vue';
+import Modal from '~/components/Modal/Modal.vue';
 
 const bannerRef = ref<HTMLElement | null>(null)
 const textContainerRef = ref<HTMLElement | null>(null)
@@ -559,6 +561,7 @@ const imageLeftCommitmentRef = ref<HTMLElement | null>(null)
 const imageRightCommitmentRef = ref<HTMLElement | null>(null)
 
 const isOpen = ref(false)
+const isOpenError = ref(false)
 const activeIndex = ref(0)
 const optionRefs = ref<(Element | ComponentPublicInstance | null)[]>([])
 const indicatorRef = ref(null)
@@ -1314,7 +1317,7 @@ const detectAndRedirect = () => {
             const properties = result.features?.[0]?.properties
 
             if (!properties) {
-                alert('Lokasi tidak dapat ditentukan.')
+                isOpenError.value = true
                 return
             }
 
@@ -1323,7 +1326,6 @@ const detectAndRedirect = () => {
             const city = properties.city || ''
             const county = properties.county || ''
 
-            console.log('📍 Detected:', { country, state, city, county })
 
             if (country === 'Indonesia') {
                 const isBali = [state, city, county].some(val =>
@@ -1340,11 +1342,11 @@ const detectAndRedirect = () => {
             }
         } catch (error) {
             console.error('Gagal mengambil lokasi:', error)
-            alert('Terjadi kesalahan saat mendeteksi lokasi.')
+            isOpenError.value = true
         }
     }, (err) => {
         console.error('Geolocation error:', err)
-        alert('Izin lokasi dibutuhkan untuk melanjutkan.')
+        isOpenError.value = true
     })
 }
 
