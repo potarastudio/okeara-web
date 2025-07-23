@@ -61,7 +61,7 @@
                     </div>
                     <div class="text-[#203D4D] text-[20px] leading-[30px] mt-[120px]">
                         Can’t find what you’re looking for? <br>
-                        Contact: sales@OKEARA.co
+                        Contact: sales@okeara.com
                     </div>
                 </div>
             </div>

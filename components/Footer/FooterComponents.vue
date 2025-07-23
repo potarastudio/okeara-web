@@ -88,9 +88,17 @@
                 Reserved</div>
             <div
                 class="flex flex-col md:flex-row items-start gap-[4px] md:gap-[20px] text-white text-[16px] md:text-[18px] font-light leading-[24px]">
-                <span>Terms & Conditions</span>
+                <NuxtLink to="/terms-and-conditions">
+                    <span>Terms & Conditions</span>
+                </NuxtLink>
                 <div class="hidden md:inline">|</div>
-                <span>Privacy Policy</span>
+                <NuxtLink to="/privacy-policy">
+                    <span>Privacy Policy</span>
+                </NuxtLink>
+                <div class="hidden md:inline">|</div>
+                <NuxtLink to="/imprint">
+                    <span>Imprint</span>
+                </NuxtLink>
             </div>
         </div>
     </div>
