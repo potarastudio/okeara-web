@@ -3,7 +3,7 @@
 <template>
   <div class="w-[90%] h-[100%]">
     <model-viewer :src="modelPath" camera-controls auto-rotate style="width: 100%; height: 100%"
-      :style="{
+      environment-image="neutral" shadow-intensity="1" shadow-softness="0.8" exposure="0.1" :style="{
         transform: `scale3d(${scale.x}, ${scale.y}, ${scale.z})`
       }">
     </model-viewer>
