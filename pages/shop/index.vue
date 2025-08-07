@@ -70,10 +70,11 @@
             <div class="w-full overflow-hidden">
                 <div class="w-full flex items-start self-stretch gap-[60px] mt-[60px]">
                     <div ref="container0"
-                        class="bg-[#E4EDED] w-[100%] lg:w-[50%] py-[20px] lg:py-[50px] flex-shrink-0 flex items-center justify-center self-stretch">
+                        class="bg-[#E4EDED] w-[100%] lg:w-[50%] py-[20px] lg:py-[50px] flex-shrink-0 flex items-center justify-center self-stretch"
+                        @click="goToDetail(12)">
                         <div class="flex flex-col justify-end items-center gap-[52px]">
                             <div class="px-[12px] py-[8px] bg-white rounded-full text-black fade-item cursor-pointer"
-                                @click="isOpen = true">
+                                @click.stop="isOpen = true">
                                 Preview 3D
                             </div>
                             <img :src="activeIndex === 0 ? OkearaWater500ml : OkearaBlue500ml" alt="Okeara Water 500ml"
@@ -90,7 +91,7 @@
                                 <div class="flex items-center gap-[24px]">
                                     <button
                                         class="bg-[#203D4D] border border-[#203D4D] rounded-full h-[48px] px-[24px] flex items-center justify-center gap-[12px] text-[#EDF3F3] cursor-pointer"
-                                        @click="detectAndRedirect">
+                                        @click.stop="detectAndRedirect">
                                         Buy Now
                                         <img :src="Dollar" alt="Dollar" class="w-[16px]">
                                     </button>
@@ -104,10 +105,11 @@
                         </div>
                     </div>
                     <div ref="container1"
-                        class="bg-[#E4EDED] w-[100%] lg:w-[50%] py-[20px] lg:py-[50px] flex-shrink-0 flex items-center justify-center self-stretch">
+                        class="bg-[#E4EDED] w-[100%] lg:w-[50%] py-[20px] lg:py-[50px] flex-shrink-0 flex items-center justify-center self-stretch"
+                        @click="goToDetail(12)">
                         <div class="flex flex-col justify-end items-center gap-[52px]">
                             <div class="px-[12px] py-[8px] bg-white rounded-full text-black fade-item cursor-pointer"
-                                @click="isOpen = true">
+                                @click.stop="isOpen = true">
                                 Preview 3D
                             </div>
                             <img :src="activeIndex === 0 ? OkearaWater12l : OkearaBlue12l" alt="Okeara Water 12 L"
@@ -124,7 +126,7 @@
                                 <div class="flex items-center gap-[24px]">
                                     <button
                                         class="bg-[#203D4D] border border-[#203D4D] rounded-full h-[48px] px-[24px] flex items-center justify-center gap-[12px] text-[#EDF3F3] cursor-pointer"
-                                        @click="detectAndRedirect">
+                                        @click.stop="detectAndRedirect">
                                         Buy Now
                                         <img :src="Dollar" alt="Dollar" class="w-[16px]">
                                     </button>
@@ -149,6 +151,7 @@
 
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
+import { useRouter } from 'vue-router'
 import gsap from 'gsap'
 import ScrollTrigger from 'gsap/ScrollTrigger'
 import Banner from '@/assets/images/BannerShop.png';
@@ -171,6 +174,8 @@ const bannerRef = ref<HTMLElement | null>(null)
 const textContainerRef = ref<HTMLElement | null>(null)
 const indicatorRef = ref(null)
 const optionRefs = ref<(Element | ComponentPublicInstance | null)[]>([])
+
+const router = useRouter()
 
 const activeIndex = ref(0)
 const container0 = ref(null)
@@ -206,6 +211,10 @@ const switchTo = async (index: number) => {
         duration: 0.4,
         ease: 'power2.out',
     })
+}
+
+function goToDetail(idx: number) {
+    router.push(`/shop/${idx}`)
 }
 
 const detectAndRedirect = () => {
