@@ -5,5 +5,5 @@ services:
     build: .
     container_name: nuxt3_app
     ports:
-      - "3000:3000"
+      - "3001:3000"
     restart: always
