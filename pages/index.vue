@@ -257,77 +257,81 @@
             </div>
             <div class="w-full overflow-hidden">
                 <div class="w-full flex items-start self-stretch gap-[60px] mt-[60px]">
-                    <div ref="container0"
-                        class="bg-[#E4EDED] w-[100%] lg:w-[50%] py-[20px] lg:py-[50px] flex-shrink-0 flex items-center justify-center self-stretch">
-                        <div class="flex flex-col justify-end items-center gap-[52px]">
-                            <div class="px-[12px] py-[8px] bg-white rounded-full text-black fade-item cursor-pointer"
-                                @click="isOpen = true">
-                                Preview 3D
-                            </div>
-                            <img :src="activeIndex === 0 ? OkearaWater500ml : OkearaBlue500ml" alt="Okeara Water 500ml"
-                                class="h-[500px]">
-                            <div class="flex flex-col items-center gap-[32px] fade-item">
-                                <div class="flex flex-col items-center gap-[16px]">
-                                    <div class="text-[#203D4D] text-[26px] leading-[26px]">
-                                        {{ activeIndex === 0 ? 'OKEARA' : 'OKEARA Blue' }}
-                                    </div>
-                                    <div class="text-[#203D4D] text-[18px] opacity-50">
-                                        500ml (16.9fl 0z)
-                                    </div>
+                    <a href="https://shop.okeara.com">
+                        <div ref="container0"
+                            class="bg-[#E4EDED] w-[100%] lg:w-[50%] py-[20px] lg:py-[50px] flex-shrink-0 flex items-center justify-center self-stretch cursor-pointer">
+                            <div class="flex flex-col justify-end items-center gap-[52px]">
+                                <div class="px-[12px] py-[8px] bg-white rounded-full text-black fade-item cursor-pointer"
+                                    @click="isOpen = true">
+                                    Preview 3D
                                 </div>
-                                <div class="flex items-center gap-[24px]">
-                                    <button
-                                        class="bg-[#203D4D] border border-[#203D4D] rounded-full h-[48px] px-[24px] flex items-center justify-center gap-[12px] text-[#EDF3F3] cursor-pointer"
-                                        @click="detectAndRedirect">
-                                        Buy Now
-                                        <img :src="Dollar" alt="Dollar" class="w-[16px]">
-                                    </button>
-                                    <!-- <button
+                                <img :src="activeIndex === 0 ? OkearaWater500ml : OkearaBlue500ml"
+                                    alt="Okeara Water 500ml" class="h-[500px]">
+                                <div class="flex flex-col items-center gap-[32px] fade-item">
+                                    <div class="flex flex-col items-center gap-[16px]">
+                                        <div class="text-[#203D4D] text-[26px] leading-[26px]">
+                                            {{ activeIndex === 0 ? 'OKEARA' : 'OKEARA Blue' }}
+                                        </div>
+                                        <div class="text-[#203D4D] text-[18px] opacity-50">
+                                            500ml (16.9fl 0z)
+                                        </div>
+                                    </div>
+                                    <div class="flex items-center gap-[24px]">
+                                        <button
+                                            class="bg-[#203D4D] border border-[#203D4D] rounded-full h-[48px] px-[24px] flex items-center justify-center gap-[12px] text-[#EDF3F3] cursor-pointer">
+                                            Buy Now
+                                            <img :src="Dollar" alt="Dollar" class="w-[16px]">
+                                        </button>
+                                        <!-- <button
                                         class="bg-[#EDF3F3] border border-[#203D4D] rounded-full h-[48px] px-[24px] flex items-center justify-center gap-[12px] text-[#203D4D] cursor-pointer">
                                         Add to Cart
                                         <img :src="CartBlue" alt="CartBlue" class="w-[16px]">
                                     </button> -->
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div ref="container1"
-                        class="bg-[#E4EDED] w-[100%] lg:w-[50%] py-[20px] lg:py-[50px] flex-shrink-0 flex items-center justify-center self-stretch">
-                        <div class="flex flex-col justify-end items-center gap-[52px]">
-                            <div class="px-[12px] py-[8px] bg-white rounded-full text-black fade-item cursor-pointer"
-                                @click="isOpen = true">
-                                Preview 3D
-                            </div>
-                            <img :src="activeIndex === 0 ? OkearaWater12l : OkearaBlue12l" alt="Okeara Water 12 L"
-                                class="h-[500px]">
-                            <div class="flex flex-col items-center gap-[32px] fade-item">
-                                <div class="flex flex-col items-center gap-[16px]">
-                                    <div class="text-[#203D4D] text-[26px] leading-[26px]">
-                                        {{ activeIndex === 0 ? 'OKEARA' : 'OKEARA Blue' }}
-                                    </div>
-                                    <div class="text-[#203D4D] text-[18px] opacity-50">
-                                        500ml (16.9fl 0z)
-                                    </div>
+                    </a>
+                    <a href="https://shop.okeara.com">
+                        <div ref="container1"
+                            class="bg-[#E4EDED] w-[100%] lg:w-[50%] py-[20px] lg:py-[50px] flex-shrink-0 flex items-center justify-center self-stretch cursor-pointer">
+                            <div class="flex flex-col justify-end items-center gap-[52px]">
+                                <div class="px-[12px] py-[8px] bg-white rounded-full text-black fade-item cursor-pointer"
+                                    @click="isOpen = true">
+                                    Preview 3D
                                 </div>
-                                <div class="flex items-center gap-[24px]">
-                                    <button
-                                        class="bg-[#203D4D] border border-[#203D4D] rounded-full h-[48px] px-[24px] flex items-center justify-center gap-[12px] text-[#EDF3F3] cursor-pointer"
-                                        @click="detectAndRedirect">
-                                        Buy Now
-                                        <img :src="Dollar" alt="Dollar" class="w-[16px]">
-                                    </button>
-                                    <!-- <button
+                                <img :src="activeIndex === 0 ? OkearaWater12l : OkearaBlue12l" alt="Okeara Water 12 L"
+                                    class="h-[500px]">
+                                <div class="flex flex-col items-center gap-[32px] fade-item">
+                                    <div class="flex flex-col items-center gap-[16px]">
+                                        <div class="text-[#203D4D] text-[26px] leading-[26px]">
+                                            {{ activeIndex === 0 ? 'OKEARA' : 'OKEARA Blue' }}
+                                        </div>
+                                        <div class="text-[#203D4D] text-[18px] opacity-50">
+                                            500ml (16.9fl 0z)
+                                        </div>
+                                    </div>
+                                    <div class="flex items-center gap-[24px]">
+                                        <button
+                                            class="bg-[#203D4D] border border-[#203D4D] rounded-full h-[48px] px-[24px] flex items-center justify-center gap-[12px] text-[#EDF3F3] cursor-pointer"
+                                            @click="detectAndRedirect">
+                                            Buy Now
+                                            <img :src="Dollar" alt="Dollar" class="w-[16px]">
+                                        </button>
+                                        <!-- <button
                                         class="bg-[#EDF3F3] border border-[#203D4D] rounded-full h-[48px] px-[24px] flex items-center justify-center gap-[12px] text-[#203D4D] cursor-pointer">
                                         Add to Cart
                                         <img :src="CartBlue" alt="CartBlue" class="w-[16px]">
                                     </button> -->
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
             </div>
-            <Modal :show="isOpenError" message="Please allow location to continue buy this product" @close="isOpenError = false" />
+            <Modal :show="isOpenError" message="Please allow location to continue buy this product"
+                @close="isOpenError = false" />
         </div>
         <div class="w-full bg-[#DAD6CB] px-[24px] py-[40px] md:p-[40px] lg:px-[64px] lg:py-[100px]">
             <div class="flex items-center gap-[10px] md:gap-[20px]">

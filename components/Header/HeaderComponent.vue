@@ -45,7 +45,7 @@
         <span class="link-text relative z-10">OUR PARTNER</span>
         <span class="underline absolute bottom-[15px] left-0 h-[0.5px] w-full scale-x-0 origin-left" />
       </NuxtLink>
-      <NuxtLink ref="navLinks" to="/shop" :data-active="isShopActive"
+      <a href="https://shop.okeara.com" :data-active="isShopActive"
         class="nav-link h-[48px] flex items-center justify-center rounded-full relative" :class="isShopActive
           ? isTop
             ? isShopDetail ? 'bg-[#203D4D] px-4 font-bold text-[#EDF3F3]' : 'bg-[#EDF3F3] px-4 font-bold text-[#203D4D]'
@@ -53,7 +53,7 @@
           : 'bg-transparent'">
         <span class="link-text relative z-10">SHOP</span>
         <span class="underline absolute bottom-[15px] left-0 h-[0.5px] w-full scale-x-0 origin-left" />
-      </NuxtLink>
+      </a>
       <NuxtLink ref="navLinks" to="/research" :data-active="isResearchActive"
         class="nav-link h-[48px] flex items-center justify-center rounded-full relative" :class="isResearchActive
           ? isTop
@@ -126,11 +126,13 @@
       <div class="text-[#203D4D] text-[20px]">Our Partner</div>
       <img :src="ArrowTopRightBlue" alt="arrowTopRight">
     </div>
-    <div class="w-full flex items-center justify-between pb-[16px] border-b border-[#203D4D] uppercase cursor-pointer"
-      @click="handleMobileMenu('/shop')">
-      <div class="text-[#203D4D] text-[20px]">Shop</div>
-      <img :src="ArrowTopRightBlue" alt="arrowTopRight">
-    </div>
+    <a href="https://shop.okeara.com">
+      <div
+        class="w-full flex items-center justify-between pb-[16px] border-b border-[#203D4D] uppercase cursor-pointer">
+        <div class="text-[#203D4D] text-[20px]">Shop</div>
+        <img :src="ArrowTopRightBlue" alt="arrowTopRight">
+      </div>
+    </a>
     <div class="w-full flex items-center justify-between pb-[16px] border-b border-[#203D4D] uppercase cursor-pointer"
       @click="handleMobileMenu('/research')">
       <div class="text-[#203D4D] text-[20px]">Research</div>
