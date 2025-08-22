@@ -257,9 +257,9 @@
             </div>
             <div class="w-full overflow-hidden">
                 <div class="w-full flex items-start self-stretch gap-[60px] mt-[60px]">
-                    <a href="https://shop.okeara.com">
+                    <a href="https://shop.okeara.com" class="w-[100%] lg:w-[50%]">
                         <div ref="container0"
-                            class="bg-[#E4EDED] w-[100%] lg:w-[50%] py-[20px] lg:py-[50px] flex-shrink-0 flex items-center justify-center self-stretch cursor-pointer">
+                            class="bg-[#E4EDED] w-[100%] py-[20px] lg:py-[50px] flex-shrink-0 flex items-center justify-center self-stretch cursor-pointer">
                             <div class="flex flex-col justify-end items-center gap-[52px]">
                                 <div class="px-[12px] py-[8px] bg-white rounded-full text-black fade-item cursor-pointer"
                                     @click="isOpen = true">
@@ -292,7 +292,7 @@
                             </div>
                         </div>
                     </a>
-                    <a href="https://shop.okeara.com">
+                    <a href="https://shop.okeara.com" class="w-[100%] lg:w-[50%]">
                         <div ref="container1"
                             class="bg-[#E4EDED] w-[100%] lg:w-[50%] py-[20px] lg:py-[50px] flex-shrink-0 flex items-center justify-center self-stretch cursor-pointer">
                             <div class="flex flex-col justify-end items-center gap-[52px]">
@@ -574,9 +574,6 @@ const config = useRuntimeConfig()
 
 const { data } = await useFetch("/api/odoo/products");
 console.log("Products:", data.value);
-
-const { data: companies } = await useFetch("/api/odoo/companies");
-console.log("companies:", companies.value);
 
 const sections = [
     {

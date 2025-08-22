@@ -23,7 +23,7 @@
                             class="w-full flex justify-between items-center border-b border-gray-400 pb-1 text-left"
                             @click="isOpen = !isOpen">
                             <span class="text-[18px] font-bold text-[#203D4D]">
-                                {{ selected?.label || 'Select location' }}
+                                {{ selected?.country || 'Select location' }}
                             </span>
                             <svg class="w-4 h-4 text-gray-600 transform transition-transform"
                                 :class="{ 'rotate-180': isOpen }" fill="none" stroke="currentColor" stroke-width="2"
@@ -38,7 +38,7 @@
                                 <li v-for="option in options" :key="option.value"
                                     class="px-4 py-2 hover:bg-gray-100 cursor-pointer text-[18px] font-bold text-[#203D4D]"
                                     @click="selectOption(option)">
-                                    {{ option.label }}
+                                    {{ option.country }}
                                 </li>
                             </ul>
                         </div>
@@ -62,6 +62,14 @@
 
 <script setup lang="ts">
 import { defineProps, defineEmits, ref } from 'vue'
+
+interface OptionType {
+    value: number | string;
+    name: string;
+    country: string;
+    code: string;
+}
+
 const isOpen = ref(false);
 
 const _props = defineProps({
@@ -73,17 +81,43 @@ const _props = defineProps({
 
 const emit = defineEmits(['close'])
 
-const selected = ref({ value: "id", label: "Indonesia" });
+const { data: companies } = await useFetch("/api/odoo/companies");
+console.log("companies:", companies.value);
 
-const options = [
-    { value: "id", label: "Indonesia" },
-    { value: "my", label: "Malaysia" },
-    { value: "sg", label: "Singapore" },
-    { value: "th", label: "Thailand" },
-    { value: "vn", label: "Vietnam" },
-];
+function detectCountry(name: string) {
+    if (name.includes("PT")) return { country: "Indonesia", code: "ID" };
+    if (name.includes("UEA") || name.includes("Dubai")) return { country: "United Arab Emirates", code: "AE" };
+    return { country: "Unknown", code: "--" };
+}
 
-function selectOption(option: { value: string; label: string }) {
+// mapping ke format option
+const options = computed(() =>
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    companies.value.map((c: any) => {
+        const { country, code } = detectCountry(c.name);
+        return {
+            value: c.id,
+            name: c.name,
+            country,
+            code
+        };
+    })
+);
+
+const selected = ref<OptionType | null>(null);
+
+watch(options, (opts) => {
+    if (!selected.value && opts.length > 0) {
+        const indonesia = opts.find((o: OptionType) => o.country === "Indonesia");
+        if (indonesia) {
+            selected.value = indonesia;
+        }
+    }
+});
+
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function selectOption(option: any) {
     selected.value = option;
     isOpen.value = false;
 }
