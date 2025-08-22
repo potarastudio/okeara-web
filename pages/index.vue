@@ -294,7 +294,7 @@
                     </a>
                     <a href="https://shop.okeara.com" class="w-[100%] lg:w-[50%]">
                         <div ref="container1"
-                            class="bg-[#E4EDED] w-[100%] lg:w-[50%] py-[20px] lg:py-[50px] flex-shrink-0 flex items-center justify-center self-stretch cursor-pointer">
+                            class="bg-[#E4EDED] py-[20px] lg:py-[50px] flex-shrink-0 flex items-center justify-center self-stretch cursor-pointer">
                             <div class="flex flex-col justify-end items-center gap-[52px]">
                                 <div class="px-[12px] py-[8px] bg-white rounded-full text-black fade-item cursor-pointer"
                                     @click="isOpen = true">

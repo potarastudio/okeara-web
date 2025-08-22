@@ -2,7 +2,7 @@
 <!-- eslint-disable vue/first-attribute-linebreak -->
 <template>
     <transition name="fade">
-        <div v-if="show" class="fixed inset-0 flex items-center justify-center z-50"
+        <div v-if="show" class="fixed inset-0 flex items-center justify-center z-9999"
             style="background: rgba(0, 0, 0, 0.60);">
             <div class="bg-[#E4EDED] w-[40%] p-[40px] relative flex flex-col items-center gap-[60px]">
                 <div class="w-full flex flex-col items-center gap-[20px]">
@@ -51,7 +51,8 @@
                         Cancel
                     </button>
                     <button
-                        class="bg-[#203D4D] border border-[#203D4D] rounded-full flex items-center justify-center h-[48px] w-[50%] font-bold cursor-pointer">
+                        class="bg-[#203D4D] border border-[#203D4D] rounded-full flex items-center justify-center h-[48px] w-[50%] font-bold cursor-pointer"
+                        @click="emit('close')">
                         save
                     </button>
                 </div>
@@ -61,7 +62,7 @@
 </template>
 
 <script setup lang="ts">
-import { defineProps, defineEmits, ref } from 'vue'
+import { defineProps, defineEmits, ref, inject } from 'vue'
 
 interface OptionType {
     value: number | string;
@@ -69,6 +70,9 @@ interface OptionType {
     country: string;
     code: string;
 }
+
+const companyId = inject<Ref<number | null>>('companyId')
+const companyCode = inject<Ref<string | null>>('companyCode')
 
 const isOpen = ref(false);
 
@@ -81,7 +85,9 @@ const _props = defineProps({
 
 const emit = defineEmits(['close'])
 
-const { data: companies } = await useFetch("/api/odoo/companies");
+const { data: companies } = await useFetch("/api/odoo/companies", {
+    default: () => []
+});
 console.log("companies:", companies.value);
 
 function detectCountry(name: string) {
@@ -120,6 +126,9 @@ watch(options, (opts) => {
 function selectOption(option: any) {
     selected.value = option;
     isOpen.value = false;
+
+    if (companyId) companyId.value = option.value
+    if (companyCode) companyCode.value = option.code
 }
 
 </script>

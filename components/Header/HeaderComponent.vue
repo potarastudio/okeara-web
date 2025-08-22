@@ -96,7 +96,7 @@
         'relative left-0 top-0 border rounded-full p-[14px] cursor-pointer flex items-center gap-[8px]',
         isTop ? 'border-white' : 'border-[#203D4D]',
       ]" @click="openModal && openModal()">
-        <div>ID</div>
+        <div>{{ companyCode }}</div>
         <img :src="isTop ? Globe : GlobeBlue" alt="globe" class="" />
       </div>
       <div :class="[
@@ -180,6 +180,7 @@ const logo = Logo
 const isVisible = ref(true)
 const isTop = ref(true)
 const openModal = inject<() => void>('openModal')
+const companyCode = inject('companyCode') as Ref<string>
 let lastScroll = 0
 
 const handleScroll = () => {
