@@ -572,6 +572,12 @@ const indicatorRef = ref(null)
 
 const config = useRuntimeConfig()
 
+const { data } = await useFetch("/api/odoo/products");
+console.log("Products:", data.value);
+
+const { data: companies } = await useFetch("/api/odoo/companies");
+console.log("companies:", companies.value);
+
 const sections = [
     {
         bg: BgSafety,
