@@ -1,3 +1,5 @@
+<!-- eslint-disable @typescript-eslint/no-explicit-any -->
+<!-- eslint-disable @typescript-eslint/no-explicit-any -->
 <!-- eslint-disable vue/first-attribute-linebreak -->
 <template>
   <div :class="[
@@ -89,22 +91,30 @@
       ]" />
     </div>
 
-    <div class="hidden lg:flex items-start gap-[24px] relative w-[10%]">
-      <!-- <div :class="[
-        'absolute left-0 top-0 border rounded-full p-[14px] cursor-pointer',
+    <div class="hidden lg:flex items-start gap-[24px]">
+      <div :class="[
+        'relative left-0 top-0 border rounded-full p-[14px] cursor-pointer flex items-center gap-[8px]',
+        isTop ? 'border-white' : 'border-[#203D4D]',
+      ]" @click="openModal && openModal()">
+        <div>ID</div>
+        <img :src="isTop ? Globe : GlobeBlue" alt="globe" class="" />
+      </div>
+      <div :class="[
+        'relative left-0 top-0 border rounded-full p-[14px] cursor-pointer',
         isTop ? 'border-white' : 'border-[#203D4D]',
       ]">
-        <img :src="isTop ? cart : CartBlue" alt="cart" />
-        <div class="absolute right-[-12px] top-[-8px] bg-[#FF4343] py-[4px] px-[10px] text-[12px] text-white rounded-full">
+        <img :src="isTop ? Cart : CartBlue" alt="cart" />
+        <div
+          class="absolute right-[-12px] top-[-8px] bg-[#FF4343] py-[4px] px-[10px] text-[12px] text-white rounded-full">
           4
         </div>
       </div>
       <div :class="[
-        'ml-[72px] border rounded-full p-[14px] cursor-pointer',
+        'border rounded-full p-[14px] cursor-pointer',
         isTop ? 'border-white' : 'border-[#203D4D]',
       ]">
-        <img :src="isTop ? message : MessageBlue" alt="message" />
-      </div> -->
+        <img :src="isTop ? Message : MessageBlue" alt="message" />
+      </div>
     </div>
   </div>
 
@@ -147,16 +157,18 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, computed, onMounted, onUnmounted, watch } from 'vue'
+import { ref, computed, onMounted, onUnmounted, watch, inject } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import gsap from 'gsap'
 
 import Logo from '@/assets/images/logo.svg'
 import LogoBlue from '@/assets/images/LogoBlue.svg'
-// import Cart from '@/assets/icons/Cart.svg'
-// import CartBlue from '@/assets/icons/CartBlue.svg'
-// import Message from '@/assets/icons/Message.svg'
-// import MessageBlue from '@/assets/icons/MessageBlue.svg'
+import Globe from '@/assets/icons/Globe.svg'
+import GlobeBlue from '@/assets/icons/GlobeBlue.svg'
+import Cart from '@/assets/icons/Cart.svg'
+import CartBlue from '@/assets/icons/CartBlue.svg'
+import Message from '@/assets/icons/Message.svg'
+import MessageBlue from '@/assets/icons/MessageBlue.svg'
 import ArrowTopRightBlue from '@/assets/icons/ArrowTopRightBlue.svg'
 
 const route = useRoute()
@@ -164,11 +176,10 @@ const router = useRouter();
 const navLinks = ref<HTMLElement[]>([])
 
 const logo = Logo
-// const cart = Cart
-// const message = Message
 
 const isVisible = ref(true)
 const isTop = ref(true)
+const openModal = inject<() => void>('openModal')
 let lastScroll = 0
 
 const handleScroll = () => {

@@ -22,8 +22,12 @@ export default defineNuxtConfig({
     dirs: ['utils'],
   },
   runtimeConfig: {
+    odooUrl: process.env.ODOO_URL,
+    odooDb: process.env.ODOO_DB,
+    odooUsername: process.env.ODOO_USERNAME,
+    odooPassword: process.env.ODOO_PASSWORD,
     public: {
-      geoapifyApiKey: process.env.GEOAPIFY_API_KEY
+      geoapifyApiKey: process.env.GEOAPIFY_API_KEY,
     }
   },
 })
