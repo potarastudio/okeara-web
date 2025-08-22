@@ -94,7 +94,7 @@
     <div class="hidden lg:flex items-start gap-[24px]">
       <div :class="[
         'relative left-0 top-0 border rounded-full p-[14px] cursor-pointer flex items-center gap-[8px]',
-        isTop ? 'border-white' : 'border-[#203D4D]',
+        isTop ? 'border-white text-white' : 'border-[#203D4D] text-[#203D4D]',
       ]" @click="openModal && openModal()">
         <div>{{ companyCode }}</div>
         <img :src="isTop ? Globe : GlobeBlue" alt="globe" class="" />
