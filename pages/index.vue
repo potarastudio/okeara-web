@@ -462,7 +462,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, inject } from 'vue'
 import type { ComponentPublicInstance } from 'vue'
 import gsap from 'gsap'
 import ScrollTrigger from 'gsap/ScrollTrigger'
@@ -572,8 +572,14 @@ const indicatorRef = ref(null)
 
 const config = useRuntimeConfig()
 
-const { data } = await useFetch("/api/odoo/products");
-console.log("Products:", data.value);
+const companyId = inject('companyId') as Ref<string>
+
+const { data: products } = await useFetch("/api/odoo/products", {
+    query: { company_id: companyId },
+    watch: [companyId],
+});
+
+console.log("Products:", products.value);
 
 const sections = [
     {

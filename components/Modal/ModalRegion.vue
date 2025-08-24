@@ -53,7 +53,7 @@
                     <button
                         class="bg-[#203D4D] border border-[#203D4D] rounded-full flex items-center justify-center h-[48px] w-[50%] font-bold cursor-pointer"
                         @click="emit('close')">
-                        save
+                        Save
                     </button>
                 </div>
             </div>
@@ -88,7 +88,6 @@ const emit = defineEmits(['close'])
 const { data: companies } = await useFetch("/api/odoo/companies", {
     default: () => []
 });
-console.log("companies:", companies.value);
 
 function detectCountry(name: string) {
     if (name.includes("PT")) return { country: "Indonesia", code: "ID" };
