@@ -40,11 +40,18 @@ export default defineEventHandler(async (event) => {
                 "product.template",
                 "search_read",
                 [domain],
-                { fields: ["id", "name", "list_price", "company_id", ], limit: 3 },
+                { fields: ["id", "name", "image_1920", "company_id",], limit: 3 },
             ],
         },
         id: new Date().getTime(),
     });
 
-    return res.data.result;
+    const products = res.data.result.map((p: any) => ({
+        ...p,
+        image_1920: p.image_1920
+            ? `data:image/png;base64,${p.image_1920}`
+            : null,
+    }));
+
+    return products;
 });
