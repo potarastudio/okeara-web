@@ -14,7 +14,7 @@ import FooterComponents from '~/components/Footer/FooterComponents.vue'
 import ModalRegion from '~/components/Modal/ModalRegion.vue'
 
 const isModalOpen = ref(false)
-const companyId = ref<number | null>(3)
+const companyId = ref<number | null>(1)
 const companyCode = ref<string | null>("ID")
 
 provide('isModalOpen', isModalOpen)

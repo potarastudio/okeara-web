@@ -5,7 +5,6 @@ import { odooLogin } from "~/utils/odooClient"
 export default defineEventHandler(async () => {
   const config = useRuntimeConfig()
   const uid = await odooLogin(config)
-  console.log(">> UID dari Odoo:", uid)
 
   return { uid }
 })

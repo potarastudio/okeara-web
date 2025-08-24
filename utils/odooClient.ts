@@ -2,7 +2,6 @@
 import axios from "axios"
 
 export async function odooLogin(config: any) {
-    console.log(">> Odoo Login Config:", config);
     const response = await axios.post(config.odooUrl, {
         jsonrpc: "2.0",
         method: "call",
