@@ -543,8 +543,6 @@ const { data: products } = await useFetch("/api/odoo/products", {
     watch: [companyId],
 });
 
-console.log("Products:", products.value);
-
 const sections = [
     {
         bg: BgSafety,

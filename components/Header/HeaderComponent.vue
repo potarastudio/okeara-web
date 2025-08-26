@@ -1,5 +1,4 @@
 <!-- eslint-disable @typescript-eslint/no-explicit-any -->
-<!-- eslint-disable @typescript-eslint/no-explicit-any -->
 <!-- eslint-disable vue/first-attribute-linebreak -->
 <template>
   <div :class="[
@@ -99,7 +98,7 @@
         <div>{{ companyCode }}</div>
         <img :src="isTop ? Globe : GlobeBlue" alt="globe" class="" />
       </div>
-      <div :class="[
+      <!-- <div :class="[
         'relative left-0 top-0 border rounded-full p-[14px] cursor-pointer',
         isTop ? 'border-white' : 'border-[#203D4D]',
       ]">
@@ -114,7 +113,7 @@
         isTop ? 'border-white' : 'border-[#203D4D]',
       ]">
         <img :src="isTop ? Message : MessageBlue" alt="message" />
-      </div>
+      </div> -->
     </div>
   </div>
 
@@ -165,10 +164,10 @@ import Logo from '@/assets/images/logo.svg'
 import LogoBlue from '@/assets/images/LogoBlue.svg'
 import Globe from '@/assets/icons/Globe.svg'
 import GlobeBlue from '@/assets/icons/GlobeBlue.svg'
-import Cart from '@/assets/icons/Cart.svg'
-import CartBlue from '@/assets/icons/CartBlue.svg'
-import Message from '@/assets/icons/Message.svg'
-import MessageBlue from '@/assets/icons/MessageBlue.svg'
+// import Cart from '@/assets/icons/Cart.svg'
+// import CartBlue from '@/assets/icons/CartBlue.svg'
+// import Message from '@/assets/icons/Message.svg'
+// import MessageBlue from '@/assets/icons/MessageBlue.svg'
 import ArrowTopRightBlue from '@/assets/icons/ArrowTopRightBlue.svg'
 
 const route = useRoute()
