@@ -278,10 +278,9 @@
                                     </div>
 
                                     <div class="flex items-center gap-[24px]">
-                                        <a href="https://shop.okeara.com">
+                                        <a :href="'https://shop.okeara.com/detail/' + product.id">
                                             <button
-                                                class="bg-[#203D4D] border border-[#203D4D] rounded-full h-[48px] px-[24px] flex items-center justify-center gap-[12px] text-[#EDF3F3] cursor-pointer"
-                                                @click="detectAndRedirect">
+                                                class="bg-[#203D4D] border border-[#203D4D] rounded-full h-[48px] px-[24px] flex items-center justify-center gap-[12px] text-[#EDF3F3] cursor-pointer">
                                                 Buy Now
                                                 <img :src="Dollar" alt="Dollar" class="w-[16px]">
                                             </button>
