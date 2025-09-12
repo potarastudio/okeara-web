@@ -170,7 +170,7 @@
                         </div>
                     </div>
                     <div
-                        class="relative w-full z-60 text-[#EDF3F3] text-[16px] text-[18px] leading-[24px] backdrop-blur-[2px] bg-[linear-gradient(0deg,rgba(0,0,0,0.32),rgba(0,0,0,0))] p-[32px] h-[250px] md:h-[350px] md:h-[150px] flex items-center justify-center">
+                        class="relative w-full z-60 text-[#EDF3F3] text-[16px] text-[18px] leading-[24px] backdrop-blur-[2px] bg-[linear-gradient(0deg,rgba(0,0,0,0.32),rgba(0,0,0,0))] p-[32px] h-[250px] md:h-[200px] flex items-center justify-center">
                         <div ref="desc0" class="absolute inset-0 opacity-0 p-[32px]">
                             Hydrogen (H2) is the smallest molecule, allowing it to penetrate cell membranes and protect
                             mitochondria and DNA from oxidative stress. It neutralizes harmful free radicals, especially

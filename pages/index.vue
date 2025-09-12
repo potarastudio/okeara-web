@@ -60,76 +60,100 @@
                 </div>
             </div>
         </div>
-        <section ref="container" class="relative w-full h-[100dvh] overflow-hidden">
-            <div class="w-full h-[45%] absolute left-0 top-0"
-                style="background: linear-gradient(180deg, rgba(0, 17, 33, 0.40) 0%, rgba(0, 17, 33, 0.00) 100%);">
-            </div>
-            <div class="w-full h-[45%] absolute left-0 bottom-0"
-                style="background: linear-gradient(180deg, rgba(0, 17, 33, 0.40) 0%, rgba(0, 17, 33, 0.00) 100%);">
-            </div>
+        <div ref="container"
+            class="relative w-full h-[100dvh] overflow-hidden px-[24px] py-[40px] md:p-[40px] lg:px-[64px] lg:py-[80px]">
             <div ref="bg0" class="absolute inset-0 bg-cover bg-center bg-no-repeat z-10 will-change-transform"
-                :style="{ backgroundImage: `url(${sections[0].bg})` }" />
+                :style="{ backgroundImage: `url(${BgSafety})` }" />
             <div ref="bg1" class="absolute inset-0 bg-cover bg-center bg-no-repeat z-20 will-change-transform"
-                :style="{ backgroundImage: `url(${sections[1].bg})` }" />
+                :style="{ backgroundImage: `url(${BgSafety2})` }" />
             <div ref="bg2" class="absolute inset-0 bg-cover bg-center bg-no-repeat z-30 will-change-transform"
-                :style="{ backgroundImage: `url(${sections[2].bg})` }" />
+                :style="{ backgroundImage: `url(${BgSafety3})` }" />
             <div ref="bg3" class="absolute inset-0 bg-cover bg-center bg-no-repeat z-40 will-change-transform"
-                :style="{ backgroundImage: `url(${sections[3].bg})` }" />
-
+                :style="{ backgroundImage: `url(${BgSafety4})` }" />
             <div
-                class="relative z-50 flex flex-col items-start justify-between w-full h-[100dvh] px-[24px] py-[40px] md:p-[40px] lg:px-[64px] lg:py-[100px]">
-                <div ref="titleRef"
-                    class="w-full text-center text-[#EDF3F3] text-[24px] md:text-[48px] leading-[31.2px] md:leading-[78px]">
-                    Safety of Structured <br /> Hydrogen Water
-                </div>
-
-                <div class="w-full h-[250px] relative flex flex-col gap-[8px] md:gap-[20px]">
-                    <div
-                        class="relative text-[26px] text-[#F8F8F8] leading-[36px] w-[100%] md:w-[15%] h-[32px] md:h-[50px]">
-                        <div ref="st0" class="absolute inset-0 bottom-0 opacity-0">{{ sections[0].subtitle }}</div>
-                        <div ref="st1" class="absolute inset-0 bottom-0 opacity-0">{{ sections[1].subtitle }}</div>
-                        <div ref="st2" class="absolute inset-0 bottom-0 opacity-0">{{ sections[2].subtitle }}</div>
-                        <div ref="st3" class="absolute inset-0 bottom-0 opacity-0">{{ sections[3].subtitle }}</div>
+                class="relative overflow-hidden z-60 w-full flex flex-col md:flex-row items-start justify-between gap-[42px] md:gap-auto">
+                <div class="flex items-center gap-[10px] md:gap-[20px]">
+                    <div class="relative text-[#FFF] text-[16px] md:text-[18px] leading-[24px] w-[200px]">
+                        <div ref="titleBg0" class="absolute inset-0 opacity-0">Safe Saturation Method</div>
+                        <div ref="titleBg1" class="absolute inset-0 opacity-0">Hydrogenitation</div>
+                        <div ref="titleBg2" class="absolute inset-0 opacity-0">Eco Packaging</div>
+                        <div ref="titleBg3" class="absolute inset-0 opacity-0">Micro Plastics Free</div>
                     </div>
-                    <hr class="relative w-full border border-[#F8F8F8] my-[20px]" />
-                    <div class="w-full flex flex-col lg:flex-row items-start justify-between gap-[40px] lg:gap-auto">
+                </div>
+                <div class="text-[#fff] text-[32px] md:text-[48px] font-light leading-[36px] md:leading-[58px]">
+                    Safety of Structured <br />
+                    Hydrogen Water
+                </div>
+            </div>
+            <div class="z-60 relative  w-full flex items-start justify-center mt-[42px] md:mt-[90px]">
+                <div
+                    class="relative overflow-hidden w-full md:w-[60%] flex flex-col items-start gap-[60px] md:gap-[20px]">
+                    <div ref="bgCard0"
+                        class="absolute inset-0 bg-cover bg-center bg-no-repeat z-10 will-change-transform"
+                        :style="{ backgroundImage: `url(${BgSafety})` }" />
+                    <div ref="bgCard1"
+                        class="absolute inset-0 bg-cover bg-center bg-no-repeat z-20 will-change-transform"
+                        :style="{ backgroundImage: `url(${BgSafety2})` }" />
+                    <div ref="bgCard2"
+                        class="absolute inset-0 bg-cover bg-center bg-no-repeat z-30 will-change-transform"
+                        :style="{ backgroundImage: `url(${BgSafety3})` }" />
+                    <div ref="bgCard3"
+                        class="absolute inset-0 bg-cover bg-center bg-no-repeat z-40 will-change-transform"
+                        :style="{ backgroundImage: `url(${BgSafety4})` }" />
+                    <div
+                        class="relative z-60 w-full h-[150px] md:h-[250px] flex flex-col md:flex-row items-start justify-between gap-[20px] md:gap-auto p-[32px]">
                         <div
-                            class="relative text-[18px] text-[#F8F8F8] leading-[24px] flex gap-[32px] w-full md:w-auto">
-                            <div ref="num0" class="absolute inset-0 opacity-0 flex gap-[8px]">
-                                {{ sections[0].number }}
-                                <span class="lg:hidden">{{ sections[0].short }}</span>
+                            class="relative order-2 md:order-1 text-[#EDF3F3] text-[32px] md:text-[48px] leading-[36px] md:leading-[58px] w-full md:w-[60%]">
+                            <div ref="title0" class="absolute inset-0 opacity-0">
+                                Atomic Saturation
                             </div>
-                            <div ref="num1" class="absolute inset-0 opacity-0">
-                                {{ sections[1].number }}
-                                <span class="lg:hidden">{{ sections[1].short }}</span>
+                            <div ref="title1" class="absolute inset-0 opacity-0">
+                                The Best Antioxidant
                             </div>
-                            <div ref="num2" class="absolute inset-0 opacity-0">
-                                {{ sections[2].number }}
-                                <span class="lg:hidden">{{ sections[2].short }}</span>
+                            <div ref="title2" class="absolute inset-0 opacity-0">
+                                Packaging That Grows Back
                             </div>
-                            <div ref="num3" class="absolute inset-0 opacity-0">
-                                {{ sections[3].number }}
-                                <span class="lg:hidden">{{ sections[3].short }}</span>
+                            <div ref="title3" class="absolute inset-0 opacity-0">
+                                Noting Else, Just Water
                             </div>
                         </div>
-                        <div class="relative flex items-start justify-between w-[100%] lg:w-[65%]">
-                            <div class="hidden lg:inline text-[18px] text-[#F8F8F8] leading-[24px]">
-                                <div ref="short0" class="absolute inset-0 opacity-0">{{ sections[0].short }}</div>
-                                <div ref="short1" class="absolute inset-0 opacity-0">{{ sections[1].short }}</div>
-                                <div ref="short2" class="absolute inset-0 opacity-0">{{ sections[2].short }}</div>
-                                <div ref="short3" class="absolute inset-0 opacity-0">{{ sections[3].short }}</div>
-                            </div>
-                            <div class="relative text-[18px] text-[#F8F8F8] leading-[26px] w-[100%] lg:w-[50%]">
-                                <div ref="desc0" class="absolute inset-0 opacity-0">{{ sections[0].desc }}</div>
-                                <div ref="desc1" class="absolute inset-0 opacity-0">{{ sections[1].desc }}</div>
-                                <div ref="desc2" class="absolute inset-0 opacity-0">{{ sections[2].desc }}</div>
-                                <div ref="desc3" class="absolute inset-0 opacity-0">{{ sections[3].desc }}</div>
-                            </div>
+                        <div
+                            class="relative order-1 md:order-2 text-[#EDF3F3] text-[32px] md:text-[48px] leading-[36px] md:leading-[58px] w-[10%]">
+                            <div ref="number0" class="absolute inset-0 opacity-0">01</div>
+                            <div ref="number1" class="absolute inset-0 opacity-0">02</div>
+                            <div ref="number2" class="absolute inset-0 opacity-0">03</div>
+                            <div ref="number3" class="absolute inset-0 opacity-0">04</div>
+                        </div>
+                    </div>
+                    <div
+                        class="relative w-full z-60 text-[#EDF3F3] text-[16px] text-[18px] leading-[24px] backdrop-blur-[2px] bg-[linear-gradient(0deg,rgba(0,0,0,0.32),rgba(0,0,0,0))] p-[32px] h-[250px] md:h-[200px] flex items-center justify-center">
+                        <div ref="desc0" class="absolute inset-0 opacity-0 p-[32px]">
+                            OKEARA water is crafted by purifying water straight from the source using our advanced
+                            filtration system, highlighted by our proprietary Magnetic Filter. This technology separates
+                            heavier and lighter water molecules, creating structured water with a refined molecular
+                            arrangement for superior quality.
+                        </div>
+                        <div ref="desc1" class="absolute inset-0 opacity-0 p-[32px]">
+                            OKEARA Water is clean, pure water enriched with molecular hydrogen (H₂) to help protect your
+                            cells, fight free radicals, and support overall health. It’s made with advanced filtration,
+                            packed in eco-friendly, microplastic-free packaging, and designed to keep you feeling fresh
+                            and energized
+                        </div>
+                        <div ref="desc2" class="absolute inset-0 opacity-0 p-[32px]">
+                            We use environmentally friendly packaging that’s designed to have minimal impact on the
+                            planet. By choosing sustainable materials, we significantly reduce our carbon footprint,
+                            supporting a cleaner, greener future with every product we deliver
+                        </div>
+                        <div ref="desc3" class="absolute inset-0 opacity-0 p-[32px]">
+                            Our advanced filtration process enables us to achieve an exceptionally low TDS (Total
+                            Dissolved Solids) level of just 6–8 ppm, ensuring ultra-pure water that’s free from unwanted
+                            minerals, heavy metals, and impurities. This level of purity reflects the high quality and
+                            clarity of every drop of OKEARA
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
         <div class="w-full bg-[#EDF3F3] px-[24px] py-[40px] md:p-[40px] lg:px-[64px] lg:py-[100px]">
             <div class="w-full flex flex-col md:flex-row items-start justify-between gap-[40px] md:gap-auto">
                 <div class="flex items-center gap-[10px] md:gap-[20px]">
@@ -480,20 +504,25 @@ const bg1 = ref<HTMLElement | null>(null)
 const bg2 = ref<HTMLElement | null>(null)
 const bg3 = ref<HTMLElement | null>(null)
 
-const st0 = ref<HTMLElement | null>(null)
-const st1 = ref<HTMLElement | null>(null)
-const st2 = ref<HTMLElement | null>(null)
-const st3 = ref<HTMLElement | null>(null)
+const bgCard0 = ref<HTMLElement | null>(null)
+const bgCard1 = ref<HTMLElement | null>(null)
+const bgCard2 = ref<HTMLElement | null>(null)
+const bgCard3 = ref<HTMLElement | null>(null)
 
-const num0 = ref<HTMLElement | null>(null)
-const num1 = ref<HTMLElement | null>(null)
-const num2 = ref<HTMLElement | null>(null)
-const num3 = ref<HTMLElement | null>(null)
+const titleBg0 = ref<HTMLElement | null>(null)
+const titleBg1 = ref<HTMLElement | null>(null)
+const titleBg2 = ref<HTMLElement | null>(null)
+const titleBg3 = ref<HTMLElement | null>(null)
 
-const short0 = ref<HTMLElement | null>(null)
-const short1 = ref<HTMLElement | null>(null)
-const short2 = ref<HTMLElement | null>(null)
-const short3 = ref<HTMLElement | null>(null)
+const title0 = ref<HTMLElement | null>(null)
+const title1 = ref<HTMLElement | null>(null)
+const title2 = ref<HTMLElement | null>(null)
+const title3 = ref<HTMLElement | null>(null)
+
+const number0 = ref<HTMLElement | null>(null)
+const number1 = ref<HTMLElement | null>(null)
+const number2 = ref<HTMLElement | null>(null)
+const number3 = ref<HTMLElement | null>(null)
 
 const desc0 = ref<HTMLElement | null>(null)
 const desc1 = ref<HTMLElement | null>(null)
@@ -531,7 +560,6 @@ const isOpenError = ref(false)
 const activeIndex = ref(0)
 const optionRefs = ref<(Element | ComponentPublicInstance | null)[]>([])
 const indicatorRef = ref(null)
-const labels = ["OKEARA", "OKEARA Blue"]
 
 const config = useRuntimeConfig()
 
@@ -541,37 +569,6 @@ const { data: products } = await useFetch("/api/odoo/products", {
     query: { company_id: companyId },
     watch: [companyId],
 });
-
-const sections = [
-    {
-        bg: BgSafety,
-        subtitle: 'Safe Saturation Method',
-        number: '01',
-        short: 'Atomic Saturation Process',
-        desc: 'OKEARA water is crafted by purifying water straight from the source using our advanced filtration system, highlighted by our proprietary Magnetic Filter. This technology separates heavier and lighter water molecules, creating structured water with a refined molecular arrangement for superior quality.',
-    },
-    {
-        bg: BgSafety2,
-        subtitle: 'Hydrogenitation',
-        number: '02',
-        short: 'The Best Antioxidant',
-        desc: 'OKEARA Water is clean, pure water enriched with molecular hydrogen (H₂) to help protect your cells, fight free radicals, and support overall health. It’s made with advanced filtration, packed in eco-friendly, microplastic-free packaging, and designed to keep you feeling fresh and energized',
-    },
-    {
-        bg: BgSafety3,
-        subtitle: 'Eco Packaging',
-        number: '03',
-        short: 'Packaging That Grows Back',
-        desc: 'We use environmentally friendly packaging that’s designed to have minimal impact on the planet. By choosing sustainable materials, we significantly reduce our carbon footprint, supporting a cleaner, greener future with every product we deliver',
-    },
-    {
-        bg: BgSafety4,
-        subtitle: 'Micro Plastics Free',
-        number: '04',
-        short: 'Noting Else, Just Water',
-        desc: 'Our advanced filtration process enables us to achieve an exceptionally low TDS (Total Dissolved Solids) level of just 6–8 ppm, ensuring ultra-pure water that’s free from unwanted minerals, heavy metals, and impurities. This level of purity reflects the high quality and clarity of every drop of OKEARA',
-    },
-]
 
 const items = ref([
     {
@@ -815,27 +812,42 @@ onMounted(() => {
     }
 
     const bgs: HTMLElement[] = [bg0.value, bg1.value, bg2.value, bg3.value].filter(Boolean) as HTMLElement[]
-    const subs: HTMLElement[] = [st0.value, st1.value, st2.value, st3.value].filter(Boolean) as HTMLElement[]
-    const numbers: HTMLElement[] = [num0.value, num1.value, num2.value, num3.value].filter(Boolean) as HTMLElement[]
-    const shorts: HTMLElement[] = [short0.value, short1.value, short2.value, short3.value].filter(Boolean) as HTMLElement[]
-    const descs: HTMLElement[] = [desc0.value, desc1.value, desc2.value, desc3.value].filter(Boolean) as HTMLElement[]
+    const bgCards: HTMLElement[] = [
+        bgCard0.value, bgCard1.value, bgCard2.value, bgCard3.value
+    ].filter(Boolean) as HTMLElement[]
+    const titlesBg: HTMLElement[] = [
+        titleBg0.value, titleBg1.value, titleBg2.value, titleBg3.value
+    ].filter(Boolean) as HTMLElement[]
+    const titles: HTMLElement[] = [
+        title0.value, title1.value, title2.value, title3.value
+    ].filter(Boolean) as HTMLElement[]
+    const numbers: HTMLElement[] = [
+        number0.value, number1.value, number2.value, number3.value
+    ].filter(Boolean) as HTMLElement[]
+    const descs: HTMLElement[] = [
+        desc0.value, desc1.value, desc2.value, desc3.value
+    ].filter(Boolean) as HTMLElement[]
 
     bgs.forEach((el, i) => {
+        gsap.set(el, { opacity: i === 0 ? 1 : 0 })
+    })
+
+    bgCards.forEach((el, i) => {
         gsap.set(el, { yPercent: i === 0 ? 0 : 100 })
     })
-    subs.forEach((el, i) => {
+    titlesBg.forEach((el, i) => {
+        gsap.set(el, {
+            opacity: i === 0 ? 1 : 0,
+            y: i === 0 ? 0 : 10,
+        })
+    })
+    titles.forEach((el, i) => {
         gsap.set(el, {
             opacity: i === 0 ? 1 : 0,
             y: i === 0 ? 0 : 10,
         })
     })
     numbers.forEach((el, i) => {
-        gsap.set(el, {
-            opacity: i === 0 ? 1 : 0,
-            y: i === 0 ? 0 : 10,
-        })
-    })
-    shorts.forEach((el, i) => {
         gsap.set(el, {
             opacity: i === 0 ? 1 : 0,
             y: i === 0 ? 0 : 10,
@@ -860,19 +872,40 @@ onMounted(() => {
 
     for (let i = 1; i < bgs.length; i++) {
         tl.to(bgs[i], {
+            opacity: 1,
+            duration: 0.6,
+            ease: 'power2.out',
+        }, i)
+        tl.to(bgCards[i], {
             yPercent: 0,
             duration: 0.6,
             ease: 'power2.out',
         }, i)
-
-        tl.to(subs[i - 1], {
+        tl.to(titles[i - 1], {
             opacity: 0,
             y: -10,
             duration: 0.4,
             ease: 'power1.out',
         }, i - 0.2)
 
-        tl.fromTo(subs[i], {
+        tl.fromTo(titles[i], {
+            opacity: 0,
+            y: 10,
+        }, {
+            opacity: 1,
+            y: 0,
+            duration: 0.4,
+            ease: 'power1.out',
+        }, i + 0.1)
+
+        tl.to(titlesBg[i - 1], {
+            opacity: 0,
+            y: -10,
+            duration: 0.4,
+            ease: 'power1.out',
+        }, i - 0.2)
+
+        tl.fromTo(titlesBg[i], {
             opacity: 0,
             y: 10,
         }, {
@@ -899,23 +932,6 @@ onMounted(() => {
             ease: 'power1.out',
         }, i + 0.1)
 
-        tl.to(shorts[i - 1], {
-            opacity: 0,
-            y: -10,
-            duration: 0.4,
-            ease: 'power1.out',
-        }, i - 0.2)
-
-        tl.fromTo(shorts[i], {
-            opacity: 0,
-            y: 10,
-        }, {
-            opacity: 1,
-            y: 0,
-            duration: 0.4,
-            ease: 'power1.out',
-        }, i + 0.1)
-
         tl.to(descs[i - 1], {
             opacity: 0,
             y: -10,
@@ -933,7 +949,6 @@ onMounted(() => {
             ease: 'power1.out',
         }, i + 0.1)
     }
-
 
     if (titleWaterRef.value) {
         const lines = titleWaterRef.value.innerHTML.split('<br>')
