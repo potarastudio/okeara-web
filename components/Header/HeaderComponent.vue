@@ -4,25 +4,25 @@
   <div :class="[
     'fixed top-0 z-[999] left-0 w-full px-[24px] md:px-[40px] lg:px-[64px] flex items-center justify-between transition-all duration-300',
     isTop ?
-      isShopDetail ? 'bg-white pt-[40px] pb-[32px] md:-[40px] lg:py-[10px]' : 'bg-transparent pt-[40px] pb-[32px] md:py-[40px]'
+      isShopDetail || isAllResearch || isResearchDetail ? 'bg-white pt-[40px] pb-[32px] md:-[40px] lg:py-[10px]' : 'bg-transparent pt-[40px] pb-[32px] md:py-[40px]'
       : 'bg-white pt-[40px] pb-[32px] md:-[40px] lg:py-[10px]',
   ]" :style="{ transform: isVisible ? 'translateY(0)' : 'translateY(-100%)' }">
     <NuxtLink to="/" class="w-[40%] md:w-[25%] lg:w-[10%]">
       <img :src="isTop ?
-        isShopDetail ? LogoBlue : logo
+        isShopDetail || isAllResearch || isResearchDetail ? LogoBlue : logo
         : LogoBlue" alt="logo" class="w-fill" />
     </NuxtLink>
 
     <nav :class="[
       'hidden lg:flex items-center space-x-[40px] text-[14px] uppercase transition-colors duration-300',
       isTop ?
-        isShopDetail ? 'text-[#203D4D]' : 'text-white'
+        isShopDetail || isAllResearch || isResearchDetail ? 'text-[#203D4D]' : 'text-white'
         : 'text-[#203D4D]',
     ]">
       <NuxtLink ref="navLinks" to="/our-water" :data-active="isWaterActive"
         class="nav-link h-[48px] flex items-center justify-center rounded-full relative" :class="isWaterActive
           ? isTop
-            ? isShopDetail ? 'bg-[#203D4D] px-4 font-bold text-[#EDF3F3]' : 'bg-[#EDF3F3] px-4 font-bold text-[#203D4D]'
+            ? isShopDetail || isAllResearch || isResearchDetail ? 'bg-[#203D4D] px-4 font-bold text-[#EDF3F3]' : 'bg-[#EDF3F3] px-4 font-bold text-[#203D4D]'
             : 'bg-[#203D4D] px-4 font-bold text-[#EDF3F3]'
           : 'bg-transparent'">
         <span class="link-text relative z-10">OUR WATER</span>
@@ -31,7 +31,7 @@
       <NuxtLink ref="navLinks" to="/our-community" :data-active="isClubActive"
         class="nav-link h-[48px] flex items-center justify-center rounded-full relative" :class="isClubActive
           ? isTop
-            ? isShopDetail ? 'bg-[#203D4D] px-4 font-bold text-[#EDF3F3]' : 'bg-[#EDF3F3] px-4 font-bold text-[#203D4D]'
+            ? isShopDetail || isAllResearch || isResearchDetail ? 'bg-[#203D4D] px-4 font-bold text-[#EDF3F3]' : 'bg-[#EDF3F3] px-4 font-bold text-[#203D4D]'
             : 'bg-[#203D4D] px-4 font-bold text-[#EDF3F3]'
           : 'bg-transparent'">
         <span class="link-text relative z-10">OUR CLUB</span>
@@ -40,7 +40,7 @@
       <NuxtLink ref="navLinks" to="/our-partners" :data-active="isPartnersActive"
         class="nav-link h-[48px] flex items-center justify-center rounded-full relative" :class="isPartnersActive
           ? isTop
-            ? isShopDetail ? 'bg-[#203D4D] px-4 font-bold text-[#EDF3F3]' : 'bg-[#EDF3F3] px-4 font-bold text-[#203D4D]'
+            ? isShopDetail || isAllResearch || isResearchDetail ? 'bg-[#203D4D] px-4 font-bold text-[#EDF3F3]' : 'bg-[#EDF3F3] px-4 font-bold text-[#203D4D]'
             : 'bg-[#203D4D] px-4 font-bold text-[#EDF3F3]'
           : 'bg-transparent'">
         <span class="link-text relative z-10">OUR PARTNER</span>
@@ -49,7 +49,7 @@
       <a href="https://shop.okeara.com" :data-active="isShopActive"
         class="nav-link h-[48px] flex items-center justify-center rounded-full relative" :class="isShopActive
           ? isTop
-            ? isShopDetail ? 'bg-[#203D4D] px-4 font-bold text-[#EDF3F3]' : 'bg-[#EDF3F3] px-4 font-bold text-[#203D4D]'
+            ? isShopDetail || isAllResearch || isResearchDetail ? 'bg-[#203D4D] px-4 font-bold text-[#EDF3F3]' : 'bg-[#EDF3F3] px-4 font-bold text-[#203D4D]'
             : 'bg-[#203D4D] px-4 font-bold text-[#EDF3F3]'
           : 'bg-transparent'">
         <span class="link-text relative z-10">SHOP</span>
@@ -58,7 +58,7 @@
       <NuxtLink ref="navLinks" to="/research" :data-active="isResearchActive"
         class="nav-link h-[48px] flex items-center justify-center rounded-full relative" :class="isResearchActive
           ? isTop
-            ? isShopDetail ? 'bg-[#203D4D] px-4 font-bold text-[#EDF3F3]' : 'bg-[#EDF3F3] px-4 font-bold text-[#203D4D]'
+            ? isShopDetail || isAllResearch || isResearchDetail ? 'bg-[#203D4D] px-4 font-bold text-[#EDF3F3]' : 'bg-[#EDF3F3] px-4 font-bold text-[#203D4D]'
             : 'bg-[#203D4D] px-4 font-bold text-[#EDF3F3]'
           : 'bg-transparent'">
         <span class="link-text relative z-10">RESEARCH</span>
@@ -67,7 +67,7 @@
       <NuxtLink ref="navLinks" to="/faq" :data-active="isFaqActive"
         class="nav-link h-[48px] flex items-center justify-center rounded-full relative" :class="isFaqActive
           ? isTop
-            ? isShopDetail ? 'bg-[#203D4D] px-4 font-bold text-[#EDF3F3]' : 'bg-[#EDF3F3] px-4 font-bold text-[#203D4D]'
+            ? isShopDetail || isAllResearch || isResearchDetail ? 'bg-[#203D4D] px-4 font-bold text-[#EDF3F3]' : 'bg-[#EDF3F3] px-4 font-bold text-[#203D4D]'
             : 'bg-[#203D4D] px-4 font-bold text-[#EDF3F3]'
           : 'bg-transparent'">
         <span class="link-text relative z-10">FAQ</span>
@@ -79,13 +79,13 @@
       <hr ref="topLine" :class="[
         'w-full border origin-center',
         isTop ?
-          isShopDetail ? 'border-[#203D4D]' : 'border-white'
+          isShopDetail || isAllResearch || isResearchDetail ? 'border-[#203D4D]' : 'border-white'
           : 'border-[#203D4D]'
       ]" />
       <hr ref="bottomLine" :class="[
         'w-full border origin-center',
         isTop ?
-          isShopDetail ? 'border-[#203D4D]' : 'border-white'
+          isShopDetail || isAllResearch || isResearchDetail ? 'border-[#203D4D]' : 'border-white'
           : 'border-[#203D4D]'
       ]" />
     </div>
@@ -296,6 +296,8 @@ const isShopActive = computed(() => route.path.startsWith('/shop'))
 const isResearchActive = computed(() => route.path.startsWith('/research'))
 const isFaqActive = computed(() => route.path.startsWith('/faq'))
 const isShopDetail = computed(() => /^\/shop\/[^/]+$/.test(route.path))
+const isResearchDetail = computed(() => /^\/research\/[^/]+$/.test(route.path))
+const isAllResearch = computed(() => route.path.startsWith('/research/all'))
 </script>
 
 <style scoped>
