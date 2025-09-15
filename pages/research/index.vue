@@ -52,7 +52,7 @@
                 </div>
                 <div class="flex flex-col md:flex-row items-start justify-end gap-[24px] md:gap-[90px] lg:w-[65%]">
                     <div
-                        class="text-[#203D4D] text-[32px] md:text-[48px] font-light leading-[41.6px] md:leading-[58px] mt-[-10px] w-[85%] md:w-[45%]">
+                        class="text-[#203D4D] text-[32px] md:text-[48px] font-light leading-[41.6px] md:leading-[58px] mt-[-10px] w-[85%] md:w-[50%]">
                         Let’s See Research to Support OKEARA Water
                     </div>
                     <div
@@ -62,207 +62,34 @@
                     </div>
                 </div>
             </div>
-            <div class="w-full flex flex-col items-start gap-[24px] lg:gap-[80px]">
-                <div class="w-full flex flex-col lg:flex-row items-start justify-center gap-[24px] lg:gap-[40px]">
-                    <div ref="research1Ref"
-                        class="bg-[#E4EDED] lg:w-[50%] p-[20px] md:p-[40px] flex items-stretch gap-[20px]">
-                        <img :src="Research1" alt="Research1" class="w-[25%] md:w-[35%]">
-                        <div class="flex flex-col items-start gap-[12px] md:gap-[24px]">
-                            <div class="flex items-center gap-[8px]">
-                                <img :src="ProfileResearch1" alt="ProfileResearch1" class="w-[10%]">
-                                <div class="text-black text-[12px] md:text-[18px]">Gabriele Carullo</div>
-                                <div class="w-[4px] h-[4px] rounded-full bg-[#A3BABA]" />
-                                <div class="text-[#838383] text-[12px] md:text-[18px]"><span
-                                        class="hidden md:inline">Jan
-                                        12,</span> 2023</div>
-                            </div>
-                            <div class="flex flex-col items-start gap-[12px]">
-                                <div
-                                    class="text-[#203D4D] text-[16px] md:text-[26px] leading-[120%] md:leading-[100%] line-clamp-2">
-                                    Hydrogen’s Antioxidant Properties
-                                </div>
-                                <div
-                                    class="hidden text-[#203D4D] opacity-77 text-[18px] leading-[26px] md:line-clamp-2">
-                                    Molecular hydrogen (H₂) has been shown to act as a potent antioxidant, neutralizing
-                                    Ream
-                                    More n the body. This helps reduce oxidative stress, which is linked to aging,
-                                    inflammation, and various chronic diseases.
-                                </div>
-                            </div>
-                            <div class="flex items-center gap-[8px]">
-                                <div class="text-black text-[12px] md:text-[18px]">PMC</div>
-                                <div class="w-[4px] h-[4px] rounded-full bg-[#A3BABA]" />
-                                <div class="text-[#838383] text-[12px] md:text-[18px]">1,4k views</div>
-                            </div>
+            <div class="w-full flex flex-row items-stretch flex-wrap gap-[24px] lg:gap-x-[40px] lg:gap-y-[80px]">
+                <div v-for="(researchItem, index) in researches" :key="researchItem.id"
+                    :ref="el => researchRefs[index].value = el as HTMLElement" @click="goToResearch(researchItem.id)"
+                    class="bg-[#E4EDED] w-full lg:w-[48%] p-[20px] md:p-[40px] flex items-stretch gap-[20px] cursor-pointer">
+                    <img :src="researchItem.img" alt="Research1" class="h-[5rem] md:h-[9rem]">
+                    <div class="flex flex-col items-start gap-[12px] md:gap-[24px]">
+                        <div class="flex items-center gap-[8px]">
+                            <div class="text-black text-[12px] md:text-[18px]">{{ researchItem.author }}</div>
+                            <div class="w-[4px] h-[4px] rounded-full bg-[#A3BABA]" />
+                            <div class="text-[#838383] text-[12px] md:text-[18px]">{{ researchItem.date }}</div>
                         </div>
-                    </div>
-                    <div ref="research2Ref"
-                        class="bg-[#E4EDED] lg:w-[50%] p-[20px] md:p-[40px] flex items-stretch gap-[20px]">
-                        <img :src="Research2" alt="Research2" class="w-[25%] md:w-[35%]">
-                        <div class="flex flex-col items-start gap-[12px] md:gap-[24px]">
-                            <div class="flex items-center gap-[8px]">
-                                <img :src="ProfileResearch2" alt="ProfileResearch2" class="w-[10%]">
-                                <div class="text-black text-[12px] md:text-[18px]">Gerald Pollack</div>
-                                <div class="w-[4px] h-[4px] rounded-full bg-[#A3BABA]" />
-                                <div class="text-[#838383] text-[12px] md:text-[18px]"><span
-                                        class="hidden md:inline">Sep
-                                        25,</span> 2023</div>
+                        <div class="flex flex-col items-start gap-[12px]">
+                            <div
+                                class="text-[#203D4D] text-[16px] md:text-[26px] leading-[120%] md:leading-[100%] line-clamp-1">
+                                {{ researchItem.title }}
                             </div>
-                            <div class="flex flex-col items-start gap-[12px]">
-                                <div
-                                    class="text-[#203D4D] text-[16px] md:text-[26px] leading-[120%] md:leading-[100%] line-clamp-2">
-                                    Structured Water for Better Absorption
-                                </div>
-                                <div
-                                    class="hidden text-[#203D4D] opacity-77 text-[18px] leading-[26px] md:line-clamp-2">
-                                    Structured water, or water with a specific molecular arrangement, is thought to be
-                                    more
-                                    readily absorbed by the cells. This can improve overall hydration and aid in
-                                    nutrient
-                                    transportation throughout the body.
-                                </div>
-                            </div>
-                            <div class="flex items-center gap-[8px]">
-                                <div class="text-black text-[12px] md:text-[18px]">Aquaaffirm</div>
-                                <div class="w-[4px] h-[4px] rounded-full bg-[#A3BABA]" />
-                                <div class="text-[#838383] text-[12px] md:text-[18px]">1,4k views</div>
+                            <div class="hidden text-[#203D4D] opacity-77 text-[18px] leading-[26px] md:line-clamp-2">
+                                {{ researchItem.desc }}
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="w-full flex flex-col lg:flex-row items-start justify-center gap-[24px] lg:gap-[40px]">
-                    <div ref="research3Ref"
-                        class="bg-[#E4EDED] lg:w-[50%] p-[20px] md:p-[40px] flex items-stretch gap-[20px]">
-                        <img :src="Research3" alt="Research3" class="w-[25%] md:w-[35%]">
-                        <div class="flex flex-col items-start gap-[12px] md:gap-[24px]">
-                            <div class="flex items-center gap-[8px]">
-                                <img :src="ProfileResearch3" alt="ProfileResearch3" class="w-[10%]">
-                                <div class="text-black text-[12px] md:text-[18px]">Yan Tian</div>
-                                <div class="w-[4px] h-[4px] rounded-full bg-[#A3BABA]" />
-                                <div class="text-[#838383] text-[12px] md:text-[18px]"><span
-                                        class="hidden md:inline">Dec
-                                        21,</span> 2021</div>
-                            </div>
-                            <div class="flex flex-col items-start gap-[12px]">
-                                <div
-                                    class="text-[#203D4D] text-[16px] md:text-[26px] leading-[120%] md:leading-[100%] line-clamp-2">
-                                    Hydrogen and Inflammation
-                                </div>
-                                <div
-                                    class="hidden text-[#203D4D] opacity-77 text-[18px] leading-[26px] md:line-clamp-2">
-                                    Research suggests that hydrogen (H₂) can regulate mitochondrial function by reducing
-                                    free radical generation and controlling oxidative stress through transcriptional
-                                    regulation of Nrf2. Additionally, H₂ may inhibit inflammatory proteins and prevent
-                                    apoptosis, offering potential benefits for various conditions. Emerging studies
-                                    propose that inhaling H₂ could also provide a promising approach to alleviating
-                                    respiratory diseases like COVID-19.
-                                </div>
-                            </div>
-                            <div class="flex items-center gap-[8px]">
-                                <div class="text-black text-[12px] md:text-[18px]">PMC</div>
-                                <div class="w-[4px] h-[4px] rounded-full bg-[#A3BABA]" />
-                                <div class="text-[#838383] text-[12px] md:text-[18px]">1,4k views</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div ref="research4Ref"
-                        class="bg-[#E4EDED] lg:w-[50%] p-[20px] md:p-[40px] flex items-stretch gap-[20px]">
-                        <img :src="Research4" alt="Research4" class="w-[25%] md:w-[35%]">
-                        <div class="flex flex-col items-start gap-[12px] md:gap-[24px]">
-                            <div class="flex items-center gap-[8px]">
-                                <img :src="ProfileResearch4" alt="ProfileResearch4" class="w-[10%]">
-                                <div class="text-black text-[12px] md:text-[18px]">Kaixiang Zhou</div>
-                                <div class="w-[4px] h-[4px] rounded-full bg-[#A3BABA]" />
-                                <div class="text-[#838383] text-[12px] md:text-[18px]"><span
-                                        class="hidden md:inline">Oct
-                                        07,</span> 2024</div>
-                            </div>
-                            <div class="flex flex-col items-start gap-[12px]">
-                                <div
-                                    class="text-[#203D4D] text-[16px] md:text-[26px] leading-[120%] md:leading-[100%] line-clamp-2">
-                                    Hydrogen Water and Athletic Performance
-                                </div>
-                                <div
-                                    class="hidden text-[#203D4D] opacity-77 text-[18px] leading-[26px] md:line-clamp-2">
-                                    Some studies indicate that hydrogen water may improve recovery times and reduce
-                                    muscle fatigue in athletes, owing to its ability to decrease oxidative damage during
-                                    exercise.
-                                </div>
-                            </div>
-                            <div class="flex items-center gap-[8px]">
-                                <div class="text-black text-[12px] md:text-[18px]">Frontiersin</div>
-                                <div class="w-[4px] h-[4px] rounded-full bg-[#A3BABA]" />
-                                <div class="text-[#838383] text-[12px] md:text-[18px]">1,4k views</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="w-full flex flex-col lg:flex-row items-start justify-center gap-[24px] lg:gap-[40px]">
-                    <div ref="research5Ref"
-                        class="bg-[#E4EDED] lg:w-[50%] p-[20px] md:p-[40px] flex items-stretch gap-[20px]">
-                        <img :src="Research5" alt="Research5" class="w-[25%] md:w-[35%]">
-                        <div class="flex flex-col items-start gap-[12px] md:gap-[24px]">
-                            <div class="flex items-center gap-[8px]">
-                                <img :src="ProfileResearch5" alt="ProfileResearch5" class="w-[10%]">
-                                <div class="text-black text-[12px] md:text-[18px]">Toshio Mikami</div>
-                                <div class="w-[4px] h-[4px] rounded-full bg-[#A3BABA]" />
-                                <div class="text-[#838383] text-[12px] md:text-[18px]"><span
-                                        class="hidden md:inline">Sep
-                                        01,</span> 2019</div>
-                            </div>
-                            <div class="flex flex-col items-start gap-[12px]">
-                                <div
-                                    class="text-[#203D4D] text-[16px] md:text-[26px] leading-[120%] md:leading-[100%] line-clamp-2">
-                                    Hydrogen Water Reduces Fatigue and Boosts Endurance During Exercise
-                                </div>
-                                <div
-                                    class="hidden text-[#203D4D] opacity-77 text-[18px] leading-[26px] md:line-clamp-2">
-                                    Drinking hydrogen-infused water (H₂ water) before exercise significantly reduces
-                                    fatigue and improves endurance, according to a randomized, double-blind study. In
-                                    both non-trained and trained participants, H₂ water decreased fatigue and enhanced
-                                    performance, demonstrating its potential as a powerful antioxidant that helps combat
-                                    exercise-induced oxidative stress.
-                                </div>
-                            </div>
-                            <div class="flex items-center gap-[8px]">
-                                <div class="text-black text-[12px] md:text-[18px]">Research Gate</div>
-                                <div class="w-[4px] h-[4px] rounded-full bg-[#A3BABA]" />
-                                <div class="text-[#838383] text-[12px] md:text-[18px]">1,4k views</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div ref="research6Ref"
-                        class="bg-[#E4EDED] lg:w-[50%] p-[20px] md:p-[40px] flex items-stretch gap-[20px]">
-                        <img :src="Research6" alt="Research6" class="w-[25%] md:w-[35%]">
-                        <div class="flex flex-col items-start gap-[12px] md:gap-[24px]">
-                            <div class="flex items-center gap-[8px]">
-                                <img :src="ProfileResearch6" alt="ProfileResearch6" class="w-[10%]">
-                                <div class="text-black text-[12px] md:text-[18px]">Jesus Gonzalez</div>
-                                <div class="w-[4px] h-[4px] rounded-full bg-[#A3BABA]" />
-                                <div class="text-[#838383] text-[12px] md:text-[18px]"><span
-                                        class="hidden md:inline">Sep
-                                        25,</span> 2023</div>
-                            </div>
-                            <div class="flex flex-col items-start gap-[12px]">
-                                <div
-                                    class="text-[#203D4D] text-[16px] md:text-[26px] leading-[120%] md:leading-[100%] line-clamp-2">
-                                    The Consciousness of Water: Insights from Masaru Emoto’s Research
-                                </div>
-                                <div
-                                    class="hidden text-[#203D4D] opacity-77 text-[18px] leading-[26px] md:line-clamp-2">
-                                    Masaru Emoto’s experiments show that water can change its molecular structure in
-                                    response to human emotions, thoughts, and words. His work highlights the potential
-                                    impact of intention and consciousness on water, sparking interest in the connection
-                                    between energy, water, and wellness.
-                                </div>
-                            </div>
-                            <div class="flex items-center gap-[8px]">
-                                <div class="text-black text-[12px] md:text-[18px]">Medium</div>
-                                <div class="w-[4px] h-[4px] rounded-full bg-[#A3BABA]" />
-                                <div class="text-[#838383] text-[12px] md:text-[18px]">1,4k views</div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="w-full flex items-center justify-center">
+                    <RouterLink to="/research/all"
+                        class="h-[48px] w-full md:w-[9rem] px-[16px] border border-[#203D4D] rounded-full text-[16px] text-[#203D4D] flex items-center justify-center gap-[12px] cursor-pointer">
+                        Show All
+                        <img :src="ArrowRight" alt="ArrowDown" class="w-[16px]" />
+                    </RouterLink>
                 </div>
             </div>
         </div>
@@ -321,7 +148,8 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
+import { ref, onMounted } from 'vue';
+import { useRouter } from 'vue-router';
 import gsap from 'gsap'
 import ScrollTrigger from 'gsap/ScrollTrigger'
 import Banner from '@/assets/images/BannerResearch.png';
@@ -331,12 +159,6 @@ import Research3 from '@/assets/images/Research3.png';
 import Research4 from '@/assets/images/Research4.png';
 import Research5 from '@/assets/images/Research5.png';
 import Research6 from '@/assets/images/Research6.png';
-import ProfileResearch1 from '@/assets/images/ProfileResearch1.png';
-import ProfileResearch2 from '@/assets/images/ProfileResearch2.png';
-import ProfileResearch3 from '@/assets/images/ProfileResearch3.png';
-import ProfileResearch4 from '@/assets/images/ProfileResearch4.png';
-import ProfileResearch5 from '@/assets/images/ProfileResearch5.png';
-import ProfileResearch6 from '@/assets/images/ProfileResearch6.png';
 import Certificate1 from '@/assets/images/certificate/NIE_ERBA3103563202500001-page-001.jpg';
 import Certificate2 from '@/assets/images/certificate/NIE_ERBA3103563202500002-page-001.jpg';
 import Certificate3 from '@/assets/images/certificate/NIE_ERBA3103563202500003-page-001.jpg';
@@ -353,18 +175,70 @@ import ArrowRight from '@/assets/icons/ArrowRight.svg';
 
 const bannerRef = ref<HTMLElement | null>(null)
 const textContainerRef = ref<HTMLElement | null>(null)
-const research1Ref = ref<HTMLElement | null>(null)
-const research2Ref = ref<HTMLElement | null>(null)
-const research3Ref = ref<HTMLElement | null>(null)
-const research4Ref = ref<HTMLElement | null>(null)
-const research5Ref = ref<HTMLElement | null>(null)
-const research6Ref = ref<HTMLElement | null>(null)
+const researchRefs = Array.from({ length: 6 }, () => ref<HTMLElement | null>(null))
 const sliderTrack = ref<HTMLElement | null>(null)
 const currentIndex = ref(0)
 
 const bannerStyle = {
     backgroundImage: `url(${Banner})`
 }
+
+const router = useRouter()
+
+const goToResearch = (id: number) => {
+    router.push(`/research/${id}`)
+}
+
+const researches = [
+    {
+        id: 1,
+        img: Research1,
+        author: 'Gabriele Carullo',
+        date: 'Jan 12, 2023',
+        title: 'Hydrogen’s Antioxidant Properties',
+        desc: 'Molecular hydrogen (H₂) has been shown to act as a potent antioxidant, neutralizing free radicals in the body. This helps reduce oxidative stress, which is linked to aging, inflammation, and various chronic diseases.',
+    },
+    {
+        id: 2,
+        img: Research2,
+        author: 'Gerald Pollack',
+        date: 'Sep 25, 2023',
+        title: 'Structured Water for Better Absorption',
+        desc: 'Structured water, or water with a specific molecular arrangement, is thought to be more readily absorbed by the cells. This can improve overall hydration and aid in nutrient transportation throughout the body.',
+    },
+    {
+        id: 3,
+        img: Research3,
+        author: 'Yan Tian',
+        date: 'Dec 21, 2021',
+        title: 'Hydrogen and Inflammation',
+        desc: 'Research suggests that hydrogen (H₂) can regulate mitochondrial function by reducing free radical generation and controlling oxidative stress through transcriptional regulation of Nrf2. Additionally, H₂ may inhibit inflammatory proteins and prevent apoptosis, offering potential benefits for various conditions. Emerging studies propose that inhaling H₂ could also provide a promising approach to alleviating respiratory diseases like COVID-19.',
+    },
+    {
+        id: 4,
+        img: Research4,
+        author: 'Kaixiang Zhou',
+        date: 'Oct 07, 2024',
+        title: 'Hydrogen Water and Athletic Performance',
+        desc: 'Some studies indicate that hydrogen water may improve recovery times and reduce muscle fatigue in athletes, owing to its ability to decrease oxidative damage during exercise.',
+    },
+    {
+        id: 5,
+        img: Research5,
+        author: 'Toshio Mikami',
+        date: 'Sep 01, 2019',
+        title: 'Hydrogen Water Reduces Fatigue and Boosts Endurance During Exercise',
+        desc: 'Drinking hydrogen-infused water (H₂ water) before exercise significantly reduces fatigue and improves endurance, according to a randomized, double-blind study. In both non-trained and trained participants, H₂ water decreased fatigue and enhanced performance, demonstrating its potential as a powerful antioxidant that helps combat exercise-induced oxidative stress.',
+    },
+    {
+        id: 6,
+        img: Research6,
+        author: 'Jesus Gonzalez',
+        date: 'Sep 25, 2023',
+        title: 'The Consciousness of Water: Insights from Masaru Emoto’s Research',
+        desc: 'Masaru Emoto’s experiments show that water can change its molecular structure in response to human emotions, thoughts, and words. His work highlights the potential impact of intention and consciousness on water, sparking interest in the connection between energy, water, and wellness.',
+    },
+]
 
 const slides = [
     {
@@ -462,89 +336,21 @@ onMounted(() => {
         }
     )
 
-    if (research1Ref.value) {
-        gsap.from(research1Ref.value, {
-            y: 60,
-            opacity: 0,
-            duration: 1,
-            ease: 'power3.out',
-            scrollTrigger: {
-                trigger: research1Ref.value,
-                start: 'top 80%',
-                toggleActions: 'play none none reset',
-            },
-        })
-    }
-
-    if (research2Ref.value) {
-        gsap.from(research2Ref.value, {
-            y: 60,
-            opacity: 0,
-            duration: 1,
-            ease: 'power3.out',
-            scrollTrigger: {
-                trigger: research2Ref.value,
-                start: 'top 80%',
-                toggleActions: 'play none none reset',
-            },
-        })
-    }
-
-    if (research3Ref.value) {
-        gsap.from(research3Ref.value, {
-            y: 60,
-            opacity: 0,
-            duration: 1,
-            ease: 'power3.out',
-            scrollTrigger: {
-                trigger: research3Ref.value,
-                start: 'top 80%',
-                toggleActions: 'play none none reset',
-            },
-        })
-    }
-
-    if (research4Ref.value) {
-        gsap.from(research4Ref.value, {
-            y: 60,
-            opacity: 0,
-            duration: 1,
-            ease: 'power3.out',
-            scrollTrigger: {
-                trigger: research4Ref.value,
-                start: 'top 80%',
-                toggleActions: 'play none none reset',
-            },
-        })
-    }
-
-    if (research5Ref.value) {
-        gsap.from(research5Ref.value, {
-            y: 60,
-            opacity: 0,
-            duration: 1,
-            ease: 'power3.out',
-            scrollTrigger: {
-                trigger: research5Ref.value,
-                start: 'top 80%',
-                toggleActions: 'play none none reset',
-            },
-        })
-    }
-
-    if (research6Ref.value) {
-        gsap.from(research6Ref.value, {
-            y: 60,
-            opacity: 0,
-            duration: 1,
-            ease: 'power3.out',
-            scrollTrigger: {
-                trigger: research6Ref.value,
-                start: 'top 80%',
-                toggleActions: 'play none none reset',
-            },
-        })
-    }
+    researchRefs.forEach((r) => {
+        if (r.value) {
+            gsap.from(r.value, {
+                y: 60,
+                opacity: 0,
+                duration: 1,
+                ease: 'power3.out',
+                scrollTrigger: {
+                    trigger: r.value,
+                    start: 'top 80%',
+                    toggleActions: 'play none none reset',
+                },
+            })
+        }
+    })
 })
 </script>
 
