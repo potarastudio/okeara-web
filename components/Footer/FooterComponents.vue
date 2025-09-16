@@ -61,10 +61,10 @@
                                 class="underline absolute bottom-[-5px] left-0 h-[1px] w-full scale-x-0 origin-left"></span>
                         </div>
                     </NuxtLink>
-                    <NuxtLink to="/certificate">
+                    <NuxtLink to="/research">
                         <div
                             class="nav-link relative text-white text-[18px] md:text-[24px] font-light leading-[28px] cursor-pointer">
-                            Our Certificate
+                            Research
                             <span
                                 class="underline absolute bottom-[-5px] left-0 h-[1px] w-full scale-x-0 origin-left"></span>
                         </div>
